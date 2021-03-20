@@ -4,5 +4,8 @@ import 'package:gatovidapp/perfil/profile.dart';
 
 
 void main()=> runApp(MaterialApp(
-   home: new ProfileConf(),
+    initialRoute: '/autentificacion/signup',
+    routes: {
+
+    }
 ));
