@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:gatovidapp/perfil/profileConf.dart';
 
 
 void main()=> runApp(MaterialApp(
-   initialRoute: '/autentificacion/signup',
-  routes: {
-    
-  }
+   home: new ProfileConf(),
 ));
 
