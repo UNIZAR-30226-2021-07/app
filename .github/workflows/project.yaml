@@ -16,4 +16,4 @@ jobs:
     - name: Assign NEW issues and NEW pull requests to project
       uses: srggrs/assign-one-project-github-action@1.2.1
       with:
-        project: 'https://github.com/UNIZAR-30226-2021-07/app/projects/1'
+        project: 'https://github.com/UNIZAR-30226-2021-07/app/projects/2'
