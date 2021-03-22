@@ -12,7 +12,13 @@ class _SignupState extends State<Signup> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.greenAccent[700],
-        title: Text('Crear una cuenta'),
+        title: Text('Crear una cuenta',
+        style: TextStyle(
+          color: Colors.black,
+          fontSize: 30.0,
+          fontWeight: FontWeight.bold,
+        ),
+        ),
         centerTitle: true,
         automaticallyImplyLeading: false,
       ),
@@ -23,75 +29,96 @@ class _SignupState extends State<Signup> {
             Row (
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 30.0),
+                  padding: EdgeInsets.symmetric(vertical: 3.0, horizontal: 40.0),
                   child: Text(
-                      'Nombre de usuario'
+                      'Nombre de usuario',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20.0
+                    ),
                   ),
                 ),
               ],
             ),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 30.0),
+              padding: EdgeInsets.symmetric(vertical: 3.0, horizontal: 40.0),
               child: TextFormField(
                 decoration: InputDecoration(
-                  hintText: 'Texto',
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide(
                       width: 1.0
                     )
-                  )
-                ),
-              ),
-            ),
-            SizedBox(height: 25.0),
-            Row (
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 30.0),
-                  child: Text(
-                      'Contraseña'
                   ),
-                ),
-              ],
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 30.0),
-              child: TextFormField(
-                decoration: InputDecoration(
-                    hintText: 'Texto',
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            width: 1.0
-                        )
-                    )
-                ),
-              ),
-            ),
-            SizedBox(height: 25.0),
-            Row (
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 30.0),
-                  child: Text(
-                      'Email'
-                  ),
-                ),
-              ],
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 30.0),
-              child: TextFormField(
-                decoration: InputDecoration(
-                    hintText: 'Texto',
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            width: 1.0
-                        )
-                    )
+                  hintText: 'Texto',
+                  isDense: true,                      // Added this
+                  contentPadding: EdgeInsets.all(14),
                 ),
               ),
             ),
             SizedBox(height: 40.0),
+            Row (
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 3.0, horizontal: 40.0),
+                  child: Text(
+                    'Contraseña',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20.0
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 3.0, horizontal: 40.0),
+              child: TextFormField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide(
+                          width: 1.0
+                      )
+                  ),
+                  hintText: 'Texto',
+                  isDense: true,                      // Added this
+                  contentPadding: EdgeInsets.all(14),
+                ),
+              ),
+            ),
+            SizedBox(height: 40.0),
+            Row (
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 3.0, horizontal: 40.0),
+                  child: Text(
+                    'Email',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20.0
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 3.0, horizontal: 40.0),
+              child: TextFormField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide(
+                          width: 1.0
+                      )
+                  ),
+                  hintText: 'Texto',
+                  isDense: true,                      // Added this
+                  contentPadding: EdgeInsets.all(14),
+                ),
+              ),
+            ),
+            SizedBox(height: 50.0),
             Padding(
               padding: EdgeInsets.only(
                   left: 25.0, right: 25.0),
@@ -103,17 +130,25 @@ class _SignupState extends State<Signup> {
                       onPrimary: Colors.white,
                       minimumSize: Size(300.0, 50.0)
                   ),
-                child: Text("REGISTRARSE"
+                child: Text("REGISTRARSE",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20.0
+                  ),
                 )
               )
             ),
-            SizedBox(height: 30.0),
+            SizedBox(height: 25.0),
             Row (mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.symmetric(vertical: 5.0, horizontal: 30.0),
+                  padding: EdgeInsets.symmetric(vertical: 3.0, horizontal: 40.0),
                   child: Text(
-                      '¿Ya tienes cuenta?'
+                      '¿Ya tienes cuenta?',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20.0
+                    ),
                   ),
                 ),
               ],
@@ -126,9 +161,13 @@ class _SignupState extends State<Signup> {
                     ElevatedButton.styleFrom(
                         primary: Colors.purple[800],
                         onPrimary: Colors.white,
-                        minimumSize: Size(150.0, 30.0)
+                        minimumSize: Size(200.0, 40.0)
                     ),
-                    child: Text("Iniciar Sesión"
+                    child: Text("Iniciar Sesión",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18.0
+                      ),
                     )
                 )
             ),
@@ -139,5 +178,4 @@ class _SignupState extends State<Signup> {
   }
 }
     
-    
-    
+
