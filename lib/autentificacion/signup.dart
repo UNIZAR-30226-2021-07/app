@@ -22,6 +22,12 @@ class _SignupState extends State<Signup> {
         ),
         centerTitle: true,
         automaticallyImplyLeading: false,
+        leading: IconButton(
+            icon: Icon(Icons.arrow_back_rounded),
+            color: Colors.black,
+            onPressed: () {
+              Navigator.pop(context);
+            }),
       ),
       body: SafeArea(
         child: Column(
