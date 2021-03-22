@@ -6,9 +6,6 @@ import 'package:gatovidapp/menuPartidas/menu.dart';
 import 'package:gatovidapp/perfil/profile.dart';
 import 'package:gatovidapp/perfil/profileConf.dart';
 
-
-void main()=> runApp(MaterialApp(
-    home: new GamesMenu(),
-
-
-));
+void main() => runApp(MaterialApp(
+      home: new Login(),
+    ));
