@@ -89,7 +89,10 @@ class _LoginState extends State<Login> {
             Padding(
                 padding: EdgeInsets.only(left: 25.0, right: 25.0),
                 child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      // NOTE: esto es temporal
+                      Navigator.pushReplacementNamed(context, '/home');
+                    },
                     style: ElevatedButton.styleFrom(
                         primary: Colors.purple[800],
                         onPrimary: Colors.white,
@@ -117,7 +120,9 @@ class _LoginState extends State<Login> {
             Padding(
                 padding: EdgeInsets.symmetric(vertical: 1.0, horizontal: 50.0),
                 child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/register');
+                    },
                     style: ElevatedButton.styleFrom(
                         primary: Colors.purple[800],
                         onPrimary: Colors.white,
