@@ -150,7 +150,9 @@ class _SignupState extends State<Signup> {
             Padding(
                 padding: EdgeInsets.symmetric(vertical: 1.0, horizontal: 50.0),
                 child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/login');
+                    },
                     style: ElevatedButton.styleFrom(
                         primary: Colors.purple[800],
                         onPrimary: Colors.white,
