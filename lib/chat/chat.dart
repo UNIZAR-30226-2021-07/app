@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:gatovidapp/chat/messageChat.dart';
 import 'package:gatovidapp/chat/userChat.dart';
 
-
 class ChatScreen extends StatefulWidget {
   User user = currentUser;
 
@@ -73,15 +72,13 @@ class _ChatScreenState extends State<ChatScreen> {
           ),
           !isSameUser
               ? Row(
-            children: <Widget>[
-              Container(
-                child: Text(message.sender.name)
-              ),
-            ],
-          )
+                  children: <Widget>[
+                    Container(child: Text(message.sender.name)),
+                  ],
+                )
               : Container(
-            child: null,
-          ),
+                  child: null,
+                ),
         ],
       );
     }
@@ -123,12 +120,12 @@ class _ChatScreenState extends State<ChatScreen> {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.lightGreenAccent,
-        title: const Text('Chat de partida',
-            style: TextStyle(
+        title: const Text(
+          'Chat de partida',
+          style: TextStyle(
               fontWeight: FontWeight.normal,
               fontSize: 30.0,
-              color: Colors.black
-            ),
+              color: Colors.black),
         ),
         leading: IconButton(
             icon: Icon(Icons.arrow_back_rounded),

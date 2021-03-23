@@ -9,10 +9,9 @@ class genericPopUp extends StatelessWidget {
       content: Text('Contenido del pop-Up'),
       actions: <Widget>[
         new ElevatedButton(
-            child: const Text("ok",
-              style: TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold),
+            child: const Text(
+              "ok",
+              style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
             ),
             style: ElevatedButton.styleFrom(
               primary: Colors.purple,
