@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class genericPopUp extends StatelessWidget {
+class GenericPopUp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -9,10 +9,9 @@ class genericPopUp extends StatelessWidget {
       content: Text('Contenido del pop-Up'),
       actions: <Widget>[
         new ElevatedButton(
-            child: const Text("ok",
-              style: TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold),
+            child: const Text(
+              "ok",
+              style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
             ),
             style: ElevatedButton.styleFrom(
               primary: Colors.purple,
@@ -32,7 +31,7 @@ How to use in a button:
 onPressed: () {
   showDialog(
     context: context,
-    builder: (BuildContext context) => genericPopUp(),
+    builder: (BuildContext context) => GenericPopUp(),
   );
 }
 
