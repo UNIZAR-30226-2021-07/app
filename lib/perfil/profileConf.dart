@@ -7,7 +7,6 @@ class ProfileConf extends StatefulWidget {
 
 class MapScreenState extends State<ProfileConf>
     with SingleTickerProviderStateMixin {
-  bool _status = true;
   final FocusNode myFocusNode = FocusNode();
 
   @override

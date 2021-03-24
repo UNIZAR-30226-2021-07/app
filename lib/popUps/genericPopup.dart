@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class genericPopUp extends StatelessWidget {
+class GenericPopUp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ How to use in a button:
 onPressed: () {
   showDialog(
     context: context,
-    builder: (BuildContext context) => genericPopUp(),
+    builder: (BuildContext context) => GenericPopUp(),
   );
 }
 

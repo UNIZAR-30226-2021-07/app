@@ -3,9 +3,7 @@ import 'package:gatovidapp/chat/messageChat.dart';
 import 'package:gatovidapp/chat/userChat.dart';
 
 class ChatScreen extends StatefulWidget {
-  User user = currentUser;
-
-  ChatScreen({this.user});
+  ChatScreen();
 
   @override
   _ChatScreenState createState() => _ChatScreenState();
