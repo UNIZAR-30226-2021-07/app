@@ -35,6 +35,7 @@ class MapScreenState extends State<ProfileConf>
                 Navigator.pop(context);
               }),
         ),
+        resizeToAvoidBottomPadding: false,
         body: new Container(
           constraints: BoxConstraints.expand(),
           decoration: BoxDecoration(
