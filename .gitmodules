@@ -1,0 +1,3 @@
+[submodule "assets/common"]
+	path = assets/common
+	url = git@github.com:UNIZAR-30226-2021-07/assets.git
