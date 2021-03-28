@@ -36,7 +36,7 @@ class MapScreenState extends State<ProfileConf>
               }),
         ),
         // Esto es para que cuando seleccione un escribible no me de problemas de pixeles
-        resizeToAvoidBottomPadding: false,
+        //resizeToAvoidBottomPadding: false,
         body: new Container(
           constraints: BoxConstraints.expand(),
           decoration: BoxDecoration(
@@ -46,184 +46,159 @@ class MapScreenState extends State<ProfileConf>
                 fit: BoxFit.fitHeight,
               )
           ),
-          child: new Column(
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.05),
-                  child: new Stack(
-                    fit: StackFit.loose,
-                    children: <Widget>[
-                      new Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
+          child: SingleChildScrollView(
+              child: new Column(
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.015),
+                    child: new Stack(
+                      fit: StackFit.loose,
+                      children: <Widget>[
+                        new Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            new Container(
+                                width: MediaQuery.of(context).size.width * 0.4,
+                                height: MediaQuery.of(context).size.height * 0.2,
+                                decoration: new BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  image: new DecorationImage(
+                                    image: new ExactAssetImage(
+                                        'assets/images/defaultProfile.png'),
+                                    fit: BoxFit.cover,
+                                  ),
+                                )),
+                          ],
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.003, left: MediaQuery.of(context).size.width * 0.5),
+                          child: new Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: <Widget>[
+                                FlatButton(
+                                  child: new CircleAvatar(
+                                    backgroundColor: Colors.purple,
+                                    radius: MediaQuery.of(context).size.height * 0.03,
+                                    child: new Icon(
+                                      Icons.camera_alt,
+                                      color: Colors.white,
+                                      size: MediaQuery.of(context).size.height * 0.03,
+                                    )
+                                  ),
+                                  onPressed: () {
+                                  },
+                                ),
+                            ],
+                          )
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                      padding: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.01),
+                      child: new Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          new Container(
-                              width: MediaQuery.of(context).size.width * 0.4,
-                              height: MediaQuery.of(context).size.height * 0.2,
-                              decoration: new BoxDecoration(
-                                shape: BoxShape.circle,
-                                image: new DecorationImage(
-                                  image: new ExactAssetImage(
-                                      'assets/images/defaultProfile.png'),
-                                  fit: BoxFit.cover,
-                                ),
-                              )),
-                        ],
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.15, left: MediaQuery.of(context).size.width * 0.32),
-                        child: new Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: <Widget>[
-                            new CircleAvatar(
-                              backgroundColor: Colors.purple,
-                              radius: MediaQuery.of(context).size.height * 0.03,
-                              child: new Icon(
-                                Icons.camera_alt,
-                                color: Colors.white,
+                          new Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: <Widget>[
+                              new Text('Juan Carlos',
+                                  style: TextStyle(
+                                      fontSize: MediaQuery.of(context).size.height * 0.025,
+                                      fontWeight: FontWeight.bold)),
+                              new Text(
+                                'juancarlos@gmail.com',
+                                style: TextStyle(
+                                    fontSize: MediaQuery.of(context).size.height * 0.025,
+                                    fontWeight: FontWeight.normal),
                               ),
-                            )
-                          ],
-                        )
-                      ),
-                    ],
+                            ],
+                          ),
+                        ],
+                      )
                   ),
-                ),
-                Padding(
-                    padding: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.02),
+                  Padding(
+                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
+                        right: MediaQuery.of(context).size.width *0.1,
+                        top: MediaQuery.of(context).size.height * 0.02
+                    ),
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints.tight(Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.06)),
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(width: 1.0)),
+                            hintText: 'Cambiar nombre',
+                            isDense: true,
+                            fillColor: Colors.white,
+                            filled: true
+                        ),
+                        // Oculta la contraseña
+                        autocorrect: false,
+                        enableSuggestions: false,
+                        obscureText: true,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
+                        right: MediaQuery.of(context).size.width *0.1,
+                        top: MediaQuery.of(context).size.height * 0.02
+                    ),
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints.tight(Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.06)),
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(width: 1.0)),
+                            hintText: 'Cambiar contraseña',
+                            isDense: true,
+                            fillColor: Colors.white,
+                            filled: true
+                        ),
+                        // Oculta la contraseña
+                        autocorrect: false,
+                        enableSuggestions: false,
+                        obscureText: true,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
+                        right: MediaQuery.of(context).size.width *0.1,
+                        top: MediaQuery.of(context).size.height * 0.015
+                    ),
                     child: new Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         new Column(
                           mainAxisAlignment: MainAxisAlignment.start,
-                          children: <Widget>[
-                            new Text('Juan Carlos',
-                                style: TextStyle(
-                                    fontSize: MediaQuery.of(context).size.height * 0.025,
-                                    fontWeight: FontWeight.bold)),
-                            new Text(
-                              'juancarlos@gmail.com',
-                              style: TextStyle(
-                                  fontSize: MediaQuery.of(context).size.height * 0.025,
-                                  fontWeight: FontWeight.normal),
-                            ),
+                          children: [
+                            new ElevatedButton(
+                                child: const Text(
+                                  "Cambiar tablero",
+                                  style: TextStyle(
+                                      fontSize: 20.0,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                style: ElevatedButton.styleFrom(
+                                  primary: Colors.blueAccent,
+                                  onPrimary: Colors.white,
+                                  minimumSize: Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.065),
+                                ),
+                                onPressed: () {
+                                  // TODO: Change table
+                                }
+                              ),
                           ],
                         ),
                       ],
                     )
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
-                      right: MediaQuery.of(context).size.width *0.1,
-                      top: MediaQuery.of(context).size.height * 0.025
                   ),
-                  child: ConstrainedBox(
-                    constraints: BoxConstraints.tight(Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.065)),
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10.0),
-                              borderSide: BorderSide(width: 1.0)),
-                          hintText: 'Cambiar contraseña',
-                          isDense: true,
-                          fillColor: Colors.white,
-                          filled: true
-                      ),
-                      // Oculta la contraseña
-                      autocorrect: false,
-                      enableSuggestions: false,
-                      obscureText: true,
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
-                      right: MediaQuery.of(context).size.width *0.1,
-                      top: MediaQuery.of(context).size.height * 0.025
-                  ),
-                  child: ConstrainedBox(
-                    constraints: BoxConstraints.tight(Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.065)),
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10.0),
-                              borderSide: BorderSide(width: 1.0)),
-                          hintText: 'Cambiar contraseña',
-                          isDense: true,
-                          fillColor: Colors.white,
-                          filled: true
-                      ),
-                      // Oculta la contraseña
-                      autocorrect: false,
-                      enableSuggestions: false,
-                      obscureText: true,
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
-                      right: MediaQuery.of(context).size.width *0.1,
-                      top: MediaQuery.of(context).size.height * 0.015
-                  ),
-                  child: new Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      new Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          new ElevatedButton(
-                              child: const Text(
-                                "Cambiar tablero",
-                                style: TextStyle(
-                                    fontSize: 20.0,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              style: ElevatedButton.styleFrom(
-                                primary: Colors.blueAccent,
-                                onPrimary: Colors.white,
-                                minimumSize: Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.065),
-                              ),
-                              onPressed: () {
-                                // TODO: Change table
-                              }
-                            ),
-                        ],
-                      ),
-                    ],
-                  )
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
-                      right: MediaQuery.of(context).size.width *0.1,
-                      top: MediaQuery.of(context).size.height * 0.015
-                  ),
-                  child: new Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      new Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: <Widget>[
-                          new ElevatedButton(
-                              child: const Text(
-                                "Guardar",
-                                style: TextStyle(
-                                    fontSize: 20.0,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                              style: ElevatedButton.styleFrom(
-                                primary: Colors.purple,
-                                onPrimary: Colors.white,
-                                minimumSize: Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.065),
-                              ),
-                              onPressed: () {
-                                // TODO: Save changes
-                              }),
-                        ],
-                      ),
-                    ],
-                  )
-                ),
-                Padding(
+                  Padding(
                     padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
                         right: MediaQuery.of(context).size.width *0.1,
                         top: MediaQuery.of(context).size.height * 0.015
@@ -236,26 +211,58 @@ class MapScreenState extends State<ProfileConf>
                           children: <Widget>[
                             new ElevatedButton(
                                 child: const Text(
-                                  "Eliminar Cuenta",
+                                  "Guardar",
                                   style: TextStyle(
                                       fontSize: 20.0,
                                       fontWeight: FontWeight.bold),
                                 ),
                                 style: ElevatedButton.styleFrom(
-                                  primary: Colors.white,
-                                  onPrimary: Colors.red,
-                                  side: BorderSide(color: Colors.red),
+                                  primary: Colors.purple,
+                                  onPrimary: Colors.white,
                                   minimumSize: Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.065),
                                 ),
                                 onPressed: () {
-                                  // TODO: Delete account
+                                  // TODO: Save changes
                                 }),
                           ],
                         ),
                       ],
                     )
-                ),
-              ],
+                  ),
+                  Padding(
+                      padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
+                          right: MediaQuery.of(context).size.width *0.1,
+                          top: MediaQuery.of(context).size.height * 0.015
+                      ),
+                      child: new Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          new Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: <Widget>[
+                              new ElevatedButton(
+                                  child: const Text(
+                                    "Eliminar Cuenta",
+                                    style: TextStyle(
+                                        fontSize: 20.0,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  style: ElevatedButton.styleFrom(
+                                    primary: Colors.white,
+                                    onPrimary: Colors.red,
+                                    side: BorderSide(color: Colors.red),
+                                    minimumSize: Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.065),
+                                  ),
+                                  onPressed: () {
+                                    // TODO: Delete account
+                                  }),
+                            ],
+                          ),
+                        ],
+                      )
+                  ),
+                ],
+              ),
             ),
           ),
         );
