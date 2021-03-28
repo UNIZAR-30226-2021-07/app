@@ -10,16 +10,17 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
-  _chatBubble(Message message, bool isMe, bool isSameUser) {
+  _listMessages(Message message, bool isMe, bool isSameUser) {
     if (isMe) {
       return Column(
         children: <Widget>[
           Container(
             alignment: Alignment.topRight,
             child: Container(
-              padding: EdgeInsets.all(15),
+              padding: EdgeInsets.all(MediaQuery.of(context).size.height *0.015),
+              margin: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.width * 0.02),
               decoration: BoxDecoration(
-                color: Colors.lightGreenAccent[200],
+                color: Colors.lightGreenAccent,
                 borderRadius: BorderRadius.circular(15),
                 boxShadow: [
                   BoxShadow(
@@ -46,10 +47,10 @@ class _ChatScreenState extends State<ChatScreen> {
           Container(
             alignment: Alignment.topLeft,
             child: Container(
-              padding: EdgeInsets.all(15),
-              margin: EdgeInsets.symmetric(vertical: 10),
+              padding: EdgeInsets.all(MediaQuery.of(context).size.height *0.015),
+              margin: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.width * 0.02),
               decoration: BoxDecoration(
-                color: Colors.lightGreenAccent[200],
+                color: Colors.lightGreenAccent,
                 borderRadius: BorderRadius.circular(15),
                 boxShadow: [
                   BoxShadow(
@@ -71,7 +72,13 @@ class _ChatScreenState extends State<ChatScreen> {
           !isSameUser
               ? Row(
                   children: <Widget>[
-                    Container(child: Text(message.sender.name)),
+                    Container(child: Text(message.sender.name,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
+                    )
+                    ),
                   ],
                 )
               : Container(
@@ -83,6 +90,7 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 
   _sendMessageArea() {
+    final messageToSend = TextEditingController();
     return Container(
         child: Padding(
           padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.05,
@@ -95,12 +103,13 @@ class _ChatScreenState extends State<ChatScreen> {
               ConstrainedBox(
                 constraints: BoxConstraints.tight(Size(MediaQuery.of(context).size.width * 0.75, MediaQuery.of(context).size.height * 0.06)),
                 child: TextFormField(
+                  controller: messageToSend,
                   decoration: InputDecoration(
                      border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.0),
                       borderSide: BorderSide(width: 1.0)
                   ),
-                  hintText: 'Cambiar nombre',
+                  hintText: 'Escribir mensaje...',
                   isDense: true,
                   fillColor: Colors.white,
                   filled: true
@@ -112,9 +121,15 @@ class _ChatScreenState extends State<ChatScreen> {
               icon: Icon(Icons.send),
               iconSize: MediaQuery.of(context).size.width * 0.075,
               color: Colors.black,
-              onPressed: () {
-                // TODO: Implement send button
-              },
+              onPressed: () { // Faltaria hacer que lo muestre por pantalla pero eso para el siguiente sprint
+                if (messageToSend.text.isNotEmpty) {
+                  messages.add(Message(
+                    sender: currentUser,
+                    text: messageToSend.text,
+                  ));
+                }
+                messageToSend.text = '';
+              }
             ),
           ],
         ),
@@ -167,7 +182,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   final bool isMe = message.sender.id == currentUser.id;
                   final bool isSameUser = prevUserId == message.sender.id;
                   prevUserId = message.sender.id;
-                  return _chatBubble(message, isMe, isSameUser);
+                  return _listMessages(message, isMe, isSameUser);
                 },
               ),
             ),
