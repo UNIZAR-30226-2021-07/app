@@ -35,6 +35,7 @@ class MapScreenState extends State<ProfileConf>
                 Navigator.pop(context);
               }),
         ),
+        // Esto es para que cuando seleccione un escribible no me de problemas de pixeles
         resizeToAvoidBottomPadding: false,
         body: new Container(
           constraints: BoxConstraints.expand(),
@@ -237,7 +238,7 @@ class MapScreenState extends State<ProfileConf>
                                   minimumSize: Size(MediaQuery.of(context).size.width * 0.79, MediaQuery.of(context).size.height * 0.065),
                                 ),
                                 onPressed: () {
-                                  // TODO: Save changes
+                                  // TODO: Delete account
                                 }),
                           ],
                         ),
