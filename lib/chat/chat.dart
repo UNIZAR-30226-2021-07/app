@@ -84,45 +84,59 @@ class _ChatScreenState extends State<ChatScreen> {
 
   _sendMessageArea() {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 8),
-      height: 70,
-      color: Colors.white,
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            child: TextField(
-              decoration: InputDecoration.collapsed(
-                hintText: 'Escribir mensaje...',
+        child: Padding(
+          padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.05,
+            right: MediaQuery.of(context).size.width *0.05,
+            top: MediaQuery.of(context).size.height * 0.023,
+            bottom: MediaQuery.of(context).size.height * 0.023
+          ),
+          child: Row(
+            children: <Widget>[
+              ConstrainedBox(
+                constraints: BoxConstraints.tight(Size(MediaQuery.of(context).size.width * 0.75, MediaQuery.of(context).size.height * 0.06)),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                     border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                      borderSide: BorderSide(width: 1.0)
+                  ),
+                  hintText: 'Cambiar nombre',
+                  isDense: true,
+                  fillColor: Colors.white,
+                  filled: true
+                ),
               ),
-              textCapitalization: TextCapitalization.sentences,
             ),
-          ),
-          IconButton(
-            icon: Icon(Icons.send),
-            iconSize: 25,
-            color: Colors.black,
-            onPressed: () {
-              // TODO: Implement send button
-            },
-          ),
-        ],
+
+            IconButton(
+              icon: Icon(Icons.send),
+              iconSize: MediaQuery.of(context).size.width * 0.075,
+              color: Colors.black,
+              onPressed: () {
+                // TODO: Implement send button
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
+
+
+
 
   @override
   Widget build(BuildContext context) {
     int prevUserId;
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: true,
+        toolbarHeight: MediaQuery.of(context).size.height * 0.075,
         backgroundColor: Colors.lightGreenAccent,
-        title: const Text(
-          'Chat de partida',
+        title: const Text('Chat',
           style: TextStyle(
               fontWeight: FontWeight.normal,
-              fontSize: 30.0,
+              fontSize: 25.0,
               color: Colors.black),
         ),
         leading: IconButton(
@@ -132,25 +146,35 @@ class _ChatScreenState extends State<ChatScreen> {
               Navigator.pop(context);
             }),
       ),
-      body: Column(
-        children: <Widget>[
-          Expanded(
-            child: ListView.builder(
-              reverse: true,
-              padding: EdgeInsets.all(20),
-              itemCount: messages.length,
-              itemBuilder: (BuildContext context, int index) {
-                final Message message = messages[index];
-                final bool isMe = message.sender.id == currentUser.id;
-                final bool isSameUser = prevUserId == message.sender.id;
-                prevUserId = message.sender.id;
-                return _chatBubble(message, isMe, isSameUser);
-              },
+      body: Container(
+        constraints: BoxConstraints.expand(),
+        decoration: BoxDecoration(
+            image: DecorationImage(
+              colorFilter: new ColorFilter.mode(Colors.white.withOpacity(0.05), BlendMode.dstATop),
+              image: AssetImage("assets/images/bg.png"),
+              fit: BoxFit.fitHeight,
+            )
+        ),
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              child: ListView.builder(
+                reverse: true,
+                padding: EdgeInsets.all(MediaQuery.of(context).size.height *0.025),
+                itemCount: messages.length,
+                itemBuilder: (BuildContext context, int index) {
+                  final Message message = messages[index];
+                  final bool isMe = message.sender.id == currentUser.id;
+                  final bool isSameUser = prevUserId == message.sender.id;
+                  prevUserId = message.sender.id;
+                  return _chatBubble(message, isMe, isSameUser);
+                },
+              ),
             ),
-          ),
-          _sendMessageArea(),
-        ],
-      ),
+            _sendMessageArea(),
+          ],
+        ),
+      )
     );
   }
 }

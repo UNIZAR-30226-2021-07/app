@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gatovidapp/perfil/profileConf.dart';
+import 'package:gatovidapp/chat/chat.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -257,6 +258,7 @@ class MapScreenState extends State<ProfilePage>
                                   minimumSize: Size(MediaQuery.of(context).size.width * 0.6, MediaQuery.of(context).size.height * 0.065),
                                 ),
                                 onPressed: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => ChatScreen()));
                                   // TODO: Log-out
                                 }),
                           ],
