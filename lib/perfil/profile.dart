@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gatovidapp/perfil/profileConf.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -98,7 +99,7 @@ class MapScreenState extends State<ProfilePage>
                               minimumSize: Size(15.0, 35.0),
                             ),
                             onPressed: () {
-                              // TODO: Navegate to edit profile screen
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileConf()));
                             }),
                       ],
                     ),

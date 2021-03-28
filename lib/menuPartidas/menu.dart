@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gatovidapp/perfil/profile.dart';
 
 class GamesMenu extends StatefulWidget {
   @override
@@ -16,9 +17,14 @@ class _GamesMenuState extends State<GamesMenu> {
           Row(
             children: <Widget>[
               SizedBox(width: 20.0),
-              CircleAvatar(
-                backgroundImage: AssetImage('assets/images/defaultProfile.png'),
-                radius: 30.0,
+              FlatButton(
+                child: CircleAvatar(
+                  backgroundImage: AssetImage('assets/images/defaultProfile.png'),
+                  radius: 30.0,
+                ),
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()));
+                },
               ),
               SizedBox(width: 250.0),
               Icon(Icons.storefront, size: 70.0)
