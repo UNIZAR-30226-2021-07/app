@@ -19,12 +19,13 @@ class MapScreenState extends State<ProfileConf>
     return new Scaffold(
         appBar: AppBar(
           centerTitle: true,
+          toolbarHeight: MediaQuery.of(context).size.height * 0.075,
           backgroundColor: Colors.lightGreenAccent,
           title: const Text(
             'Configuración',
             style: TextStyle(
                 fontWeight: FontWeight.normal,
-                fontSize: 30.0,
+                fontSize: 25.0,
                 color: Colors.black),
           ),
           leading: IconButton(
@@ -35,15 +36,18 @@ class MapScreenState extends State<ProfileConf>
               }),
         ),
         body: new Container(
-          color: Colors.white,
-          child: Padding(
-            padding: EdgeInsets.only(bottom: 25.0),
-            child: new Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
+          constraints: BoxConstraints.expand(),
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                colorFilter: new ColorFilter.mode(Colors.white.withOpacity(0.05), BlendMode.dstATop),
+                image: AssetImage("assets/images/bg.png"),
+                fit: BoxFit.fitHeight,
+              )
+          ),
+          child: new Column(
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.only(top: 20.0),
+                  padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.05),
                   child: new Stack(
                     fit: StackFit.loose,
                     children: <Widget>[
@@ -52,8 +56,8 @@ class MapScreenState extends State<ProfileConf>
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           new Container(
-                              width: 140.0,
-                              height: 140.0,
+                              width: MediaQuery.of(context).size.width * 0.4,
+                              height: MediaQuery.of(context).size.height * 0.2,
                               decoration: new BoxDecoration(
                                 shape: BoxShape.circle,
                                 image: new DecorationImage(
@@ -65,26 +69,26 @@ class MapScreenState extends State<ProfileConf>
                         ],
                       ),
                       Padding(
-                          padding: EdgeInsets.only(top: 90.0, right: 100.0),
-                          child: new Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              new CircleAvatar(
-                                backgroundColor: Colors.purple,
-                                radius: 25.0,
-                                child: new Icon(
-                                  Icons.camera_alt,
-                                  color: Colors.white,
-                                ),
-                              )
-                            ],
-                          )),
+                        padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.15, left: MediaQuery.of(context).size.width * 0.32),
+                        child: new Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            new CircleAvatar(
+                              backgroundColor: Colors.purple,
+                              radius: MediaQuery.of(context).size.height * 0.03,
+                              child: new Icon(
+                                Icons.camera_alt,
+                                color: Colors.white,
+                              ),
+                            )
+                          ],
+                        )
+                      ),
                     ],
                   ),
                 ),
                 Padding(
-                    padding:
-                        EdgeInsets.only(left: 25.0, right: 25.0, top: 25.0),
+                    padding: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.02),
                     child: new Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
@@ -93,91 +97,125 @@ class MapScreenState extends State<ProfileConf>
                           children: <Widget>[
                             new Text('Juan Carlos',
                                 style: TextStyle(
-                                    fontSize: 20.0,
+                                    fontSize: MediaQuery.of(context).size.height * 0.025,
                                     fontWeight: FontWeight.bold)),
                             new Text(
                               'juancarlos@gmail.com',
                               style: TextStyle(
-                                  fontSize: 20.0,
+                                  fontSize: MediaQuery.of(context).size.height * 0.025,
                                   fontWeight: FontWeight.normal),
                             ),
                           ],
                         ),
                       ],
-                    )),
+                    )
+                ),
                 Padding(
-                    padding:
-                        EdgeInsets.only(left: 25.0, right: 25.0, top: 25.0),
-                    child: new Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: <Widget>[
-                        new Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            new Text(
-                              'Nombre',
-                              style: TextStyle(
-                                  fontSize: 16.0, fontWeight: FontWeight.bold),
+                  padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
+                      right: MediaQuery.of(context).size.width *0.1,
+                      top: MediaQuery.of(context).size.height * 0.025
+                  ),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                          borderSide: BorderSide(width: 1.0)),
+                      hintText: 'Cambiar nombre',
+                      isDense: true,
+                      fillColor: Colors.white,
+                      filled: true
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
+                      right: MediaQuery.of(context).size.width *0.1,
+                      top: MediaQuery.of(context).size.height * 0.025
+                  ),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            borderSide: BorderSide(width: 1.0)),
+                        hintText: 'Cambiar contraseña',
+                        isDense: true,
+                        fillColor: Colors.white,
+                        filled: true
+                    ),
+                    // Oculta la contraseña
+                    autocorrect: false,
+                    enableSuggestions: false,
+                    obscureText: true,
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
+                      right: MediaQuery.of(context).size.width *0.1,
+                      top: MediaQuery.of(context).size.height * 0.025
+                  ),
+                  child: new Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      new Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          new ElevatedButton(
+                              child: const Text(
+                                "Cambiar tablero",
+                                style: TextStyle(
+                                    fontSize: 20.0,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              style: ElevatedButton.styleFrom(
+                                primary: Colors.blueAccent,
+                                onPrimary: Colors.white,
+                                minimumSize: Size(MediaQuery.of(context).size.width * 0.79, MediaQuery.of(context).size.height * 0.065),
+                              ),
+                              onPressed: () {
+                                // TODO: Change table
+                              }
                             ),
-                          ],
-                        ),
-                      ],
-                    )),
+                        ],
+                      ),
+                    ],
+                  )
+                ),
                 Padding(
-                    padding: EdgeInsets.only(left: 25.0, right: 25.0, top: 2.0),
-                    child: new Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: <Widget>[
-                        new Flexible(
-                          child: new TextField(
-                            decoration: const InputDecoration(
-                              hintText: "Nuevo nombre",
-                            ),
-                            enabled: true,
-                            autofocus: false,
-                          ),
-                        ),
-                      ],
-                    )),
+                  padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
+                      right: MediaQuery.of(context).size.width *0.1,
+                      top: MediaQuery.of(context).size.height * 0.025
+                  ),
+                  child: new Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      new Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          new ElevatedButton(
+                              child: const Text(
+                                "Guardar",
+                                style: TextStyle(
+                                    fontSize: 20.0,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              style: ElevatedButton.styleFrom(
+                                primary: Colors.purple,
+                                onPrimary: Colors.white,
+                                minimumSize: Size(MediaQuery.of(context).size.width * 0.79, MediaQuery.of(context).size.height * 0.065),
+                              ),
+                              onPressed: () {
+                                // TODO: Save changes
+                              }),
+                        ],
+                      ),
+                    ],
+                  )
+                ),
                 Padding(
-                    padding:
-                        EdgeInsets.only(left: 25.0, right: 25.0, top: 25.0),
-                    child: new Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: <Widget>[
-                        new Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            new Text(
-                              'Contraseña',
-                              style: TextStyle(
-                                  fontSize: 16.0, fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        ),
-                      ],
-                    )),
-                Padding(
-                    padding: EdgeInsets.only(left: 25.0, right: 25.0, top: 2.0),
-                    child: new Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: <Widget>[
-                        new Flexible(
-                          child: new TextField(
-                            decoration: const InputDecoration(
-                              hintText: "***",
-                            ),
-                            enabled: true,
-                            autofocus: false,
-                          ),
-                        ),
-                      ],
-                    )),
-                Padding(
-                    padding:
-                        EdgeInsets.only(left: 25.0, right: 25.0, top: 40.0),
+                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
+                        right: MediaQuery.of(context).size.width *0.1,
+                        top: MediaQuery.of(context).size.height * 0.025
+                    ),
                     child: new Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
@@ -186,44 +224,16 @@ class MapScreenState extends State<ProfileConf>
                           children: <Widget>[
                             new ElevatedButton(
                                 child: const Text(
-                                  "Cambiar tablero",
+                                  "Eliminar Cuenta",
                                   style: TextStyle(
                                       fontSize: 20.0,
                                       fontWeight: FontWeight.bold),
                                 ),
                                 style: ElevatedButton.styleFrom(
-                                  primary: Colors
-                                      .blueAccent, // TODO: Don't know witch color use for this button
-                                  onPrimary: Colors.white,
-                                  minimumSize: Size(300.0, 50.0),
-                                ),
-                                onPressed: () {
-                                  // TODO: Change table
-                                }),
-                          ],
-                        ),
-                      ],
-                    )),
-                Padding(
-                    padding:
-                        EdgeInsets.only(left: 25.0, right: 25.0, top: 40.0),
-                    child: new Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        new Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: <Widget>[
-                            new ElevatedButton(
-                                child: const Text(
-                                  "Guardar",
-                                  style: TextStyle(
-                                      fontSize: 20.0,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                style: ElevatedButton.styleFrom(
-                                  primary: Colors.purple,
-                                  onPrimary: Colors.white,
-                                  minimumSize: Size(300.0, 50.0),
+                                  primary: Colors.white,
+                                  onPrimary: Colors.red,
+                                  side: BorderSide(color: Colors.red),
+                                  minimumSize: Size(MediaQuery.of(context).size.width * 0.79, MediaQuery.of(context).size.height * 0.065),
                                 ),
                                 onPressed: () {
                                   // TODO: Save changes
@@ -231,10 +241,11 @@ class MapScreenState extends State<ProfileConf>
                           ],
                         ),
                       ],
-                    )),
+                    )
+                ),
               ],
             ),
           ),
-        ));
+        );
   }
 }
