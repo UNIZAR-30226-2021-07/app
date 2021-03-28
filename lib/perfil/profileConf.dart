@@ -135,10 +135,6 @@ class MapScreenState extends State<ProfileConf>
                             fillColor: Colors.white,
                             filled: true
                         ),
-                        // Oculta la contraseña
-                        autocorrect: false,
-                        enableSuggestions: false,
-                        obscureText: true,
                       ),
                     ),
                   ),
