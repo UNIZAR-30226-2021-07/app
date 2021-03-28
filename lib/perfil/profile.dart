@@ -26,7 +26,7 @@ class MapScreenState extends State<ProfilePage>
           'Mi perfil',
           style: TextStyle(
               fontWeight: FontWeight.normal,
-              fontSize: 30.0,
+              fontSize: 25.0,
               color: Colors.black),
         ),
         leading: IconButton(
@@ -116,7 +116,7 @@ class MapScreenState extends State<ProfilePage>
                       ],
                     )),
                 Padding(
-                    padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.025),
+                    padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.02),
                     child: new Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
@@ -126,7 +126,7 @@ class MapScreenState extends State<ProfilePage>
                             new Text(
                               'Estadísticas',
                               style: TextStyle(
-                                  fontSize: MediaQuery.of(context).size.height * 0.025,
+                                  fontSize: MediaQuery.of(context).size.height * 0.032,
                                   fontWeight: FontWeight.bold),
                             ),
                           ],
@@ -136,7 +136,7 @@ class MapScreenState extends State<ProfilePage>
                 Padding(
                     padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
                         right: MediaQuery.of(context).size.width *0.1,
-                        top: MediaQuery.of(context).size.height * 0.025
+                        top: MediaQuery.of(context).size.height * 0.02
                     ),
                     child: new Table(
                       children: [ TableRow(
