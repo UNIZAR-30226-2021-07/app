@@ -50,7 +50,7 @@ class MapScreenState extends State<ProfileConf>
               child: new Column(
                 children: <Widget>[
                   Padding(
-                    padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.015),
+                    padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.02),
                     child: new Stack(
                       fit: StackFit.loose,
                       children: <Widget>[
@@ -96,7 +96,7 @@ class MapScreenState extends State<ProfileConf>
                     ),
                   ),
                   Padding(
-                      padding: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.01),
+                      padding: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.02),
                       child: new Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
@@ -121,7 +121,7 @@ class MapScreenState extends State<ProfileConf>
                   Padding(
                     padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
                         right: MediaQuery.of(context).size.width *0.1,
-                        top: MediaQuery.of(context).size.height * 0.02
+                        top: MediaQuery.of(context).size.height * 0.023
                     ),
                     child: ConstrainedBox(
                       constraints: BoxConstraints.tight(Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.06)),
@@ -145,7 +145,7 @@ class MapScreenState extends State<ProfileConf>
                   Padding(
                     padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
                         right: MediaQuery.of(context).size.width *0.1,
-                        top: MediaQuery.of(context).size.height * 0.02
+                        top: MediaQuery.of(context).size.height * 0.023
                     ),
                     child: ConstrainedBox(
                       constraints: BoxConstraints.tight(Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.06)),
@@ -169,7 +169,7 @@ class MapScreenState extends State<ProfileConf>
                   Padding(
                     padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
                         right: MediaQuery.of(context).size.width *0.1,
-                        top: MediaQuery.of(context).size.height * 0.015
+                        top: MediaQuery.of(context).size.height * 0.023
                     ),
                     child: new Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -201,7 +201,7 @@ class MapScreenState extends State<ProfileConf>
                   Padding(
                     padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
                         right: MediaQuery.of(context).size.width *0.1,
-                        top: MediaQuery.of(context).size.height * 0.015
+                        top: MediaQuery.of(context).size.height * 0.023
                     ),
                     child: new Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -232,7 +232,7 @@ class MapScreenState extends State<ProfileConf>
                   Padding(
                       padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
                           right: MediaQuery.of(context).size.width *0.1,
-                          top: MediaQuery.of(context).size.height * 0.015
+                          top: MediaQuery.of(context).size.height * 0.023
                       ),
                       child: new Row(
                         mainAxisAlignment: MainAxisAlignment.center,
