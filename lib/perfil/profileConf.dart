@@ -117,15 +117,22 @@ class MapScreenState extends State<ProfileConf>
                       right: MediaQuery.of(context).size.width *0.1,
                       top: MediaQuery.of(context).size.height * 0.025
                   ),
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                          borderSide: BorderSide(width: 1.0)),
-                      hintText: 'Cambiar nombre',
-                      isDense: true,
-                      fillColor: Colors.white,
-                      filled: true
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints.tight(Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.065)),
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                              borderSide: BorderSide(width: 1.0)),
+                          hintText: 'Cambiar contraseña',
+                          isDense: true,
+                          fillColor: Colors.white,
+                          filled: true
+                      ),
+                      // Oculta la contraseña
+                      autocorrect: false,
+                      enableSuggestions: false,
+                      obscureText: true,
                     ),
                   ),
                 ),
@@ -134,26 +141,29 @@ class MapScreenState extends State<ProfileConf>
                       right: MediaQuery.of(context).size.width *0.1,
                       top: MediaQuery.of(context).size.height * 0.025
                   ),
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                            borderSide: BorderSide(width: 1.0)),
-                        hintText: 'Cambiar contraseña',
-                        isDense: true,
-                        fillColor: Colors.white,
-                        filled: true
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints.tight(Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.065)),
+                    child: TextFormField(
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                              borderSide: BorderSide(width: 1.0)),
+                          hintText: 'Cambiar contraseña',
+                          isDense: true,
+                          fillColor: Colors.white,
+                          filled: true
+                      ),
+                      // Oculta la contraseña
+                      autocorrect: false,
+                      enableSuggestions: false,
+                      obscureText: true,
                     ),
-                    // Oculta la contraseña
-                    autocorrect: false,
-                    enableSuggestions: false,
-                    obscureText: true,
                   ),
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
                       right: MediaQuery.of(context).size.width *0.1,
-                      top: MediaQuery.of(context).size.height * 0.025
+                      top: MediaQuery.of(context).size.height * 0.015
                   ),
                   child: new Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -171,7 +181,7 @@ class MapScreenState extends State<ProfileConf>
                               style: ElevatedButton.styleFrom(
                                 primary: Colors.blueAccent,
                                 onPrimary: Colors.white,
-                                minimumSize: Size(MediaQuery.of(context).size.width * 0.79, MediaQuery.of(context).size.height * 0.065),
+                                minimumSize: Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.065),
                               ),
                               onPressed: () {
                                 // TODO: Change table
@@ -185,7 +195,7 @@ class MapScreenState extends State<ProfileConf>
                 Padding(
                   padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
                       right: MediaQuery.of(context).size.width *0.1,
-                      top: MediaQuery.of(context).size.height * 0.025
+                      top: MediaQuery.of(context).size.height * 0.015
                   ),
                   child: new Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -203,7 +213,7 @@ class MapScreenState extends State<ProfileConf>
                               style: ElevatedButton.styleFrom(
                                 primary: Colors.purple,
                                 onPrimary: Colors.white,
-                                minimumSize: Size(MediaQuery.of(context).size.width * 0.79, MediaQuery.of(context).size.height * 0.065),
+                                minimumSize: Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.065),
                               ),
                               onPressed: () {
                                 // TODO: Save changes
@@ -216,7 +226,7 @@ class MapScreenState extends State<ProfileConf>
                 Padding(
                     padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
                         right: MediaQuery.of(context).size.width *0.1,
-                        top: MediaQuery.of(context).size.height * 0.025
+                        top: MediaQuery.of(context).size.height * 0.015
                     ),
                     child: new Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -235,7 +245,7 @@ class MapScreenState extends State<ProfileConf>
                                   primary: Colors.white,
                                   onPrimary: Colors.red,
                                   side: BorderSide(color: Colors.red),
-                                  minimumSize: Size(MediaQuery.of(context).size.width * 0.79, MediaQuery.of(context).size.height * 0.065),
+                                  minimumSize: Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.065),
                                 ),
                                 onPressed: () {
                                   // TODO: Delete account
