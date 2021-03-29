@@ -2,6 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:gatovidapp/perfil/profileConf.dart';
 import 'package:gatovidapp/chat/chat.dart';
 
+// Colors to use
+
+Color greenAppBar = Color(0xff64DD17);
+Color blackWords = Color(0xff000000);
+Color greyButton = Color(0xffB4B4B4);
+Color whiteWords = Color(0xffffffff);
+Color redButton = Color(0xffFF0000);
+
 class ProfilePage extends StatefulWidget {
   @override
   MapScreenState createState() => MapScreenState();
@@ -22,17 +30,17 @@ class MapScreenState extends State<ProfilePage>
       appBar: AppBar(
         centerTitle: true,
         toolbarHeight: MediaQuery.of(context).size.height * 0.075,
-        backgroundColor: Colors.lightGreenAccent,
+        backgroundColor: greenAppBar,
         title: const Text(
           'Mi perfil',
           style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 25.0,
-              color: Colors.black),
+              color: Color(0xff000000)),
         ),
         leading: IconButton(
             icon: Icon(Icons.arrow_back_rounded),
-            color: Colors.black,
+            color: blackWords,
             onPressed: () {
               Navigator.pop(context);
             }),
@@ -105,8 +113,8 @@ class MapScreenState extends State<ProfilePage>
                                       fontWeight: FontWeight.bold),
                                 ),
                                 style: ElevatedButton.styleFrom(
-                                  primary: Colors.grey,
-                                  onPrimary: Colors.white,
+                                  primary: greyButton,
+                                  onPrimary: whiteWords,
                                   minimumSize: Size(MediaQuery.of(context).size.width * 0.4, MediaQuery.of(context).size.height * 0.05),
                                 ),
                                 onPressed: () {
@@ -253,8 +261,8 @@ class MapScreenState extends State<ProfilePage>
                                       fontSize: 20.0, fontWeight: FontWeight.bold),
                                 ),
                                 style: ElevatedButton.styleFrom(
-                                  primary: Colors.red[600],
-                                  onPrimary: Colors.white,
+                                  primary: redButton,
+                                  onPrimary: whiteWords,
                                   minimumSize: Size(MediaQuery.of(context).size.width * 0.6, MediaQuery.of(context).size.height * 0.065),
                                 ),
                                 onPressed: () {

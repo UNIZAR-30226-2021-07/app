@@ -1,5 +1,15 @@
 import 'package:flutter/material.dart';
 
+// Colors to use
+
+Color greenAppBar = Color(0xff64DD17);
+Color blackWords = Color(0xff000000);
+Color greyWords = Color(0xff717171);
+Color purpleButton = Color(0xff6A1B9A);
+Color purpleCamera = Color(0xff9C4DCC);
+Color whiteWords = Color(0xffffffff);
+Color redButton = Color(0xffFF0000);
+
 class ProfileConf extends StatefulWidget {
   @override
   MapScreenState createState() => MapScreenState();
@@ -20,17 +30,17 @@ class MapScreenState extends State<ProfileConf>
       appBar: AppBar(
         centerTitle: true,
         toolbarHeight: MediaQuery.of(context).size.height * 0.075,
-        backgroundColor: Colors.lightGreenAccent,
+        backgroundColor: greenAppBar,
         title: const Text(
           'Configuración',
           style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 25.0,
-              color: Colors.black),
+              color: Color(0xff000000)),
         ),
         leading: IconButton(
             icon: Icon(Icons.arrow_back_rounded),
-            color: Colors.black,
+            color: blackWords,
             onPressed: () {
               Navigator.pop(context);
             }),
@@ -75,11 +85,11 @@ class MapScreenState extends State<ProfileConf>
                             children: <Widget>[
                                 FlatButton(
                                   child: new CircleAvatar(
-                                    backgroundColor: Colors.purple,
+                                    backgroundColor: purpleCamera,
                                     radius: MediaQuery.of(context).size.height * 0.03,
                                     child: new Icon(
                                       Icons.camera_alt,
-                                      color: Colors.white,
+                                      color: whiteWords,
                                       size: MediaQuery.of(context).size.height * 0.03,
                                     )
                                   ),
@@ -129,8 +139,13 @@ class MapScreenState extends State<ProfileConf>
                                 borderSide: BorderSide(width: 1.0)),
                             hintText: 'Cambiar nombre',
                             isDense: true,
-                            fillColor: Colors.white,
+                            fillColor: whiteWords,
                             filled: true
+                        ),
+                        style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.height * 0.022,
+                          fontWeight: FontWeight.normal,
+                          color: greyWords,
                         ),
                       ),
                     ),
@@ -149,8 +164,13 @@ class MapScreenState extends State<ProfileConf>
                                 borderSide: BorderSide(width: 1.0)),
                             hintText: 'Cambiar contraseña',
                             isDense: true,
-                            fillColor: Colors.white,
+                            fillColor: whiteWords,
                             filled: true
+                        ),
+                        style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.height * 0.022,
+                          fontWeight: FontWeight.normal,
+                          color: greyWords,
                         ),
                         // Oculta la contraseña
                         autocorrect: false,
@@ -162,33 +182,58 @@ class MapScreenState extends State<ProfileConf>
                   Padding(
                     padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
                         right: MediaQuery.of(context).size.width *0.1,
-                        top: MediaQuery.of(context).size.height * 0.023
+                        top: MediaQuery.of(context).size.height * 0.025
                     ),
                     child: new Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        new Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            new ElevatedButton(
-                                child: const Text(
-                                  "Cambiar tablero",
-                                  style: TextStyle(
-                                      fontSize: 20.0,
-                                      fontWeight: FontWeight.bold),
+                        new Container(
+                          constraints: BoxConstraints.tight(Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.width * 0.15)),
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black45), // No se que color es, Leti no me lo tengas en cuenta
+                            borderRadius: BorderRadius.circular(8.0),
+                            color: whiteWords,  //add it here
+                          ),
+                          child: new Table(
+                            children: [ TableRow(
+                              children: <Widget>[
+                                Padding(
+                                  padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.027,
+                                      right: MediaQuery.of(context).size.width *0.027,
+                                      top: MediaQuery.of(context).size.height *0.021,
+                                      bottom: MediaQuery.of(context).size.height *0.021
+                                  ),
+                                  child: Text('Cambiar Tablero',
+                                    textAlign: TextAlign.start,
+                                      style: TextStyle(
+                                          fontSize: MediaQuery.of(context).size.height * 0.022,
+                                          fontWeight: FontWeight.normal,
+                                          color: greyWords,
+                                      ),
+                                  )
                                 ),
-                                style: ElevatedButton.styleFrom(
-                                  primary: Colors.blueAccent,
-                                  onPrimary: Colors.white,
-                                  minimumSize: Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.065),
+                                Padding(
+                                  padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.01),
+                                  child: Padding(
+                                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.05,
+                                        right: MediaQuery.of(context).size.width *0.05,
+                                    ),
+                                    child: new ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          primary: greenAppBar,
+                                          minimumSize: Size(MediaQuery.of(context).size.width * 0.005, MediaQuery.of(context).size.height * 0.05),
+                                        ),
+                                        onPressed: () {
+                                          // TODO: Change table
+                                        }
+                                    ),
+                                  )
                                 ),
-                                onPressed: () {
-                                  // TODO: Change table
-                                }
-                              ),
-                          ],
-                        ),
-                      ],
+                              ]
+                            )],
+                          )
+                        )
+                      ]
                     )
                   ),
                   Padding(
@@ -210,8 +255,8 @@ class MapScreenState extends State<ProfileConf>
                                       fontWeight: FontWeight.bold),
                                 ),
                                 style: ElevatedButton.styleFrom(
-                                  primary: Colors.purple,
-                                  onPrimary: Colors.white,
+                                  primary: purpleButton,
+                                  onPrimary: whiteWords,
                                   minimumSize: Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.065),
                                 ),
                                 onPressed: () {
@@ -241,9 +286,9 @@ class MapScreenState extends State<ProfileConf>
                                         fontWeight: FontWeight.bold),
                                   ),
                                   style: ElevatedButton.styleFrom(
-                                    primary: Colors.white,
-                                    onPrimary: Colors.red,
-                                    side: BorderSide(color: Colors.red),
+                                    primary: whiteWords,
+                                    onPrimary: redButton,
+                                    side: BorderSide(color: redButton),
                                     minimumSize: Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.065),
                                   ),
                                   onPressed: () {
