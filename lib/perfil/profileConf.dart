@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gatovidapp/popUps/deleteAccount.dart';
 
 // Colors to use
 
@@ -292,7 +293,10 @@ class MapScreenState extends State<ProfileConf>
                                     minimumSize: Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.065),
                                   ),
                                   onPressed: () {
-                                    // TODO: Delete account
+                                    showDialog(
+                                      context: context,
+                                      builder: (BuildContext context) => DeleteAccount(),
+                                    );
                                   }),
                             ],
                           ),
