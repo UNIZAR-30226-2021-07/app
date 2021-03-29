@@ -143,7 +143,7 @@ class MapScreenState extends State<ProfileConf>
                             filled: true
                         ),
                         style: TextStyle(
-                          fontSize: MediaQuery.of(context).size.height * 0.025,
+                          fontSize: MediaQuery.of(context).size.height * 0.022,
                           fontWeight: FontWeight.normal,
                           color: greyWords,
                         ),
@@ -168,7 +168,7 @@ class MapScreenState extends State<ProfileConf>
                             filled: true
                         ),
                         style: TextStyle(
-                          fontSize: MediaQuery.of(context).size.height * 0.025,
+                          fontSize: MediaQuery.of(context).size.height * 0.022,
                           fontWeight: FontWeight.normal,
                           color: greyWords,
                         ),
@@ -188,7 +188,7 @@ class MapScreenState extends State<ProfileConf>
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         new Container(
-                          constraints: BoxConstraints.tight(Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.1)),
+                          constraints: BoxConstraints.tight(Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.width * 0.15)),
                           decoration: BoxDecoration(
                             border: Border.all(color: Colors.black45), // No se que color es, Leti no me lo tengas en cuenta
                             borderRadius: BorderRadius.circular(8.0),
@@ -200,31 +200,34 @@ class MapScreenState extends State<ProfileConf>
                                 Padding(
                                   padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.027,
                                       right: MediaQuery.of(context).size.width *0.027,
-                                      top: MediaQuery.of(context).size.height * 0.03
+                                      top: MediaQuery.of(context).size.height *0.021,
+                                      bottom: MediaQuery.of(context).size.height *0.021
                                   ),
                                   child: Text('Cambiar Tablero',
                                     textAlign: TextAlign.start,
                                       style: TextStyle(
-                                          fontSize: MediaQuery.of(context).size.height * 0.025,
+                                          fontSize: MediaQuery.of(context).size.height * 0.022,
                                           fontWeight: FontWeight.normal,
                                           color: greyWords,
                                       ),
                                   )
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.25,
-                                      right: MediaQuery.of(context).size.width *0.05,
-                                      bottom: MediaQuery.of(context).size.height *0.1
-                                  ),
-                                  child: new ElevatedButton(
-                                      style: ElevatedButton.styleFrom(
-                                        primary: greenAppBar,
-                                        minimumSize: Size(MediaQuery.of(context).size.width * 0.04, MediaQuery.of(context).size.height * 0.04),
-                                      ),
-                                      onPressed: () {
-                                        // TODO: Change table
-                                      }
-                                  ),
+                                  padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.01),
+                                  child: Padding(
+                                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.05,
+                                        right: MediaQuery.of(context).size.width *0.05,
+                                    ),
+                                    child: new ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          primary: greenAppBar,
+                                          minimumSize: Size(MediaQuery.of(context).size.width * 0.005, MediaQuery.of(context).size.height * 0.05),
+                                        ),
+                                        onPressed: () {
+                                          // TODO: Change table
+                                        }
+                                    ),
+                                  )
                                 ),
                               ]
                             )],
