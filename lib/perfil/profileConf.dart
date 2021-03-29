@@ -17,35 +17,33 @@ class MapScreenState extends State<ProfileConf>
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          toolbarHeight: MediaQuery.of(context).size.height * 0.075,
-          backgroundColor: Colors.lightGreenAccent,
-          title: const Text(
-            'Configuración',
-            style: TextStyle(
-                fontWeight: FontWeight.normal,
-                fontSize: 25.0,
-                color: Colors.black),
-          ),
-          leading: IconButton(
-              icon: Icon(Icons.arrow_back_rounded),
-              color: Colors.black,
-              onPressed: () {
-                Navigator.pop(context);
-              }),
+      appBar: AppBar(
+        centerTitle: true,
+        toolbarHeight: MediaQuery.of(context).size.height * 0.075,
+        backgroundColor: Colors.lightGreenAccent,
+        title: const Text(
+          'Configuración',
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 25.0,
+              color: Colors.black),
         ),
-        // Esto es para que cuando seleccione un escribible no me de problemas de pixeles
-        //resizeToAvoidBottomPadding: false,
-        body: new Container(
-          constraints: BoxConstraints.expand(),
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                colorFilter: new ColorFilter.mode(Colors.white.withOpacity(0.05), BlendMode.dstATop),
-                image: AssetImage("assets/images/bg.png"),
-                fit: BoxFit.fitHeight,
-              )
-          ),
+        leading: IconButton(
+            icon: Icon(Icons.arrow_back_rounded),
+            color: Colors.black,
+            onPressed: () {
+              Navigator.pop(context);
+            }),
+      ),
+      body: new Container(
+        constraints: BoxConstraints.expand(),
+        decoration: BoxDecoration(
+            image: DecorationImage(
+              colorFilter: new ColorFilter.mode(Colors.white.withOpacity(0.05), BlendMode.dstATop),
+              image: AssetImage("assets/images/bg.png"),
+              fit: BoxFit.cover,
+            )
+        ),
           child: SingleChildScrollView(
               child: new Column(
                 children: <Widget>[
@@ -66,7 +64,6 @@ class MapScreenState extends State<ProfileConf>
                                   image: new DecorationImage(
                                     image: new ExactAssetImage(
                                         'assets/images/defaultProfile.png'),
-                                    fit: BoxFit.cover,
                                   ),
                                 )),
                           ],

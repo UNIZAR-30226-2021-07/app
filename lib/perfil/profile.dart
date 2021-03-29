@@ -25,7 +25,7 @@ class MapScreenState extends State<ProfilePage>
         title: const Text(
           'Mi perfil',
           style: TextStyle(
-              fontWeight: FontWeight.normal,
+              fontWeight: FontWeight.bold,
               fontSize: 25.0,
               color: Colors.black),
         ),
@@ -42,7 +42,7 @@ class MapScreenState extends State<ProfilePage>
             image: DecorationImage(
                 colorFilter: new ColorFilter.mode(Colors.white.withOpacity(0.05), BlendMode.dstATop),
               image: AssetImage("assets/images/bg.png"),
-              fit: BoxFit.fitHeight,
+              fit: BoxFit.cover,
             )
         ),
         child: new Column(
