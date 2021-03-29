@@ -32,27 +32,27 @@ class _GamesMenuState extends State<GamesMenu> {
             Row(
               children: <Widget>[
                 SizedBox(width: screenWidth * 0.01),
-                Container(
+                /*Container(
                   color: Colors.red,
-                  margin: EdgeInsets.only(top: screenHeight * 0.02),
-                  padding: EdgeInsets.fromLTRB(screenWidth * 0.005, screenHeight * 0.01, screenWidth * 0.005, screenHeight * 0.01),
-                  child: FlatButton(
+                  alignment: Alignment.center,
+                  margin: EdgeInsets.only(top: screenHeight * 0.02, left: screenWidth * 0.02),
+                  padding: EdgeInsets.only(left: screenWidth * 0.2, top: screenHeight * 0.1),
+            child: */TextButton(
                       child: CircleAvatar(
                         backgroundImage: AssetImage('assets/images/defaultProfile.png'),
-                        radius: 30.0,
+                        radius: 20.0,
                       ),
                       onPressed: () {
                         Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()));
                       },
                     ),
-                ),
-                //SizedBox(width: screenSize.width * 0.58),
-                Container(
-                  alignment: Alignment.topRight,
-                    margin: EdgeInsets.only(left: screenWidth * 0.58),
-                    padding: EdgeInsets.fromLTRB(screenWidth * 0.005, screenHeight * 0.01, screenWidth * 0.005, screenHeight * 0.01),
-                    color: Colors.blue,
-                    child: Icon(Icons.storefront, size: 60.0))
+                //),
+                SizedBox(width: screenSize.width * 0.65),
+                /*Container(
+                    margin: EdgeInsets.only(top: screenHeight * 0.02, left: screenWidth * 0.56),
+                    padding: EdgeInsets.only(left: screenWidth * 0.2, top: screenHeight * 0.1),
+                    color: Colors.blue)
+                    child: */Icon(Icons.storefront, size: 60.0)//)
               ],
             ),
             //SizedBox(height: 5.0),
