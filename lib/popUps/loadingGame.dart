@@ -43,14 +43,3 @@ class LoadingGame extends StatelessWidget {
     );
   }
 }
-/*
-How to use in a button:
-
-onPressed: () {
-  showDialog(
-    context: context,
-    builder: (BuildContext context) => GenericPopUp(),
-  );
-}
-
-*/
