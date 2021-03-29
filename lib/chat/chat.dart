@@ -2,6 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:gatovidapp/chat/messageChat.dart';
 import 'package:gatovidapp/chat/userChat.dart';
 
+Color greenAppBar = Color(0xff64DD17);
+Color blackWords = Color(0xff000000);
+Color purpleButton = Color(0xff6A1B9A);
+Color purpleCamera = Color(0xff9C4DCC);
+Color whiteWords = Color(0xffffffff);
+Color redButton = Color(0xffFF0000);
+Color greenChat = Color(0xffDCF8C6);
+
 class ChatScreen extends StatefulWidget {
   ChatScreen();
 
@@ -20,7 +28,7 @@ class _ChatScreenState extends State<ChatScreen> {
               padding: EdgeInsets.all(MediaQuery.of(context).size.height *0.015),
               margin: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.width * 0.02),
               decoration: BoxDecoration(
-                color: Colors.lightGreenAccent,
+                color: greenChat,
                 borderRadius: BorderRadius.circular(15),
                 boxShadow: [
                   BoxShadow(
@@ -34,7 +42,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 message.text,
                 style: TextStyle(
                   fontWeight: FontWeight.normal,
-                  color: Colors.black,
+                  color: blackWords,
                 ),
               ),
             ),
@@ -50,7 +58,7 @@ class _ChatScreenState extends State<ChatScreen> {
               padding: EdgeInsets.all(MediaQuery.of(context).size.height *0.015),
               margin: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.width * 0.02),
               decoration: BoxDecoration(
-                color: Colors.lightGreenAccent,
+                color: greenChat,
                 borderRadius: BorderRadius.circular(15),
                 boxShadow: [
                   BoxShadow(
@@ -64,7 +72,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 message.text,
                 style: TextStyle(
                   fontWeight: FontWeight.normal,
-                  color: Colors.black,
+                  color: blackWords,
                 ),
               ),
             ),
@@ -75,7 +83,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     Container(child: Text(message.sender.name,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: Colors.black,
+                        color: blackWords,
                       ),
                     )
                     ),
@@ -111,7 +119,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   ),
                   hintText: 'Escribir mensaje...',
                   isDense: true,
-                  fillColor: Colors.white,
+                  fillColor: whiteWords,
                   filled: true
                 ),
               ),
@@ -120,7 +128,7 @@ class _ChatScreenState extends State<ChatScreen> {
             IconButton(
               icon: Icon(Icons.send),
               iconSize: MediaQuery.of(context).size.width * 0.075,
-              color: Colors.black,
+              color: blackWords,
               onPressed: () { // Faltaria hacer que lo muestre por pantalla pero eso para el siguiente sprint
                 if (messageToSend.text.isNotEmpty) {
                   messages.add(Message(
@@ -147,17 +155,17 @@ class _ChatScreenState extends State<ChatScreen> {
       appBar: AppBar(
         centerTitle: true,
         toolbarHeight: MediaQuery.of(context).size.height * 0.075,
-        backgroundColor: Colors.lightGreenAccent,
+        backgroundColor: greenAppBar,
         title: const Text(
           'Chat',
           style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 25.0,
-              color: Colors.black),
+              color: Color(0xff000000)),
         ),
         leading: IconButton(
             icon: Icon(Icons.arrow_back_rounded),
-            color: Colors.black,
+            color: blackWords,
             onPressed: () {
               Navigator.pop(context);
             }),

@@ -1,5 +1,14 @@
 import 'package:flutter/material.dart';
 
+// Colors to use
+
+Color greenAppBar = Color(0xff64DD17);
+Color blackWords = Color(0xff000000);
+Color purpleButton = Color(0xff6A1B9A);
+Color purpleCamera = Color(0xff9C4DCC);
+Color whiteWords = Color(0xffffffff);
+Color redButton = Color(0xffFF0000);
+
 class ProfileConf extends StatefulWidget {
   @override
   MapScreenState createState() => MapScreenState();
@@ -20,17 +29,17 @@ class MapScreenState extends State<ProfileConf>
       appBar: AppBar(
         centerTitle: true,
         toolbarHeight: MediaQuery.of(context).size.height * 0.075,
-        backgroundColor: Colors.lightGreenAccent,
+        backgroundColor: greenAppBar,
         title: const Text(
           'Configuración',
           style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 25.0,
-              color: Colors.black),
+              color: Color(0xff000000)),
         ),
         leading: IconButton(
             icon: Icon(Icons.arrow_back_rounded),
-            color: Colors.black,
+            color: blackWords,
             onPressed: () {
               Navigator.pop(context);
             }),
@@ -75,11 +84,11 @@ class MapScreenState extends State<ProfileConf>
                             children: <Widget>[
                                 FlatButton(
                                   child: new CircleAvatar(
-                                    backgroundColor: Colors.purple,
+                                    backgroundColor: purpleCamera,
                                     radius: MediaQuery.of(context).size.height * 0.03,
                                     child: new Icon(
                                       Icons.camera_alt,
-                                      color: Colors.white,
+                                      color: whiteWords,
                                       size: MediaQuery.of(context).size.height * 0.03,
                                     )
                                   ),
@@ -129,7 +138,7 @@ class MapScreenState extends State<ProfileConf>
                                 borderSide: BorderSide(width: 1.0)),
                             hintText: 'Cambiar nombre',
                             isDense: true,
-                            fillColor: Colors.white,
+                            fillColor: whiteWords,
                             filled: true
                         ),
                       ),
@@ -149,7 +158,7 @@ class MapScreenState extends State<ProfileConf>
                                 borderSide: BorderSide(width: 1.0)),
                             hintText: 'Cambiar contraseña',
                             isDense: true,
-                            fillColor: Colors.white,
+                            fillColor: whiteWords,
                             filled: true
                         ),
                         // Oculta la contraseña
@@ -178,8 +187,8 @@ class MapScreenState extends State<ProfileConf>
                                       fontWeight: FontWeight.bold),
                                 ),
                                 style: ElevatedButton.styleFrom(
-                                  primary: Colors.blueAccent,
-                                  onPrimary: Colors.white,
+                                  primary: greenAppBar,
+                                  onPrimary: whiteWords,
                                   minimumSize: Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.065),
                                 ),
                                 onPressed: () {
@@ -210,8 +219,8 @@ class MapScreenState extends State<ProfileConf>
                                       fontWeight: FontWeight.bold),
                                 ),
                                 style: ElevatedButton.styleFrom(
-                                  primary: Colors.purple,
-                                  onPrimary: Colors.white,
+                                  primary: purpleButton,
+                                  onPrimary: whiteWords,
                                   minimumSize: Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.065),
                                 ),
                                 onPressed: () {
@@ -241,9 +250,9 @@ class MapScreenState extends State<ProfileConf>
                                         fontWeight: FontWeight.bold),
                                   ),
                                   style: ElevatedButton.styleFrom(
-                                    primary: Colors.white,
-                                    onPrimary: Colors.red,
-                                    side: BorderSide(color: Colors.red),
+                                    primary: whiteWords,
+                                    onPrimary: redButton,
+                                    side: BorderSide(color: redButton),
                                     minimumSize: Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.065),
                                   ),
                                   onPressed: () {
