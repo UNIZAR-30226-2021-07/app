@@ -148,9 +148,10 @@ class _ChatScreenState extends State<ChatScreen> {
         centerTitle: true,
         toolbarHeight: MediaQuery.of(context).size.height * 0.075,
         backgroundColor: Colors.lightGreenAccent,
-        title: const Text('Chat',
+        title: const Text(
+          'Chat',
           style: TextStyle(
-              fontWeight: FontWeight.normal,
+              fontWeight: FontWeight.bold,
               fontSize: 25.0,
               color: Colors.black),
         ),
@@ -161,13 +162,13 @@ class _ChatScreenState extends State<ChatScreen> {
               Navigator.pop(context);
             }),
       ),
-      body: Container(
+      body: new Container(
         constraints: BoxConstraints.expand(),
         decoration: BoxDecoration(
             image: DecorationImage(
               colorFilter: new ColorFilter.mode(Colors.white.withOpacity(0.05), BlendMode.dstATop),
               image: AssetImage("assets/images/bg.png"),
-              fit: BoxFit.fitHeight,
+              fit: BoxFit.cover,
             )
         ),
         child: Column(
