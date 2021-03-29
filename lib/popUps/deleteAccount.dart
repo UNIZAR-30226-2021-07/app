@@ -13,7 +13,7 @@ class DeleteAccount extends StatelessWidget {
       title: Text('¿Eliminar su cuenta permanentemente?',
         textAlign: TextAlign.center,
         style: TextStyle(
-          fontSize: MediaQuery.of(context).size.width * 0.05,
+          fontSize: MediaQuery.of(context).size.width * 0.06,
           fontWeight: FontWeight.bold,
           color: blackWords,
 
