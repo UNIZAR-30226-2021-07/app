@@ -142,6 +142,11 @@ class MapScreenState extends State<ProfileConf>
                             fillColor: whiteWords,
                             filled: true
                         ),
+                        style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.height * 0.025,
+                          fontWeight: FontWeight.normal,
+                          color: greyWords,
+                        ),
                       ),
                     ),
                   ),
@@ -162,6 +167,11 @@ class MapScreenState extends State<ProfileConf>
                             fillColor: whiteWords,
                             filled: true
                         ),
+                        style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.height * 0.025,
+                          fontWeight: FontWeight.normal,
+                          color: greyWords,
+                        ),
                         // Oculta la contraseña
                         autocorrect: false,
                         enableSuggestions: false,
@@ -172,13 +182,13 @@ class MapScreenState extends State<ProfileConf>
                   Padding(
                     padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
                         right: MediaQuery.of(context).size.width *0.1,
-                        top: MediaQuery.of(context).size.height * 0.023
+                        top: MediaQuery.of(context).size.height * 0.025
                     ),
                     child: new Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         new Container(
-                          constraints: BoxConstraints.tight(Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.06)),
+                          constraints: BoxConstraints.tight(Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.1)),
                           decoration: BoxDecoration(
                             border: Border.all(color: Colors.black45), // No se que color es, Leti no me lo tengas en cuenta
                             borderRadius: BorderRadius.circular(8.0),
@@ -190,12 +200,12 @@ class MapScreenState extends State<ProfileConf>
                                 Padding(
                                   padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.027,
                                       right: MediaQuery.of(context).size.width *0.027,
-                                      top: MediaQuery.of(context).size.height * 0.02
+                                      top: MediaQuery.of(context).size.height * 0.03
                                   ),
                                   child: Text('Cambiar Tablero',
                                     textAlign: TextAlign.start,
                                       style: TextStyle(
-                                          fontSize: MediaQuery.of(context).size.height * 0.02,
+                                          fontSize: MediaQuery.of(context).size.height * 0.025,
                                           fontWeight: FontWeight.normal,
                                           color: greyWords,
                                       ),
@@ -204,12 +214,12 @@ class MapScreenState extends State<ProfileConf>
                                 Padding(
                                   padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.25,
                                       right: MediaQuery.of(context).size.width *0.05,
-                                      top: MediaQuery.of(context).size.height * 0.000075
+                                      bottom: MediaQuery.of(context).size.height *0.1
                                   ),
                                   child: new ElevatedButton(
                                       style: ElevatedButton.styleFrom(
                                         primary: greenAppBar,
-                                        minimumSize: Size(MediaQuery.of(context).size.height * 0.04, MediaQuery.of(context).size.height * 0.04),
+                                        minimumSize: Size(MediaQuery.of(context).size.width * 0.04, MediaQuery.of(context).size.height * 0.04),
                                       ),
                                       onPressed: () {
                                         // TODO: Change table
