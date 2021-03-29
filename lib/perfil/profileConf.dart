@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 Color greenAppBar = Color(0xff64DD17);
 Color blackWords = Color(0xff000000);
+Color greyWords = Color(0xff717171);
 Color purpleButton = Color(0xff6A1B9A);
 Color purpleCamera = Color(0xff9C4DCC);
 Color whiteWords = Color(0xffffffff);
@@ -176,28 +177,50 @@ class MapScreenState extends State<ProfileConf>
                     child: new Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        new Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            new ElevatedButton(
-                                child: const Text(
-                                  "Cambiar tablero",
-                                  style: TextStyle(
-                                      fontSize: 20.0,
-                                      fontWeight: FontWeight.bold),
+                        new Container(
+                          constraints: BoxConstraints.tight(Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.06)),
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black45), // No se que color es, Leti no me lo tengas en cuenta
+                            borderRadius: BorderRadius.circular(8.0),
+                            color: whiteWords,  //add it here
+                          ),
+                          child: new Table(
+                            children: [ TableRow(
+                              children: <Widget>[
+                                Padding(
+                                  padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.027,
+                                      right: MediaQuery.of(context).size.width *0.027,
+                                      top: MediaQuery.of(context).size.height * 0.02
+                                  ),
+                                  child: Text('Cambiar Tablero',
+                                    textAlign: TextAlign.start,
+                                      style: TextStyle(
+                                          fontSize: MediaQuery.of(context).size.height * 0.02,
+                                          fontWeight: FontWeight.normal,
+                                          color: greyWords,
+                                      ),
+                                  )
                                 ),
-                                style: ElevatedButton.styleFrom(
-                                  primary: greenAppBar,
-                                  onPrimary: whiteWords,
-                                  minimumSize: Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.065),
+                                Padding(
+                                  padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.25,
+                                      right: MediaQuery.of(context).size.width *0.05,
+                                      top: MediaQuery.of(context).size.height * 0.000075
+                                  ),
+                                  child: new ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        primary: greenAppBar,
+                                        minimumSize: Size(MediaQuery.of(context).size.height * 0.04, MediaQuery.of(context).size.height * 0.04),
+                                      ),
+                                      onPressed: () {
+                                        // TODO: Change table
+                                      }
+                                  ),
                                 ),
-                                onPressed: () {
-                                  // TODO: Change table
-                                }
-                              ),
-                          ],
-                        ),
-                      ],
+                              ]
+                            )],
+                          )
+                        )
+                      ]
                     )
                   ),
                   Padding(
