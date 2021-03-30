@@ -33,6 +33,8 @@ class DeleteAccount extends StatelessWidget {
                   borderRadius: new BorderRadius.circular(30.0),
                 ),
                 minimumSize: Size(MediaQuery.of(context).size.width, MediaQuery.of(context).size.height * 0.075),
+                shadowColor: blackWords,
+                side: BorderSide(color: whiteWords, width: 2),
               ),
               onPressed: () {
                 //TODO: Delete account
@@ -57,6 +59,8 @@ class DeleteAccount extends StatelessWidget {
                   borderRadius: new BorderRadius.circular(30.0),
                 ),
                 minimumSize: Size(MediaQuery.of(context).size.width, MediaQuery.of(context).size.height * 0.075),
+                shadowColor: blackWords,
+                side: BorderSide(color: whiteWords, width: 2),
               ),
               onPressed: () {
                 Navigator.of(context).pop();
