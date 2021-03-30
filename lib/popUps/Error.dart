@@ -19,7 +19,7 @@ class ErrorPopup extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Icon(Icons.warning),
-            Text(' ¡Atención!',
+            Text('¡Atención!',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: MediaQuery.of(context).size.width * 0.06,
@@ -35,11 +35,11 @@ class ErrorPopup extends StatelessWidget {
       actions: <Widget>[
         Container(
           height: MediaQuery.of(context).size.height * 0.065,
-          width: MediaQuery.of(context).size.width *0.9,
+          width: MediaQuery.of(context).size.width *0.7,
           child: Row(
             children: <Widget>[
               Expanded(
-                  flex: 6,
+                  flex: 10,
                   child: new ElevatedButton(
                       child: Row(
                         children: [
@@ -74,11 +74,11 @@ class ErrorPopup extends StatelessWidget {
                 child: Container(),
               ),
               Expanded(
-                flex: 6,
+                flex: 13,
                 child: new ElevatedButton(
                     child: Row(
                       children: [
-                        Text(' Continuar ',
+                        Text('Continuar',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: MediaQuery.of(context).size.width * 0.04,
