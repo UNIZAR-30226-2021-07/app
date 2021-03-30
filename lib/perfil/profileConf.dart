@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:gatovidapp/popUps/deleteAccount.dart';
 import 'package:gatovidapp/popUps/loadingGame.dart';
 import 'package:gatovidapp/popUps/startGame.dart';
+import 'package:gatovidapp/popUps/Error.dart';
+
 // Colors to use
 
 Color greenAppBar = Color(0xff64DD17);
@@ -96,6 +98,10 @@ class MapScreenState extends State<ProfileConf>
                                     )
                                   ),
                                   onPressed: () {
+                                    showDialog(
+                                      context: context,
+                                      builder: (BuildContext context) => ErrorPopup(),
+                                    );
                                   },
                                 ),
                             ],
