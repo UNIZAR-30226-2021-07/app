@@ -53,26 +53,24 @@ class _GamesMenuState extends State<GamesMenu> {
                                 child: SizedBox()
                               ),
                               Expanded(
-                                child: Container(
-                                  color: Colors.red,
-                                    child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: <Widget>[
-                                          IconButton(
-                                              onPressed: () {},
-                                              icon: Icon(Icons.storefront),
-                                              iconSize: screenHeight * 0.08
-                                          )
-                                        ]
-                                    )
-                                ),
+                                child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      IconButton(
+                                          onPressed: () {
+                                            //TODO: navegar a pantalla tienda
+                                          },
+                                          icon: Icon(Icons.storefront),
+                                          iconSize: screenHeight * 0.08
+                                      )
+                                    ]
+                                )
                               ),
                             ],
                           ),
                         ),
                         Expanded (
                           child: Container(
-                            color: Colors.lightBlueAccent,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
@@ -80,7 +78,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: screenHeight * 0.03),
                                 ),
                                 SizedBox(width: screenWidth * 0.02),
-                                Icon(Icons.pets, size: screenWidth * 0.04, color: Colors.amber),
+                                Icon(Icons.pets, size: 20, color: Colors.amber),
                                 SizedBox(width: screenWidth * 0.04),
                               ],
                             ),
@@ -92,7 +90,6 @@ class _GamesMenuState extends State<GamesMenu> {
                 Expanded(
                   flex: 5,
                   child: Container(
-                    color: Colors.greenAccent,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -104,11 +101,12 @@ class _GamesMenuState extends State<GamesMenu> {
                         ),
                         Expanded (
                           child: Text('GATOVID',
-                              style: TextStyle(
-                                fontFamily: 'ShortStack',
-                                fontWeight: FontWeight.bold,
-                                fontSize: screenHeight * 0.05,
-                              )),
+                            style: TextStyle(
+                              fontFamily: 'ShortStack',
+                              fontWeight: FontWeight.bold,
+                              fontSize: screenHeight * 0.05,
+                            )
+                          ),
                         ),
                       ],
                     ),
@@ -117,54 +115,118 @@ class _GamesMenuState extends State<GamesMenu> {
                 Expanded(
                   flex: 6,
                   child: Container(
-                    color: Colors.yellow,
                     child: Column(
                       children: <Widget>[
                         Expanded(
+                          flex: 2,
                             child: SizedBox()
                         ),
-                        ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                                primary: Colors.purple[800],
-                                onPrimary: Colors.white,
-                                minimumSize: Size(screenWidth * 0.75, screenHeight * 0.08)),
-                            child: Text(
-                              "Crear Partida Privada",
-                              style:
-                              TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                            )),
-                        SizedBox(height: screenHeight * 0.03),
-                        ElevatedButton(
-                            onPressed: () {
-                              showDialog(
-                                context: context,
-                                builder: (BuildContext context) => GenericPopUp(),
-                              );
-                            },
-                            style: ElevatedButton.styleFrom(
-                                primary: Colors.purple[800],
-                                onPrimary: Colors.white,
-                                minimumSize: Size(screenWidth * 0.75, screenHeight * 0.08)),
-                            child: Text(
-                              "Unirse a partida privada",
-                              style:
-                              TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                            )),
-                        SizedBox(height: screenHeight * 0.03),
-                        ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                                primary: Colors.purple[800],
-                                onPrimary: Colors.white,
-                                minimumSize: Size(screenWidth * 0.75, screenHeight * 0.08)),
-                            child: Text(
-                              "Unirse a partida pública",
-                              style:
-                              TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0)
-                            ),
+                        Expanded (
+                          flex: 3,
+                          child: Row(
+                            children: [
+                              Expanded(
+                                  child: SizedBox()
+                              ),
+                              Expanded(
+                                  flex: 8,
+                                child: ElevatedButton(
+                                    onPressed: () {
+                                      //TODO: navegacion
+                                      showDialog(
+                                        context: context,
+                                        builder: (BuildContext context) => GenericPopUp(),
+                                      );
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                        primary: Color(0xFF6A1B9A),
+                                        onPrimary: Colors.white,
+                                    ),
+                                    child: Text(
+                                      "Crear partida privada",
+                                      style:
+                                      TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+                                    )
+                                ),
+                              ),
+                              Expanded(
+                                  child: SizedBox()
+                              ),
+                            ],
+                          ),
                         ),
                         Expanded(
+                            child: SizedBox()
+                        ),
+                        Expanded (
+                          flex: 3,
+                          child: Row(
+                            children: [
+                              Expanded(
+                                  child: SizedBox()
+                              ),
+                              Expanded(
+                                flex: 8,
+                                child: ElevatedButton(
+                                    onPressed: () {
+                                      //TODO: navegacion
+                                      showDialog(
+                                        context: context,
+                                        builder: (BuildContext context) => GenericPopUp(),
+                                      );
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                        primary: Color(0xFF6A1B9A),
+                                        onPrimary: Colors.white,
+                                    ),
+                                    child: Text(
+                                      "Unirse a partida privada",
+                                      style:
+                                      TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+                                    )
+                                ),
+                              ),
+                              Expanded(
+                                  child: SizedBox()
+                              ),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                            child: SizedBox()
+                        ),
+                        Expanded (
+                          flex: 3,
+                          child: Row(
+                            children: [
+                              Expanded(
+                                  child: SizedBox()
+                              ),
+                              Expanded(
+                                flex: 8,
+                                child: ElevatedButton(
+                                    onPressed: () {
+                                      //TODO: navegacion
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                        primary: Color(0xFF6A1B9A),
+                                        onPrimary: Colors.white,
+                                    ),
+                                    child: Text(
+                                      "Unirse a partida pública",
+                                      style:
+                                      TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+                                    )
+                                ),
+                              ),
+                              Expanded(
+                                  child: SizedBox()
+                              ),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          flex: 2,
                             child: SizedBox()
                         ),
                       ],
