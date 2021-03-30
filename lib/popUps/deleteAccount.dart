@@ -29,6 +29,9 @@ class DeleteAccount extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 primary: greenButton,
                 onPrimary: whiteWords,
+                shape: new RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(30.0),
+                ),
                 minimumSize: Size(MediaQuery.of(context).size.width, MediaQuery.of(context).size.height * 0.075),
               ),
               onPressed: () {
@@ -50,6 +53,9 @@ class DeleteAccount extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 primary: redButton,
                 onPrimary: whiteWords,
+                shape: new RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(30.0),
+                ),
                 minimumSize: Size(MediaQuery.of(context).size.width, MediaQuery.of(context).size.height * 0.075),
               ),
               onPressed: () {
