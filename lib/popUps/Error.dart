@@ -31,7 +31,14 @@ class ErrorPopup extends StatelessWidget {
 
         ),
       ),
-      content: Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis condimentum tempus. '),
+      content:Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis condimentum tempus.',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: MediaQuery.of(context).size.width * 0.04,
+                fontWeight: FontWeight.normal,
+                color: blackWords,
+              ),
+            ),
       actions: <Widget>[
         Container(
           height: MediaQuery.of(context).size.height * 0.065,
@@ -39,70 +46,82 @@ class ErrorPopup extends StatelessWidget {
           child: Row(
             children: <Widget>[
               Expanded(
-                  flex: 10,
-                  child: new ElevatedButton(
-                      child: Row(
-                        children: [
-                          Icon(Icons.arrow_back),
-                          Text(' Atrás',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: MediaQuery.of(context).size.width * 0.04,
-                              fontWeight: FontWeight.bold,
-                              color: whiteWords,
-                            ),
+                  flex: 115,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      new ElevatedButton(
+                          child: Row(
+                            children: [
+                              Icon(Icons.arrow_back),
+                              Text('Atrás',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: MediaQuery.of(context).size.width * 0.04,
+                                  fontWeight: FontWeight.bold,
+                                  color: whiteWords,
+                                ),
+                              ),
+                            ],
                           ),
-                        ],
+                          style: ElevatedButton.styleFrom(
+                            primary: purpleButton,
+                            onPrimary: whiteWords,
+                            shape: new RoundedRectangleBorder(
+                              borderRadius: new BorderRadius.circular(30.0),
+                            ),
+                            minimumSize: Size(MediaQuery.of(context).size.width*0.3, MediaQuery.of(context).size.height * 0.075),
+                            shadowColor: blackWords,
+                            side: BorderSide(color: whiteWords, width: 2),
+                          ),
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          }
                       ),
-                      style: ElevatedButton.styleFrom(
-                        primary: purpleButton,
-                        onPrimary: whiteWords,
-                        shape: new RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(30.0),
-                        ),
-                        minimumSize: Size(MediaQuery.of(context).size.width*0.3, MediaQuery.of(context).size.height * 0.075),
-                        shadowColor: blackWords,
-                        side: BorderSide(color: whiteWords, width: 2),
-                      ),
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      }
+                    ],
                   ),
               ),
               Expanded(
-                flex: 1,
+                flex: 5,
                 child: Container(),
               ),
               Expanded(
-                flex: 13,
-                child: new ElevatedButton(
-                    child: Row(
-                      children: [
-                        Text('Continuar',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: MediaQuery.of(context).size.width * 0.04,
-                            fontWeight: FontWeight.bold,
-                            color: greyWords,
-                          ),
+                flex: 135,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    new ElevatedButton(
+                        child: Row(
+                          children: [
+                            Text('Continuar',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: MediaQuery.of(context).size.width * 0.04,
+                                fontWeight: FontWeight.bold,
+                                color: greyWords,
+                              ),
+                            ),
+                            Icon(Icons.arrow_forward),
+                          ],
                         ),
-                        Icon(Icons.arrow_forward),
-                      ],
+                        style: ElevatedButton.styleFrom(
+                          primary: whiteWords,
+                          onPrimary: greyWords,
+                          shape: new RoundedRectangleBorder(
+                            borderRadius: new BorderRadius.circular(30.0),
+                          ),
+                          minimumSize: Size(MediaQuery.of(context).size.width*0.3, MediaQuery.of(context).size.height * 0.075),
+                          shadowColor: blackWords,
+                          side: BorderSide(color: greyWords, width: 2),
+                        ),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        }
                     ),
-                    style: ElevatedButton.styleFrom(
-                      primary: whiteWords,
-                      onPrimary: greyWords,
-                      shape: new RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(30.0),
-                      ),
-                      minimumSize: Size(MediaQuery.of(context).size.width*0.3, MediaQuery.of(context).size.height * 0.075),
-                      shadowColor: blackWords,
-                      side: BorderSide(color: greyWords, width: 2),
-                    ),
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    }
-                ),
+                  ],
+                )
               ),
             ],
           ),
