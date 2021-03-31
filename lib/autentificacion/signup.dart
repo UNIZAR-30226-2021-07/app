@@ -9,9 +9,13 @@ class Signup extends StatefulWidget {
 class _SignupState extends State<Signup> {
   @override
   Widget build(BuildContext context) {
+    Size screenSize = MediaQuery.of(context).size;
+    double screenHeight = screenSize.height;
+    double screenWidth = screenSize.width;
+
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.greenAccent[700],
+        backgroundColor: Color(0xFF64DD17),
         title: Text(
           'Crear una cuenta',
           style: TextStyle(
@@ -22,147 +26,346 @@ class _SignupState extends State<Signup> {
         ),
         centerTitle: true,
         automaticallyImplyLeading: false,
-        leading: IconButton(
-            icon: Icon(Icons.arrow_back_rounded),
-            color: Colors.black,
-            onPressed: () {
-              Navigator.pop(context);
-            }),
       ),
       body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            SizedBox(height: 40.0),
-            Row(
-              children: <Widget>[
-                Padding(
-                  padding:
-                      EdgeInsets.symmetric(vertical: 3.0, horizontal: 40.0),
-                  child: Text(
-                    'Nombre de usuario',
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                ),
-              ],
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 3.0, horizontal: 40.0),
-              child: TextFormField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                      borderSide: BorderSide(width: 1.0)),
-                  hintText: 'Texto',
-                  isDense: true, // Added this
-                  contentPadding: EdgeInsets.all(14),
-                ),
+        child: Container(
+          constraints: BoxConstraints.expand(),
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  colorFilter: ColorFilter.mode(Colors.white.withOpacity(0.05), BlendMode.dstATop),
+                  image: AssetImage("assets/images/bg.png"),
+                  fit: BoxFit.cover)
+          ),
+          child: SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                maxHeight: MediaQuery.of(context).size.height - AppBar().preferredSize.height,
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Expanded(
+                      flex: 2,
+                      child: Column(
+                        children: <Widget>[
+                          Expanded(
+                              child: Container(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: <Widget>[
+                                    Expanded(
+                                        flex: 2,
+                                        child: SizedBox(
+                                        )
+                                    ),
+                                    Expanded(
+                                      child: Container(
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.start,
+                                          children: <Widget>[
+                                            Expanded(
+                                                child: SizedBox()
+                                            ),
+                                            Expanded(
+                                              flex: 6,
+                                              child: Text(
+                                                'Nombre de usuario',
+                                                style:
+                                                TextStyle(fontWeight: FontWeight.bold, fontSize: screenHeight * 0.03),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    //SizedBox(height: screenHeight * 0.01),
+                                    Expanded(
+                                      flex: 2,
+                                      child: Container(
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.start,
+                                          children: [
+                                            Expanded(
+                                                child: SizedBox()
+                                            ),
+                                            Expanded(
+                                              flex: 6,
+                                              child: TextFormField(
+                                                decoration: InputDecoration(
+                                                  border: OutlineInputBorder(
+                                                      borderRadius: BorderRadius.circular(10),
+                                                      borderSide: BorderSide(width: 2)
+                                                  ),
+                                                  hintText: 'Introduzca nombre de usuario',
+                                                  filled: true,
+                                                  fillColor: Colors.white,
+                                                  isDense: true, // Added this
+                                                ),
+                                              ),
+                                            ),
+                                            Expanded(
+                                                child: SizedBox()
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )
+                          ),
+                          Expanded(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                Expanded(
+                                    flex: 2,
+                                    child: SizedBox(
+                                    )
+                                ),
+                                Expanded(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: <Widget>[
+                                      Expanded(
+                                          child: SizedBox()
+                                      ),
+                                      Expanded(
+                                        flex: 6,
+                                        child: Text(
+                                          'Contraseña',
+                                          style:
+                                          TextStyle(fontWeight: FontWeight.bold, fontSize: screenHeight * 0.03),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 2,
+                                  child: Container(
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        Expanded(
+                                            child: SizedBox()
+                                        ),
+                                        Expanded(
+                                          flex: 6,
+                                          child: TextFormField(
+                                            // Para ocultar la contraseña
+                                            autocorrect: false,
+                                            enableSuggestions: false,
+                                            obscureText: true,
+                                            decoration: InputDecoration(
+                                              border: OutlineInputBorder(
+                                                  borderRadius: BorderRadius.circular(10),
+                                                  borderSide: BorderSide(width: 2)),
+                                              hintText: 'Introduzca contraseña',
+                                              filled: true,
+                                              fillColor: Colors.white,
+                                              isDense: true, // Added this
+                                            ),
+                                          ),
+                                        ),
+                                        Expanded(
+                                            child: SizedBox()
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                        child: Container(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: <Widget>[
+                              Expanded(
+                                  flex: 2,
+                                  child: SizedBox(
+                                  )
+                              ),
+                              Expanded(
+                                child: Container(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Expanded(
+                                          child: SizedBox()
+                                      ),
+                                      Expanded(
+                                        flex: 6,
+                                        child: Text(
+                                          'Email',
+                                          style:
+                                          TextStyle(fontWeight: FontWeight.bold, fontSize: screenHeight * 0.03),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 2,
+                                child: Container(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Expanded(
+                                          child: SizedBox()
+                                      ),
+                                      Expanded(
+                                        flex: 6,
+                                        child: TextFormField(
+                                          decoration: InputDecoration(
+                                            border: OutlineInputBorder(
+                                                borderRadius: BorderRadius.circular(10),
+                                                borderSide: BorderSide(width: 2)
+                                            ),
+                                            hintText: 'Introduzca email',
+                                            filled: true,
+                                            fillColor: Colors.white,
+                                            isDense: true, // Added this
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                          child: SizedBox()
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
+                    ),
+                    Expanded(
+                      flex: 2,
+                        child: Container(
+                          child: Column(
+                            children: <Widget>[
+                              Expanded(
+                                  flex: 2,
+                                  child: Container(
+                                    child: Column(
+                                      children: <Widget>[
+                                        Expanded(
+                                            child: Container(
+                                            )
+                                        ),
+                                        Expanded(
+                                          child:
+                                          Container(
+                                            child: Row(
+                                              mainAxisAlignment: MainAxisAlignment.start,
+                                              children: [
+                                                Expanded(
+                                                    child: SizedBox()
+                                                ),
+                                                Expanded(
+                                                    flex: 6,
+                                                    child: ElevatedButton(
+                                                        onPressed: () {
+                                                          // NOTE: esto es temporal
+                                                          Navigator.pushReplacementNamed(context, '/home');
+                                                        },
+                                                        style: ElevatedButton.styleFrom(
+                                                            primary: Color(0xFF6A1B9A),
+                                                            onPrimary: Colors.white,
+                                                            minimumSize: Size(double.infinity, screenHeight * 0.07)),
+                                                        child: Text(
+                                                          "REGISTRARSE",
+                                                          style: TextStyle(
+                                                              fontWeight: FontWeight.bold, fontSize: screenHeight * 0.04),
+                                                        )
+                                                    )
+                                                ),
+                                                Expanded(
+                                                    child: SizedBox()
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                              ),
+                              Expanded(
+                                  flex: 2,
+                                  child: Column(
+                                    children: <Widget>[
+                                      Expanded(
+                                          child: SizedBox()
+                                      ),
+                                      Expanded(
+                                        flex: 2,
+                                          child: Row(
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  '¿Ya tienes cuenta?',
+                                                  style:
+                                                  TextStyle(fontWeight: FontWeight.bold, fontSize: screenWidth * 0.04 ),
+                                                ),
+                                              ])
+                                      ),
+                                      Expanded(
+                                          child: SizedBox()
+                                      ),
+                                      Expanded(
+                                          flex: 2,
+                                          child: Row(
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: <Widget>[
+                                                Expanded(
+                                                    child: SizedBox()
+                                                ),
+                                                Expanded(
+                                                    flex: 2,
+                                                    child: ElevatedButton(
+                                                        onPressed: () {
+                                                          Navigator.pushNamed(context, '/login');
+                                                        },
+                                                        style: ElevatedButton.styleFrom(
+                                                            primary: Color(0xFF9C4DCC),
+                                                            onPrimary: Colors.white,
+                                                            minimumSize: Size(double.infinity, screenHeight * 0.06)),
+                                                        child: Text(
+                                                          "Iniciar sesión",
+                                                          style: TextStyle(
+                                                              fontWeight: FontWeight.bold, fontSize: screenHeight * 0.03),
+                                                        )
+                                                    )
+                                                ),
+                                                Expanded(
+                                                    child: SizedBox()
+                                                ),
+                                              ]
+                                          )
+                                      ),
+                                    ],
+                                  )
+                              ),
+                              Expanded(
+                                  child: Container(
+                                  )
+                              ),
+                            ],
+                          ),
+                        )
+                    ),
+                  ]
               ),
             ),
-            SizedBox(height: 40.0),
-            Row(
-              children: <Widget>[
-                Padding(
-                  padding:
-                      EdgeInsets.symmetric(vertical: 3.0, horizontal: 40.0),
-                  child: Text(
-                    'Contraseña',
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                ),
-              ],
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 3.0, horizontal: 40.0),
-              child: TextFormField(
-                // Para ocultar la contraseña
-                autocorrect: false,
-                enableSuggestions: false,
-                obscureText: true,
-                // --
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                      borderSide: BorderSide(width: 1.0)),
-                  hintText: 'Texto',
-                  isDense: true, // Added this
-                  contentPadding: EdgeInsets.all(14),
-                ),
-              ),
-            ),
-            SizedBox(height: 40.0),
-            Row(
-              children: <Widget>[
-                Padding(
-                  padding:
-                      EdgeInsets.symmetric(vertical: 3.0, horizontal: 40.0),
-                  child: Text(
-                    'Email',
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                ),
-              ],
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 3.0, horizontal: 40.0),
-              child: TextFormField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                      borderSide: BorderSide(width: 1.0)),
-                  hintText: 'Texto',
-                  isDense: true, // Added this
-                  contentPadding: EdgeInsets.all(14),
-                ),
-              ),
-            ),
-            SizedBox(height: 50.0),
-            Padding(
-                padding: EdgeInsets.only(left: 25.0, right: 25.0),
-                child: ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                        primary: Colors.purple[800],
-                        onPrimary: Colors.white,
-                        minimumSize: Size(300.0, 50.0)),
-                    child: Text(
-                      "REGISTRARSE",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 20.0),
-                    ))),
-            SizedBox(height: 25.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Padding(
-                  padding:
-                      EdgeInsets.symmetric(vertical: 3.0, horizontal: 40.0),
-                  child: Text(
-                    '¿Ya tienes cuenta?',
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-                  ),
-                ),
-              ],
-            ),
-            Padding(
-                padding: EdgeInsets.symmetric(vertical: 1.0, horizontal: 50.0),
-                child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/login');
-                    },
-                    style: ElevatedButton.styleFrom(
-                        primary: Colors.purple[800],
-                        onPrimary: Colors.white,
-                        minimumSize: Size(200.0, 40.0)),
-                    child: Text(
-                      "Iniciar Sesión",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 18.0),
-                    ))),
-          ],
+          ),
         ),
       ),
     );
