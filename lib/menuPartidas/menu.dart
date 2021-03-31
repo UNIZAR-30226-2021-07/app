@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:gatovidapp/perfil/profile.dart';
-import 'package:gatovidapp/popUps/genericPopup.dart';
+import 'package:gatovidapp/popUps/gameCode.dart';
+import 'package:gatovidapp/popUps/loadingGame.dart';
+import 'package:gatovidapp/popUps/readyGame.dart';
 
 class GamesMenu extends StatefulWidget {
   @override
@@ -135,7 +137,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                       //TODO: navegacion
                                       showDialog(
                                         context: context,
-                                        builder: (BuildContext context) => GenericPopUp(),
+                                        builder: (BuildContext context) => ReadyGame(),
                                       );
                                     },
                                     style: ElevatedButton.styleFrom(
@@ -172,7 +174,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                       //TODO: navegacion
                                       showDialog(
                                         context: context,
-                                        builder: (BuildContext context) => GenericPopUp(),
+                                        builder: (BuildContext context) => GameCode(),
                                       );
                                     },
                                     style: ElevatedButton.styleFrom(
@@ -206,7 +208,10 @@ class _GamesMenuState extends State<GamesMenu> {
                                 flex: 8,
                                 child: ElevatedButton(
                                     onPressed: () {
-                                      //TODO: navegacion
+                                      showDialog(
+                                        context: context,
+                                        builder: (BuildContext context) => LoadingGame(),
+                                      );
                                     },
                                     style: ElevatedButton.styleFrom(
                                         primary: Color(0xFF6A1B9A),

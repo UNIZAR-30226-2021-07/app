@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 Color blackWords = Color(0xff000000);
 Color redButton = Color(0xffFF0000);
-Color greenButton = Color(0xff10E73F);
+Color greyButton = Color(0xffE5E5E5);
 Color whiteWords = Color(0xffffffff);
 
 class DeleteAccount extends StatelessWidget {
@@ -27,7 +27,7 @@ class DeleteAccount extends StatelessWidget {
                 style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
               ),
               style: ElevatedButton.styleFrom(
-                primary: greenButton,
+                primary: redButton,
                 onPrimary: whiteWords,
                 shape: new RoundedRectangleBorder(
                   borderRadius: new BorderRadius.circular(30.0),
@@ -53,7 +53,7 @@ class DeleteAccount extends StatelessWidget {
                 style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
               ),
               style: ElevatedButton.styleFrom(
-                primary: redButton,
+                primary: greyButton,
                 onPrimary: whiteWords,
                 shape: new RoundedRectangleBorder(
                   borderRadius: new BorderRadius.circular(30.0),
