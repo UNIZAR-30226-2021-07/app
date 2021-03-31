@@ -19,9 +19,9 @@ class GameCode extends StatelessWidget {
         children: <Widget>[
           SizedBox(width: screenWidth * 0.04),
           Icon(
-            Icons.check,
+            Icons.done_outline,
             color: Color(0xFF64DD17),
-            size: screenWidth * 0.1,
+            size: screenWidth * 0.08,
           ),
           SizedBox(width: screenWidth * 0.02),
           Text('Unirse a partida',
@@ -49,7 +49,7 @@ class GameCode extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Container(
-              width: screenWidth * 0.2,
+              width: screenWidth * 0.25,
               height: screenHeight * 0.06,
               child: TextFormField(
                 keyboardType: TextInputType.number,
@@ -66,7 +66,7 @@ class GameCode extends StatelessWidget {
             ),
             SizedBox(width: screenWidth * 0.1),
             Container(
-              width: screenWidth * 0.3,
+              width: screenWidth * 0.25,
               height: screenHeight * 0.06,
                 child: ElevatedButton(
                     child: Text(

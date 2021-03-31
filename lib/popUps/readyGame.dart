@@ -14,7 +14,6 @@ class ReadyGame extends StatelessWidget {
 
     return new AlertDialog(
       title: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           SizedBox(width: screenWidth * 0.04),
           Icon(
@@ -47,8 +46,7 @@ class ReadyGame extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-              color: Colors.red,
-              width: screenWidth * 0.2,
+              width: screenWidth * 0.18,
               height: screenHeight * 0.06,
                 child: ElevatedButton(
                     child: Icon(
@@ -72,7 +70,7 @@ class ReadyGame extends StatelessWidget {
             ),
             SizedBox(width: screenWidth * 0.03),
             Container(
-              width: screenWidth * 0.3,
+              width: screenWidth * 0.25,
               height: screenHeight * 0.06,
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.grey,
@@ -90,13 +88,12 @@ class ReadyGame extends StatelessWidget {
             ),
             SizedBox(width: screenWidth * 0.03),
             Container(
-              color: Colors.blue,
-              width: screenWidth * 0.2,
+              width: screenWidth * 0.18,
               height: screenHeight * 0.06,
                 child: ElevatedButton(
                     child: Text(
                       "OK",
-                      style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                      style: TextStyle(fontSize: screenWidth * 0.05, fontWeight: FontWeight.bold),
                     ),
                     style: ElevatedButton.styleFrom(
                       primary: purpleButton,
