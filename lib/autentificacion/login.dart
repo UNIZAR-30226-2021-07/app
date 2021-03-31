@@ -44,7 +44,6 @@ class _LoginState extends State<Login> {
                   child: Column(
                     children: <Widget>[
                       Expanded(
-                          child: Container(
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: <Widget>[
@@ -54,7 +53,6 @@ class _LoginState extends State<Login> {
                                   )
                                 ),
                                 Expanded(
-                                  child: Container(
                                     child: Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
@@ -71,11 +69,9 @@ class _LoginState extends State<Login> {
                                         ),
                                       ],
                                     ),
-                                  ),
                                 ),
                                 Expanded(
                                   flex: 2,
-                                  child: Container(
                                     child: Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
@@ -87,8 +83,8 @@ class _LoginState extends State<Login> {
                                           child: TextFormField(
                                             decoration: InputDecoration(
                                               border: OutlineInputBorder(
-                                                  borderRadius: BorderRadius.circular(screenWidth * 0.03),
-                                                  borderSide: BorderSide(width: screenWidth * 0.03)
+                                                  borderRadius: BorderRadius.circular(10),
+                                                  borderSide: BorderSide(width: 2)
                                               ),
                                               hintText: 'Introduzca email',
                                               filled: true,
@@ -103,11 +99,9 @@ class _LoginState extends State<Login> {
                                         ),
                                       ],
                                     ),
-                                  ),
                                 ),
                               ],
                             ),
-                          )
                       ),
                       Expanded(
                             child: Column(
@@ -138,7 +132,6 @@ class _LoginState extends State<Login> {
                                 ),
                                 Expanded(
                                   flex: 2,
-                                  child: Container(
                                     child: Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
@@ -154,8 +147,8 @@ class _LoginState extends State<Login> {
                                             obscureText: true,
                                             decoration: InputDecoration(
                                               border: OutlineInputBorder(
-                                                  borderRadius: BorderRadius.circular(screenWidth * 0.03),
-                                                  borderSide: BorderSide(width: screenWidth * 0.03)),
+                                                  borderRadius: BorderRadius.circular(10),
+                                                  borderSide: BorderSide(width: 2)),
                                               hintText: 'Introduzca contraseña',
                                               filled: true,
                                               fillColor: Colors.white,
@@ -169,7 +162,6 @@ class _LoginState extends State<Login> {
                                         ),
                                       ],
                                     ),
-                                  ),
                                 ),
                               ],
                             ),
@@ -178,12 +170,10 @@ class _LoginState extends State<Login> {
                   ),
               ),
               Expanded(
-                  child: Container(
                     child: Column(
                       children: <Widget>[
                         Expanded(
                           flex: 2,
-                            child: Container(
                               child: Column(
                                 children: <Widget>[
                                   Expanded(
@@ -226,7 +216,6 @@ class _LoginState extends State<Login> {
                                   ),
                                 ],
                               ),
-                            )
                         ),
                         Expanded(
                           flex: 2,
@@ -288,7 +277,6 @@ class _LoginState extends State<Login> {
                         ),
                       ],
                     ),
-                  )
               ),
           ]
           ),
