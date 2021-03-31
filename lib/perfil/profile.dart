@@ -29,7 +29,6 @@ class MapScreenState extends State<ProfilePage>
     return new Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        toolbarHeight: MediaQuery.of(context).size.height * 0.075,
         backgroundColor: greenAppBar,
         title: const Text(
           'Mi perfil',
