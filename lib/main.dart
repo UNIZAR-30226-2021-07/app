@@ -34,7 +34,7 @@ class Landing extends StatelessWidget {
       if (success) {
         Navigator.pushReplacementNamed(context, '/home');
       } else {
-        Navigator.pushReplacementNamed(context, '/login');
+        Navigator.pushReplacementNamed(context, '/register');
       }
     });
 

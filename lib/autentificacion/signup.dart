@@ -66,13 +66,14 @@ class _SignupState extends State<Signup> {
                                           child: Text(
                                             'Nombre de usuario',
                                             style:
-                                            TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+                                            TextStyle(fontWeight: FontWeight.bold, fontSize: screenHeight * 0.03),
                                           ),
                                         ),
                                       ],
                                     ),
                                   ),
                                 ),
+                                //SizedBox(height: screenHeight * 0.01),
                                 Expanded(
                                   flex: 2,
                                   child: Container(
@@ -94,7 +95,6 @@ class _SignupState extends State<Signup> {
                                               filled: true,
                                               fillColor: Colors.white,
                                               isDense: true, // Added this
-                                              contentPadding: EdgeInsets.all(14),
                                             ),
                                           ),
                                         ),
@@ -130,7 +130,7 @@ class _SignupState extends State<Signup> {
                                     child: Text(
                                       'Contraseña',
                                       style:
-                                      TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+                                      TextStyle(fontWeight: FontWeight.bold, fontSize: screenHeight * 0.03),
                                     ),
                                   ),
                                 ],
@@ -160,7 +160,6 @@ class _SignupState extends State<Signup> {
                                           filled: true,
                                           fillColor: Colors.white,
                                           isDense: true, // Added this
-                                          contentPadding: EdgeInsets.all(14),
                                         ),
                                       ),
                                     ),
@@ -200,7 +199,7 @@ class _SignupState extends State<Signup> {
                                     child: Text(
                                       'Email',
                                       style:
-                                      TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+                                      TextStyle(fontWeight: FontWeight.bold, fontSize: screenHeight * 0.03),
                                     ),
                                   ),
                                 ],
@@ -228,7 +227,6 @@ class _SignupState extends State<Signup> {
                                         filled: true,
                                         fillColor: Colors.white,
                                         isDense: true, // Added this
-                                        contentPadding: EdgeInsets.all(14),
                                       ),
                                     ),
                                   ),
@@ -303,6 +301,7 @@ class _SignupState extends State<Signup> {
                                       child: SizedBox()
                                   ),
                                   Expanded(
+                                    flex: 2,
                                       child: Row(
                                           mainAxisAlignment: MainAxisAlignment.center,
                                           children: [
