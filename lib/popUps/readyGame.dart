@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 
-Color blackWords = Color(0xff000000);
-Color purpleButton = Color(0xff6A1B9A);
-Color whiteWords = Color(0xffffffff);
-
 class ReadyGame extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+
     Size screenSize = MediaQuery.of(context).size;
     double screenHeight = screenSize.height;
     double screenWidth = screenSize.width;
 
     return new AlertDialog(
       title: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           SizedBox(width: screenWidth * 0.04),
           Icon(
@@ -27,7 +25,7 @@ class ReadyGame extends StatelessWidget {
             style: TextStyle(
               fontSize: screenWidth * 0.05,
               fontWeight: FontWeight.bold,
-              color: blackWords,
+              color: Colors.black,
 
             ),
           ),
@@ -38,78 +36,96 @@ class ReadyGame extends StatelessWidget {
         style: TextStyle(
           fontSize: screenWidth * 0.04,
           fontWeight: FontWeight.normal,
-          color: blackWords,
+          color: Colors.black,
         ),
       ),
       actions: <Widget>[
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Container(
-              width: screenWidth * 0.18,
-              height: screenHeight * 0.06,
-                child: ElevatedButton(
-                    child: Icon(
-                      Icons.content_paste,
-                      color: Colors.white,
-                      size: screenWidth * 0.08,
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      primary: purpleButton,
-                      onPrimary: whiteWords,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0),
-                      ),
-                      shadowColor: blackWords,
-                      side: BorderSide(color: whiteWords, width: 2),
-                    ),
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    }
-                ),
-            ),
-            SizedBox(width: screenWidth * 0.03),
-            Container(
-              width: screenWidth * 0.25,
-              height: screenHeight * 0.06,
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey,
-                ),
-                  borderRadius: BorderRadius.circular(10.0)
+        SizedBox(
+          width: screenWidth,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Expanded(
+                  child: SizedBox()
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text('4567',
-                    style: TextStyle(fontSize: screenWidth * 0.06, fontWeight: FontWeight.bold)
+              Expanded(
+                flex: 4,
+                child: Container(
+                    child: ElevatedButton(
+                        child: Icon(
+                          Icons.content_paste,
+                          color: Colors.white,
+                          size: screenWidth * 0.08,
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          primary: Color(0xff6A1B9A),
+                          onPrimary: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                          ),
+                          shadowColor: Colors.black,
+                          side: BorderSide(color: Colors.white, width: 2),
+                        ),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        }
+                    ),
+                ),
+              ),
+              Expanded(
+                  child: SizedBox()
+              ),
+              Expanded(
+                flex: 4,
+                child: Container(
+                  width: screenWidth * 0.25,
+                  height: screenHeight * 0.06,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey,
+                    ),
+                      borderRadius: BorderRadius.circular(10.0)
                   ),
-                ],
-              ),
-            ),
-            SizedBox(width: screenWidth * 0.03),
-            Container(
-              width: screenWidth * 0.18,
-              height: screenHeight * 0.06,
-                child: ElevatedButton(
-                    child: Text(
-                      "OK",
-                      style: TextStyle(fontSize: screenWidth * 0.05, fontWeight: FontWeight.bold),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      primary: purpleButton,
-                      onPrimary: whiteWords,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('4567',
+                        style: TextStyle(fontSize: screenWidth * 0.05, fontWeight: FontWeight.bold)
                       ),
-                      shadowColor: blackWords,
-                      side: BorderSide(color: whiteWords, width: 2),
-                    ),
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    }
+                    ],
+                  ),
                 ),
-            ),
-          ],
+              ),
+              Expanded(
+                  child: SizedBox()
+              ),
+              Expanded(
+                flex: 4,
+                child: Container(
+                    child: ElevatedButton(
+                        child: Text(
+                          "OK",
+                          style: TextStyle(fontSize: screenWidth * 0.05, fontWeight: FontWeight.bold),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          primary: Color(0xff6A1B9A),
+                          onPrimary: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                          ),
+                          shadowColor: Colors.black,
+                          side: BorderSide(color: Colors.white, width: 2),
+                        ),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        }
+                    ),
+                ),
+              ),
+              Expanded(
+                  child: SizedBox()
+              ),
+            ],
+          ),
         ),
       ],
     );

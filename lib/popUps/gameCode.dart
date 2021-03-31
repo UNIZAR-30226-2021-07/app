@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-Color blackWords = Color(0xff000000);
-Color purpleButton = Color(0xff6A1B9A);
-Color whiteWords = Color(0xffffffff);
 
 class GameCode extends StatelessWidget {
   // This widget is the root of your application.
@@ -16,6 +13,7 @@ class GameCode extends StatelessWidget {
 
     return new AlertDialog(
       title: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           SizedBox(width: screenWidth * 0.04),
           Icon(
@@ -29,8 +27,7 @@ class GameCode extends StatelessWidget {
             style: TextStyle(
               fontSize: screenWidth * 0.06,
               fontWeight: FontWeight.bold,
-              color: blackWords,
-
+              color: Colors.black,
             ),
           ),
         ],
@@ -40,55 +37,67 @@ class GameCode extends StatelessWidget {
         style: TextStyle(
           fontSize: screenWidth * 0.04,
           fontWeight: FontWeight.normal,
-          color: blackWords,
-
+          color: Colors.black,
         ),
       ),
       actions: <Widget>[
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            Container(
-              width: screenWidth * 0.25,
-              height: screenHeight * 0.06,
-              child: TextFormField(
-                keyboardType: TextInputType.number,
-                inputFormatters: <TextInputFormatter>[
-                  WhitelistingTextInputFormatter.digitsOnly],
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide(width: screenWidth * 0.04 )),
-                  hintText: 'Código',
-                  isDense: true, // Added this,
+        SizedBox(
+          width: screenWidth,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Expanded(
+                  child: SizedBox()
+              ),
+              Expanded(
+                flex: 4,
+                child: Container(
+                  height: screenHeight * 0.06,
+                  child: TextFormField(
+                    keyboardType: TextInputType.number,
+                    inputFormatters: <TextInputFormatter>[
+                      WhitelistingTextInputFormatter.digitsOnly],
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(width: screenWidth * 0.04 )),
+                      hintText: 'Código',
+                      isDense: true, // Added this,
+                    ),
+                  ),
                 ),
               ),
-            ),
-            SizedBox(width: screenWidth * 0.1),
-            Container(
-              width: screenWidth * 0.25,
-              height: screenHeight * 0.06,
-                child: ElevatedButton(
-                    child: Text(
-                      "OK",
-                      style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+              Expanded(
+                  child: SizedBox()
+              ),
+              Expanded(
+                flex: 3,
+                child: Container(
+                    child: ElevatedButton(
+                        child: Text(
+                          "OK",
+                          style: TextStyle(fontSize: screenWidth * 0.05, fontWeight: FontWeight.bold),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          primary: Color(0xff6A1B9A),
+                          onPrimary: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.0),
+                          ),
+                          shadowColor: Colors.black,
+                          side: BorderSide(color: Colors.white, width: 2),
+                        ),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        }
                     ),
-                    style: ElevatedButton.styleFrom(
-                      primary: purpleButton,
-                      onPrimary: whiteWords,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0),
-                      ),
-                      shadowColor: blackWords,
-                      side: BorderSide(color: whiteWords, width: 2),
-                    ),
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    }
                 ),
-            ),
-            SizedBox(width: screenWidth * 0.07)
-          ],
+              ),
+              Expanded(
+                  child: SizedBox()
+              ),
+            ],
+          ),
         ),
       ],
     );
