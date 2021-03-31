@@ -258,6 +258,7 @@ class _LoginState extends State<Login> {
                                                     minimumSize: Size(double.infinity, screenHeight * 0.06)),
                                                 child: Text(
                                                   "Crear una cuenta",
+                                                  textAlign: TextAlign.center,
                                                   style: TextStyle(
                                                       fontWeight: FontWeight.bold, fontSize: screenHeight * 0.03),
                                                 )
