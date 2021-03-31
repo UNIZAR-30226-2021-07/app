@@ -45,7 +45,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                   radius: screenHeight * 0.04,
                                   child: TextButton(
                                       onPressed: () {
-                                        Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()));
+                                        Navigator.pushReplacementNamed(context, '/profile');
                                       }
                                   ),
                                 ),
@@ -60,7 +60,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                     children: <Widget>[
                                       IconButton(
                                           onPressed: () {
-                                            //TODO: navegar a pantalla tienda
+                                            Navigator.pushNamed(context, '/boardStore');
                                           },
                                           icon: Icon(Icons.storefront),
                                           iconSize: screenHeight * 0.08

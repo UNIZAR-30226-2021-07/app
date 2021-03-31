@@ -193,7 +193,7 @@ class _LoginState extends State<Login> {
                                                 flex: 6,
                                                 child: ElevatedButton(
                                                     onPressed: () {
-                                                      // NOTE: esto es temporal
+                                                      // TODO: comprobacion inicio sesion
                                                       Navigator.pushReplacementNamed(context, '/home');
                                                     },
                                                     style: ElevatedButton.styleFrom(

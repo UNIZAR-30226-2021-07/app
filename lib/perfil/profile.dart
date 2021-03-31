@@ -117,7 +117,7 @@ class MapScreenState extends State<ProfilePage>
                                   minimumSize: Size(MediaQuery.of(context).size.width * 0.4, MediaQuery.of(context).size.height * 0.05),
                                 ),
                                 onPressed: () {
-                                  Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileConf()));
+                                  Navigator.pushNamed(context, '/profile_edit');
                                 }),
                           ],
                         ),
@@ -265,7 +265,7 @@ class MapScreenState extends State<ProfilePage>
                                   minimumSize: Size(MediaQuery.of(context).size.width * 0.6, MediaQuery.of(context).size.height * 0.065),
                                 ),
                                 onPressed: () {
-                                  Navigator.push(context, MaterialPageRoute(builder: (context) => ChatScreen()));
+                                  Navigator.pushReplacementNamed(context, '/login');
                                   // TODO: Log-out
                                 }),
                           ],
