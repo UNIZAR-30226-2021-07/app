@@ -29,7 +29,6 @@ class MapScreenState extends State<ProfilePage>
     return new Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        toolbarHeight: MediaQuery.of(context).size.height * 0.075,
         backgroundColor: greenAppBar,
         title: const Text(
           'Mi perfil',
@@ -57,7 +56,7 @@ class MapScreenState extends State<ProfilePage>
         child: new Column(
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.05),
+                  padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.04),
                   child: new Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -98,7 +97,7 @@ class MapScreenState extends State<ProfilePage>
                       ],
                     )),
                 Padding(
-                    padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.025),
+                    padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.02),
                     child: new Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
@@ -125,7 +124,7 @@ class MapScreenState extends State<ProfilePage>
                       ],
                     )),
                 Padding(
-                    padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.02),
+                    padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.015),
                     child: new Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[

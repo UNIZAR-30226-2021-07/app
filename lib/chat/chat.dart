@@ -154,7 +154,6 @@ class _ChatScreenState extends State<ChatScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        toolbarHeight: MediaQuery.of(context).size.height * 0.075,
         backgroundColor: greenAppBar,
         title: const Text(
           'Chat',
