@@ -15,6 +15,7 @@ class _LoginState extends State<Login> {
     double screenWidth = screenSize.width;
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: Color(0xFF64DD17),
         title: Text(
