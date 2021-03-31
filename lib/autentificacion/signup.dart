@@ -14,7 +14,6 @@ class _SignupState extends State<Signup> {
     double screenWidth = screenSize.width;
 
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: Color(0xFF64DD17),
         title: Text(
@@ -40,7 +39,7 @@ class _SignupState extends State<Signup> {
           child: SingleChildScrollView(
             child: ConstrainedBox(
               constraints: BoxConstraints(
-                maxHeight: MediaQuery.of(context).size.height,
+                maxHeight: MediaQuery.of(context).size.height - AppBar().preferredSize.height,
               ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -63,7 +62,7 @@ class _SignupState extends State<Signup> {
                                       child: Container(
                                         child: Row(
                                           mainAxisAlignment: MainAxisAlignment.start,
-                                          children: [
+                                          children: <Widget>[
                                             Expanded(
                                                 child: SizedBox()
                                             ),
@@ -94,8 +93,8 @@ class _SignupState extends State<Signup> {
                                               child: TextFormField(
                                                 decoration: InputDecoration(
                                                   border: OutlineInputBorder(
-                                                      borderRadius: BorderRadius.circular(screenWidth * 0.03),
-                                                      borderSide: BorderSide(width: screenWidth * 0.03)
+                                                      borderRadius: BorderRadius.circular(10),
+                                                      borderSide: BorderSide(width: 2)
                                                   ),
                                                   hintText: 'Introduzca nombre de usuario',
                                                   filled: true,
@@ -160,8 +159,8 @@ class _SignupState extends State<Signup> {
                                             obscureText: true,
                                             decoration: InputDecoration(
                                               border: OutlineInputBorder(
-                                                  borderRadius: BorderRadius.circular(screenWidth * 0.03),
-                                                  borderSide: BorderSide(width: screenWidth * 0.03)),
+                                                  borderRadius: BorderRadius.circular(10),
+                                                  borderSide: BorderSide(width: 2)),
                                               hintText: 'Introduzca contraseña',
                                               filled: true,
                                               fillColor: Colors.white,
@@ -226,8 +225,8 @@ class _SignupState extends State<Signup> {
                                         child: TextFormField(
                                           decoration: InputDecoration(
                                             border: OutlineInputBorder(
-                                                borderRadius: BorderRadius.circular(screenWidth * 0.03),
-                                                borderSide: BorderSide(width: screenWidth * 0.03)
+                                                borderRadius: BorderRadius.circular(10),
+                                                borderSide: BorderSide(width: 2)
                                             ),
                                             hintText: 'Introduzca email',
                                             filled: true,
