@@ -88,8 +88,11 @@ class _LoginState extends State<Login> {
                                             decoration: InputDecoration(
                                               border: OutlineInputBorder(
                                                   borderRadius: BorderRadius.circular(screenWidth * 0.03),
-                                                  borderSide: BorderSide(width: screenWidth * 0.03)),
+                                                  borderSide: BorderSide(width: screenWidth * 0.03)
+                                              ),
                                               hintText: 'Introduzca email',
+                                              filled: true,
+                                              fillColor: Colors.white,
                                               isDense: true, // Added this
                                               contentPadding: EdgeInsets.all(14),
                                             ),
@@ -154,6 +157,8 @@ class _LoginState extends State<Login> {
                                                   borderRadius: BorderRadius.circular(screenWidth * 0.03),
                                                   borderSide: BorderSide(width: screenWidth * 0.03)),
                                               hintText: 'Introduzca contraseña',
+                                              filled: true,
+                                              fillColor: Colors.white,
                                               isDense: true, // Added this
                                               contentPadding: EdgeInsets.all(14),
                                             ),
