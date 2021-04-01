@@ -136,10 +136,9 @@ class _ChatScreenState extends State<ChatScreen> {
               iconSize: MediaQuery.of(context).size.width * 0.075,
               color: blackWords,
                 onPressed: () {
-                  scrollControl.jumpTo(scrollControl.position.maxScrollExtent);
                   if (messageToSend.text.isNotEmpty) {
                     setState(() {
-                      messages.add(Message(
+                      messages.insert(0,Message(
                         sender: currentUser,
                         text: messageToSend.text,
                       ));
@@ -156,6 +155,7 @@ class _ChatScreenState extends State<ChatScreen> {
   _listMessagesLayout() {
     int prevUserId = -1;
     ListView ret = ListView.builder(
+      reverse: true,
       padding: EdgeInsets.all(MediaQuery
           .of(context)
           .size
@@ -171,13 +171,6 @@ class _ChatScreenState extends State<ChatScreen> {
       },
     );
     return ret;
-  }
-  _setBottom(){
-    scrollControl.jumpTo(scrollControl.position.maxScrollExtent);
-    return Container(
-      width: 0.0,
-      height: 0.0,
-    );
   }
 
   @override
