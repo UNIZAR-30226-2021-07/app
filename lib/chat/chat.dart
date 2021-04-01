@@ -43,6 +43,7 @@ class _ChatScreenState extends State<ChatScreen> {
               ),
               child: Text(
                 message.text,
+                textAlign:TextAlign.right,
                 style: TextStyle(
                   fontWeight: FontWeight.normal,
                   color: blackWords,
@@ -73,6 +74,7 @@ class _ChatScreenState extends State<ChatScreen> {
               ),
               child: Text(
                 message.text,
+                textAlign:TextAlign.left,
                 style: TextStyle(
                   fontWeight: FontWeight.normal,
                   color: blackWords,
@@ -111,7 +113,7 @@ class _ChatScreenState extends State<ChatScreen> {
           child: Row(
             children: <Widget>[
               ConstrainedBox(
-                constraints: BoxConstraints.tight(Size(MediaQuery.of(context).size.width * 0.75, MediaQuery.of(context).size.height * 0.06)),
+                constraints: BoxConstraints.tight(Size(MediaQuery.of(context).size.width * 0.75, MediaQuery.of(context).size.height * 0.09)),
                 child: TextFormField(
                   controller: messageToSend,
                   decoration: InputDecoration(
