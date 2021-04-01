@@ -14,7 +14,7 @@ class Message {
 List<Message> messages = [
   Message(
     sender: juancarlos,
-    text: 'Lo siento mucho. Me he equivocado. No volverá a ocurrir',
+    text: 'Lo siento mucho. Me he equivocado. No volverá a ocurrir, esto tiene que ser un mensaje tajo de largo',
   ),
   Message(
     sender: cris,

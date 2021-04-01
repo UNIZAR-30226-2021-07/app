@@ -13,6 +13,7 @@ Color greenChat = Color(0xffDCF8C6);
 class ChatScreen extends StatefulWidget {
   ChatScreen();
 
+
   @override
   _ChatScreenState createState() => _ChatScreenState();
 }
@@ -20,6 +21,7 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
 
   final messageToSend = TextEditingController();
+  final scrollControl = new ScrollController();
 
   _listMessages(Message message, bool isMe, bool isSameUser) {
     if (isMe) {
@@ -72,31 +74,27 @@ class _ChatScreenState extends State<ChatScreen> {
                   ),
                 ],
               ),
-              child: Text(
-                message.text,
+              child: RichText(
                 textAlign:TextAlign.left,
-                style: TextStyle(
-                  fontWeight: FontWeight.normal,
-                  color: blackWords,
-                ),
-              ),
-            ),
-          ),
-          !isSameUser
-              ? Row(
-                  children: <Widget>[
-                    Container(child: Text(message.sender.name,
+                text: TextSpan(
+                  text: message.sender.name + ": ",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: blackWords,
+                  ),
+                  children: [
+                    TextSpan(
+                      text: message.text,
                       style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.normal,
                         color: blackWords,
                       ),
-                    )
                     ),
                   ],
-                )
-              : Container(
-                  child: null,
                 ),
+              ),
+            )
+          ),
         ],
       );
     }
@@ -138,6 +136,7 @@ class _ChatScreenState extends State<ChatScreen> {
               iconSize: MediaQuery.of(context).size.width * 0.075,
               color: blackWords,
                 onPressed: () {
+                  scrollControl.jumpTo(scrollControl.position.maxScrollExtent);
                   if (messageToSend.text.isNotEmpty) {
                     setState(() {
                       messages.add(Message(
@@ -154,9 +153,32 @@ class _ChatScreenState extends State<ChatScreen> {
       ),
     );
   }
-
-
-
+  _listMessagesLayout() {
+    int prevUserId = -1;
+    ListView ret = ListView.builder(
+      padding: EdgeInsets.all(MediaQuery
+          .of(context)
+          .size
+          .height * 0.025),
+      controller: scrollControl,
+      itemCount: messages.length,
+      itemBuilder: (BuildContext context, int index) {
+        final Message message = messages[index];
+        final bool isMe = message.sender.id == currentUser.id;
+        final bool isSameUser = prevUserId == message.sender.id;
+        prevUserId = message.sender.id;
+        return _listMessages(message, isMe, isSameUser);
+      },
+    );
+    return ret;
+  }
+  _setBottom(){
+    scrollControl.jumpTo(scrollControl.position.maxScrollExtent);
+    return Container(
+      width: 0.0,
+      height: 0.0,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -191,17 +213,7 @@ class _ChatScreenState extends State<ChatScreen> {
         child: Column(
           children: <Widget>[
             Expanded(
-              child: ListView.builder(
-                padding: EdgeInsets.all(MediaQuery.of(context).size.height *0.025),
-                itemCount: messages.length,
-                itemBuilder: (BuildContext context, int index) {
-                  final Message message = messages[index];
-                  final bool isMe = message.sender.id == currentUser.id;
-                  final bool isSameUser = prevUserId == message.sender.id;
-                  prevUserId = message.sender.id;
-                  return _listMessages(message, isMe, isSameUser);
-                },
-              ),
+              child: _listMessagesLayout(),
             ),
             _sendMessageArea(),
           ],
