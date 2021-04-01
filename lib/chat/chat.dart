@@ -13,11 +13,16 @@ Color greenChat = Color(0xffDCF8C6);
 class ChatScreen extends StatefulWidget {
   ChatScreen();
 
+
   @override
   _ChatScreenState createState() => _ChatScreenState();
 }
 
 class _ChatScreenState extends State<ChatScreen> {
+
+  final messageToSend = TextEditingController();
+  final scrollControl = new ScrollController();
+
   _listMessages(Message message, bool isMe, bool isSameUser) {
     if (isMe) {
       return Column(
@@ -40,6 +45,7 @@ class _ChatScreenState extends State<ChatScreen> {
               ),
               child: Text(
                 message.text,
+                textAlign:TextAlign.right,
                 style: TextStyle(
                   fontWeight: FontWeight.normal,
                   color: blackWords,
@@ -68,37 +74,33 @@ class _ChatScreenState extends State<ChatScreen> {
                   ),
                 ],
               ),
-              child: Text(
-                message.text,
-                style: TextStyle(
-                  fontWeight: FontWeight.normal,
-                  color: blackWords,
-                ),
-              ),
-            ),
-          ),
-          !isSameUser
-              ? Row(
-                  children: <Widget>[
-                    Container(child: Text(message.sender.name,
+              child: RichText(
+                textAlign:TextAlign.left,
+                text: TextSpan(
+                  text: message.sender.name + ": ",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: blackWords,
+                  ),
+                  children: [
+                    TextSpan(
+                      text: message.text,
                       style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.normal,
                         color: blackWords,
                       ),
-                    )
                     ),
                   ],
-                )
-              : Container(
-                  child: null,
                 ),
+              ),
+            )
+          ),
         ],
       );
     }
   }
 
   _sendMessageArea() {
-    final messageToSend = TextEditingController();
     return Container(
         child: Padding(
           padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.05,
@@ -109,44 +111,67 @@ class _ChatScreenState extends State<ChatScreen> {
           child: Row(
             children: <Widget>[
               ConstrainedBox(
-                constraints: BoxConstraints.tight(Size(MediaQuery.of(context).size.width * 0.75, MediaQuery.of(context).size.height * 0.06)),
+                constraints: BoxConstraints.tight(Size(MediaQuery.of(context).size.width * 0.75, MediaQuery.of(context).size.height * 0.09)),
                 child: TextFormField(
                   controller: messageToSend,
                   decoration: InputDecoration(
-                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                      borderSide: BorderSide(width: 1.0)
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                          borderSide: BorderSide(width: 1.0)),
+                      hintText: 'Escribir mensaje...',
+                      isDense: true,
+                      fillColor: whiteWords,
+                      filled: true
                   ),
-                  hintText: 'Escribir mensaje...',
-                  isDense: true,
-                  fillColor: whiteWords,
-                  filled: true
+                  style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.height * 0.022,
+                    fontWeight: FontWeight.normal,
+                    color: blackWords,
+                  ),
                 ),
               ),
-            ),
 
             IconButton(
               icon: Icon(Icons.send),
               iconSize: MediaQuery.of(context).size.width * 0.075,
               color: blackWords,
-              onPressed: () { // Faltaria hacer que lo muestre por pantalla pero eso para el siguiente sprint
-                if (messageToSend.text.isNotEmpty) {
-                  messages.add(Message(
-                    sender: currentUser,
-                    text: messageToSend.text,
-                  ));
+                onPressed: () {
+                  if (messageToSend.text.isNotEmpty) {
+                    setState(() {
+                      messages.insert(0,Message(
+                        sender: currentUser,
+                        text: messageToSend.text,
+                      ));
+                    });
+                  }
+                  messageToSend.text = '';
                 }
-                messageToSend.text = '';
-              }
             ),
           ],
         ),
       ),
     );
   }
-
-
-
+  _listMessagesLayout() {
+    int prevUserId = -1;
+    ListView ret = ListView.builder(
+      reverse: true,
+      padding: EdgeInsets.all(MediaQuery
+          .of(context)
+          .size
+          .height * 0.025),
+      controller: scrollControl,
+      itemCount: messages.length,
+      itemBuilder: (BuildContext context, int index) {
+        final Message message = messages[index];
+        final bool isMe = message.sender.id == currentUser.id;
+        final bool isSameUser = prevUserId == message.sender.id;
+        prevUserId = message.sender.id;
+        return _listMessages(message, isMe, isSameUser);
+      },
+    );
+    return ret;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -181,18 +206,7 @@ class _ChatScreenState extends State<ChatScreen> {
         child: Column(
           children: <Widget>[
             Expanded(
-              child: ListView.builder(
-                reverse: true,
-                padding: EdgeInsets.all(MediaQuery.of(context).size.height *0.025),
-                itemCount: messages.length,
-                itemBuilder: (BuildContext context, int index) {
-                  final Message message = messages[index];
-                  final bool isMe = message.sender.id == currentUser.id;
-                  final bool isSameUser = prevUserId == message.sender.id;
-                  prevUserId = message.sender.id;
-                  return _listMessages(message, isMe, isSameUser);
-                },
-              ),
+              child: _listMessagesLayout(),
             ),
             _sendMessageArea(),
           ],
