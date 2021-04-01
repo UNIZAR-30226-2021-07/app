@@ -18,6 +18,9 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
+
+  final messageToSend = TextEditingController();
+
   _listMessages(Message message, bool isMe, bool isSameUser) {
     if (isMe) {
       return Column(
@@ -98,7 +101,6 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 
   _sendMessageArea() {
-    final messageToSend = TextEditingController();
     return Container(
         child: Padding(
           padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.05,
@@ -113,31 +115,37 @@ class _ChatScreenState extends State<ChatScreen> {
                 child: TextFormField(
                   controller: messageToSend,
                   decoration: InputDecoration(
-                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                      borderSide: BorderSide(width: 1.0)
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                          borderSide: BorderSide(width: 1.0)),
+                      hintText: 'Escribir mensaje...',
+                      isDense: true,
+                      fillColor: whiteWords,
+                      filled: true
                   ),
-                  hintText: 'Escribir mensaje...',
-                  isDense: true,
-                  fillColor: whiteWords,
-                  filled: true
+                  style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.height * 0.022,
+                    fontWeight: FontWeight.normal,
+                    color: blackWords,
+                  ),
                 ),
               ),
-            ),
 
             IconButton(
               icon: Icon(Icons.send),
               iconSize: MediaQuery.of(context).size.width * 0.075,
               color: blackWords,
-              onPressed: () { // Faltaria hacer que lo muestre por pantalla pero eso para el siguiente sprint
-                if (messageToSend.text.isNotEmpty) {
-                  messages.add(Message(
-                    sender: currentUser,
-                    text: messageToSend.text,
-                  ));
+                onPressed: () {
+                  if (messageToSend.text.isNotEmpty) {
+                    setState(() {
+                      messages.add(Message(
+                        sender: currentUser,
+                        text: messageToSend.text,
+                      ));
+                    });
+                  }
+                  messageToSend.text = '';
                 }
-                messageToSend.text = '';
-              }
             ),
           ],
         ),
@@ -182,7 +190,6 @@ class _ChatScreenState extends State<ChatScreen> {
           children: <Widget>[
             Expanded(
               child: ListView.builder(
-                reverse: true,
                 padding: EdgeInsets.all(MediaQuery.of(context).size.height *0.025),
                 itemCount: messages.length,
                 itemBuilder: (BuildContext context, int index) {
