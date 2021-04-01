@@ -41,7 +41,7 @@ class MapScreenState extends State<ProfilePage>
             icon: Icon(Icons.arrow_back_rounded),
             color: blackWords,
             onPressed: () {
-              Navigator.pop(context);
+              Navigator.pushReplacementNamed(context, '/home');
             }),
       ),
       body: new Container(

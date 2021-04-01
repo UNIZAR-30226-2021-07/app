@@ -6,8 +6,8 @@ import 'package:gatovidapp/perfil/profileConf.dart';
 import 'package:gatovidapp/partidas/menu.dart';
 import 'package:gatovidapp/partidas/cardBoard.dart';
 import 'package:gatovidapp/partidas/rules.dart';
-import 'package:gatovidapp/tienda/boardColorStore.dart';
-import 'package:gatovidapp/tienda/profilePicturesStore.dart';
+import 'package:gatovidapp/tienda/boardStore.dart';
+import 'package:gatovidapp/tienda/avatarStore.dart';
 import 'package:gatovidapp/chat/chat.dart';
 
 
@@ -25,7 +25,7 @@ void main() => runApp(
           '/rules' : (context) => Rules(),
           '/board' : (context) => CardBoard(),
           '/boardStore' : (context) => BoardStore(),
-          '/picturesStore' : (context) => PicturesStore(),
+          '/avatarStore' : (context) => PicturesStore(),
           '/chat' : (context) => ChatScreen(),
         },
       ),

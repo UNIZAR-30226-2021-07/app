@@ -44,7 +44,7 @@ class StartGame extends StatelessWidget {
               side: BorderSide(color: whiteWords, width: 2),
             ),
             onPressed: () {
-              Navigator.of(context).pop();
+              Navigator.pushReplacementNamed(context, '/board');
             }),
       ],
     );

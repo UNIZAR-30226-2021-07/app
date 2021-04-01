@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gatovidapp/popUps/startGame.dart';
 
 class ReadyGame extends StatelessWidget {
   // This widget is the root of your application.
@@ -117,6 +118,10 @@ class ReadyGame extends StatelessWidget {
                         ),
                         onPressed: () {
                           Navigator.of(context).pop();
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) => StartGame(),
+                          );
                         }
                     ),
                 ),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-
 class GameCode extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -89,6 +88,7 @@ class GameCode extends StatelessWidget {
                         ),
                         onPressed: () {
                           Navigator.of(context).pop();
+                          Navigator.pushNamed(context, '/board');
                         }
                     ),
                 ),

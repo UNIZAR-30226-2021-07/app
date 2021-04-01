@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gatovidapp/popUps/deleteAccount.dart';
 import 'package:gatovidapp/popUps/loadingGame.dart';
 import 'package:gatovidapp/popUps/startGame.dart';
-import 'package:gatovidapp/popUps/Error.dart';
+import 'package:gatovidapp/popUps/error.dart';
 
 // Colors to use
 
@@ -98,10 +98,7 @@ class MapScreenState extends State<ProfileConf>
                                     )
                                   ),
                                   onPressed: () {
-                                    showDialog(
-                                      context: context,
-                                      builder: (BuildContext context) => ErrorPopup(),
-                                    );
+                                    Navigator.pushNamed(context, '/avatarStore');
                                   },
                                 ),
                             ],
@@ -232,11 +229,7 @@ class MapScreenState extends State<ProfileConf>
                                           minimumSize: Size(MediaQuery.of(context).size.width * 0.005, MediaQuery.of(context).size.height * 0.05),
                                         ),
                                         onPressed: () {
-                                          showDialog(
-                                            context: context,
-                                            builder: (BuildContext context) => StartGame(),
-                                          );
-                                          // TODO: Change table
+                                          Navigator.pushNamed(context, '/boardStore');
                                         }
                                     ),
                                   )
@@ -272,6 +265,7 @@ class MapScreenState extends State<ProfileConf>
                                   minimumSize: Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.065),
                                 ),
                                 onPressed: () {
+                                  Navigator.pop(context);
                                   // TODO: Save changes
                                 }),
                           ],

@@ -273,7 +273,7 @@ class _SignupState extends State<Signup> {
                                                     flex: 6,
                                                     child: ElevatedButton(
                                                         onPressed: () {
-                                                          // NOTE: esto es temporal
+                                                          // TODO: comprobacion registro
                                                           Navigator.pushReplacementNamed(context, '/home');
                                                         },
                                                         style: ElevatedButton.styleFrom(
@@ -332,7 +332,7 @@ class _SignupState extends State<Signup> {
                                                     flex: 2,
                                                     child: ElevatedButton(
                                                         onPressed: () {
-                                                          Navigator.pushNamed(context, '/login');
+                                                          Navigator.pushReplacementNamed(context, '/login');
                                                         },
                                                         style: ElevatedButton.styleFrom(
                                                             primary: Color(0xFF9C4DCC),

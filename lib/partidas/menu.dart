@@ -97,9 +97,7 @@ class _GamesMenuState extends State<GamesMenu> {
                       children: [
                         Expanded(
                           flex: 6,
-                          child: Image.asset(
-                            'assets/images/logo.png',
-                          ),
+                          child: Image.asset('assets/common/logo/logo.png'),
                         ),
                         Expanded (
                           child: Text('GATOVID',
