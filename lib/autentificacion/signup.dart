@@ -274,7 +274,7 @@ class _SignupState extends State<Signup> {
                                                     child: ElevatedButton(
                                                         onPressed: () {
                                                           // TODO: comprobacion registro
-                                                          Navigator.pushReplacementNamed(context, '/home');
+                                                          Navigator.of(context).pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
                                                         },
                                                         style: ElevatedButton.styleFrom(
                                                             primary: Color(0xFF6A1B9A),
