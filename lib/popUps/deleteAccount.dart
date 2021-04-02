@@ -41,6 +41,7 @@ class DeleteAccount extends StatelessWidget {
                 Navigator.of(context).pop();
                 //TODO: Delete account
                 showDialog(
+                  barrierDismissible: false,
                   context: context,
                   builder: (BuildContext context) => ErrorPopup(),
                 );

@@ -299,6 +299,7 @@ class MapScreenState extends State<ProfileConf>
                                   ),
                                   onPressed: () {
                                     showDialog(
+                                      barrierDismissible: false,
                                       context: context,
                                       builder: (BuildContext context) => DeleteAccount(),
                                     );

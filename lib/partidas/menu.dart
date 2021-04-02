@@ -45,7 +45,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                   radius: screenHeight * 0.04,
                                   child: TextButton(
                                       onPressed: () {
-                                        Navigator.pushReplacementNamed(context, '/profile');
+                                        Navigator.pushNamed(context, '/profile');
                                       }
                                   ),
                                 ),
@@ -132,8 +132,8 @@ class _GamesMenuState extends State<GamesMenu> {
                                   flex: 8,
                                 child: ElevatedButton(
                                     onPressed: () {
-                                      //TODO: navegacion
                                       showDialog(
+                                        barrierDismissible: false,
                                         context: context,
                                         builder: (BuildContext context) => ReadyGame(),
                                       );
@@ -169,8 +169,8 @@ class _GamesMenuState extends State<GamesMenu> {
                                 flex: 8,
                                 child: ElevatedButton(
                                     onPressed: () {
-                                      //TODO: navegacion
                                       showDialog(
+                                        barrierDismissible: false,
                                         context: context,
                                         builder: (BuildContext context) => GameCode(),
                                       );
@@ -206,7 +206,10 @@ class _GamesMenuState extends State<GamesMenu> {
                                 flex: 8,
                                 child: ElevatedButton(
                                     onPressed: () {
+                                      //TODO: unirse partida pública
+                                      //y mostrar dialog alert hasta que se cargue pantalla tablero
                                       showDialog(
+                                        barrierDismissible: false,
                                         context: context,
                                         builder: (BuildContext context) => LoadingGame(),
                                       );

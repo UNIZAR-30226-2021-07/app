@@ -8,45 +8,48 @@ class StartGame extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return new AlertDialog(
-      title: Text('¿Empezar partida?',
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: MediaQuery.of(context).size.width * 0.06,
-          fontWeight: FontWeight.bold,
-          color: blackWords,
+    return WillPopScope(
+        onWillPop: () async => false,
+        child: AlertDialog(
+          title: Text('¿Empezar partida?',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: MediaQuery.of(context).size.width * 0.06,
+              fontWeight: FontWeight.bold,
+              color: blackWords,
 
-        ),
-      ),
-      content: Text('Esperando a tus amigos gaticos para jugar. Tú decides cuándo empezar. ',
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: MediaQuery.of(context).size.width * 0.04,
-          fontWeight: FontWeight.normal,
-          color: blackWords,
+            ),
+          ),
+          content: Text('Esperando a tus amigos gaticos para jugar. Tú decides cuándo empezar. ',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: MediaQuery.of(context).size.width * 0.04,
+              fontWeight: FontWeight.normal,
+              color: blackWords,
 
-        ),
-      ),
-      actions: <Widget>[
-        new ElevatedButton(
-            child: const Text(
-              "Empezar Partida",
-              style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
             ),
-            style: ElevatedButton.styleFrom(
-              primary: purpleButton,
-              onPrimary: whiteWords,
-              shape: new RoundedRectangleBorder(
-                borderRadius: new BorderRadius.circular(30.0),
-              ),
-              minimumSize: Size(MediaQuery.of(context).size.width, MediaQuery.of(context).size.height * 0.075),
-              shadowColor: blackWords,
-              side: BorderSide(color: whiteWords, width: 2),
-            ),
-            onPressed: () {
-              Navigator.pushReplacementNamed(context, '/board');
-            }),
-      ],
+          ),
+          actions: <Widget>[
+            new ElevatedButton(
+                child: const Text(
+                  "Empezar Partida",
+                  style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                ),
+                style: ElevatedButton.styleFrom(
+                  primary: purpleButton,
+                  onPrimary: whiteWords,
+                  shape: new RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(30.0),
+                  ),
+                  minimumSize: Size(MediaQuery.of(context).size.width, MediaQuery.of(context).size.height * 0.075),
+                  shadowColor: blackWords,
+                  side: BorderSide(color: whiteWords, width: 2),
+                ),
+                onPressed: () {
+                  Navigator.pushReplacementNamed(context, '/board');
+                }),
+          ],
+        )
     );
   }
 }

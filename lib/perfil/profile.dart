@@ -41,7 +41,7 @@ class MapScreenState extends State<ProfilePage>
             icon: Icon(Icons.arrow_back_rounded),
             color: blackWords,
             onPressed: () {
-              Navigator.pushReplacementNamed(context, '/home');
+              Navigator.pop(context);
             }),
       ),
       body: new Container(
@@ -265,7 +265,7 @@ class MapScreenState extends State<ProfilePage>
                                   minimumSize: Size(MediaQuery.of(context).size.width * 0.6, MediaQuery.of(context).size.height * 0.065),
                                 ),
                                 onPressed: () {
-                                  Navigator.pushReplacementNamed(context, '/login');
+                                  Navigator.of(context).pushNamedAndRemoveUntil('/login', (Route<dynamic> route) => false);
                                   // TODO: Log-out
                                 }),
                           ],

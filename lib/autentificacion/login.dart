@@ -255,7 +255,7 @@ class _LoginState extends State<Login> {
                                               flex: 2,
                                                 child: ElevatedButton(
                                                     onPressed: () {
-                                                      Navigator.pushReplacementNamed(context, '/register');
+                                                      Navigator.pushNamed(context, '/register');
                                                     },
                                                     style: ElevatedButton.styleFrom(
                                                         primary: Color(0xFF9C4DCC),

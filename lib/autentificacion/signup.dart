@@ -332,7 +332,7 @@ class _SignupState extends State<Signup> {
                                                     flex: 2,
                                                     child: ElevatedButton(
                                                         onPressed: () {
-                                                          Navigator.pushReplacementNamed(context, '/login');
+                                                          Navigator.pop(context);
                                                         },
                                                         style: ElevatedButton.styleFrom(
                                                             primary: Color(0xFF9C4DCC),
