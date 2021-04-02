@@ -273,8 +273,8 @@ class _SignupState extends State<Signup> {
                                                     flex: 6,
                                                     child: ElevatedButton(
                                                         onPressed: () {
-                                                          // NOTE: esto es temporal
-                                                          Navigator.pushReplacementNamed(context, '/home');
+                                                          // TODO: comprobacion registro
+                                                          Navigator.of(context).pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
                                                         },
                                                         style: ElevatedButton.styleFrom(
                                                             primary: Color(0xFF6A1B9A),
@@ -332,7 +332,7 @@ class _SignupState extends State<Signup> {
                                                     flex: 2,
                                                     child: ElevatedButton(
                                                         onPressed: () {
-                                                          Navigator.pushNamed(context, '/login');
+                                                          Navigator.pop(context);
                                                         },
                                                         style: ElevatedButton.styleFrom(
                                                             primary: Color(0xFF9C4DCC),

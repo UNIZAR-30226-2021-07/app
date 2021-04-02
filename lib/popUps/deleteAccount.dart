@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gatovidapp/popUps/error.dart';
 
 Color blackWords = Color(0xff000000);
 Color redButton = Color(0xffFF0000);
@@ -37,7 +38,13 @@ class DeleteAccount extends StatelessWidget {
                 side: BorderSide(color: whiteWords, width: 2),
               ),
               onPressed: () {
+                Navigator.of(context).pop();
                 //TODO: Delete account
+                showDialog(
+                  barrierDismissible: false,
+                  context: context,
+                  builder: (BuildContext context) => ErrorPopup(),
+                );
               }
           ),
         ),

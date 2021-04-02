@@ -38,7 +38,7 @@ dev_dependencies:
 flutter:
   assets:
     - assets/images/defaultProfile.png
-    - assets/images/logo.png
+    - assets/common/logo/logo.png
     - assets/images/bg.png
     - assets/gifs/arrowloading.gif
   # The following line ensures that the Material Icons font is

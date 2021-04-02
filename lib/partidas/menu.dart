@@ -45,7 +45,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                   radius: screenHeight * 0.04,
                                   child: TextButton(
                                       onPressed: () {
-                                        Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()));
+                                        Navigator.pushNamed(context, '/profile');
                                       }
                                   ),
                                 ),
@@ -60,7 +60,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                     children: <Widget>[
                                       IconButton(
                                           onPressed: () {
-                                            //TODO: navegar a pantalla tienda
+                                            Navigator.pushNamed(context, '/boardStore');
                                           },
                                           icon: Icon(Icons.storefront),
                                           iconSize: screenHeight * 0.08
@@ -97,9 +97,7 @@ class _GamesMenuState extends State<GamesMenu> {
                       children: [
                         Expanded(
                           flex: 6,
-                          child: Image.asset(
-                            'assets/images/logo.png',
-                          ),
+                          child: Image.asset('assets/common/logo/logo.png'),
                         ),
                         Expanded (
                           child: Text('GATOVID',
@@ -134,8 +132,8 @@ class _GamesMenuState extends State<GamesMenu> {
                                   flex: 8,
                                 child: ElevatedButton(
                                     onPressed: () {
-                                      //TODO: navegacion
                                       showDialog(
+                                        barrierDismissible: false,
                                         context: context,
                                         builder: (BuildContext context) => ReadyGame(),
                                       );
@@ -171,8 +169,8 @@ class _GamesMenuState extends State<GamesMenu> {
                                 flex: 8,
                                 child: ElevatedButton(
                                     onPressed: () {
-                                      //TODO: navegacion
                                       showDialog(
+                                        barrierDismissible: false,
                                         context: context,
                                         builder: (BuildContext context) => GameCode(),
                                       );
@@ -208,7 +206,10 @@ class _GamesMenuState extends State<GamesMenu> {
                                 flex: 8,
                                 child: ElevatedButton(
                                     onPressed: () {
+                                      //TODO: unirse partida pública
+                                      //y mostrar dialog alert hasta que se cargue pantalla tablero
                                       showDialog(
+                                        barrierDismissible: false,
                                         context: context,
                                         builder: (BuildContext context) => LoadingGame(),
                                       );
