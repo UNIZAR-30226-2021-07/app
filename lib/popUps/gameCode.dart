@@ -56,8 +56,8 @@ class GameCode extends StatelessWidget {
                       height: screenHeight * 0.06,
                       child: TextFormField(
                         keyboardType: TextInputType.number,
-                        inputFormatters: <TextInputFormatter>[
-                          WhitelistingTextInputFormatter.digitsOnly],
+                        inputFormatters:
+                        <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly],
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),

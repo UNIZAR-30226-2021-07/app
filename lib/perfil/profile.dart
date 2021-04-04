@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gatovidapp/perfil/profileConf.dart';
-import 'package:gatovidapp/chat/chat.dart';
 
 // Colors to use
 
