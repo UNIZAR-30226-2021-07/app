@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gatovidapp/popUps/deleteAccount.dart';
-import 'package:gatovidapp/popUps/loadingGame.dart';
-import 'package:gatovidapp/popUps/startGame.dart';
-import 'package:gatovidapp/popUps/error.dart';
 
 // Colors to use
 
@@ -83,11 +80,11 @@ class MapScreenState extends State<ProfileConf>
                           ],
                         ),
                         Padding(
-                          padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.003, left: MediaQuery.of(context).size.width * 0.5),
+                          padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.005, left: MediaQuery.of(context).size.width * 0.5),
                           child: new Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: <Widget>[
-                                FlatButton(
+                                TextButton(
                                   child: new CircleAvatar(
                                     backgroundColor: purpleCamera,
                                     radius: MediaQuery.of(context).size.height * 0.03,

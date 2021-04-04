@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gatovidapp/perfil/profile.dart';
 
 Color blackWords = Color(0xff000000);
 Color redButton = Color(0xffFF0000);

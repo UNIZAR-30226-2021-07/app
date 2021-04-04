@@ -175,7 +175,6 @@ class _ChatScreenState extends State<ChatScreen> {
 
   @override
   Widget build(BuildContext context) {
-    int prevUserId;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
