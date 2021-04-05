@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:gatovidapp/autentificacion/auth.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -7,6 +8,12 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+
+  final AuthService _authService = AuthService();
+  //Controladores para guardar texto formulario
+  final TextEditingController _mail = TextEditingController();
+  final TextEditingController _pwd = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
 
@@ -86,6 +93,7 @@ class _LoginState extends State<Login> {
                                             Expanded(
                                               flex: 6,
                                               child: TextFormField(
+                                                controller: _mail,
                                                 decoration: InputDecoration(
                                                   border: OutlineInputBorder(
                                                       borderRadius: BorderRadius.circular(10),
@@ -150,6 +158,7 @@ class _LoginState extends State<Login> {
                                                 autocorrect: false,
                                                 enableSuggestions: false,
                                                 obscureText: true,
+                                                controller: _pwd,
                                                 decoration: InputDecoration(
                                                   border: OutlineInputBorder(
                                                       borderRadius: BorderRadius.circular(10),
@@ -198,6 +207,10 @@ class _LoginState extends State<Login> {
                                                     flex: 6,
                                                     child: ElevatedButton(
                                                         onPressed: () {
+                                                          print(_mail.text);
+                                                          print(_pwd.text);
+                                                          _authService.login(_mail.text,_pwd.text);
+
                                                           // TODO: comprobacion inicio sesion
                                                           Navigator.pushReplacementNamed(context, '/home');
                                                         },

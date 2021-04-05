@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gatovidapp/autentificacion/auth.dart';
 
 // Colors to use
 
@@ -16,6 +17,7 @@ class ProfilePage extends StatefulWidget {
 class MapScreenState extends State<ProfilePage>
     with SingleTickerProviderStateMixin {
   final FocusNode myFocusNode = FocusNode();
+  final AuthService _authService = AuthService();
 
   @override
   void initState() {
@@ -263,6 +265,7 @@ class MapScreenState extends State<ProfilePage>
                                   minimumSize: Size(MediaQuery.of(context).size.width * 0.6, MediaQuery.of(context).size.height * 0.065),
                                 ),
                                 onPressed: () {
+                                  _authService.logout();
                                   Navigator.of(context).pushNamedAndRemoveUntil('/login', (Route<dynamic> route) => false);
                                   // TODO: Log-out
                                 }),
