@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gatovidapp/autentificacion/auth.dart';
+import 'package:gatovidapp/services/auth.dart';
+import 'package:gatovidapp/popUps/error.dart';
+import 'package:gatovidapp/services/models.dart';
 
 // Colors to use
 
@@ -264,10 +266,18 @@ class MapScreenState extends State<ProfilePage>
                                   onPrimary: whiteWords,
                                   minimumSize: Size(MediaQuery.of(context).size.width * 0.6, MediaQuery.of(context).size.height * 0.065),
                                 ),
-                                onPressed: () {
-                                  _authService.logout();
-                                  Navigator.of(context).pushNamedAndRemoveUntil('/login', (Route<dynamic> route) => false);
-                                  // TODO: Log-out
+                                onPressed: () async {
+                                  //Comprobación cierre de sesión
+                                  if(await _authService.logout()) {
+                                    Navigator.of(context).pushNamedAndRemoveUntil('/login', (Route<dynamic> route) => false);
+                                  }
+                                  else {
+                                    showDialog(
+                                      barrierDismissible: false,
+                                      context: context,
+                                      builder: (BuildContext context) => ErrorPopup(),
+                                    );
+                                  }
                                 }),
                           ],
                         ),

@@ -1,7 +1,9 @@
-
 //Variables globales para pasar información entre pantallas
-Token globalToken = Token();
-Error globalError = Error();
+Token globalToken;
+Error globalError;
+Message globalMessage;
+String global_login_email;
+String global_login_password;
 
 
 //Modelos para guardar información al traducir las respuestas de la API
@@ -22,6 +24,16 @@ class Error {
 
   factory Error.fromJson(Map<String,dynamic> json) {
     return Error(error: json['error']);
+  }
+}
+
+class Message {
+  final String message;
+
+  Message({this.message});
+
+  factory Message.fromJson(Map<String,dynamic> json) {
+    return Message(message: json['error']);
   }
 }
 

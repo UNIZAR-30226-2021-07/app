@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:gatovidapp/autentificacion/auth.dart';
-import 'package:gatovidapp/autentificacion/models.dart';
+import 'package:gatovidapp/services/auth.dart';
+import 'package:gatovidapp/services/models.dart';
 import 'package:gatovidapp/popUps/error.dart';
 
 class Login extends StatefulWidget {
@@ -209,11 +209,10 @@ class _LoginState extends State<Login> {
                                                     flex: 6,
                                                     child: ElevatedButton(
                                                         onPressed: () async {
-                                                          print(_mail.text);
-                                                          print(_pwd.text);
-                                                          // TODO: comprobacion inicio sesion
+                                                          //Comprobación inicio sesión
                                                           if( await _authService.login(_mail.text,_pwd.text)) {
-                                                            print(globalToken.token);
+                                                            global_login_email = _mail.text;
+                                                            global_login_password = _pwd.text;
                                                             Navigator.pushReplacementNamed(context, '/home');
                                                           }
                                                           else {
