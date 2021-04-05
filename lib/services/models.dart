@@ -2,6 +2,7 @@
 Token globalToken;
 Error globalError;
 Message globalMessage;
+User globalUser;
 String global_login_email;
 String global_login_password;
 
@@ -34,6 +35,20 @@ class Message {
 
   factory Message.fromJson(Map<String,dynamic> json) {
     return Message(message: json['error']);
+  }
+}
+
+class User {
+  final String name;
+  final String email;
+
+  User({this.name, this.email});
+
+  factory User.fromJson(Map<String,dynamic> json) {
+    return User(
+        name: json['name'],
+        email: json['email']
+    );
   }
 }
 

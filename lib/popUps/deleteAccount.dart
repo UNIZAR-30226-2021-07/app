@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gatovidapp/popUps/error.dart';
+import 'package:gatovidapp/services/auth.dart';
+import 'package:gatovidapp/services/models.dart';
 
 Color blackWords = Color(0xff000000);
 Color redButton = Color(0xffFF0000);
@@ -7,7 +9,9 @@ Color greyButton = Color(0xffE5E5E5);
 Color whiteWords = Color(0xffffffff);
 
 class DeleteAccount extends StatelessWidget {
-  // This widget is the root of your application.
+
+  final AuthService _authService = AuthService();
+
   @override
   Widget build(BuildContext context) {
     return new AlertDialog(
@@ -37,14 +41,20 @@ class DeleteAccount extends StatelessWidget {
                 shadowColor: blackWords,
                 side: BorderSide(color: whiteWords, width: 2),
               ),
-              onPressed: () {
+              onPressed: () async {
                 Navigator.of(context).pop();
-                //TODO: Delete account
-                showDialog(
-                  barrierDismissible: false,
-                  context: context,
-                  builder: (BuildContext context) => ErrorPopup(),
-                );
+                //Comprobación cierre de sesión
+                if (await _authService.remove_account()){
+                  print(globalMessage);
+                  Navigator.of(context).pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
+                }
+                else {
+                  showDialog(
+                    barrierDismissible: false,
+                    context: context,
+                    builder: (BuildContext context) => ErrorPopup(),
+                  );
+                }
               }
           ),
         ),
