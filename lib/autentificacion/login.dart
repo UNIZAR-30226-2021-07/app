@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:gatovidapp/autentificacion/auth.dart';
+import 'package:gatovidapp/autentificacion/models.dart';
+import 'package:gatovidapp/popUps/error.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -206,13 +208,21 @@ class _LoginState extends State<Login> {
                                                 Expanded(
                                                     flex: 6,
                                                     child: ElevatedButton(
-                                                        onPressed: () {
+                                                        onPressed: () async {
                                                           print(_mail.text);
                                                           print(_pwd.text);
-                                                          _authService.login(_mail.text,_pwd.text);
-
                                                           // TODO: comprobacion inicio sesion
-                                                          Navigator.pushReplacementNamed(context, '/home');
+                                                          if( await _authService.login(_mail.text,_pwd.text)) {
+                                                            print(globalToken.token);
+                                                            Navigator.pushReplacementNamed(context, '/home');
+                                                          }
+                                                          else {
+                                                            showDialog(
+                                                              barrierDismissible: false,
+                                                              context: context,
+                                                              builder: (BuildContext context) => ErrorPopup(),
+                                                            );
+                                                          }
                                                         },
                                                         style: ElevatedButton.styleFrom(
                                                             primary: Color(0xFF6A1B9A),

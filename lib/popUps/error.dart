@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gatovidapp/autentificacion/models.dart';
 
 Color blackWords = Color(0xff000000);
 Color redButton = Color(0xffFF0000);
@@ -30,7 +31,7 @@ class ErrorPopup extends StatelessWidget {
 
         ),
       ),
-      content:Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis facilisis condimentum tempus.',
+      content:Text(globalError.error,
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: MediaQuery.of(context).size.width * 0.04,
