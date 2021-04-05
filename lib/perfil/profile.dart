@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:gatovidapp/perfil/models.dart';
+import 'package:gatovidapp/perfil/stadistics.dart';
+
+import 'models.dart';
 
 // Colors to use
 
@@ -9,6 +13,7 @@ Color whiteWords = Color(0xffffffff);
 Color redButton = Color(0xffFF0000);
 
 class ProfilePage extends StatefulWidget {
+
   @override
   MapScreenState createState() => MapScreenState();
 }
@@ -80,12 +85,12 @@ class MapScreenState extends State<ProfilePage>
                         new Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: <Widget>[
-                            new Text('Juan Carlos',
+                            new Text(globalData.name,
                                 style: TextStyle(
                                     fontSize: MediaQuery.of(context).size.height * 0.025,
                                     fontWeight: FontWeight.bold)),
                             new Text(
-                              'juancarlos@gmail.com',
+                              globalData.email,
                               style: TextStyle(
                                   fontSize: MediaQuery.of(context).size.height * 0.025,
                                   fontWeight: FontWeight.normal),
@@ -154,7 +159,7 @@ class MapScreenState extends State<ProfilePage>
                                   fontWeight: FontWeight.bold
                               )
                           ),
-                          Text('354',
+                          Text(globalStats.games,
                             textAlign: TextAlign.right,
                             style: TextStyle(
                                 fontSize: MediaQuery.of(context).size.height * 0.025,
@@ -180,33 +185,7 @@ class MapScreenState extends State<ProfilePage>
                                       fontWeight: FontWeight.bold
                                   )
                               ),
-                              Text('350',
-                                  textAlign: TextAlign.right,
-                                  style: TextStyle(
-                                      fontSize: MediaQuery.of(context).size.height * 0.025,
-                                      fontWeight: FontWeight.normal
-                                  )
-                              ),
-                            ]
-                        )]
-                    )
-                ),
-                Padding(
-                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
-                        right: MediaQuery.of(context).size.width *0.1,
-                        top: MediaQuery.of(context).size.height * 0.025
-                    ),
-                    child: new Table(
-                        children: [ TableRow(
-                            children: <Widget>[
-                              Text('Tiempo jugado:',
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
-                                      fontSize: MediaQuery.of(context).size.height * 0.025,
-                                      fontWeight: FontWeight.bold
-                                  )
-                              ),
-                              Text('3h 54',
+                              Text(globalStats.wins,
                                   textAlign: TextAlign.right,
                                   style: TextStyle(
                                       fontSize: MediaQuery.of(context).size.height * 0.025,
@@ -232,7 +211,33 @@ class MapScreenState extends State<ProfilePage>
                                       fontWeight: FontWeight.bold
                                   )
                               ),
-                              Text('4',
+                              Text(globalStats.losses,
+                                  textAlign: TextAlign.right,
+                                  style: TextStyle(
+                                      fontSize: MediaQuery.of(context).size.height * 0.025,
+                                      fontWeight: FontWeight.normal
+                                  )
+                              ),
+                            ]
+                        )]
+                    )
+                ),
+                Padding(
+                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
+                        right: MediaQuery.of(context).size.width *0.1,
+                        top: MediaQuery.of(context).size.height * 0.025
+                    ),
+                    child: new Table(
+                        children: [ TableRow(
+                            children: <Widget>[
+                              Text('Tiempo jugado:',
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                      fontSize: MediaQuery.of(context).size.height * 0.025,
+                                      fontWeight: FontWeight.bold
+                                  )
+                              ),
+                              Text(globalStats.playtimeHour + ('h ') + globalStats.playtimeMin,
                                   textAlign: TextAlign.right,
                                   style: TextStyle(
                                       fontSize: MediaQuery.of(context).size.height * 0.025,
