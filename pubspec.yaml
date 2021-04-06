@@ -28,7 +28,7 @@ dependencies:
   cupertino_icons: ^1.0.0
   #The follow package provides the simplest way to use data from the internet.
   http: ^0.13.1
-  socket_io_client: ^0.9.12
+  socket_io_client: ^0.9.11
   web_socket_channel: ^2.0.0
 
 dev_dependencies:

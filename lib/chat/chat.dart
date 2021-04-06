@@ -3,7 +3,7 @@ import 'package:gatovidapp/chat/messageChat.dart';
 import 'package:gatovidapp/chat/userChat.dart';
 import 'package:socket_io_client/socket_io_client.dart';
 
-String token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYxNzcxMTcwNSwianRpIjoiZGNmYTIxN2EtNWY3NS00MDg1LWIwMzktOGRmYzkxNWQyNjgzIiwibmJmIjoxNjE3NzExNzA1LCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoidGVzdF91c2VyMkBnbWFpbC5jb20iLCJleHAiOjE2MTc3MTI2MDV9.g4f7YODBb9Vq7kc65chsmHt4QBO-UsE5FaEh8vXjNYE';
+String token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYxNzcxNTM0OSwianRpIjoiODE0NWQxYjQtY2QzNC00MWQ4LWE3NTAtM2NiNjViYmM2MGRhIiwibmJmIjoxNjE3NzE1MzQ5LCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoidGVzdF91c2VyMkBnbWFpbC5jb20iLCJleHAiOjE2MTc3MTYyNDl9.Whx87ordeSU9NwusH0KwiWxZlO1LCrmNsyUqzDau1hA';
 
 Socket socket;
 
@@ -33,9 +33,17 @@ class _ChatScreenState extends State<ChatScreen> {
   void initState() {
     super.initState();
     try {
-      socket = io('http://gatovid.herokuapp.com:80/', <String, dynamic>{
+      socket = io('http://gatovid.herokuapp.com:80',
+          OptionBuilder()
+              .setTransports(['websocket']) // for Flutter or Dart VM
+              .disableAutoConnect()  // disable auto-connection
+              .setExtraHeaders({'Authorization': 'Bearer $token'}) // optional
+              .build());
+      /*
+      socket = io('ws://gatovid.herokuapp.com:80', <String, dynamic>{
+        'transports': ['websocket'],
         'extraHeaders': {'Authorization': 'Bearer $token'}
-      });
+      });*/
 
       print('aaaaa');
       socket.connect();
@@ -44,6 +52,8 @@ class _ChatScreenState extends State<ChatScreen> {
       socket.on('connect_error', (_) => print('errorConnect: '+_.toString()));
       socket.on('error', (_) => print('error: ${socket.id}'));
       print('ccccc');
+
+
     }
     catch (e) {
       print(e.toString());
