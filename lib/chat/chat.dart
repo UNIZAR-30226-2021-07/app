@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gatovidapp/chat/models.dart';
 import 'package:socket_io_client/socket_io_client.dart';
+import 'package:gatovidapp/chat/models.dart';
 
-String token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYxNzcxODI4OSwianRpIjoiNjQ1Yzg5NTItZDJlNy00ZjBkLThlZmMtNDU0ZGY1NjdiYWIyIiwibmJmIjoxNjE3NzE4Mjg5LCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoidGVzdF91c2VyMkBnbWFpbC5jb20iLCJleHAiOjE2MTc3MTkxODl9.x8PxpUgksoR1gnDltYUL2YdpA2E6UrI18KVLeT4cZuU';
-
+String token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYxNzcyMjc0OSwianRpIjoiNWU1Mzk1YjQtMmFkYy00OTUxLWFiM2MtOTAzNDAyNjE0MzZlIiwibmJmIjoxNjE3NzIyNzQ5LCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoidGVzdF91c2VyMkBnbWFpbC5jb20iLCJleHAiOjE2MTc3MjM2NDl9.SJ28vX7TSGIAvgkjUzPbYSiQ6W-XPc_XOx2kqNOr2u8';
 Socket socket;
 
 Color greenAppBar = Color(0xff64DD17);
@@ -148,7 +147,7 @@ class _ChatScreenState extends State<ChatScreen> {
               color: blackWords,
                 onPressed: () {
                   if (messageToSend.text.isNotEmpty) {
-                    socket.emit('chat', messageToSend.text);
+                    sendMessageWebSocket(messageToSend.text);
                   }
                   messageToSend.text = '';
                 }
