@@ -3,7 +3,7 @@ import 'package:gatovidapp/chat/messageChat.dart';
 import 'package:gatovidapp/chat/userChat.dart';
 import 'package:socket_io_client/socket_io_client.dart';
 
-String token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYxNzcxMDM4MSwianRpIjoiNjM3ZDViYTEtNTY3Yi00ODQwLWIyZDYtNTcwMmNhZTM3YmZiIiwibmJmIjoxNjE3NzEwMzgxLCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoidGVzdF91c2VyMkBnbWFpbC5jb20iLCJleHAiOjE2MTc3MTEyODF9.l4LI-MsTz1S6DivlhhpAPk2_He_AvFG8Hc8JcbIWUGY';
+String token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYxNzcxMTcwNSwianRpIjoiZGNmYTIxN2EtNWY3NS00MDg1LWIwMzktOGRmYzkxNWQyNjgzIiwibmJmIjoxNjE3NzExNzA1LCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoidGVzdF91c2VyMkBnbWFpbC5jb20iLCJleHAiOjE2MTc3MTI2MDV9.g4f7YODBb9Vq7kc65chsmHt4QBO-UsE5FaEh8vXjNYE';
 
 Socket socket;
 
@@ -33,9 +33,10 @@ class _ChatScreenState extends State<ChatScreen> {
   void initState() {
     super.initState();
     try {
-      socket = io('ws://gatovid.herokuapp.com:80', <String, dynamic>{
+      socket = io('http://gatovid.herokuapp.com:80/', <String, dynamic>{
         'extraHeaders': {'Authorization': 'Bearer $token'}
       });
+
       print('aaaaa');
       socket.connect();
       print('bbbbb');
