@@ -3,6 +3,9 @@ import 'package:flutter/rendering.dart';
 import 'package:gatovidapp/popUps/gameCode.dart';
 import 'package:gatovidapp/popUps/loadingGame.dart';
 import 'package:gatovidapp/popUps/readyGame.dart';
+import 'package:gatovidapp/perfil/stadistics.dart';
+import 'package:gatovidapp/perfil/models.dart';
+import 'dart:async';
 
 class GamesMenu extends StatefulWidget {
   @override
@@ -43,7 +46,15 @@ class _GamesMenuState extends State<GamesMenu> {
                                   backgroundImage: AssetImage('assets/images/defaultProfile.png'),
                                   radius: screenHeight * 0.04,
                                   child: TextButton(
-                                      onPressed: () {
+                                      onPressed: () async {
+                                        globalData.name = null;
+                                        while (globalData.name == null){
+                                          await  getData();
+                                        }
+                                        globalStats.playtimeMin = null;
+                                        while (globalStats.playtimeMin == null){
+                                          await  getStadistics();
+                                        }
                                         Navigator.pushNamed(context, '/profile');
                                       }
                                   ),
