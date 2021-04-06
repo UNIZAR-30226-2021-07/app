@@ -1,7 +1,11 @@
 import 'package:socket_io_client/socket_io_client.dart';
+import 'dart:async';
 
-String token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYxNzcyOTM3NiwianRpIjoiYzRkYjc5OGQtYWMzYi00OTM4LWJlY2QtYTczZTIzNzdkZjZjIiwibmJmIjoxNjE3NzI5Mzc2LCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoidGVzdF91c2VyMkBnbWFpbC5jb20iLCJleHAiOjE2MTc3MzAyNzZ9.TVzTIpOTgaiq6Cd1TcYPxwIYbp5Iau71OjODlYlBb9A';
+String token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYxNzc0MTMwNiwianRpIjoiOTkzNjdhNWQtZmI1OS00ZWY3LWJjMDUtMzdkMjE0MTQ4ZjIzIiwibmJmIjoxNjE3NzQxMzA2LCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoidGVzdF91c2VyMkBnbWFpbC5jb20iLCJleHAiOjE2MTc3NDIyMDZ9.FnPyXFAeSiBn8unoJvaDzNM130HxvekvFWWfHL8i37s';
 Socket socket;
+
+StreamController<bool> controller = StreamController<bool>();
+Stream stream = controller.stream;
 
 void startWebSocket(){
   // Builder
@@ -24,6 +28,7 @@ void startWebSocket(){
 }
 
 void chatReceived(Map <String, dynamic> json){
+  controller.add(true);
   print('Received' + json.toString());
   messages.insert(0,Message.fromJson(json));
 

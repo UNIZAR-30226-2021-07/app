@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:socket_io_client/socket_io_client.dart';
 import 'package:gatovidapp/chat/models.dart';
+import 'dart:async';
 
 Color greenAppBar = Color(0xff64DD17);
 Color blackWords = Color(0xff000000);
@@ -24,11 +24,16 @@ class _ChatScreenState extends State<ChatScreen> {
   final messageToSend = TextEditingController();
   final scrollControl = new ScrollController();
 
+  StreamSubscription<bool> streamSubscription;
+
   @override
   void initState() {
     super.initState();
+    streamSubscription = stream.listen((_) {
+      setState(() {/* Empty instruction */});
+    });
     startWebSocket();
-    joingGame('MM4D');
+    joingGame('ERRV');
   }
 
   _listMessages(Message message, bool isMe) {
@@ -212,5 +217,11 @@ class _ChatScreenState extends State<ChatScreen> {
         ),
       )
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    streamSubscription.cancel();
   }
 }
