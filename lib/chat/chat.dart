@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gatovidapp/chat/messageChat.dart';
-import 'package:gatovidapp/chat/userChat.dart';
+import 'package:gatovidapp/chat/models.dart';
 import 'package:socket_io_client/socket_io_client.dart';
 
 String token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYxNzcxODI4OSwianRpIjoiNjQ1Yzg5NTItZDJlNy00ZjBkLThlZmMtNDU0ZGY1NjdiYWIyIiwibmJmIjoxNjE3NzE4Mjg5LCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoidGVzdF91c2VyMkBnbWFpbC5jb20iLCJleHAiOjE2MTc3MTkxODl9.x8PxpUgksoR1gnDltYUL2YdpA2E6UrI18KVLeT4cZuU';
@@ -32,34 +31,10 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   void initState() {
     super.initState();
-    try {
-      socket = io('http://gatovid.herokuapp.com:80',
-          OptionBuilder()
-              .setTransports(['websocket']) // for Flutter or Dart VM
-              .disableAutoConnect()  // disable auto-connection
-              .setExtraHeaders({'Authorization': 'Bearer $token'}) // optional
-              .build());
-      /*socket = io('https://gatovid.herokuapp.com:80', <String, dynamic>{
-        'transports': ['websocket'],
-        'extraHeaders': {'Authorization': 'Bearer $token'}
-      });*/
-
-      print('aaaaa');
-      socket.connect();
-      print('bbbbb');
-      socket.on('connect', (_) => print('connect: ${socket.id}'));
-      socket.on('connect_error', (_) => print('errorConnect: '+_.toString()));
-      socket.on('error', (_) => print('error: ${socket.id}'));
-      print('ccccc');
-
-
-    }
-    catch (e) {
-      print(e.toString());
-    }
+    startWebSocket();
   }
 
-  _listMessages(Message message, bool isMe, bool isSameUser) {
+  _listMessages(Message message, bool isMe) {
     if (isMe) {
       return Column(
         children: <Widget>[
@@ -113,7 +88,7 @@ class _ChatScreenState extends State<ChatScreen> {
               child: RichText(
                 textAlign:TextAlign.left,
                 text: TextSpan(
-                  text: message.sender.name + ": ",
+                  text: message.sender + ": ",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: blackWords,
@@ -173,12 +148,7 @@ class _ChatScreenState extends State<ChatScreen> {
               color: blackWords,
                 onPressed: () {
                   if (messageToSend.text.isNotEmpty) {
-                    setState(() {
-                      messages.insert(0,Message(
-                        sender: currentUser,
-                        text: messageToSend.text,
-                      ));
-                    });
+                    socket.emit('chat', messageToSend.text);
                   }
                   messageToSend.text = '';
                 }
@@ -189,7 +159,6 @@ class _ChatScreenState extends State<ChatScreen> {
     );
   }
   _listMessagesLayout() {
-    int prevUserId = -1;
     ListView ret = ListView.builder(
       reverse: true,
       padding: EdgeInsets.all(MediaQuery
@@ -200,10 +169,8 @@ class _ChatScreenState extends State<ChatScreen> {
       itemCount: messages.length,
       itemBuilder: (BuildContext context, int index) {
         final Message message = messages[index];
-        final bool isMe = message.sender.id == currentUser.id;
-        final bool isSameUser = prevUserId == message.sender.id;
-        prevUserId = message.sender.id;
-        return _listMessages(message, isMe, isSameUser);
+        final bool isMe = message.sender == "Manolo"; // TODO: Change for the current user in posteriors branches
+        return _listMessages(message, isMe);
       },
     );
     return ret;
