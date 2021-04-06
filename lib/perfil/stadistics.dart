@@ -11,7 +11,7 @@ Future<bool> getData() async{
     "Authorization" : "Bearer $token"
   };
 
-  var response = await http.get(Uri.parse("http://gatovid.herokuapp.com/data/user_data"), headers: header);
+  var response = await http.get(Uri.parse("https://gatovid.herokuapp.com/data/user_data"), headers: header);
 
   print(response.body);
 
@@ -37,7 +37,7 @@ Future<bool> getStadistics() async{
 
   String name = globalData.name;
 
-  var response = await http.get(Uri.parse("http://gatovid.herokuapp.com/data/user_stats?name=$name"), headers: header);
+  var response = await http.get(Uri.parse("http://gatovid.herokuapp.com/data/user_stats?name=$name"));
 
   var decoded = jsonDecode(response.body);
 
