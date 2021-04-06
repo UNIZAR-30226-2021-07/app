@@ -3,7 +3,9 @@ import 'package:gatovidapp/chat/messageChat.dart';
 import 'package:gatovidapp/chat/userChat.dart';
 import 'package:socket_io_client/socket_io_client.dart';
 
-String token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYxNzcwNzk5MSwianRpIjoiODE4Mjg4NzgtNThmYy00NGZhLThlMDEtNWQzNDA4MjM5ZjQ3IiwibmJmIjoxNjE3NzA3OTkxLCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoidGVzdF91c2VyMUBnbWFpbC5jb20iLCJleHAiOjE2MTc3MDg4OTF9.d_hkD08ZANlxh8eLL9dQbEm0TS7EqajIhntVM5Z1I8E';
+String token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYxNzcxMDM4MSwianRpIjoiNjM3ZDViYTEtNTY3Yi00ODQwLWIyZDYtNTcwMmNhZTM3YmZiIiwibmJmIjoxNjE3NzEwMzgxLCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoidGVzdF91c2VyMkBnbWFpbC5jb20iLCJleHAiOjE2MTc3MTEyODF9.l4LI-MsTz1S6DivlhhpAPk2_He_AvFG8Hc8JcbIWUGY';
+
+Socket socket;
 
 Color greenAppBar = Color(0xff64DD17);
 Color blackWords = Color(0xff000000);
@@ -23,7 +25,7 @@ class ChatScreen extends StatefulWidget {
 
 class _ChatScreenState extends State<ChatScreen> {
 
-  Socket socket;
+
   final messageToSend = TextEditingController();
   final scrollControl = new ScrollController();
 
@@ -31,15 +33,15 @@ class _ChatScreenState extends State<ChatScreen> {
   void initState() {
     super.initState();
     try {
-      socket = io('ws://gatovid.herokuapp.com', <String, dynamic>{
-        'transports': ['websocket'],
-        'autoConnect': false,
+      socket = io('http://gatovid.herokuapp.com', <String, dynamic>{
         'extraHeaders': {'Authorization': 'Bearer $token'}
       });
       print('aaaaa');
       socket.connect();
       print('bbbbb');
       socket.on('connect', (_) => print('connect: ${socket.id}'));
+      socket.on('connect_error', (_) => print('errorConnect: '+_.toString()));
+      socket.on('error', (_) => print('error: ${socket.id}'));
       print('ccccc');
     }
     catch (e) {
