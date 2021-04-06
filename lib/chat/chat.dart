@@ -33,7 +33,7 @@ class _ChatScreenState extends State<ChatScreen> {
   void initState() {
     super.initState();
     try {
-      socket = io('http://gatovid.herokuapp.com', <String, dynamic>{
+      socket = io('ws://gatovid.herokuapp.com:80', <String, dynamic>{
         'extraHeaders': {'Authorization': 'Bearer $token'}
       });
       print('aaaaa');
