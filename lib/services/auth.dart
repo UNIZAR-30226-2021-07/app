@@ -2,6 +2,8 @@ import 'package:gatovidapp/services/models.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+bool prueba = false;
+
 class AuthService {
 
   Future<bool> login(String email, String password) async {
@@ -9,7 +11,6 @@ class AuthService {
     String request = "http://gatovid.herokuapp.com/data/login?$parameters";
 
     var response = await http.get(Uri.parse(request));
-    print(utf8.decode(response.bodyBytes));
 
     if (response.statusCode == 200) {
       //Servidor devuelve estado correcto, por lo que se recibe token
@@ -61,10 +62,14 @@ class AuthService {
 
 
   Future<bool> signup(String email, String password, String name) async {
-    String parameters = "email=$email&password=$password&name=$name";
-    String request = "http://gatovid.herokuapp.com/data/signup?$parameters";
+    String request = "https://gatovid.herokuapp.com/data/signup";
+    Map <String, String> parameters = {
+      "email": "$email",
+      "password": "$password",
+      "name": "$name"
+    };
 
-    var response = await http.get(Uri.parse(request));
+    var response = await http.post(Uri.parse(request), body: parameters);
 
     if (response.statusCode == 200) {
       //Servidor devuelve estado correcto, por lo que se recibe user
@@ -73,23 +78,22 @@ class AuthService {
       return true;
     }
     else {
-      //Servidor devuelve estado incorrecto, por lo que se recibe mensaje de error
+      //statusCode = 400 -> Error de validación -> se recibe mensaje de error
       //Transformar json mensaje de error a modelo creado
       globalError = Error.fromJson(jsonDecode(utf8.decode(response.bodyBytes)));
       return false;
     }
   }
 
-  Future<dynamic> remove_account() async {
-    String request = "http://gatovid.herokuapp.com/data/remove_acount";
+
+  Future<dynamic> remove_user() async {
+    String request = "https://gatovid.herokuapp.com/data/remove_user";
     String token = globalToken.token;
     Map <String, String> header = {
       "Authorization": "Bearer $token"
     };
 
-    var response = await http.get(Uri.parse(request), headers: header);
-    print(response.statusCode);
-    print(utf8.decode(response.bodyBytes));
+    var response = await http.post(Uri.parse(request), headers: header);
 
     if (response.statusCode == 200) {
       //Servidor devuelve estado correcto, por lo que se recibe mensaje
@@ -98,17 +102,18 @@ class AuthService {
       return true;
     }
     else if (response.statusCode == 400) {
-      //Servidor devuelve estado incorrecto, por lo que se recibe mensaje de error
+      //Error de validación -> se recibe mensaje de error
       //Transformar json mensaje de error a modelo creado
       globalError = Error.fromJson(jsonDecode(utf8.decode(response.bodyBytes)));
       return false;
     }
     else {
-      //Servidor devuelve estado incorrecto por token de sesión expirado
+      //statusCode = 401 -> Error de Autenticación -> se recibe mensaje de error
+      globalError = Error.fromJson(jsonDecode(utf8.decode(response.bodyBytes)));
       //Volver a pedir token
       final AuthService _authService = AuthService();
       if (await _authService.login(global_login_email, global_login_password)) {
-        return _authService.logout();
+        return _authService.remove_user();
       }
     }
   }

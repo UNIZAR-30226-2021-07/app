@@ -42,13 +42,12 @@ class DeleteAccount extends StatelessWidget {
                 side: BorderSide(color: whiteWords, width: 2),
               ),
               onPressed: () async {
-                Navigator.of(context).pop();
-                //Comprobación cierre de sesión
-                if (await _authService.remove_account()){
-                  print(globalMessage);
+                //Comprobación borrar cuenta
+                if (await _authService.remove_user()){
                   Navigator.of(context).pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
                 }
                 else {
+                  Navigator.pop(context);
                   showDialog(
                     barrierDismissible: false,
                     context: context,
