@@ -3,8 +3,7 @@ UserData globalData = UserData();
 UserStat globalStats = UserStat();
 Error globalError = Error();
 
-String token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYxNzcwMTMwMSwianRpIjoiZTZkNjljZWYtNGY3My00ODI3LThlNTYtZTFjMTFmYjI1YTQ0IiwibmJmIjoxNjE3NzAxMzAxLCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoidGVzdF91c2VyMUBnbWFpbC5jb20iLCJleHAiOjE2MTc3MDIyMDF9.RgF41JaFcHN_wlTZaiZxJfclh9o1vJ2XKiICYzwbMb8';
-
+String token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYxNzczMjEzMCwianRpIjoiOTcxMTkwMTEtOWJiMy00Yjk5LTkxZDEtOTA3NjA2NDQ5MDhiIiwibmJmIjoxNjE3NzMyMTMwLCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoidGVzdF91c2VyMUBnbWFpbC5jb20iLCJleHAiOjE2MTc3MzMwMzB9.PcBJ8th7-loavNJKm5VuYOkRRxDhNsLYVvze_MpdNnY';
 class UserData {
   String name;
   String email;
@@ -29,7 +28,7 @@ class UserStat {
     int aux = json['playtime_mins'];
     int mini = aux % 60;
     String min = mini.toString();
-    int houri = aux % 60;
+    int houri = (aux / 60).toInt();
     String hour = houri.toString();
     return UserStat(games: json['games'].toString(), losses: json['losses'].toString(), wins: json['wins'].toString(), playtimeMin: min, playtimeHour: hour);
   }
