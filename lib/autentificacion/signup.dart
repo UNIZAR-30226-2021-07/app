@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:gatovidapp/services/auth.dart';
+import 'package:gatovidapp/services/models.dart';
+import 'package:gatovidapp/popUps/error.dart';
 
 class Signup extends StatefulWidget {
   @override
@@ -7,6 +10,13 @@ class Signup extends StatefulWidget {
 }
 
 class _SignupState extends State<Signup> {
+
+  final AuthService _authService = AuthService();
+  //Controladores para guardar texto formulario
+  final TextEditingController _email = TextEditingController();
+  final TextEditingController _pwd = TextEditingController();
+  final TextEditingController _name = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
@@ -91,6 +101,7 @@ class _SignupState extends State<Signup> {
                                             Expanded(
                                               flex: 6,
                                               child: TextFormField(
+                                                controller: _name,
                                                 decoration: InputDecoration(
                                                   border: OutlineInputBorder(
                                                       borderRadius: BorderRadius.circular(10),
@@ -153,6 +164,7 @@ class _SignupState extends State<Signup> {
                                         Expanded(
                                           flex: 6,
                                           child: TextFormField(
+                                            controller: _pwd,
                                             // Para ocultar la contraseña
                                             autocorrect: false,
                                             enableSuggestions: false,
@@ -223,6 +235,7 @@ class _SignupState extends State<Signup> {
                                       Expanded(
                                         flex: 6,
                                         child: TextFormField(
+                                          controller: _email,
                                           decoration: InputDecoration(
                                             border: OutlineInputBorder(
                                                 borderRadius: BorderRadius.circular(10),
@@ -272,9 +285,18 @@ class _SignupState extends State<Signup> {
                                                 Expanded(
                                                     flex: 6,
                                                     child: ElevatedButton(
-                                                        onPressed: () {
+                                                        onPressed: () async {
                                                           // TODO: comprobacion registro
-                                                          Navigator.of(context).pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
+                                                          if ( await _authService.signup(_email.text, _pwd.text, _name.text)){
+                                                            Navigator.of(context).pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
+                                                          }
+                                                          else {
+                                                            showDialog(
+                                                              barrierDismissible: false,
+                                                              context: context,
+                                                              builder: (BuildContext context) => ErrorPopup(),
+                                                            );
+                                                          }
                                                         },
                                                         style: ElevatedButton.styleFrom(
                                                             primary: Color(0xFF6A1B9A),
