@@ -3,7 +3,7 @@ import 'package:gatovidapp/chat/messageChat.dart';
 import 'package:gatovidapp/chat/userChat.dart';
 import 'package:socket_io_client/socket_io_client.dart';
 
-String token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYxNzcxNTM0OSwianRpIjoiODE0NWQxYjQtY2QzNC00MWQ4LWE3NTAtM2NiNjViYmM2MGRhIiwibmJmIjoxNjE3NzE1MzQ5LCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoidGVzdF91c2VyMkBnbWFpbC5jb20iLCJleHAiOjE2MTc3MTYyNDl9.Whx87ordeSU9NwusH0KwiWxZlO1LCrmNsyUqzDau1hA';
+String token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYxNzcxODI4OSwianRpIjoiNjQ1Yzg5NTItZDJlNy00ZjBkLThlZmMtNDU0ZGY1NjdiYWIyIiwibmJmIjoxNjE3NzE4Mjg5LCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoidGVzdF91c2VyMkBnbWFpbC5jb20iLCJleHAiOjE2MTc3MTkxODl9.x8PxpUgksoR1gnDltYUL2YdpA2E6UrI18KVLeT4cZuU';
 
 Socket socket;
 
@@ -39,8 +39,7 @@ class _ChatScreenState extends State<ChatScreen> {
               .disableAutoConnect()  // disable auto-connection
               .setExtraHeaders({'Authorization': 'Bearer $token'}) // optional
               .build());
-      /*
-      socket = io('ws://gatovid.herokuapp.com:80', <String, dynamic>{
+      /*socket = io('https://gatovid.herokuapp.com:80', <String, dynamic>{
         'transports': ['websocket'],
         'extraHeaders': {'Authorization': 'Bearer $token'}
       });*/
