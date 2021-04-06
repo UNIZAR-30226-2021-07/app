@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:socket_io_client/socket_io_client.dart';
 import 'package:gatovidapp/chat/models.dart';
 
-String token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYxNzcyMjc0OSwianRpIjoiNWU1Mzk1YjQtMmFkYy00OTUxLWFiM2MtOTAzNDAyNjE0MzZlIiwibmJmIjoxNjE3NzIyNzQ5LCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoidGVzdF91c2VyMkBnbWFpbC5jb20iLCJleHAiOjE2MTc3MjM2NDl9.SJ28vX7TSGIAvgkjUzPbYSiQ6W-XPc_XOx2kqNOr2u8';
-Socket socket;
-
 Color greenAppBar = Color(0xff64DD17);
 Color blackWords = Color(0xff000000);
 Color purpleButton = Color(0xff6A1B9A);
@@ -31,6 +28,7 @@ class _ChatScreenState extends State<ChatScreen> {
   void initState() {
     super.initState();
     startWebSocket();
+    joingGame('MM4D');
   }
 
   _listMessages(Message message, bool isMe) {
@@ -168,7 +166,7 @@ class _ChatScreenState extends State<ChatScreen> {
       itemCount: messages.length,
       itemBuilder: (BuildContext context, int index) {
         final Message message = messages[index];
-        final bool isMe = message.sender == "Manolo"; // TODO: Change for the current user in posteriors branches
+        final bool isMe = message.sender == "test_user2"; // TODO: Change for the current user in posteriors branches
         return _listMessages(message, isMe);
       },
     );

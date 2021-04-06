@@ -1,6 +1,6 @@
 import 'package:socket_io_client/socket_io_client.dart';
 
-String token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYxNzcyMjgzMSwianRpIjoiNDE4ODA0ZTUtMzM5Yi00NDkwLWI4Y2YtYTVhYTQyOTg3N2NjIiwibmJmIjoxNjE3NzIyODMxLCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoidGVzdF91c2VyMUBnbWFpbC5jb20iLCJleHAiOjE2MTc3MjM3MzF9.H3_zftfT8eGRBhYV1j1EJrSgpJsH60H_3eTwDr8tWwM';
+String token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYxNzcyOTM3NiwianRpIjoiYzRkYjc5OGQtYWMzYi00OTM4LWJlY2QtYTczZTIzNzdkZjZjIiwibmJmIjoxNjE3NzI5Mzc2LCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoidGVzdF91c2VyMkBnbWFpbC5jb20iLCJleHAiOjE2MTc3MzAyNzZ9.TVzTIpOTgaiq6Cd1TcYPxwIYbp5Iau71OjODlYlBb9A';
 Socket socket;
 
 void startWebSocket(){
@@ -21,11 +21,10 @@ void startWebSocket(){
   socket.on('chat', (data) => chatReceived(data));
   socket.on('connect_error', (_) => print('errorConnect: '+_.toString()));
   socket.on('error', (_) => print('error: '+_.toString())); // Probably the problem will be with the tokens
-  socket.emit('chat', "messageToSend.text");
 }
 
-void chatReceived(Map <String, String> json){
-  print(json);
+void chatReceived(Map <String, dynamic> json){
+  print('Received' + json.toString());
   messages.insert(0,Message.fromJson(json));
 
   // TODO: Mirar como saber en que pantalla se encuentra ahora el stack, si esta en chat, habrá que hacer un setState
@@ -38,6 +37,10 @@ void chatReceived(Map <String, String> json){
 
 void sendMessageWebSocket(String message){
   socket.emit('chat', message);
+}
+
+void joingGame(String code){
+  socket.emit('join', code);
 }
 
 class Message {
