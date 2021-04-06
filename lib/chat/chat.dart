@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gatovidapp/chat/messageChat.dart';
 import 'package:gatovidapp/chat/userChat.dart';
+import 'package:socket_io_client/socket_io_client.dart';
+
+String token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTYxNzcwNzk5MSwianRpIjoiODE4Mjg4NzgtNThmYy00NGZhLThlMDEtNWQzNDA4MjM5ZjQ3IiwibmJmIjoxNjE3NzA3OTkxLCJ0eXBlIjoiYWNjZXNzIiwic3ViIjoidGVzdF91c2VyMUBnbWFpbC5jb20iLCJleHAiOjE2MTc3MDg4OTF9.d_hkD08ZANlxh8eLL9dQbEm0TS7EqajIhntVM5Z1I8E';
 
 Color greenAppBar = Color(0xff64DD17);
 Color blackWords = Color(0xff000000);
@@ -20,8 +23,29 @@ class ChatScreen extends StatefulWidget {
 
 class _ChatScreenState extends State<ChatScreen> {
 
+  Socket socket;
   final messageToSend = TextEditingController();
   final scrollControl = new ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    try {
+      socket = io('ws://gatovid.herokuapp.com', <String, dynamic>{
+        'transports': ['websocket'],
+        'autoConnect': false,
+        'extraHeaders': {'Authorization': 'Bearer $token'}
+      });
+      print('aaaaa');
+      socket.connect();
+      print('bbbbb');
+      socket.on('connect', (_) => print('connect: ${socket.id}'));
+      print('ccccc');
+    }
+    catch (e) {
+      print(e.toString());
+    }
+  }
 
   _listMessages(Message message, bool isMe, bool isSameUser) {
     if (isMe) {
