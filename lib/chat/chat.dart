@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gatovidapp/chat/messageChat.dart';
-import 'package:gatovidapp/chat/userChat.dart';
+import 'package:gatovidapp/chat/models.dart';
+import 'dart:async';
 
 Color greenAppBar = Color(0xff64DD17);
 Color blackWords = Color(0xff000000);
@@ -20,10 +20,23 @@ class ChatScreen extends StatefulWidget {
 
 class _ChatScreenState extends State<ChatScreen> {
 
+
   final messageToSend = TextEditingController();
   final scrollControl = new ScrollController();
 
-  _listMessages(Message message, bool isMe, bool isSameUser) {
+  StreamSubscription<bool> streamSubscription;
+
+  @override
+  void initState() {
+    super.initState();
+    streamSubscription = stream.listen((_) {
+      setState(() {/* Empty instruction */});
+    });
+    startWebSocket();
+    joingGame('ERRV');
+  }
+
+  _listMessages(Message message, bool isMe) {
     if (isMe) {
       return Column(
         children: <Widget>[
@@ -77,7 +90,7 @@ class _ChatScreenState extends State<ChatScreen> {
               child: RichText(
                 textAlign:TextAlign.left,
                 text: TextSpan(
-                  text: message.sender.name + ": ",
+                  text: message.sender + ": ",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: blackWords,
@@ -137,12 +150,7 @@ class _ChatScreenState extends State<ChatScreen> {
               color: blackWords,
                 onPressed: () {
                   if (messageToSend.text.isNotEmpty) {
-                    setState(() {
-                      messages.insert(0,Message(
-                        sender: currentUser,
-                        text: messageToSend.text,
-                      ));
-                    });
+                    sendMessageWebSocket(messageToSend.text);
                   }
                   messageToSend.text = '';
                 }
@@ -153,7 +161,6 @@ class _ChatScreenState extends State<ChatScreen> {
     );
   }
   _listMessagesLayout() {
-    int prevUserId = -1;
     ListView ret = ListView.builder(
       reverse: true,
       padding: EdgeInsets.all(MediaQuery
@@ -164,10 +171,8 @@ class _ChatScreenState extends State<ChatScreen> {
       itemCount: messages.length,
       itemBuilder: (BuildContext context, int index) {
         final Message message = messages[index];
-        final bool isMe = message.sender.id == currentUser.id;
-        final bool isSameUser = prevUserId == message.sender.id;
-        prevUserId = message.sender.id;
-        return _listMessages(message, isMe, isSameUser);
+        final bool isMe = message.sender == "test_user2"; // TODO: Change for the current user in posteriors branches
+        return _listMessages(message, isMe);
       },
     );
     return ret;
@@ -212,5 +217,11 @@ class _ChatScreenState extends State<ChatScreen> {
         ),
       )
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    streamSubscription.cancel();
   }
 }
