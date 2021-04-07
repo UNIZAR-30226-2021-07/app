@@ -33,6 +33,7 @@ void main() => runApp(
 
 checkIfAuthenticated() async {
   await Future.delayed(Duration(seconds: 3)); // simulación de obtener la sesión
+  //return islogin;
   return false;
 }
 

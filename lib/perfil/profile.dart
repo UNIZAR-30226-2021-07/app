@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gatovidapp/services/auth.dart';
+import 'package:gatovidapp/popUps/error.dart';
+import 'package:gatovidapp/services/models.dart';
 import 'package:gatovidapp/perfil/models.dart';
 import 'package:gatovidapp/perfil/stadistics.dart';
 
@@ -21,6 +24,7 @@ class ProfilePage extends StatefulWidget {
 class MapScreenState extends State<ProfilePage>
     with SingleTickerProviderStateMixin {
   final FocusNode myFocusNode = FocusNode();
+  final AuthService _authService = AuthService();
 
   @override
   void initState() {
@@ -267,9 +271,21 @@ class MapScreenState extends State<ProfilePage>
                                   onPrimary: whiteWords,
                                   minimumSize: Size(MediaQuery.of(context).size.width * 0.6, MediaQuery.of(context).size.height * 0.065),
                                 ),
-                                onPressed: () {
-                                  Navigator.of(context).pushNamedAndRemoveUntil('/login', (Route<dynamic> route) => false);
-                                  // TODO: Log-out
+                                onPressed: () async {
+                                  //Comprobación cierre de sesión
+                                  if(await _authService.logout()) {
+                                    /*setState(() {
+                                      islogin = false;
+                                    });*/
+                                    Navigator.of(context).pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
+                                  }
+                                  else {
+                                    showDialog(
+                                      barrierDismissible: false,
+                                      context: context,
+                                      builder: (BuildContext context) => ErrorPopup(),
+                                    );
+                                  }
                                 }),
                           ],
                         ),

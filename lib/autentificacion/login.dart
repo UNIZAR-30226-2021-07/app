@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:gatovidapp/services/auth.dart';
+import 'package:gatovidapp/services/models.dart';
+import 'package:gatovidapp/popUps/error.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -7,6 +10,12 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+
+  final AuthService _authService = AuthService();
+  //Controladores para guardar texto formulario
+  final TextEditingController _mail = TextEditingController();
+  final TextEditingController _pwd = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
 
@@ -86,6 +95,7 @@ class _LoginState extends State<Login> {
                                             Expanded(
                                               flex: 6,
                                               child: TextFormField(
+                                                controller: _mail,
                                                 decoration: InputDecoration(
                                                   border: OutlineInputBorder(
                                                       borderRadius: BorderRadius.circular(10),
@@ -150,6 +160,7 @@ class _LoginState extends State<Login> {
                                                 autocorrect: false,
                                                 enableSuggestions: false,
                                                 obscureText: true,
+                                                controller: _pwd,
                                                 decoration: InputDecoration(
                                                   border: OutlineInputBorder(
                                                       borderRadius: BorderRadius.circular(10),
@@ -197,9 +208,23 @@ class _LoginState extends State<Login> {
                                                 Expanded(
                                                     flex: 6,
                                                     child: ElevatedButton(
-                                                        onPressed: () {
-                                                          // TODO: comprobacion inicio sesion
-                                                          Navigator.pushReplacementNamed(context, '/home');
+                                                        onPressed: () async {
+                                                          //Comprobación inicio sesión
+                                                          if( await _authService.login(_mail.text,_pwd.text)) {
+                                                            global_login_email = _mail.text;
+                                                            global_login_password = _pwd.text;
+                                                            /*setState(() {
+                                                              islogin = false;
+                                                            });*/
+                                                            Navigator.pushReplacementNamed(context, '/home');
+                                                          }
+                                                          else {
+                                                            showDialog(
+                                                              barrierDismissible: false,
+                                                              context: context,
+                                                              builder: (BuildContext context) => ErrorPopup(),
+                                                            );
+                                                          }
                                                         },
                                                         style: ElevatedButton.styleFrom(
                                                             primary: Color(0xFF6A1B9A),
