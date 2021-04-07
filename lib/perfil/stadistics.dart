@@ -1,4 +1,3 @@
-import 'package:gatovidapp/chat/userChat.dart';
 import 'package:http/http.dart' as http;
 import 'package:gatovidapp/perfil/models.dart';
 import 'dart:async';
