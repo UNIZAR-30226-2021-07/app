@@ -5,6 +5,7 @@ Message globalMessage;
 User globalUser;
 String global_login_email;
 String global_login_password;
+//bool islogin = false;
 
 
 //Modelos para guardar información al traducir las respuestas de la API

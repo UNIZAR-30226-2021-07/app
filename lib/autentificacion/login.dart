@@ -213,6 +213,9 @@ class _LoginState extends State<Login> {
                                                           if( await _authService.login(_mail.text,_pwd.text)) {
                                                             global_login_email = _mail.text;
                                                             global_login_password = _pwd.text;
+                                                            /*setState(() {
+                                                              islogin = false;
+                                                            });*/
                                                             Navigator.pushReplacementNamed(context, '/home');
                                                           }
                                                           else {

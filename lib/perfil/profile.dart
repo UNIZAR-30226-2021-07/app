@@ -269,7 +269,10 @@ class MapScreenState extends State<ProfilePage>
                                 onPressed: () async {
                                   //Comprobación cierre de sesión
                                   if(await _authService.logout()) {
-                                    Navigator.of(context).pushNamedAndRemoveUntil('/login', (Route<dynamic> route) => false);
+                                    /*setState(() {
+                                      islogin = false;
+                                    });*/
+                                    Navigator.of(context).pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
                                   }
                                   else {
                                     showDialog(
