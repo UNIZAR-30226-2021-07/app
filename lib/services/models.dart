@@ -5,8 +5,8 @@ import 'dart:async';
 Token globalToken;
 Error globalError;
 Response globalMessage;
-UserData globalData;
 User globalUser;
+UserData globalData;
 UserStat globalStats;
 String global_login_email;
 String global_login_password;
@@ -51,21 +51,13 @@ class Response {
 class User {
   final String name;
   final String email;
-  int coins;
-  int picture;
-  int board;
-  //TODO: Transformar datos de la lista
-  //List
 
-  User({this.name, this.email, this.coins, this.picture, this.board});
+  User({this.name, this.email});
 
   factory User.fromJson(Map<String,dynamic> json) {
     return User(
         name: json['name'],
-        email: json['email'],
-        coins: json['coins'],
-        picture: json['picture'],
-        board: json['board']
+        email: json['email']
     );
   }
 }
@@ -73,11 +65,16 @@ class User {
 class UserData {
   String name;
   String email;
+  int coins;
+  int picture;
+  int board;
+  //TODO: Transformar datos de la lista
+  //List
 
-  UserData({this.name, this.email});
+  UserData({this.name, this.email, this.coins, this.picture, this.board});
 
   factory UserData.fromJson(Map<String,dynamic> json) {
-    return UserData(name: json['name'], email: json['email']);
+    return UserData(name: json['name'], email: json['email'], coins: json['coins'], picture: json['picture'], board: json['board']);
   }
 }
 

@@ -5,7 +5,6 @@ import 'dart:async';
 import 'dart:convert';
 
 
-final AuthService _authService = AuthService();
 
 Future<bool> getData() async{
   String token = globalToken.token;
@@ -28,37 +27,22 @@ Future<bool> getData() async{
   else {
     //statusCode = 401
     //Pedir token
+    final AuthService _authService = AuthService();
     if (await _authService.requestToken(response)) {
     return getData();
     }
     return false;
   }
-
-  print(globalData.name);
-
-  if (decoded['error'] != null){
-    return false;
-  }
-
-
-
-  return true;
 }
 
 
 Future<bool> getStadistics() async{
-
-  Map <String, String>  header = {
-    "Authorization" : "Bearer $token"
-  };
 
   String name = globalData.name;
 
   var response = await http.get(Uri.parse("http://gatovid.herokuapp.com/data/user_stats?name=$name"));
 
   var decoded = jsonDecode(response.body);
-
-  print(response.body);
 
   globalStats = UserStat.fromJson(decoded);
 

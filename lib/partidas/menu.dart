@@ -3,9 +3,8 @@ import 'package:flutter/rendering.dart';
 import 'package:gatovidapp/popUps/gameCode.dart';
 import 'package:gatovidapp/popUps/loadingGame.dart';
 import 'package:gatovidapp/popUps/readyGame.dart';
-import 'package:gatovidapp/services/stadistics.dart';
+import 'package:gatovidapp/services/profile_stadistics.dart';
 import 'package:gatovidapp/services/models.dart';
-import 'dart:async';
 
 class GamesMenu extends StatefulWidget {
   @override

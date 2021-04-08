@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:gatovidapp/services/auth.dart';
-import 'package:gatovidapp/services/models.dart';
 import 'package:gatovidapp/popUps/error.dart';
 
 class Signup extends StatefulWidget {
