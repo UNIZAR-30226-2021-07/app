@@ -1,11 +1,14 @@
 import 'package:http/http.dart' as http;
-import 'package:gatovidapp/perfil/models.dart';
+import 'package:gatovidapp/services/models.dart';
+import 'package:gatovidapp/services/auth.dart';
 import 'dart:async';
 import 'dart:convert';
 
 
-Future<bool> getData() async{
+final AuthService _authService = AuthService();
 
+Future<bool> getData() async{
+  String token = globalToken.token;
   Map <String, String>  header = {
     "Authorization" : "Bearer $token"
   };
@@ -16,13 +19,28 @@ Future<bool> getData() async{
 
   var decoded = jsonDecode(response.body);
 
-  globalData = UserData.fromJson(decoded);
+  if (response.statusCode == 200) {
+    //Servidor devuelve estado correcto, por lo que se recibe datos de usuario
+    //Transformar json datos a modelo creado
+    globalData = UserData.fromJson(decoded);
+    return false;
+  }
+  else {
+    //statusCode = 401
+    //Pedir token
+    if (await _authService.requestToken(response)) {
+    return getData();
+    }
+    return false;
+  }
 
   print(globalData.name);
 
   if (decoded['error'] != null){
     return false;
   }
+
+
 
   return true;
 }

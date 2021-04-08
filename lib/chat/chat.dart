@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gatovidapp/chat/models.dart';
+import 'package:gatovidapp/services/models.dart';
 import 'dart:async';
 
 Color greenAppBar = Color(0xff64DD17);
