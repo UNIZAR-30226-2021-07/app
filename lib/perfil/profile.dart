@@ -69,7 +69,7 @@ class MapScreenState extends State<ProfilePage>
                           width: MediaQuery.of(context).size.width * 0.4,
                           height: MediaQuery.of(context).size.height * 0.2,
                           child: CircleAvatar(
-                            backgroundImage: AssetImage(("assets/common/")+picsList[globalData.board]['image']),
+                            backgroundImage: AssetImage(("assets/common/")+picsList[globalData.picture]['image']),
                             radius: MediaQuery.of(context).size.width * 0.04,
                           ),
                       ),
@@ -120,6 +120,7 @@ class MapScreenState extends State<ProfilePage>
                                 ),
                                 onPressed: () {
                                   Navigator.pushNamed(context, '/profile_edit');
+                                  setState(() {});
                                 }),
                           ],
                         ),

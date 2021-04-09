@@ -13,6 +13,7 @@ UserStat globalStats = UserStat();
 String global_login_email = "";
 String global_login_password = "";
 List picsList = [];
+List boardList = [];
 
 Socket socket;
 
@@ -104,7 +105,14 @@ class UserStat {
 //Read json of pics, boards and cards
 Future<bool> readPicsJson() async{
   final String response = await rootBundle.loadString('assets/common/profile_pics.json');
-  picsList = await json.decode(response);
+  final auxList= await json.decode(response);
+  picsList = auxList;
+}
+
+Future<bool> readBoardsJson() async{
+  final String response = await rootBundle.loadString('assets/common/boards.json');
+  final auxList = await json.decode(response);
+  boardList = auxList;
 }
 
 //-------------------------------------------------------------------------------------------------------

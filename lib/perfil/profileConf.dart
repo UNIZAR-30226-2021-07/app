@@ -35,6 +35,7 @@ class MapScreenState extends State<ProfileConf>
 
   @override
   Widget build(BuildContext context) {
+    String boardPath = (boardList[globalData.board]['image']).replaceAll('svg','png');
     return new Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
@@ -79,7 +80,7 @@ class MapScreenState extends State<ProfileConf>
                               width: MediaQuery.of(context).size.width * 0.4,
                               height: MediaQuery.of(context).size.height * 0.15,
                               child: CircleAvatar(
-                                backgroundImage: AssetImage(("assets/common/")+picsList[globalData.board]['image']),
+                                backgroundImage: AssetImage(("assets/common/")+picsList[globalData.picture]['image']),
                                 radius: MediaQuery.of(context).size.width * 0.04,
                               ),
                             ),
@@ -243,38 +244,73 @@ class MapScreenState extends State<ProfileConf>
                                       top: MediaQuery.of(context).size.height *0.0125,
                                       bottom: MediaQuery.of(context).size.height *0.0125
                                   ),
-                                  child: Text('Cambiar Tablero',
-                                    textAlign: TextAlign.start,
-                                      style: TextStyle(
-                                          fontSize: MediaQuery.of(context).size.height * 0.022,
-                                          fontWeight: FontWeight.normal,
-                                          color: greyWords,
-                                      ),
-                                  )
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.022,
-                                      right: MediaQuery.of(context).size.width *0.022,
-                                      //top: MediaQuery.of(context).size.height *0.0,
-                                      bottom: MediaQuery.of(context).size.height *0.0125
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.075,
-                                        right: MediaQuery.of(context).size.width *0.075,
+                                    child: Container(
+                                      height: MediaQuery.of(context).size.height * 0.08,
+                                      width: MediaQuery.of(context).size.width * 0.05,
+                                      child: Column(
+                                          children: [
+                                            Expanded(
+                                                flex: 1,
+                                                child: SizedBox()
+                                            ),
+                                            Expanded(
+                                                flex: 3,
+                                                child: Text('Cambiar Tablero',
+                                                  textAlign: TextAlign.start,
+                                                  style: TextStyle(
+                                                    fontSize: MediaQuery.of(context).size.height * 0.022,
+                                                    fontWeight: FontWeight.normal,
+                                                    color: greyWords,
+                                                  ),
+                                                )
+                                            ),
+                                            Expanded(
+                                                flex: 1,
+                                                child: SizedBox()
+                                            ),
+                                          ]
+                                      )
                                     ),
-                                    child: new ElevatedButton(
-                                        style: ElevatedButton.styleFrom(
-                                          primary: greenAppBar,
-                                          minimumSize: Size(MediaQuery.of(context).size.width * 0.005, MediaQuery.of(context).size.height * 0.05),
+                                ),
+                                Container(
+                                  height: MediaQuery.of(context).size.height * 0.08,
+                                  width: MediaQuery.of(context).size.width * 0.05,
+                                  child: Column(
+                                      children: [
+                                        Expanded(
+                                            flex: 1,
+                                            child: SizedBox()
                                         ),
-                                        onPressed: () {
-                                          Navigator.pushNamed(context, '/boardStore');
-                                        }
-                                    ),
-                                  )
+                                        Expanded(
+                                          flex: 3,
+                                          child: Container(
+                                            constraints: BoxConstraints.expand(
+                                              width: MediaQuery.of(context).size.width * 0.15,
+                                            ),
+                                            alignment: Alignment.center,
+                                            decoration: BoxDecoration(
+                                                image: DecorationImage(
+                                                  image: AssetImage(("assets/common/")+boardPath),
+                                                  fit: BoxFit.cover,
+                                                )
+                                            ),
+                                            child: TextButton(
+                                              onPressed: () {
+                                                Navigator.pushNamed(context, '/boardStore');
+                                              }
+                                            ),
+                                          ),
+                                        ),
+                                        Expanded(
+                                            flex: 1,
+                                            child: SizedBox()
+                                        ),
+                                      ]
+                                  ),
                                 ),
-                              ]
-                            )],
+                                ]
+                              )
+                            ],
                           )
                         )
                       ]

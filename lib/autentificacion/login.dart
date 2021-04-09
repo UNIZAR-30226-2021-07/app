@@ -215,6 +215,7 @@ class _LoginState extends State<Login> {
                                                             global_login_email = _mail.text;
                                                             global_login_password = _pwd.text;
                                                             await readPicsJson();
+                                                            await readBoardsJson();
                                                             await getData();
                                                             Navigator.pushReplacementNamed(context, '/home');
                                                           }

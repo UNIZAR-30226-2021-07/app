@@ -42,7 +42,7 @@ class _GamesMenuState extends State<GamesMenu> {
                             children: [
                               Expanded(
                                 child: CircleAvatar(
-                                  backgroundImage: AssetImage(("assets/common/")+picsList[globalData.board]['image']),
+                                  backgroundImage: AssetImage(("assets/common/")+picsList[globalData.picture]['image']),
                                   radius: screenHeight * 0.04,
                                   child: TextButton(
                                       onPressed: () async {
@@ -51,6 +51,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                           await  getStadistics();
                                         }
                                         Navigator.pushNamed(context, '/profile');
+                                        setState(() {});
                                       }
                                   ),
                                 ),
