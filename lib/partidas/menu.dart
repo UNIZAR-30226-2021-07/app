@@ -47,10 +47,6 @@ class _GamesMenuState extends State<GamesMenu> {
                                   radius: screenHeight * 0.04,
                                   child: TextButton(
                                       onPressed: () async {
-                                        globalData.name = null;
-                                        while (globalData.name == null){
-                                          await  getData();
-                                        }
                                         globalStats.playtimeMin = null;
                                         while (globalStats.playtimeMin == null){
                                           await  getStadistics();
@@ -86,9 +82,7 @@ class _GamesMenuState extends State<GamesMenu> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                Text(
-                                  //TODO: Monedas según de datos backend
-                                  '150',
+                                Text(globalData.coins,
                                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: screenHeight * 0.03),
                                 ),
                                 SizedBox(width: screenWidth * 0.02),

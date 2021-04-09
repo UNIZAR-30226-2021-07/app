@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:gatovidapp/services/auth.dart';
 import 'package:gatovidapp/services/models.dart';
 import 'package:gatovidapp/popUps/error.dart';
+import 'package:gatovidapp/services/profile_stadistics.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -213,6 +214,7 @@ class _LoginState extends State<Login> {
                                                           if( await _authService.login(_mail.text,_pwd.text)) {
                                                             global_login_email = _mail.text;
                                                             global_login_password = _pwd.text;
+                                                            await getData();
                                                             Navigator.pushReplacementNamed(context, '/home');
                                                           }
                                                           else {

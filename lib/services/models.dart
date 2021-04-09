@@ -65,7 +65,7 @@ class User {
 class UserData {
   String name;
   String email;
-  int coins;
+  String coins;
   int picture;
   int board;
   //TODO: Transformar datos de la lista
@@ -74,7 +74,7 @@ class UserData {
   UserData({this.name, this.email, this.coins, this.picture, this.board});
 
   factory UserData.fromJson(Map<String,dynamic> json) {
-    return UserData(name: json['name'], email: json['email'], coins: json['coins'], picture: json['picture'], board: json['board']);
+    return UserData(name: json['name'], email: json['email'], coins: json['coins'].toString(), picture: json['picture'], board: json['board']);
   }
 }
 
