@@ -52,7 +52,6 @@ class MapScreenState extends State<ProfileConf>
             icon: Icon(Icons.arrow_back_rounded),
             color: blackWords,
             onPressed: () {
-              controller.add(true);
               Navigator.pop(context);
             }),
       ),
@@ -408,6 +407,7 @@ class MapScreenState extends State<ProfileConf>
                                   _name.text = '';
                                   _pass1.text = '';
                                   _pass2.text = '';
+                                  controllerStat.add(true);
                                 }),
                           ],
                         ),

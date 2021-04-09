@@ -28,7 +28,7 @@ class MapScreenState extends State<ProfilePage>
   @override
   void initState() {
     super.initState();
-    streamSubscription = stream.listen((_) {
+    streamSubscription = streamStat.listen((_) {
       setState(() {/* Empty instruction */});
     });
   }

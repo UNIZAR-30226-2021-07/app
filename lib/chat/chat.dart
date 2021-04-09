@@ -29,7 +29,7 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   void initState() {
     super.initState();
-    streamSubscription = stream.listen((_) {
+    streamSubscription = streamChat.listen((_) {
       setState(() {/* Empty instruction */});
     });
     startWebSocket();

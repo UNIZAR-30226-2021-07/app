@@ -17,8 +17,10 @@ List boardList = [];
 
 Socket socket;
 
-StreamController<bool> controller = StreamController<bool>.broadcast();
-Stream stream = controller.stream;
+StreamController<bool> controllerChat = StreamController<bool>.broadcast();
+StreamController<bool> controllerStat = StreamController<bool>.broadcast();
+Stream streamChat = controllerChat.stream;
+Stream streamStat = controllerStat.stream;
 
 
 //Modelos para guardar información al traducir las respuestas de la API
@@ -142,7 +144,7 @@ void startWebSocket(){
 }
 
 void chatReceived(Map <String, dynamic> json){
-  controller.add(true);
+  controllerChat.add(true);
   print('Received' + json.toString());
   messages.insert(0,Message.fromJson(json));
 
