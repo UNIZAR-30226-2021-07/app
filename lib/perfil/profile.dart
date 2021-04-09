@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gatovidapp/services/auth.dart';
 import 'package:gatovidapp/popUps/error.dart';
 import 'package:gatovidapp/services/models.dart';
+import 'dart:async';
 
 
 // Colors to use
@@ -22,10 +23,14 @@ class MapScreenState extends State<ProfilePage>
     with SingleTickerProviderStateMixin {
   final FocusNode myFocusNode = FocusNode();
   final AuthService _authService = AuthService();
+  StreamSubscription<bool> streamSubscription;
 
   @override
   void initState() {
     super.initState();
+    streamSubscription = streamStat.listen((_) {
+      setState(() {/* Empty instruction */});
+    });
   }
 
   @override
@@ -68,13 +73,11 @@ class MapScreenState extends State<ProfilePage>
                       new Container(
                           width: MediaQuery.of(context).size.width * 0.4,
                           height: MediaQuery.of(context).size.height * 0.2,
-                          decoration: new BoxDecoration(
-                            shape: BoxShape.circle,
-                            image: new DecorationImage(
-                              image: new ExactAssetImage(
-                                  'assets/images/defaultProfile.png'),
-                            ),
-                          )),
+                          child: CircleAvatar(
+                            backgroundImage: AssetImage(("assets/common/")+picsList[globalData.picture]['image']),
+                            radius: MediaQuery.of(context).size.width * 0.04,
+                          ),
+                      ),
                     ],
                   ),
                 ),
@@ -120,8 +123,10 @@ class MapScreenState extends State<ProfilePage>
                                   onPrimary: whiteWords,
                                   minimumSize: Size(MediaQuery.of(context).size.width * 0.4, MediaQuery.of(context).size.height * 0.05),
                                 ),
-                                onPressed: () {
-                                  Navigator.pushNamed(context, '/profile_edit');
+                                onPressed: (){
+                                  setState(() {
+                                    Navigator.pushNamed(context, '/profile_edit');
+                                  });
                                 }),
                           ],
                         ),
@@ -289,5 +294,11 @@ class MapScreenState extends State<ProfilePage>
             ),
         )
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    streamSubscription.cancel();
   }
 }

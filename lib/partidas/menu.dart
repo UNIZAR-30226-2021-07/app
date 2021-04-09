@@ -42,20 +42,13 @@ class _GamesMenuState extends State<GamesMenu> {
                             children: [
                               Expanded(
                                 child: CircleAvatar(
-                                  //TODO: Cargar una imagen u otra dependiendo de datos backend
-                                  backgroundImage: AssetImage('assets/images/defaultProfile.png'),
+                                  backgroundImage: AssetImage(("assets/common/")+picsList[globalData.picture]['image']),
                                   radius: screenHeight * 0.04,
                                   child: TextButton(
                                       onPressed: () async {
-                                        globalData.name = null;
-                                        while (globalData.name == null){
-                                          await  getData();
-                                        }
-                                        globalStats.playtimeMin = null;
-                                        while (globalStats.playtimeMin == null){
-                                          await  getStadistics();
-                                        }
+                                        await  getStadistics();
                                         Navigator.pushNamed(context, '/profile');
+                                        setState(() {});
                                       }
                                   ),
                                 ),
@@ -86,9 +79,7 @@ class _GamesMenuState extends State<GamesMenu> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                Text(
-                                  //TODO: Monedas según de datos backend
-                                  '150',
+                                Text(globalData.coins,
                                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: screenHeight * 0.03),
                                 ),
                                 SizedBox(width: screenWidth * 0.02),

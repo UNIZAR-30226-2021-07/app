@@ -29,7 +29,7 @@ Future<bool> getData() async{
     //Pedir token
     final AuthService _authService = AuthService();
     if (await _authService.requestToken(response)) {
-    return getData();
+    return await getData();
     }
     return false;
   }
@@ -39,16 +39,19 @@ Future<bool> getData() async{
 Future<bool> getStadistics() async{
 
   String name = globalData.name;
+  print(name);
 
   var response = await http.get(Uri.parse("http://gatovid.herokuapp.com/data/user_stats?name=$name"));
 
+  print(response.body);
+
   var decoded = jsonDecode(response.body);
 
-  globalStats = UserStat.fromJson(decoded);
-
-  if (decoded['error'] != null){
-    return false;
+  if (decoded['error'] != null) {
+    return await getStadistics();
   }
+
+  globalStats = UserStat.fromJson(decoded);
 
   return true;
 }

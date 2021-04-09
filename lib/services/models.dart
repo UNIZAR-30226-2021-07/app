@@ -1,4 +1,6 @@
 import 'package:socket_io_client/socket_io_client.dart';
+import 'package:flutter/services.dart';
+import 'dart:convert';
 import 'dart:async';
 
 //Variables globales para pasar información entre pantallas
@@ -8,13 +10,17 @@ Response globalMessage;
 User globalUser;
 UserData globalData;
 UserStat globalStats;
-String global_login_email;
-String global_login_password;
+String global_login_email = "";
+String global_login_password = "";
+List picsList = [];
+List boardList = [];
 
 Socket socket;
 
-StreamController<bool> controller = StreamController<bool>();
-Stream stream = controller.stream;
+StreamController<bool> controllerChat = StreamController<bool>.broadcast();
+StreamController<bool> controllerStat = StreamController<bool>.broadcast();
+Stream streamChat = controllerChat.stream;
+Stream streamStat = controllerStat.stream;
 
 
 //Modelos para guardar información al traducir las respuestas de la API
@@ -63,27 +69,28 @@ class User {
 }
 
 class UserData {
-  String name;
-  String email;
-  int coins;
-  int picture;
-  int board;
+  final String name;
+  final String email;
+  final String coins;
+  final int picture;
+  final int board;
   //TODO: Transformar datos de la lista
   //List
 
   UserData({this.name, this.email, this.coins, this.picture, this.board});
 
   factory UserData.fromJson(Map<String,dynamic> json) {
-    return UserData(name: json['name'], email: json['email'], coins: json['coins'], picture: json['picture'], board: json['board']);
+    print('name' + json['name']);
+    return UserData(name: json['name'], email: json['email'], coins: json['coins'].toString(), picture: json['picture'], board: json['board']);
   }
 }
 
 class UserStat {
-  String games;
-  String losses;
-  String wins;
-  String playtimeMin;
-  String playtimeHour;
+  final String games;
+  final String losses;
+  final String wins;
+  final String playtimeMin;
+  final String playtimeHour;
 
   UserStat({this.games, this.losses, this.wins, this.playtimeMin, this.playtimeHour});
 
@@ -95,6 +102,20 @@ class UserStat {
     String hour = houri.toString();
     return UserStat(games: json['games'].toString(), losses: json['losses'].toString(), wins: json['wins'].toString(), playtimeMin: min, playtimeHour: hour);
   }
+}
+
+//-------------------------------------------------------------------------------------------------------
+//Read json of pics, boards and cards
+Future<bool> readPicsJson() async{
+  final String response = await rootBundle.loadString('assets/common/profile_pics.json');
+  final auxList= await json.decode(response);
+  picsList = auxList;
+}
+
+Future<bool> readBoardsJson() async{
+  final String response = await rootBundle.loadString('assets/common/boards.json');
+  final auxList = await json.decode(response);
+  boardList = auxList;
 }
 
 //-------------------------------------------------------------------------------------------------------
@@ -123,7 +144,7 @@ void startWebSocket(){
 }
 
 void chatReceived(Map <String, dynamic> json){
-  controller.add(true);
+  controllerChat.add(true);
   print('Received' + json.toString());
   messages.insert(0,Message.fromJson(json));
 
