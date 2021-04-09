@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gatovidapp/services/auth.dart';
 import 'package:gatovidapp/popUps/error.dart';
 import 'package:gatovidapp/services/models.dart';
+import 'package:gatovidapp/services/profile_stadistics.dart';
 
 
 // Colors to use
@@ -118,8 +119,9 @@ class MapScreenState extends State<ProfilePage>
                                   onPrimary: whiteWords,
                                   minimumSize: Size(MediaQuery.of(context).size.width * 0.4, MediaQuery.of(context).size.height * 0.05),
                                 ),
-                                onPressed: () {
+                                onPressed: () async{
                                   Navigator.pushNamed(context, '/profile_edit');
+                                  await getData();
                                   setState(() {});
                                 }),
                           ],

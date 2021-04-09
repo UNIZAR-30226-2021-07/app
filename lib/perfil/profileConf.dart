@@ -35,7 +35,7 @@ class MapScreenState extends State<ProfileConf>
 
   @override
   Widget build(BuildContext context) {
-    String boardPath = (boardList[globalData.board]['image']).replaceAll('svg','png');
+    String boardPath = boardList[globalData.board]['image'].replaceAll('svg','png');
     return new Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
@@ -342,7 +342,7 @@ class MapScreenState extends State<ProfileConf>
                                 onPressed: () async {
                                   if(_name.text != ''){ // ok name
                                     if ( await modifyData('name',_name.text)){
-                                      await  getData();
+                                      await getData();
                                       setState((){});
                                     }else {
                                       showDialog(

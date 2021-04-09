@@ -46,10 +46,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                   radius: screenHeight * 0.04,
                                   child: TextButton(
                                       onPressed: () async {
-                                        globalStats.playtimeMin = null;
-                                        while (globalStats.playtimeMin == null){
-                                          await  getStadistics();
-                                        }
+                                        await  getStadistics();
                                         Navigator.pushNamed(context, '/profile');
                                         setState(() {});
                                       }

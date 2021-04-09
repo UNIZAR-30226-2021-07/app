@@ -7,9 +7,9 @@ import 'dart:async';
 Token globalToken;
 Error globalError;
 Response globalMessage;
-User globalUser = User();
-UserData globalData = UserData();
-UserStat globalStats = UserStat();
+User globalUser;
+UserData globalData;
+UserStat globalStats;
 String global_login_email = "";
 String global_login_password = "";
 List picsList = [];
@@ -67,27 +67,28 @@ class User {
 }
 
 class UserData {
-  String name;
-  String email;
-  String coins;
-  int picture;
-  int board;
+  final String name;
+  final String email;
+  final String coins;
+  final int picture;
+  final int board;
   //TODO: Transformar datos de la lista
   //List
 
   UserData({this.name, this.email, this.coins, this.picture, this.board});
 
   factory UserData.fromJson(Map<String,dynamic> json) {
-    return UserData(name: json['name'], email: json['email'], coins: json['coins'].toString(), picture: json['picture'], board: json['board']);
+    print('name' + json['name']);
+    return new UserData(name: json['name'], email: json['email'], coins: json['coins'].toString(), picture: json['picture'], board: json['board']);
   }
 }
 
 class UserStat {
-  String games;
-  String losses;
-  String wins;
-  String playtimeMin;
-  String playtimeHour;
+  final String games;
+  final String losses;
+  final String wins;
+  final String playtimeMin;
+  final String playtimeHour;
 
   UserStat({this.games, this.losses, this.wins, this.playtimeMin, this.playtimeHour});
 
@@ -97,7 +98,7 @@ class UserStat {
     String min = mini.toString();
     int houri = (aux / 60).toInt();
     String hour = houri.toString();
-    return UserStat(games: json['games'].toString(), losses: json['losses'].toString(), wins: json['wins'].toString(), playtimeMin: min, playtimeHour: hour);
+    return new UserStat(games: json['games'].toString(), losses: json['losses'].toString(), wins: json['wins'].toString(), playtimeMin: min, playtimeHour: hour);
   }
 }
 

@@ -22,12 +22,9 @@ Future<bool> modifyData(String typeMod, String valueMod) async{
 
   print(response.body);
 
-  var decoded = jsonDecode(response.body);
-
   if (response.statusCode == 200) {
     //Servidor devuelve estado correcto, por lo que se recibe datos de usuario
     //Transformar json datos a modelo creado
-    globalData = UserData.fromJson(decoded);
     return true;
   }
   else if (response.statusCode == 400) {
