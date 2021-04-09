@@ -76,19 +76,17 @@ class MapScreenState extends State<ProfileConf>
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             new Container(
-                                width: MediaQuery.of(context).size.width * 0.4,
-                                height: MediaQuery.of(context).size.height * 0.15,
-                                decoration: new BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  image: new DecorationImage(
-                                    image: new ExactAssetImage(
-                                        'assets/images/defaultProfile.png'),
-                                  ),
-                                )),
+                              width: MediaQuery.of(context).size.width * 0.4,
+                              height: MediaQuery.of(context).size.height * 0.15,
+                              child: CircleAvatar(
+                                backgroundImage: AssetImage(("assets/common/")+picsList[globalData.board]['image']),
+                                radius: MediaQuery.of(context).size.width * 0.04,
+                              ),
+                            ),
                           ],
                         ),
                         Padding(
-                          padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.005, left: MediaQuery.of(context).size.width * 0.5),
+                          padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.005, left: MediaQuery.of(context).size.width * 0.525),
                           child: new Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: <Widget>[

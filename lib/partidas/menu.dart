@@ -42,8 +42,7 @@ class _GamesMenuState extends State<GamesMenu> {
                             children: [
                               Expanded(
                                 child: CircleAvatar(
-                                  //TODO: Cargar una imagen u otra dependiendo de datos backend
-                                  backgroundImage: AssetImage('assets/images/defaultProfile.png'),
+                                  backgroundImage: AssetImage(("assets/common/")+picsList[globalData.board]['image']),
                                   radius: screenHeight * 0.04,
                                   child: TextButton(
                                       onPressed: () async {

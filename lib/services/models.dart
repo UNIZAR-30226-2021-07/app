@@ -1,4 +1,6 @@
 import 'package:socket_io_client/socket_io_client.dart';
+import 'package:flutter/services.dart';
+import 'dart:convert';
 import 'dart:async';
 
 //Variables globales para pasar información entre pantallas
@@ -10,6 +12,7 @@ UserData globalData = UserData();
 UserStat globalStats = UserStat();
 String global_login_email = "";
 String global_login_password = "";
+List picsList = [];
 
 Socket socket;
 
@@ -95,6 +98,13 @@ class UserStat {
     String hour = houri.toString();
     return UserStat(games: json['games'].toString(), losses: json['losses'].toString(), wins: json['wins'].toString(), playtimeMin: min, playtimeHour: hour);
   }
+}
+
+//-------------------------------------------------------------------------------------------------------
+//Read json of pics, boards and cards
+Future<bool> readPicsJson() async{
+  final String response = await rootBundle.loadString('assets/common/profile_pics.json');
+  picsList = await json.decode(response);
 }
 
 //-------------------------------------------------------------------------------------------------------

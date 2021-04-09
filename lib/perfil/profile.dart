@@ -68,13 +68,11 @@ class MapScreenState extends State<ProfilePage>
                       new Container(
                           width: MediaQuery.of(context).size.width * 0.4,
                           height: MediaQuery.of(context).size.height * 0.2,
-                          decoration: new BoxDecoration(
-                            shape: BoxShape.circle,
-                            image: new DecorationImage(
-                              image: new ExactAssetImage(
-                                  'assets/images/defaultProfile.png'),
-                            ),
-                          )),
+                          child: CircleAvatar(
+                            backgroundImage: AssetImage(("assets/common/")+picsList[globalData.board]['image']),
+                            radius: MediaQuery.of(context).size.width * 0.04,
+                          ),
+                      ),
                     ],
                   ),
                 ),
