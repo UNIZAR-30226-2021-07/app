@@ -52,6 +52,7 @@ class MapScreenState extends State<ProfileConf>
             icon: Icon(Icons.arrow_back_rounded),
             color: blackWords,
             onPressed: () {
+              controller.add(true);
               Navigator.pop(context);
             }),
       ),

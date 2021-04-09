@@ -17,7 +17,7 @@ List boardList = [];
 
 Socket socket;
 
-StreamController<bool> controller = StreamController<bool>();
+StreamController<bool> controller = StreamController<bool>.broadcast();
 Stream stream = controller.stream;
 
 
@@ -79,7 +79,7 @@ class UserData {
 
   factory UserData.fromJson(Map<String,dynamic> json) {
     print('name' + json['name']);
-    return new UserData(name: json['name'], email: json['email'], coins: json['coins'].toString(), picture: json['picture'], board: json['board']);
+    return UserData(name: json['name'], email: json['email'], coins: json['coins'].toString(), picture: json['picture'], board: json['board']);
   }
 }
 
@@ -98,7 +98,7 @@ class UserStat {
     String min = mini.toString();
     int houri = (aux / 60).toInt();
     String hour = houri.toString();
-    return new UserStat(games: json['games'].toString(), losses: json['losses'].toString(), wins: json['wins'].toString(), playtimeMin: min, playtimeHour: hour);
+    return UserStat(games: json['games'].toString(), losses: json['losses'].toString(), wins: json['wins'].toString(), playtimeMin: min, playtimeHour: hour);
   }
 }
 

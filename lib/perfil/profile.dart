@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gatovidapp/services/auth.dart';
 import 'package:gatovidapp/popUps/error.dart';
 import 'package:gatovidapp/services/models.dart';
-import 'package:gatovidapp/services/profile_stadistics.dart';
+import 'dart:async';
 
 
 // Colors to use
@@ -23,10 +23,14 @@ class MapScreenState extends State<ProfilePage>
     with SingleTickerProviderStateMixin {
   final FocusNode myFocusNode = FocusNode();
   final AuthService _authService = AuthService();
+  StreamSubscription<bool> streamSubscription;
 
   @override
   void initState() {
     super.initState();
+    streamSubscription = stream.listen((_) {
+      setState(() {/* Empty instruction */});
+    });
   }
 
   @override
@@ -119,10 +123,10 @@ class MapScreenState extends State<ProfilePage>
                                   onPrimary: whiteWords,
                                   minimumSize: Size(MediaQuery.of(context).size.width * 0.4, MediaQuery.of(context).size.height * 0.05),
                                 ),
-                                onPressed: () async{
-                                  Navigator.pushNamed(context, '/profile_edit');
-                                  await getData();
-                                  setState(() {});
+                                onPressed: (){
+                                  setState(() {
+                                    Navigator.pushNamed(context, '/profile_edit');
+                                  });
                                 }),
                           ],
                         ),
@@ -290,5 +294,11 @@ class MapScreenState extends State<ProfilePage>
             ),
         )
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    streamSubscription.cancel();
   }
 }
