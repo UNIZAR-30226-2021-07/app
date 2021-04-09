@@ -38,26 +38,8 @@ Future<bool> modifyData(String typeMod, String valueMod) async{
     //Pedir token
     final AuthService _authService = AuthService();
     if (await _authService.requestToken(response)) {
-    return await modifyData(typeMod, valueMod);
+      return await modifyData(typeMod, valueMod);
     }
     return false;
   }
-}
-
-
-Future<bool> getStadistics() async{
-
-  String name = globalData.name;
-
-  var response = await http.get(Uri.parse("http://gatovid.herokuapp.com/data/user_stats?name=$name"));
-
-  var decoded = jsonDecode(response.body);
-
-  globalStats = UserStat.fromJson(decoded);
-
-  if (decoded['error'] != null){
-    return false;
-  }
-
-  return true;
 }
