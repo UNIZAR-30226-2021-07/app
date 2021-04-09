@@ -5,11 +5,11 @@ import 'dart:async';
 Token globalToken;
 Error globalError;
 Response globalMessage;
-User globalUser;
-UserData globalData;
-UserStat globalStats;
-String global_login_email;
-String global_login_password;
+User globalUser = User();
+UserData globalData = UserData();
+UserStat globalStats = UserStat();
+String global_login_email = "";
+String global_login_password = "";
 
 Socket socket;
 

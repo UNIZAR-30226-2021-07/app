@@ -69,7 +69,7 @@ class MapScreenState extends State<ProfileConf>
                           children: <Widget>[
                             new Container(
                                 width: MediaQuery.of(context).size.width * 0.4,
-                                height: MediaQuery.of(context).size.height * 0.2,
+                                height: MediaQuery.of(context).size.height * 0.15,
                                 decoration: new BoxDecoration(
                                   shape: BoxShape.circle,
                                   image: new DecorationImage(
@@ -130,7 +130,7 @@ class MapScreenState extends State<ProfileConf>
                   Padding(
                     padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
                         right: MediaQuery.of(context).size.width *0.1,
-                        top: MediaQuery.of(context).size.height * 0.023
+                        top: MediaQuery.of(context).size.height * 0.02
                     ),
                     child: ConstrainedBox(
                       constraints: BoxConstraints.tight(Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.06)),
@@ -155,7 +155,7 @@ class MapScreenState extends State<ProfileConf>
                   Padding(
                     padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
                         right: MediaQuery.of(context).size.width *0.1,
-                        top: MediaQuery.of(context).size.height * 0.023
+                        top: MediaQuery.of(context).size.height * 0.02
                     ),
                     child: ConstrainedBox(
                       constraints: BoxConstraints.tight(Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.06)),
@@ -184,7 +184,36 @@ class MapScreenState extends State<ProfileConf>
                   Padding(
                     padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
                         right: MediaQuery.of(context).size.width *0.1,
-                        top: MediaQuery.of(context).size.height * 0.025
+                        top: MediaQuery.of(context).size.height * 0.02
+                    ),
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints.tight(Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.06)),
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(width: 1.0)),
+                            hintText: 'Repita la contraseña',
+                            isDense: true,
+                            fillColor: whiteWords,
+                            filled: true
+                        ),
+                        style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.height * 0.022,
+                          fontWeight: FontWeight.normal,
+                          color: greyWords,
+                        ),
+                        // Oculta la contraseña
+                        autocorrect: false,
+                        enableSuggestions: false,
+                        obscureText: true,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
+                        right: MediaQuery.of(context).size.width *0.1,
+                        top: MediaQuery.of(context).size.height * 0.02
                     ),
                     child: new Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -200,10 +229,10 @@ class MapScreenState extends State<ProfileConf>
                             children: [ TableRow(
                               children: <Widget>[
                                 Padding(
-                                  padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.027,
-                                      right: MediaQuery.of(context).size.width *0.027,
-                                      top: MediaQuery.of(context).size.height *0.021,
-                                      bottom: MediaQuery.of(context).size.height *0.021
+                                  padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.022,
+                                      right: MediaQuery.of(context).size.width *0.022,
+                                      top: MediaQuery.of(context).size.height *0.0125,
+                                      bottom: MediaQuery.of(context).size.height *0.0125
                                   ),
                                   child: Text('Cambiar Tablero',
                                     textAlign: TextAlign.start,
@@ -215,10 +244,14 @@ class MapScreenState extends State<ProfileConf>
                                   )
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.01),
+                                  padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.022,
+                                      right: MediaQuery.of(context).size.width *0.022,
+                                      //top: MediaQuery.of(context).size.height *0.0,
+                                      bottom: MediaQuery.of(context).size.height *0.0125
+                                  ),
                                   child: Padding(
-                                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.05,
-                                        right: MediaQuery.of(context).size.width *0.05,
+                                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.075,
+                                        right: MediaQuery.of(context).size.width *0.075,
                                     ),
                                     child: new ElevatedButton(
                                         style: ElevatedButton.styleFrom(
@@ -241,7 +274,7 @@ class MapScreenState extends State<ProfileConf>
                   Padding(
                     padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
                         right: MediaQuery.of(context).size.width *0.1,
-                        top: MediaQuery.of(context).size.height * 0.023
+                        top: MediaQuery.of(context).size.height * 0.005
                     ),
                     child: new Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -273,7 +306,7 @@ class MapScreenState extends State<ProfileConf>
                   Padding(
                       padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
                           right: MediaQuery.of(context).size.width *0.1,
-                          top: MediaQuery.of(context).size.height * 0.023
+                          top: MediaQuery.of(context).size.height * 0.005
                       ),
                       child: new Row(
                         mainAxisAlignment: MainAxisAlignment.center,
