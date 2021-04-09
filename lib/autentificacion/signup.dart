@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:gatovidapp/services/auth.dart';
-import 'package:gatovidapp/services/models.dart';
 import 'package:gatovidapp/popUps/error.dart';
 
 class Signup extends StatefulWidget {
@@ -286,7 +285,6 @@ class _SignupState extends State<Signup> {
                                                     flex: 6,
                                                     child: ElevatedButton(
                                                         onPressed: () async {
-                                                          // TODO: comprobacion registro
                                                           if ( await _authService.signup(_email.text, _pwd.text, _name.text)){
                                                             Navigator.of(context).pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
                                                           }

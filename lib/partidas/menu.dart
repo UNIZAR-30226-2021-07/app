@@ -3,9 +3,8 @@ import 'package:flutter/rendering.dart';
 import 'package:gatovidapp/popUps/gameCode.dart';
 import 'package:gatovidapp/popUps/loadingGame.dart';
 import 'package:gatovidapp/popUps/readyGame.dart';
-import 'package:gatovidapp/perfil/stadistics.dart';
-import 'package:gatovidapp/perfil/models.dart';
-import 'dart:async';
+import 'package:gatovidapp/services/profile_stadistics.dart';
+import 'package:gatovidapp/services/models.dart';
 
 class GamesMenu extends StatefulWidget {
   @override
@@ -43,6 +42,7 @@ class _GamesMenuState extends State<GamesMenu> {
                             children: [
                               Expanded(
                                 child: CircleAvatar(
+                                  //TODO: Cargar una imagen u otra dependiendo de datos backend
                                   backgroundImage: AssetImage('assets/images/defaultProfile.png'),
                                   radius: screenHeight * 0.04,
                                   child: TextButton(
@@ -86,7 +86,9 @@ class _GamesMenuState extends State<GamesMenu> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                Text( '150',
+                                Text(
+                                  //TODO: Monedas según de datos backend
+                                  '150',
                                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: screenHeight * 0.03),
                                 ),
                                 SizedBox(width: screenWidth * 0.02),

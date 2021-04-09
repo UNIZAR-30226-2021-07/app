@@ -50,7 +50,7 @@ class AuthService {
     if (response.statusCode == 200) {
       //Servidor devuelve estado correcto, por lo que se recibe mensaje
       //Transformar json mensaje a modelo creado
-      globalMessage = Message.fromJson(jsonDecode(utf8.decode(response.bodyBytes)));
+      globalMessage = Response.fromJson(jsonDecode(utf8.decode(response.bodyBytes)));
       return true;
     }
     else if (response.statusCode == 400) {
@@ -105,7 +105,7 @@ class AuthService {
     if (response.statusCode == 200) {
       //Servidor devuelve estado correcto, por lo que se recibe mensaje
       //Transformar json mensaje a modelo creado
-      globalMessage = Message.fromJson(jsonDecode(utf8.decode(response.bodyBytes)));
+      globalMessage = Response.fromJson(jsonDecode(utf8.decode(response.bodyBytes)));
       return true;
     }
     else if (response.statusCode == 400) {

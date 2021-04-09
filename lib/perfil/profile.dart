@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gatovidapp/services/auth.dart';
 import 'package:gatovidapp/popUps/error.dart';
 import 'package:gatovidapp/services/models.dart';
-import 'package:gatovidapp/perfil/models.dart';
-import 'package:gatovidapp/perfil/stadistics.dart';
 
-import 'models.dart';
 
 // Colors to use
 
@@ -274,9 +271,6 @@ class MapScreenState extends State<ProfilePage>
                                 onPressed: () async {
                                   //Comprobación cierre de sesión
                                   if(await _authService.logout()) {
-                                    /*setState(() {
-                                      islogin = false;
-                                    });*/
                                     Navigator.of(context).pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
                                   }
                                   else {
