@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gatovidapp/popUps/deleteAccount.dart';
+import 'package:gatovidapp/services/profile_modify.dart';
+import 'package:gatovidapp/services/models.dart';
+import 'package:gatovidapp/popUps/error.dart';
+import 'package:gatovidapp/services/profile_stadistics.dart';
 
 // Colors to use
 
@@ -10,6 +14,10 @@ Color purpleButton = Color(0xff6A1B9A);
 Color purpleCamera = Color(0xff9C4DCC);
 Color whiteWords = Color(0xffffffff);
 Color redButton = Color(0xffFF0000);
+
+final TextEditingController _name = TextEditingController();
+final TextEditingController _pass1 = TextEditingController();
+final TextEditingController _pass2 = TextEditingController();
 
 class ProfileConf extends StatefulWidget {
   @override
@@ -112,12 +120,12 @@ class MapScreenState extends State<ProfileConf>
                           new Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: <Widget>[
-                              new Text('Juan Carlos',
+                              new Text(globalData.name,
                                   style: TextStyle(
                                       fontSize: MediaQuery.of(context).size.height * 0.025,
                                       fontWeight: FontWeight.bold)),
                               new Text(
-                                'juancarlos@gmail.com',
+                                globalData.email,
                                 style: TextStyle(
                                     fontSize: MediaQuery.of(context).size.height * 0.025,
                                     fontWeight: FontWeight.normal),
@@ -135,6 +143,7 @@ class MapScreenState extends State<ProfileConf>
                     child: ConstrainedBox(
                       constraints: BoxConstraints.tight(Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.06)),
                       child: TextFormField(
+                        controller: _name,
                         decoration: InputDecoration(
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10.0),
@@ -160,6 +169,7 @@ class MapScreenState extends State<ProfileConf>
                     child: ConstrainedBox(
                       constraints: BoxConstraints.tight(Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.06)),
                       child: TextFormField(
+                        controller: _pass1,
                         decoration: InputDecoration(
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10.0),
@@ -189,6 +199,7 @@ class MapScreenState extends State<ProfileConf>
                     child: ConstrainedBox(
                       constraints: BoxConstraints.tight(Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.06)),
                       child: TextFormField(
+                        controller: _pass2,
                         decoration: InputDecoration(
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10.0),
@@ -294,9 +305,74 @@ class MapScreenState extends State<ProfileConf>
                                   onPrimary: whiteWords,
                                   minimumSize: Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.065),
                                 ),
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                  // TODO: Save changes
+                                onPressed: () async {
+                                  if(_name.text != ''){ // ok name
+                                    if ( await modifyData('name',_name.text)){
+                                      await  getData();
+                                      setState((){});
+                                    }else {
+                                      showDialog(
+                                        barrierDismissible: false,
+                                        context: context,
+                                        builder: (BuildContext context) => ErrorPopup(),
+                                      );
+                                    }
+                                  }
+                                  if (_pass1.text != '' && _pass2.text != ''){ // ok password
+                                    if(_pass1.text == _pass2.text){ // same password
+                                      if ( await modifyData('password',_pass1.text)){
+                                        global_login_password = _pass1.text;
+                                      }else {
+                                        showDialog(
+                                          barrierDismissible: false,
+                                          context: context,
+                                          builder: (BuildContext context) => ErrorPopup(),
+                                        );
+                                      }
+                                    }else{ // error, not same password
+                                      globalError = Error(error: 'Las contraseña no coincide');
+                                      showDialog(
+                                        barrierDismissible: false,
+                                        context: context,
+                                        builder: (BuildContext context) => ErrorPopup(),
+                                      );
+                                    }
+                                  }
+                                  if ( _name.text == '' && (_pass1.text == '' || _pass2.text == '')){ // None parameters
+                                    if(_name.text == '' && _pass1.text == '' && _pass2.text == ''){
+                                      globalError = Error(error: 'No se ha introducido ningún cambio');
+                                      showDialog(
+                                        barrierDismissible: false,
+                                        context: context,
+                                        builder: (BuildContext context) => ErrorPopup(),
+                                      );
+                                    }else if (_pass1.text == '' && _pass2.text != ''){
+                                      globalError = Error(error: 'Primer campo de la contraseña vacio');
+                                      showDialog(
+                                        barrierDismissible: false,
+                                        context: context,
+                                        builder: (BuildContext context) => ErrorPopup(),
+                                      );
+                                    }else if (_pass1.text != '' && _pass2.text == ''){
+                                      globalError = Error(error: 'Segundo campo de la contraseña vacio');
+                                      showDialog(
+                                        barrierDismissible: false,
+                                        context: context,
+                                        builder: (BuildContext context) => ErrorPopup(),
+                                      );
+                                    }else{
+                                      globalError = Error(error: 'Error inesperado, intentelo de nuevo');
+                                      showDialog(
+                                        barrierDismissible: false,
+                                        context: context,
+                                        builder: (BuildContext context) => ErrorPopup(),
+                                      );
+                                    }
+                                  }
+                                  // Clean boxes
+                                  _name.text = '';
+                                  _pass1.text = '';
+                                  _pass2.text = '';
                                 }),
                           ],
                         ),

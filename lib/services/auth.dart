@@ -63,7 +63,7 @@ class AuthService {
       //statusCode = 401
       if (await requestToken(response)) {
         final AuthService _authService = AuthService();
-        return _authService.logout();
+        return await _authService.logout();
       }
       return false;
     }
