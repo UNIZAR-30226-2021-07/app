@@ -168,6 +168,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                   flex: 8,
                                 child: ElevatedButton(
                                     onPressed: () {
+                                      messages.clear();
                                       createGame();
                                       showDialog(
                                         barrierDismissible: false,
@@ -206,6 +207,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                 flex: 8,
                                 child: ElevatedButton(
                                     onPressed: () {
+                                      messages.clear();
                                       showDialog(
                                         context: context,
                                         builder: (BuildContext context) => GameCode(),

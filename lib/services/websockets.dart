@@ -41,13 +41,6 @@ void startGameHandler(){
   controllerStartGame.add(true);
 }
 
-void errorMessageHandler(Map <String, dynamic> json){
-  print(json.toString());
-  print('Received: ' + json.toString());
-  controllerStartGame.add(false); // If the error is from create private or public, it works too
-  globalError = Error.fromJson(json);
-}
-
 void createGameHandler(Map <String, dynamic> json){
   codeGame = json['code'];
   controllerCreateGame.add(true);
@@ -59,36 +52,44 @@ void gameOwnerHandler(){
   controllerCreateGame.add(true); // Pop-up of owner
 }
 
+void errorMessageHandler(Map <String, dynamic> json){
+  if (json['error'] != null){
+    print('Received: ' + json.toString());
+    controllerStartGame.add(false); // If the error is from create private or public, it works too
+    globalError = Error.fromJson(json);
+  }
+}
+
 // Functions to send data with the websocket
 
 void createGame(){
   print('create_game emit');
-  socket.emit('create_game');
+  socket.emitWithAck('create_game', '', ack: (data) => errorMessageHandler(data));
 }
 
 void startGame(){
   print('start_game emit');
-  socket.emit('start_game');
+  socket.emitWithAck('start_game', '', ack: (data) => errorMessageHandler(data));
 }
 
 void sendMessageWebSocket(String message){
   print('chat emit');
-  socket.emit('chat', message);
+  socket.emitWithAck('chat', message, ack: (data) => errorMessageHandler(data));
 }
 
 void joingGame(String code){
   print('join emit');
-  socket.emit('join', code);
+  socket.emitWithAck('join', code, ack: (data) => errorMessageHandler(data));
 }
 
 void leaveGame(){
   print('leave emit');
-  socket.emit('leave');
+  socket.emitWithAck('leave', '', ack: (data) => errorMessageHandler(data));
 }
 
 void disconnectWebSocket(){
   print('disconnect emit');
-  socket.emit('disconnect', '');
+  socket.emitWithAck('disconnect', '', ack: (data) => errorMessageHandler(data));
 }
 
 class Message {
