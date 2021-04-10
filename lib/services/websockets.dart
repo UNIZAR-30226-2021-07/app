@@ -35,7 +35,9 @@ void chatReceived(Map <String, dynamic> json){
 }
 
 void errorMessage(Map <String, dynamic> json){
-  // TODO: Don't know what it's supose to do with the errors
+  print(json.toString());
+  controllerStartGame.add(false);
+  globalError = Error.fromJson(json);
 }
 
 void startGame(){

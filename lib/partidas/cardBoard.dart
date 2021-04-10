@@ -9,8 +9,10 @@ class CardBoard extends StatefulWidget {
 class _CardBoardState extends State<CardBoard> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
+    return new WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+        body: SafeArea(
         child:Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -64,6 +66,7 @@ class _CardBoardState extends State<CardBoard> {
                 )
             )
           ],
+        ),
         ),
       ),
     );

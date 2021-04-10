@@ -5,6 +5,7 @@ import 'package:gatovidapp/popUps/loadingGame.dart';
 import 'package:gatovidapp/popUps/readyGame.dart';
 import 'package:gatovidapp/services/profile_stadistics.dart';
 import 'package:gatovidapp/services/models.dart';
+import 'package:gatovidapp/popUps/error.dart';
 import 'dart:async';
 
 class GamesMenu extends StatefulWidget {
@@ -19,9 +20,17 @@ class _GamesMenuState extends State<GamesMenu> {
   @override
   void initState() {
     super.initState();
-    streamSubscription = streamStartGame.listen((_) {
-      Navigator.of(context).popUntil((route) => route.isFirst);
-      Navigator.pushReplacementNamed(context, '/board');
+    streamSubscription = streamStartGame.listen((data) {
+      if (data == true){
+        Navigator.of(context).popUntil((route) => route.isFirst);
+        Navigator.pushReplacementNamed(context, '/board');
+      }else if (data == false){
+        showDialog(
+          barrierDismissible: false,
+          context: context,
+          builder: (BuildContext context) => ErrorPopup(),
+        );
+      }
     });
   }
 
