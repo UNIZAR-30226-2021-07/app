@@ -5,6 +5,7 @@ import 'package:gatovidapp/popUps/loadingGame.dart';
 import 'package:gatovidapp/popUps/readyGame.dart';
 import 'package:gatovidapp/services/profile_stadistics.dart';
 import 'package:gatovidapp/services/models.dart';
+import 'dart:async';
 
 class GamesMenu extends StatefulWidget {
   @override
@@ -12,6 +13,18 @@ class GamesMenu extends StatefulWidget {
 }
 
 class _GamesMenuState extends State<GamesMenu> {
+
+  StreamSubscription<bool> streamSubscription;
+
+  @override
+  void initState() {
+    super.initState();
+    streamSubscription = streamStartGame.listen((_) {
+      Navigator.of(context).popUntil((route) => route.isFirst);
+      Navigator.pushReplacementNamed(context, '/board');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
 
@@ -173,7 +186,6 @@ class _GamesMenuState extends State<GamesMenu> {
                                 child: ElevatedButton(
                                     onPressed: () {
                                       showDialog(
-                                        barrierDismissible: false,
                                         context: context,
                                         builder: (BuildContext context) => GameCode(),
                                       );

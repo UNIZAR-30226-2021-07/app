@@ -4,6 +4,7 @@ import 'package:gatovidapp/services/auth.dart';
 import 'package:gatovidapp/services/models.dart';
 import 'package:gatovidapp/popUps/error.dart';
 import 'package:gatovidapp/services/profile_stadistics.dart';
+import 'package:gatovidapp/services/websockets.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -217,6 +218,7 @@ class _LoginState extends State<Login> {
                                                             await readPicsJson();
                                                             await readBoardsJson();
                                                             await getData();
+                                                            startWebSocket();
                                                             Navigator.pushReplacementNamed(context, '/home');
                                                           }
                                                           else {

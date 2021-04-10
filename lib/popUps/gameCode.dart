@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:gatovidapp/popUps/loadingGame.dart';
+import 'package:gatovidapp/services/websockets.dart';
 
 class GameCode extends StatelessWidget {
+
+
+
+
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -10,8 +16,9 @@ class GameCode extends StatelessWidget {
     double screenHeight = screenSize.height;
     double screenWidth = screenSize.width;
 
+    final TextEditingController _code = TextEditingController();
+
     return WillPopScope(
-        onWillPop: () async => false,
         child: AlertDialog(
           title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -55,9 +62,7 @@ class GameCode extends StatelessWidget {
                     child: Container(
                       height: screenHeight * 0.06,
                       child: TextFormField(
-                        keyboardType: TextInputType.number,
-                        inputFormatters:
-                        <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly],
+                        controller: _code,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
@@ -90,7 +95,14 @@ class GameCode extends StatelessWidget {
                             ),
                             onPressed: () {
                               Navigator.of(context).pop();
-                              Navigator.pushNamed(context, '/board');
+                              if (_code.text != ''){
+                                joingGame(_code.text); // TODO: Que pasa si hay un error, ni idea
+                                showDialog(
+                                  barrierDismissible: false,
+                                  context: context,
+                                  builder: (BuildContext context) => LoadingGame(),
+                                );
+                              }
                             }
                         ),
                     ),

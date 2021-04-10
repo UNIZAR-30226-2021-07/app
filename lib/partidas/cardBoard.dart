@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gatovidapp/services/websockets.dart';
 
 class CardBoard extends StatefulWidget {
   @override
@@ -40,6 +41,23 @@ class _CardBoardState extends State<CardBoard> {
                     minimumSize: Size(double.infinity, 20 )),
                 child: Text(
                   "Chat",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, fontSize:20),
+                )
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  leaveGame();
+                  Navigator.of(context).popUntil((route) => route.isFirst);
+                  Navigator.pushReplacementNamed(context, '/home');
+                },
+                style: ElevatedButton.styleFrom(
+                    primary: Color(0xFF9C4DCC),
+                    onPrimary: Colors.white,
+                    minimumSize: Size(double.infinity, 20 )),
+                child: Text(
+                  "Salir de la partida",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontWeight: FontWeight.bold, fontSize:20),

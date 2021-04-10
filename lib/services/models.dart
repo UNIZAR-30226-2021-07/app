@@ -1,4 +1,3 @@
-import 'package:socket_io_client/socket_io_client.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
 import 'dart:async';
@@ -15,12 +14,12 @@ String global_login_password = "";
 List picsList = [];
 List boardList = [];
 
-Socket socket;
-
 StreamController<bool> controllerChat = StreamController<bool>.broadcast();
 StreamController<bool> controllerStat = StreamController<bool>.broadcast();
+StreamController<bool> controllerStartGame = StreamController<bool>.broadcast();
 Stream streamChat = controllerChat.stream;
 Stream streamStat = controllerStat.stream;
+Stream streamStartGame = controllerStartGame.stream;
 
 
 //Modelos para guardar información al traducir las respuestas de la API
@@ -117,67 +116,3 @@ Future<bool> readBoardsJson() async{
   final auxList = await json.decode(response);
   boardList = auxList;
 }
-
-//-------------------------------------------------------------------------------------------------------
-//Chat
-
-String token = globalToken.token;
-
-void startWebSocket(){
-  // Builder
-  socket = io('http://gatovid.herokuapp.com:80',
-      OptionBuilder()
-          .setTransports(['websocket']) // for Flutter or Dart VM
-          .disableAutoConnect()  // disable auto-connection
-          .setExtraHeaders({'Authorization': 'Bearer $token'}) // optional
-          .build());
-  // Connect socket
-  socket.connect();
-  // TODO: Put all the function handlers
-  // Handler for each event:
-  // socket.on('event', handler);
-  print(socket);
-  socket.on('connect', (_) => print('connect: '+_.toString()));
-  socket.on('chat', (data) => chatReceived(data));
-  socket.on('connect_error', (_) => print('errorConnect: '+_.toString()));
-  socket.on('error', (_) => print('error: '+_.toString())); // Probably the problem will be with the tokens
-}
-
-void chatReceived(Map <String, dynamic> json){
-  controllerChat.add(true);
-  print('Received' + json.toString());
-  messages.insert(0,Message.fromJson(json));
-
-  // TODO: Mirar como saber en que pantalla se encuentra ahora el stack, si esta en chat, habrá que hacer un setState
-  /*
-  setState(() {
-    // instrucction
-  });
-  */
-}
-
-void sendMessageWebSocket(String message){
-  socket.emit('chat', message);
-}
-
-void joingGame(String code){
-  socket.emit('join', code);
-}
-
-class Message {
-  final String sender;
-  final String text;
-
-  Message({
-    this.sender,
-    this.text,
-  });
-
-  factory Message.fromJson(Map<String,dynamic> json) {
-    return Message(sender: json['owner'], text: json['msg']);
-  }
-}
-
-// Empty list
-List<Message> messages = [];
-

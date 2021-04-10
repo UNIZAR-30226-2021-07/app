@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gatovidapp/services/auth.dart';
 import 'package:gatovidapp/popUps/error.dart';
 import 'package:gatovidapp/services/models.dart';
+import 'package:gatovidapp/services/websockets.dart';
 import 'dart:async';
 
 
@@ -277,6 +278,7 @@ class MapScreenState extends State<ProfilePage>
                                   //Comprobación cierre de sesión
                                   if(await _authService.logout()) {
                                     Navigator.of(context).pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
+                                    disconnectWebSocket();
                                   }
                                   else {
                                     showDialog(
