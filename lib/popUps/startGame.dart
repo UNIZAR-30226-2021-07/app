@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gatovidapp/services/websockets.dart';
+import 'package:gatovidapp/popUps/loadingGame.dart';
 
 Color blackWords = Color(0xff000000);
 Color purpleButton = Color(0xff6A1B9A);
@@ -9,7 +11,7 @@ class StartGame extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-        onWillPop: () async => false,
+        //onWillPop: () async => false,
         child: AlertDialog(
           title: Text('¿Empezar partida?',
             textAlign: TextAlign.center,
@@ -46,7 +48,12 @@ class StartGame extends StatelessWidget {
                   side: BorderSide(color: whiteWords, width: 2),
                 ),
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/board');
+                  startGame();
+                  showDialog(
+                    barrierDismissible: false,
+                    context: context,
+                    builder: (BuildContext context) => LoadingGame(),
+                  );
                 }),
           ],
         )

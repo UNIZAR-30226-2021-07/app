@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gatovidapp/popUps/startGame.dart';
+import 'package:gatovidapp/services/models.dart';
+import 'package:clipboard/clipboard.dart';
 
 class ReadyGame extends StatelessWidget {
   // This widget is the root of your application.
@@ -70,7 +72,7 @@ class ReadyGame extends StatelessWidget {
                               side: BorderSide(color: Colors.white, width: 2),
                             ),
                             onPressed: () {
-                              Navigator.of(context).pop();
+                              FlutterClipboard.copy(codeGame).then(( value ) => print('copied')); // Copy to the clipboard
                             }
                         ),
                     ),
@@ -91,7 +93,7 @@ class ReadyGame extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('4567',
+                          Text(codeGame,
                             style: TextStyle(fontSize: screenWidth * 0.05, fontWeight: FontWeight.bold)
                           ),
                         ],
@@ -119,7 +121,6 @@ class ReadyGame extends StatelessWidget {
                               side: BorderSide(color: Colors.white, width: 2),
                             ),
                             onPressed: () {
-                              Navigator.of(context).pop();
                               showDialog(
                                 barrierDismissible: false,
                                 context: context,
