@@ -64,12 +64,12 @@ void errorMessageHandler(Map <String, dynamic> json){
 
 void createGame(){
   print('create_game emit');
-  socket.emitWithAck('create_game', '', ack: (data) => errorMessageHandler(data));
+  socket.emitWithAck('create_game', null, ack: (data) => errorMessageHandler(data));
 }
 
 void startGame(){
   print('start_game emit');
-  socket.emitWithAck('start_game', '', ack: (data) => errorMessageHandler(data));
+  socket.emitWithAck('start_game', null, ack: (data) => errorMessageHandler(data));
 }
 
 void sendMessageWebSocket(String message){
@@ -84,12 +84,12 @@ void joingGame(String code){
 
 void leaveGame(){
   print('leave emit');
-  socket.emitWithAck('leave', '', ack: (data) => errorMessageHandler(data));
+  socket.emitWithAck('leave', null, ack: (data) => errorMessageHandler(data));
 }
 
 void disconnectWebSocket(){
   print('disconnect emit');
-  socket.emitWithAck('disconnect', '', ack: (data) => errorMessageHandler(data));
+  socket.emitWithAck('disconnect', null, ack: (data) => errorMessageHandler(data));
 }
 
 class Message {
