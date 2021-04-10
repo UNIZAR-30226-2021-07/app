@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:gatovidapp/popUps/loadingGame.dart';
 import 'package:gatovidapp/services/websockets.dart';
+import 'package:gatovidapp/services/models.dart';
 
 class GameCode extends StatelessWidget {
 
-
-
-
+  final TextEditingController _code = TextEditingController();
 
   // This widget is the root of your application.
   @override
@@ -15,8 +14,6 @@ class GameCode extends StatelessWidget {
     Size screenSize = MediaQuery.of(context).size;
     double screenHeight = screenSize.height;
     double screenWidth = screenSize.width;
-
-    final TextEditingController _code = TextEditingController();
 
     return WillPopScope(
         child: AlertDialog(
@@ -96,6 +93,7 @@ class GameCode extends StatelessWidget {
                             onPressed: () {
                               Navigator.of(context).pop();
                               if (_code.text != ''){
+                                codeGame = _code.text;
                                 joingGame(_code.text); // TODO: Que pasa si hay un error, ni idea
                                 showDialog(
                                   barrierDismissible: false,

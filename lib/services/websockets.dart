@@ -23,6 +23,7 @@ void startWebSocket(){
   socket.on('chat', (data) => chatReceivedHandler(data));
   socket.on('start_game', (_) => startGameHandler());
   socket.on('create_game', (data) => createGameHandler(data));
+  socket.on('game_owner', (_) => gameOwnerHandler());
   socket.on('connect_error', (_) => print('errorConnect: '+_.toString()));
   socket.on('error', (data) => errorMessageHandler(data)); // Probably the problem will be with the tokens
 }
@@ -33,6 +34,11 @@ void chatReceivedHandler(Map <String, dynamic> json){
   controllerChat.add(true);
   print('Received: ' + json.toString());
   messages.insert(0,Message.fromJson(json));
+}
+
+void startGameHandler(){
+  print('Received: StartGame');
+  controllerStartGame.add(true);
 }
 
 void errorMessageHandler(Map <String, dynamic> json){
@@ -48,9 +54,9 @@ void createGameHandler(Map <String, dynamic> json){
   print('Received: ' + json.toString());
 }
 
-void startGameHandler(){
-  print('Received: StartGame');
-  controllerStartGame.add(true);
+void gameOwnerHandler(){
+  print('Received: I\'m the captain now');
+  controllerCreateGame.add(true); // Pop-up of owner
 }
 
 // Functions to send data with the websocket

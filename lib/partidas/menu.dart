@@ -26,7 +26,8 @@ class _GamesMenuState extends State<GamesMenu> {
       if (data == true){
         Navigator.of(context).popUntil((route) => route.isFirst);
         Navigator.pushReplacementNamed(context, '/board');
-      }else if (data == false){
+      }
+      else{
         Navigator.pop(context); // TODO: Comprobar que esto funciona
         showDialog(
           barrierDismissible: false,
