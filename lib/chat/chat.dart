@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gatovidapp/services/models.dart';
+import 'package:gatovidapp/services/websockets.dart';
 import 'dart:async';
 
 Color greenAppBar = Color(0xff64DD17);
@@ -32,8 +33,6 @@ class _ChatScreenState extends State<ChatScreen> {
     streamSubscription = streamChat.listen((_) {
       setState(() {/* Empty instruction */});
     });
-    startWebSocket();
-    joingGame('ERRV');
   }
 
   _listMessages(Message message, bool isMe) {
@@ -171,7 +170,7 @@ class _ChatScreenState extends State<ChatScreen> {
       itemCount: messages.length,
       itemBuilder: (BuildContext context, int index) {
         final Message message = messages[index];
-        final bool isMe = message.sender == "test_user2"; // TODO: Change for the current user in posteriors branches
+        final bool isMe = message.sender == globalData.name;
         return _listMessages(message, isMe);
       },
     );

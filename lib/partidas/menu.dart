@@ -3,8 +3,11 @@ import 'package:flutter/rendering.dart';
 import 'package:gatovidapp/popUps/gameCode.dart';
 import 'package:gatovidapp/popUps/loadingGame.dart';
 import 'package:gatovidapp/popUps/readyGame.dart';
+import 'package:gatovidapp/popUps/error.dart';
 import 'package:gatovidapp/services/profile_stadistics.dart';
 import 'package:gatovidapp/services/models.dart';
+import 'package:gatovidapp/services/websockets.dart';
+import 'dart:async';
 
 class GamesMenu extends StatefulWidget {
   @override
@@ -12,6 +15,36 @@ class GamesMenu extends StatefulWidget {
 }
 
 class _GamesMenuState extends State<GamesMenu> {
+
+  StreamSubscription<bool> streamSubscription;
+  StreamSubscription<bool> streamSubscription2;
+
+  @override
+  void initState() {
+    super.initState();
+    streamSubscription = streamStartGame.listen((data) {
+      if (data == true){
+        Navigator.of(context).popUntil((route) => route.isFirst);
+        Navigator.pushReplacementNamed(context, '/board');
+      }
+      else{
+        Navigator.pop(context); // TODO: Comprobar que esto funciona
+        showDialog(
+          barrierDismissible: false,
+          context: context,
+          builder: (BuildContext context) => ErrorPopup(),
+        );
+      }
+    });
+    streamSubscription2 = streamCreateGame.listen((data) {
+        Navigator.of(context).popUntil((route) => route.isFirst);
+        showDialog(
+          context: context,
+          builder: (BuildContext context) => ReadyGame(),
+        );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
 
@@ -135,10 +168,12 @@ class _GamesMenuState extends State<GamesMenu> {
                                   flex: 8,
                                 child: ElevatedButton(
                                     onPressed: () {
+                                      messages.clear();
+                                      createGame();
                                       showDialog(
                                         barrierDismissible: false,
                                         context: context,
-                                        builder: (BuildContext context) => ReadyGame(),
+                                        builder: (BuildContext context) => LoadingGame(),
                                       );
                                     },
                                     style: ElevatedButton.styleFrom(
@@ -172,8 +207,8 @@ class _GamesMenuState extends State<GamesMenu> {
                                 flex: 8,
                                 child: ElevatedButton(
                                     onPressed: () {
+                                      messages.clear();
                                       showDialog(
-                                        barrierDismissible: false,
                                         context: context,
                                         builder: (BuildContext context) => GameCode(),
                                       );
@@ -246,5 +281,12 @@ class _GamesMenuState extends State<GamesMenu> {
         ),
       ),
     ));
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    streamSubscription.cancel();
+    streamSubscription2.cancel();
   }
 }
