@@ -24,6 +24,8 @@ void startWebSocket(){
   socket.on('start_game', (_) => startGameHandler());
   socket.on('create_game', (data) => createGameHandler(data));
   socket.on('game_owner', (_) => gameOwnerHandler());
+  socket.on('found_game', (data) => publicGameHandler(data));
+  socket.on('game_cancelled', (_) => gameCancelledHandler());
   socket.on('connect_error', (_) => print('errorConnect: '+_.toString()));
   socket.on('error', (data) => errorMessageHandler(data)); // Probably the problem will be with the tokens
 }
@@ -47,14 +49,26 @@ void createGameHandler(Map <String, dynamic> json){
   print('Received: ' + json.toString());
 }
 
+void publicGameHandler(Map <String, dynamic> json){
+  codeGame = json['code'];
+  print('Received: ' + json.toString());
+  joingGame(codeGame);
+}
+
 void gameOwnerHandler(){
   print('Received: I\'m the captain now');
   controllerCreateGame.add(true); // Pop-up of owner
 }
 
+void gameCancelledHandler(){
+  print('Received: game_cancelled');
+  controllerStartGame.add(false);
+  globalError = Error(error: 'No se ha podido encontrar una partida, por favor, intentelo de nuevo');
+}
+
 void errorMessageHandler(Map <String, dynamic> json){
   if (json['error'] != null){
-    print('Received: ' + json.toString());
+    print('Received error: ' + json.toString());
     controllerStartGame.add(false); // If the error is from create private or public, it works too
     globalError = Error.fromJson(json);
   }
@@ -70,6 +84,11 @@ void createGame(){
 void startGame(){
   print('start_game emit');
   socket.emitWithAck('start_game', null, ack: (data) => errorMessageHandler(data));
+}
+
+void publicGame(){
+  print('search_game emit');
+  socket.emitWithAck('search_game', null, ack: (data) => errorMessageHandler(data));
 }
 
 void sendMessageWebSocket(String message){

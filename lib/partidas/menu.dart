@@ -28,7 +28,7 @@ class _GamesMenuState extends State<GamesMenu> {
         Navigator.pushReplacementNamed(context, '/board');
       }
       else{
-        Navigator.pop(context); // TODO: Comprobar que esto funciona
+        Navigator.pop(context);
         showDialog(
           barrierDismissible: false,
           context: context,
@@ -244,8 +244,8 @@ class _GamesMenuState extends State<GamesMenu> {
                                 flex: 8,
                                 child: ElevatedButton(
                                     onPressed: () {
-                                      //TODO: unirse partida pública
-                                      //y mostrar dialog alert hasta que se cargue pantalla tablero
+                                      messages.clear();
+                                      publicGame();
                                       showDialog(
                                         barrierDismissible: false,
                                         context: context,
