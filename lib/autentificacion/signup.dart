@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:gatovidapp/services/auth.dart';
 import 'package:gatovidapp/popUps/error.dart';
+import 'package:gatovidapp/services/models.dart';
 
 class Signup extends StatefulWidget {
   @override
@@ -108,6 +109,73 @@ class _SignupState extends State<Signup> {
                                                       borderSide: BorderSide(width: 2)
                                                   ),
                                                   hintText: 'Introduzca nombre de usuario',
+                                                  filled: true,
+                                                  fillColor: Colors.white,
+                                                  isDense: true, // Added this
+                                                ),
+                                              ),
+                                            ),
+                                            Expanded(
+                                                child: SizedBox()
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )
+                          ),
+                          Expanded(
+                              child: Container(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: <Widget>[
+                                    Expanded(
+                                        flex: 2,
+                                        child: SizedBox(
+                                        )
+                                    ),
+                                    Expanded(
+                                      child: Container(
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.start,
+                                          children: [
+                                            Expanded(
+                                                child: SizedBox()
+                                            ),
+                                            Expanded(
+                                              flex: 6,
+                                              child: Text(
+                                                'Email',
+                                                style:
+                                                TextStyle(fontWeight: FontWeight.bold, fontSize: screenHeight * 0.03),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(height: screenHeight * 0.005),
+                                    Expanded(
+                                      flex: 2,
+                                      child: Container(
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.start,
+                                          children: [
+                                            Expanded(
+                                                child: SizedBox()
+                                            ),
+                                            Expanded(
+                                              flex: 6,
+                                              child: TextFormField(
+                                                controller: _email,
+                                                decoration: InputDecoration(
+                                                  border: OutlineInputBorder(
+                                                      borderRadius: BorderRadius.circular(10),
+                                                      borderSide: BorderSide(width: 2)
+                                                  ),
+                                                  hintText: 'Introduzca email',
                                                   filled: true,
                                                   fillColor: Colors.white,
                                                   isDense: true, // Added this
@@ -257,73 +325,6 @@ class _SignupState extends State<Signup> {
                               ],
                             ),
                           ),
-                          Expanded(
-                              child: Container(
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: <Widget>[
-                                    Expanded(
-                                        flex: 2,
-                                        child: SizedBox(
-                                        )
-                                    ),
-                                    Expanded(
-                                      child: Container(
-                                        child: Row(
-                                          mainAxisAlignment: MainAxisAlignment.start,
-                                          children: [
-                                            Expanded(
-                                                child: SizedBox()
-                                            ),
-                                            Expanded(
-                                              flex: 6,
-                                              child: Text(
-                                                'Email',
-                                                style:
-                                                TextStyle(fontWeight: FontWeight.bold, fontSize: screenHeight * 0.03),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(height: screenHeight * 0.005),
-                                    Expanded(
-                                      flex: 2,
-                                      child: Container(
-                                        child: Row(
-                                          mainAxisAlignment: MainAxisAlignment.start,
-                                          children: [
-                                            Expanded(
-                                                child: SizedBox()
-                                            ),
-                                            Expanded(
-                                              flex: 6,
-                                              child: TextFormField(
-                                                controller: _email,
-                                                decoration: InputDecoration(
-                                                  border: OutlineInputBorder(
-                                                      borderRadius: BorderRadius.circular(10),
-                                                      borderSide: BorderSide(width: 2)
-                                                  ),
-                                                  hintText: 'Introduzca email',
-                                                  filled: true,
-                                                  fillColor: Colors.white,
-                                                  isDense: true, // Added this
-                                                ),
-                                              ),
-                                            ),
-                                            Expanded(
-                                                child: SizedBox()
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              )
-                          ),
                         ],
                       ),
                     ),
@@ -354,10 +355,20 @@ class _SignupState extends State<Signup> {
                                                     flex: 6,
                                                     child: ElevatedButton(
                                                         onPressed: () async {
-                                                          if ( await _authService.signup(_email.text, _pwd.text, _name.text)){
-                                                            Navigator.of(context).pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
+                                                          if ( _pwd.text == _pwdControl.text) {
+                                                            if ( await _authService.signup(_email.text, _pwd.text, _name.text)){
+                                                              Navigator.of(context).pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
+                                                            }
+                                                            else {
+                                                              showDialog(
+                                                                barrierDismissible: false,
+                                                                context: context,
+                                                                builder: (BuildContext context) => ErrorPopup(),
+                                                              );
+                                                            }
                                                           }
                                                           else {
+                                                            globalError = Error(error: 'Las contraseñas no coinciden');
                                                             showDialog(
                                                               barrierDismissible: false,
                                                               context: context,

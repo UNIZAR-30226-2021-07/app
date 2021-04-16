@@ -364,7 +364,7 @@ class MapScreenState extends State<ProfileConf>
                                         );
                                       }
                                     }else{ // error, not same password
-                                      globalError = Error(error: 'Las contraseña no coincide');
+                                      globalError = Error(error: 'Las contraseñas no coinciden');
                                       showDialog(
                                         barrierDismissible: false,
                                         context: context,
