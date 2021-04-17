@@ -18,27 +18,30 @@ class GameCode extends StatelessWidget {
     return WillPopScope(
         child: AlertDialog(
           actions: <Widget>[
+            SizedBox(height: screenHeight * 0.01),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
-                SizedBox(width: screenWidth * 0.04),
                 Icon(
                   Icons.done_outline,
                   color: Color(0xFF64DD17),
-                  size: screenWidth * 0.08,
+                  size: screenWidth * 0.07,
                 ),
                 SizedBox(width: screenWidth * 0.02),
                 Text('Unirse a partida',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: screenWidth * 0.06,
+                    fontSize: screenWidth * 0.055,
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
                   ),
                 ),
+                TextButton(
+                  child: Text('X'),
+                ),
               ],
             ),
-            SizedBox(height: screenHeight *0.025),
+            SizedBox(height: screenHeight *0.015),
             Text('Introduce el código de partida y comienza a jugar con tus amigos.',
               textAlign: TextAlign.center,
               style: TextStyle(
