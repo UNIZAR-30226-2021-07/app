@@ -51,6 +51,7 @@ class ReadyGame extends StatelessWidget {
                 ),
               ],
             ),
+            SizedBox(height: screenHeight *0.015),
             Text('Comparte el siguiente código con tus amigos para empezar a jugar:',
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -59,7 +60,7 @@ class ReadyGame extends StatelessWidget {
                 color: Colors.black,
               ),
             ),
-
+            SizedBox(height: screenHeight *0.025),
             SizedBox(
               width: screenWidth,
               child: Row(
