@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gatovidapp/popUps/loadingGame.dart';
+import 'package:gatovidapp/popUps/loadingGameWithNumberGamers.dart';
 import 'package:gatovidapp/services/websockets.dart';
 import 'package:gatovidapp/services/models.dart';
 
@@ -91,6 +91,7 @@ class GameCode extends StatelessWidget {
                               side: BorderSide(color: Colors.white, width: 2),
                             ),
                             onPressed: () {
+                              numGamers = 1;
                               Navigator.of(context).pop();
                               if (_code.text != ''){
                                 codeGame = _code.text;
@@ -98,7 +99,7 @@ class GameCode extends StatelessWidget {
                                 showDialog(
                                   barrierDismissible: false,
                                   context: context,
-                                  builder: (BuildContext context) => LoadingGame(),
+                                  builder: (BuildContext context) => LoadingGameWithNG(),
                                 );
                               }
                             }

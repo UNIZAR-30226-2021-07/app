@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:gatovidapp/popUps/gameCode.dart';
+import 'package:gatovidapp/popUps/loadingGameWithNumberGamers.dart';
 import 'package:gatovidapp/popUps/loadingGame.dart';
 import 'package:gatovidapp/popUps/readyGame.dart';
 import 'package:gatovidapp/popUps/error.dart';
@@ -169,6 +170,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                 child: ElevatedButton(
                                     onPressed: () {
                                       messages.clear();
+                                      numGamers = 1;
                                       createGame();
                                       showDialog(
                                         barrierDismissible: false,
@@ -208,6 +210,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                 child: ElevatedButton(
                                     onPressed: () {
                                       messages.clear();
+                                      numGamers = 1;
                                       showDialog(
                                         context: context,
                                         builder: (BuildContext context) => GameCode(),
@@ -250,7 +253,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                       showDialog(
                                         barrierDismissible: false,
                                         context: context,
-                                        builder: (BuildContext context) => LoadingGame(),
+                                        builder: (BuildContext context) => LoadingGameWithNG(),
                                       );
                                     },
                                     style: ElevatedButton.styleFrom(
