@@ -20,7 +20,7 @@ class GameCode extends StatelessWidget {
           actions: <Widget>[
             SizedBox(height: screenHeight * 0.01),
             Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Icon(
                   Icons.done_outline,
@@ -36,14 +36,19 @@ class GameCode extends StatelessWidget {
                     color: Colors.black,
                   ),
                 ),
-                FlatButton(
-                  child: Text('X'),
-                  height: screenHeight*0.025,
-                  minWidth: screenWidth*0.025,
-                  textColor: Colors.grey,
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    FlatButton(
+                      child: Text('X',style: TextStyle(fontSize: screenWidth * 0.055)),
+                      height: screenHeight*0.025,
+                      minWidth: screenWidth*0.025,
+                      textColor: Colors.grey,
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ],
                 ),
               ],
             ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gatovidapp/popUps/startGame.dart';
 import 'package:gatovidapp/services/models.dart';
+import 'package:gatovidapp/services/websockets.dart';
 import 'package:clipboard/clipboard.dart';
 
 class ReadyGame extends StatelessWidget {
@@ -15,36 +16,50 @@ class ReadyGame extends StatelessWidget {
     return WillPopScope(
         onWillPop: () async => false,
         child: AlertDialog(
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              SizedBox(width: screenWidth * 0.04),
-              Icon(
-                Icons.done_outline,
-                color: Color(0xFF64DD17),
-                size: screenWidth * 0.08,
-              ),
-              SizedBox(width: screenWidth * 0.02),
-              Text('Partida privada lista',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: screenWidth * 0.05,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-
-                ),
-              ),
-            ],
-          ),
-          content: Text('Comparte el siguiente código con tus amigos para empezar a jugar:',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: screenWidth * 0.04,
-              fontWeight: FontWeight.normal,
-              color: Colors.black,
-            ),
-          ),
           actions: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Icon(
+                  Icons.done_outline,
+                  color: Color(0xFF64DD17),
+                  size: screenWidth * 0.08,
+                ),
+                SizedBox(width: screenWidth * 0.02),
+                Text('Partida privada lista',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: screenWidth * 0.045,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    FlatButton(
+                      child: Text('X',style: TextStyle(fontSize: screenWidth * 0.055)),
+                      height: screenHeight*0.025,
+                      minWidth: screenWidth*0.015,
+                      textColor: Colors.grey,
+                      onPressed: () {
+                        leaveGame();
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            Text('Comparte el siguiente código con tus amigos para empezar a jugar:',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: screenWidth * 0.04,
+                fontWeight: FontWeight.normal,
+                color: Colors.black,
+              ),
+            ),
+
             SizedBox(
               width: screenWidth,
               child: Row(
