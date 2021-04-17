@@ -253,7 +253,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                       showDialog(
                                         barrierDismissible: false,
                                         context: context,
-                                        builder: (BuildContext context) => LoadingGameWithNG(),
+                                        builder: (BuildContext context) => LoadingGame(),
                                       );
                                     },
                                     style: ElevatedButton.styleFrom(
