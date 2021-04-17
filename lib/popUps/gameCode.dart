@@ -36,8 +36,14 @@ class GameCode extends StatelessWidget {
                     color: Colors.black,
                   ),
                 ),
-                TextButton(
+                FlatButton(
                   child: Text('X'),
+                  height: screenHeight*0.025,
+                  minWidth: screenWidth*0.025,
+                  textColor: Colors.grey,
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                 ),
               ],
             ),
