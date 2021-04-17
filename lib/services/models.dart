@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'dart:async';
 
 //Variables globales para pasar información entre pantallas
-Token globalToken;
+Token globalToken = Token();
 Error globalError;
 Response globalMessage;
 User globalUser;
