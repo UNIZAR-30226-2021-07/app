@@ -10,6 +10,8 @@ import 'package:gatovidapp/services/models.dart';
 import 'package:gatovidapp/services/websockets.dart';
 import 'dart:async';
 
+Color borderAvatar = Color(0xff6a1b9a);
+
 class GamesMenu extends StatefulWidget {
   @override
   _GamesMenuState createState() => _GamesMenuState();
@@ -76,16 +78,20 @@ class _GamesMenuState extends State<GamesMenu> {
                             children: [
                               Expanded(
                                 child: CircleAvatar(
-                                  backgroundImage: AssetImage(("assets/common/")+picsList[globalData.picture]['image']),
-                                  radius: screenHeight * 0.04,
-                                  child: TextButton(
-                                      onPressed: () async {
-                                        await  getStadistics();
-                                        Navigator.pushNamed(context, '/profile');
-                                        setState(() {});
-                                      }
+                                  radius:screenHeight * 0.045 ,
+                                  backgroundColor: borderAvatar,
+                                  child:CircleAvatar(
+                                    backgroundImage: AssetImage(("assets/common/")+picsList[globalData.picture]['image']),
+                                    radius: screenHeight * 0.04,
+                                    child: TextButton(
+                                        onPressed: () async {
+                                          await  getStadistics();
+                                          Navigator.pushNamed(context, '/profile');
+                                          setState(() {});
+                                        }
+                                    ),
                                   ),
-                                ),
+                                )
                               ),
                               Expanded(
                                 flex: 3,
