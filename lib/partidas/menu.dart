@@ -21,6 +21,7 @@ class _GamesMenuState extends State<GamesMenu> {
 
   StreamSubscription<bool> streamSubscription;
   StreamSubscription<bool> streamSubscription2;
+  StreamSubscription<bool> streamSubscription3;
 
   @override
   void initState() {
@@ -45,6 +46,9 @@ class _GamesMenuState extends State<GamesMenu> {
           context: context,
           builder: (BuildContext context) => ReadyGame(),
         );
+    });
+    streamSubscription3 = streamGoToLogin.listen((_) {
+      Navigator.pushReplacementNamed(context, '/login');
     });
   }
 
@@ -298,5 +302,6 @@ class _GamesMenuState extends State<GamesMenu> {
     super.dispose();
     streamSubscription.cancel();
     streamSubscription2.cancel();
+    streamSubscription3.cancel();
   }
 }

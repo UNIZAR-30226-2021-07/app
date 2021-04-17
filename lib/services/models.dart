@@ -9,8 +9,6 @@ Response globalMessage;
 User globalUser;
 UserData globalData;
 UserStat globalStats;
-String global_login_email;
-String global_login_password;
 List picsList = [];
 List boardList = [];
 String codeGame = '';
@@ -21,11 +19,13 @@ StreamController<bool> controllerStat = StreamController<bool>.broadcast();
 StreamController<bool> controllerStartGame = StreamController<bool>.broadcast();
 StreamController<bool> controllerCreateGame = StreamController<bool>.broadcast();
 StreamController<bool> controllerUsersWaiting = StreamController<bool>.broadcast();
+StreamController<bool> controllerGoToLogin = StreamController<bool>.broadcast();
 Stream streamChat = controllerChat.stream;
 Stream streamStat = controllerStat.stream;
 Stream streamStartGame = controllerStartGame.stream;
 Stream streamCreateGame = controllerCreateGame.stream;
 Stream streamUsersWaiting = controllerUsersWaiting.stream;
+Stream streamGoToLogin = controllerGoToLogin.stream;
 
 
 //Modelos para guardar información al traducir las respuestas de la API

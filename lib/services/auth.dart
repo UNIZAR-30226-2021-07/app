@@ -4,17 +4,6 @@ import 'dart:convert';
 
 class AuthService {
 
-  Future<dynamic> requestToken(var response) async {
-    //statusCode = 401 -> Error de Autenticación -> se recibe mensaje de error
-    globalError = Error.fromJson(jsonDecode(utf8.decode(response.bodyBytes)));
-    //Volver a pedir token
-    final AuthService _authService = AuthService();
-    if (await _authService.login(global_login_email, global_login_password)) {
-      return true;
-    }
-    return false;
-  }
-
   Future<bool> login(String email, String password) async {
     String request = "https://gatovid.herokuapp.com/data/login";
     Map <String, String> parameters = {
@@ -61,11 +50,8 @@ class AuthService {
     }
     else {
       //statusCode = 401
-      if (await requestToken(response)) {
-        final AuthService _authService = AuthService();
-        return await _authService.logout();
-      }
-      return false;
+      // Go to login, already is logout, token is expired
+      return true;
     }
   }
 
@@ -116,11 +102,8 @@ class AuthService {
     }
     else {
       //statusCode = 401
-      if (await requestToken(response)) {
-        final AuthService _authService = AuthService();
-        return _authService.remove_user();
-      }
-      return false;
+      // Go to login
+      return true;
     }
   }
 }

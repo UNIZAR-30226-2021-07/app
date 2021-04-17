@@ -7,26 +7,26 @@ SharedPreferences persistData;
 
 checkIfAuthenticated() async {
   persistData = await SharedPreferences.getInstance();
-  global_login_email = persistData.getString('email');
-  if (global_login_email == null){
+  final readToken = persistData.getString('token');
+  if (readToken == null){
     return false;
   }
   else{
-    global_login_password = persistData.getString('passwd');
+    globalToken = Token(token: readToken);
+    if (await getData() == false){
+      return false;
+    }
     await readPicsJson();
     await readBoardsJson();
-    await getData();
     startWebSocket();
     return true;
   }
 }
 
-void setValuesPersistence(String email, String passwd){
-  persistData.setString('email', email);
-  persistData.setString('passwd', passwd);
+void setValuesPersistence(){
+  persistData.setString('token', globalToken.token);
 }
 
 void removeValuesPersistence(){
-  persistData.remove('email');
-  persistData.remove('passwd');
+  persistData.remove('token');
 }

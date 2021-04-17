@@ -26,11 +26,7 @@ Future<bool> getData() async{
   }
   else {
     //statusCode = 401
-    //Pedir token
-    final AuthService _authService = AuthService();
-    if (await _authService.requestToken(response)) {
-    return await getData();
-    }
+    // TODO: Irse al login
     return false;
   }
 }
