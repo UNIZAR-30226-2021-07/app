@@ -14,15 +14,18 @@ String global_login_password = "";
 List picsList = [];
 List boardList = [];
 String codeGame = '';
+int numGamers = 1;
 
 StreamController<bool> controllerChat = StreamController<bool>.broadcast();
 StreamController<bool> controllerStat = StreamController<bool>.broadcast();
 StreamController<bool> controllerStartGame = StreamController<bool>.broadcast();
 StreamController<bool> controllerCreateGame = StreamController<bool>.broadcast();
+StreamController<bool> controllerUsersWaiting = StreamController<bool>.broadcast();
 Stream streamChat = controllerChat.stream;
 Stream streamStat = controllerStat.stream;
 Stream streamStartGame = controllerStartGame.stream;
 Stream streamCreateGame = controllerCreateGame.stream;
+Stream streamUsersWaiting = controllerUsersWaiting.stream;
 
 
 //Modelos para guardar información al traducir las respuestas de la API

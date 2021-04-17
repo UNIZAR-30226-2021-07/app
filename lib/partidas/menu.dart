@@ -245,6 +245,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                 child: ElevatedButton(
                                     onPressed: () {
                                       messages.clear();
+                                      numGamers = 1;
                                       publicGame();
                                       showDialog(
                                         barrierDismissible: false,

@@ -1,13 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:gatovidapp/services/websockets.dart';
+import 'package:gatovidapp/services/models.dart';
 import 'package:gatovidapp/popUps/loadingGame.dart';
+import 'dart:async';
 
 Color blackWords = Color(0xff000000);
 Color purpleButton = Color(0xff6A1B9A);
 Color whiteWords = Color(0xffffffff);
 
-class StartGame extends StatelessWidget {
+class StartGame extends StatefulWidget {
+  @override
+  _StartGame createState() => _StartGame();
+}
+
+class _StartGame extends State<StartGame> {
   // This widget is the root of your application.
+
+  StreamSubscription<bool> streamSubscription;
+
+  @override
+  void initState() {
+    super.initState();
+    streamSubscription = streamUsersWaiting.listen((data) {
+      setState(() {});
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -22,7 +40,7 @@ class StartGame extends StatelessWidget {
 
             ),
           ),
-          content: Text('Esperando a tus amigos gaticos para jugar. Tú decides cuándo empezar. ',
+          content: Text(numGamers.toString()+'/6 gaticos preparados',
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: MediaQuery.of(context).size.width * 0.04,
@@ -58,5 +76,10 @@ class StartGame extends StatelessWidget {
           ],
         )
     );
+  }
+  @override
+  void dispose() {
+    super.dispose();
+    streamSubscription.cancel();
   }
 }
