@@ -22,7 +22,7 @@ Future<bool> getData() async{
     //Servidor devuelve estado correcto, por lo que se recibe datos de usuario
     //Transformar json datos a modelo creado
     globalData = UserData.fromJson(decoded);
-    return false;
+    return true;
   }
   else {
     //statusCode = 401

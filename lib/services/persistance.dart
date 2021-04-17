@@ -9,17 +9,19 @@ checkIfAuthenticated() async {
   persistData = await SharedPreferences.getInstance();
   final readToken = persistData.getString('token');
   if (readToken == null){
+    print('readToken == null');
     return false;
   }
   else{
+    print('readToken != null');
     globalToken = Token(token: readToken);
-    if (await getData() == false){
-      return false;
+    if (await getData()){
+      await readPicsJson();
+      await readBoardsJson();
+      startWebSocket();
+      return true;
     }
-    await readPicsJson();
-    await readBoardsJson();
-    startWebSocket();
-    return true;
+    return false;
   }
 }
 
