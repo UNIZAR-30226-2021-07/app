@@ -17,35 +17,37 @@ class GameCode extends StatelessWidget {
 
     return WillPopScope(
         child: AlertDialog(
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              SizedBox(width: screenWidth * 0.04),
-              Icon(
-                Icons.done_outline,
-                color: Color(0xFF64DD17),
-                size: screenWidth * 0.08,
-              ),
-              SizedBox(width: screenWidth * 0.02),
-              Text('Unirse a partida',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: screenWidth * 0.06,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-              ),
-            ],
-          ),
-          content: Text('Introduce el código de partida y comienza a jugar con tus amigos.',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: screenWidth * 0.04,
-              fontWeight: FontWeight.normal,
-              color: Colors.black,
-            ),
-          ),
           actions: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                SizedBox(width: screenWidth * 0.04),
+                Icon(
+                  Icons.done_outline,
+                  color: Color(0xFF64DD17),
+                  size: screenWidth * 0.08,
+                ),
+                SizedBox(width: screenWidth * 0.02),
+                Text('Unirse a partida',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: screenWidth * 0.06,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: screenHeight *0.025),
+            Text('Introduce el código de partida y comienza a jugar con tus amigos.',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: screenWidth * 0.04,
+                fontWeight: FontWeight.normal,
+                color: Colors.black,
+              ),
+            ),
+            SizedBox(height: screenHeight *0.025),
             SizedBox(
               width: screenWidth,
               child: Row(
