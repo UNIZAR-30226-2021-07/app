@@ -59,6 +59,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 message.text,
                 textAlign:TextAlign.right,
                 style: TextStyle(
+                  fontSize: MediaQuery.of(context).size.width * 0.04,
                   fontWeight: FontWeight.normal,
                   color: blackWords,
                 ),
@@ -68,47 +69,72 @@ class _ChatScreenState extends State<ChatScreen> {
         ],
       );
     } else {
-      return Column(
-        children: <Widget>[
-          Container(
-            alignment: Alignment.topLeft,
-            child: Container(
-              padding: EdgeInsets.all(MediaQuery.of(context).size.height *0.015),
-              margin: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.width * 0.02),
-              decoration: BoxDecoration(
-                color: greenChat,
-                borderRadius: BorderRadius.circular(15),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 2,
-                    blurRadius: 5,
-                  ),
-                ],
+        if(message.sender != '[GATOVID]'){
+          return Column(
+            children: <Widget>[
+              Container(
+                  alignment: Alignment.topLeft,
+                  child: Container(
+                    padding: EdgeInsets.all(MediaQuery.of(context).size.height *0.015),
+                    margin: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.width * 0.02),
+                    decoration: BoxDecoration(
+                      color: greenChat,
+                      borderRadius: BorderRadius.circular(15),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 2,
+                          blurRadius: 5,
+                        ),
+                      ],
+                    ),
+                    child: RichText(
+                      textAlign:TextAlign.left,
+                      text: TextSpan(
+                        text: message.sender + ": ",
+                        style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.width * 0.04,
+                          fontWeight: FontWeight.bold,
+                          color: blackWords,
+                        ),
+                        children: [
+                          TextSpan(
+                            text: message.text,
+                            style: TextStyle(
+                              fontSize: MediaQuery.of(context).size.width * 0.04,
+                              fontWeight: FontWeight.normal,
+                              color: blackWords,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
               ),
-              child: RichText(
-                textAlign:TextAlign.left,
-                text: TextSpan(
-                  text: message.sender + ": ",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: blackWords,
-                  ),
-                  children: [
-                    TextSpan(
-                      text: message.text,
+            ],
+          );
+        }
+        else{
+          return Column(
+            children: <Widget>[
+              Container(
+                  alignment: Alignment.topCenter,
+                  child: Container(
+                    padding: EdgeInsets.all(MediaQuery.of(context).size.height *0.015),
+                    margin: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.width * 0.02),
+                    child: Text(
+                      message.text,
                       style: TextStyle(
+                        fontSize: MediaQuery.of(context).size.width * 0.04,
                         fontWeight: FontWeight.normal,
                         color: blackWords,
                       ),
                     ),
-                  ],
                 ),
-              ),
-            )
-          ),
-        ],
-      );
+              )
+            ],
+          );
+        }
     }
   }
 
