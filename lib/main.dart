@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:gatovidapp/autentificacion/signup.dart';
 import 'package:gatovidapp/autentificacion/login.dart';
 import 'package:gatovidapp/perfil/profile.dart';

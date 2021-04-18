@@ -1,6 +1,5 @@
 import 'package:http/http.dart' as http;
 import 'package:gatovidapp/services/models.dart';
-import 'package:gatovidapp/services/auth.dart';
 import 'dart:async';
 import 'dart:convert';
 
