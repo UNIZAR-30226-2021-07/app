@@ -169,16 +169,19 @@ class _ChatScreenState extends State<ChatScreen> {
                 ),
               ),
 
-            IconButton(
-              icon: Icon(Icons.send),
-              iconSize: MediaQuery.of(context).size.width * 0.075,
-              color: blackWords,
-                onPressed: () {
-                  if (messageToSend.text.isNotEmpty) {
-                    sendMessageWebSocket(messageToSend.text);
+            Container(
+              margin: EdgeInsets.only(bottom: 15),
+              child: IconButton(
+                icon: Icon(Icons.send),
+                iconSize: MediaQuery.of(context).size.width * 0.075,
+                color: blackWords,
+                  onPressed: () {
+                    if (messageToSend.text.isNotEmpty) {
+                      sendMessageWebSocket(messageToSend.text);
+                    }
+                    messageToSend.text = '';
                   }
-                  messageToSend.text = '';
-                }
+              ),
             ),
           ],
         ),

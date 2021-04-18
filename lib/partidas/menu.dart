@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:gatovidapp/popUps/gameCode.dart';
-import 'package:gatovidapp/popUps/loadingGameWithNumberGamers.dart';
 import 'package:gatovidapp/popUps/loadingGame.dart';
 import 'package:gatovidapp/popUps/readyGame.dart';
 import 'package:gatovidapp/popUps/error.dart';
@@ -82,18 +81,21 @@ class _GamesMenuState extends State<GamesMenu> {
                           child: Row(
                             children: [
                               Expanded(
-                                child: CircleAvatar(
-                                  radius:screenHeight * 0.045 ,
-                                  backgroundColor: borderAvatar,
-                                  child:CircleAvatar(
-                                    backgroundImage: AssetImage(("assets/common/")+picsList[globalData.picture]['image']),
-                                    radius: screenHeight * 0.04,
-                                    child: TextButton(
-                                        onPressed: () async {
-                                          await  getStadistics();
-                                          Navigator.pushNamed(context, '/profile');
-                                          setState(() {});
-                                        }
+                                child: Container(
+                                  margin: EdgeInsets.only(left: screenWidth*0.04, top: screenHeight*0.01),
+                                  child: CircleAvatar(
+                                    radius:screenHeight * 0.045 ,
+                                    backgroundColor: borderAvatar,
+                                    child:CircleAvatar(
+                                      backgroundImage: AssetImage(("assets/common/")+picsList[globalData.picture]['image']),
+                                      radius: screenHeight * 0.04,
+                                      child: TextButton(
+                                          onPressed: () async {
+                                            await  getStadistics();
+                                            Navigator.pushNamed(context, '/profile');
+                                            setState(() {});
+                                          }
+                                      ),
                                     ),
                                   ),
                                 )
@@ -103,18 +105,16 @@ class _GamesMenuState extends State<GamesMenu> {
                                 child: SizedBox()
                               ),
                               Expanded(
-                                child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: <Widget>[
-                                      IconButton(
-                                          onPressed: () {
-                                            Navigator.pushNamed(context, '/boardStore');
-                                          },
-                                          icon: Icon(Icons.storefront),
-                                          iconSize: screenHeight * 0.08
-                                      )
-                                    ]
-                                )
+                                 child : Container(
+                                   margin: EdgeInsets.only(right: screenWidth*0.03, top: screenHeight*0.005),
+                                   child: IconButton(
+                                        onPressed: () {
+                                          Navigator.pushNamed(context, '/boardStore');
+                                        },
+                                        icon: Icon(Icons.storefront),
+                                        iconSize: screenHeight * 0.08
+                                    ),
+                                 )
                               ),
                             ],
                           ),

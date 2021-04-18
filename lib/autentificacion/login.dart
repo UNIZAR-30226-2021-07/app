@@ -53,7 +53,7 @@ class _LoginState extends State<Login> {
           child: SingleChildScrollView(
             child: ConstrainedBox(
               constraints: BoxConstraints(
-                maxHeight: MediaQuery.of(context).size.height - AppBar().preferredSize.height,
+                maxHeight: (MediaQuery.of(context).size.height - AppBar().preferredSize.height)*0.95,
               ),
               child: Column(
                 children: <Widget>[
@@ -236,7 +236,7 @@ class _LoginState extends State<Login> {
                                                         child: Text(
                                                           "INICIAR SESIÓN",
                                                           style: TextStyle(
-                                                              fontWeight: FontWeight.bold, fontSize: screenHeight * 0.04),
+                                                              fontWeight: FontWeight.bold, fontSize: screenWidth* 0.07),
                                                         )
                                                     )
                                                     ),
@@ -293,7 +293,7 @@ class _LoginState extends State<Login> {
                                                       "Crear una cuenta",
                                                       textAlign: TextAlign.center,
                                                       style: TextStyle(
-                                                          fontWeight: FontWeight.bold, fontSize: screenHeight * 0.03),
+                                                          fontWeight: FontWeight.bold, fontSize: screenWidth* 0.05),
                                                     )
                                                 )
                                             ),

@@ -50,7 +50,7 @@ class _SignupState extends State<Signup> {
           child: SingleChildScrollView(
             child: ConstrainedBox(
               constraints: BoxConstraints(
-                maxHeight: MediaQuery.of(context).size.height - AppBar().preferredSize.height,
+                maxHeight: (MediaQuery.of(context).size.height - AppBar().preferredSize.height)*0.95,
               ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -82,7 +82,7 @@ class _SignupState extends State<Signup> {
                                               child: Text(
                                                 'Nombre de usuario',
                                                 style:
-                                                TextStyle(fontWeight: FontWeight.bold, fontSize: screenHeight * 0.03),
+                                                TextStyle(fontWeight: FontWeight.bold, fontSize: screenWidth* 0.05),
                                               ),
                                             ),
                                           ],
@@ -149,7 +149,7 @@ class _SignupState extends State<Signup> {
                                               child: Text(
                                                 'Email',
                                                 style:
-                                                TextStyle(fontWeight: FontWeight.bold, fontSize: screenHeight * 0.03),
+                                                TextStyle(fontWeight: FontWeight.bold, fontSize: screenWidth* 0.05),
                                               ),
                                             ),
                                           ],
@@ -214,7 +214,7 @@ class _SignupState extends State<Signup> {
                                         child: Text(
                                           'Contraseña',
                                           style:
-                                          TextStyle(fontWeight: FontWeight.bold, fontSize: screenHeight * 0.03),
+                                          TextStyle(fontWeight: FontWeight.bold, fontSize: screenWidth* 0.05),
                                         ),
                                       ),
                                     ],
@@ -280,7 +280,7 @@ class _SignupState extends State<Signup> {
                                         child: Text(
                                           'Repetir contraseña',
                                           style:
-                                          TextStyle(fontWeight: FontWeight.bold, fontSize: screenHeight * 0.03),
+                                          TextStyle(fontWeight: FontWeight.bold, fontSize: screenWidth* 0.05),
                                         ),
                                       ),
                                     ],
@@ -383,7 +383,7 @@ class _SignupState extends State<Signup> {
                                                         child: Text(
                                                           "REGISTRARSE",
                                                           style: TextStyle(
-                                                              fontWeight: FontWeight.bold, fontSize: screenHeight * 0.04),
+                                                              fontWeight: FontWeight.bold, fontSize: screenWidth * 0.07),
                                                         )
                                                     )
                                                 ),
@@ -441,7 +441,7 @@ class _SignupState extends State<Signup> {
                                                         child: Text(
                                                           "Iniciar sesión",
                                                           style: TextStyle(
-                                                              fontWeight: FontWeight.bold, fontSize: screenHeight * 0.03),
+                                                              fontWeight: FontWeight.bold, fontSize: screenWidth* 0.05),
                                                         )
                                                     )
                                                 ),
