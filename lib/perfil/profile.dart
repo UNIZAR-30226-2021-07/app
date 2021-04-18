@@ -87,7 +87,7 @@ class MapScreenState extends State<ProfilePage>
                   ],
                 ),
               ),
-              Expanded(flex: 2, child: SizedBox()),
+              Expanded(flex: 1, child: SizedBox()),
               Expanded(
                 flex: 10,
                 child: new Row(
@@ -111,7 +111,7 @@ class MapScreenState extends State<ProfilePage>
                   ],
                 ),
               ),
-              Expanded(flex: 2, child: SizedBox()),
+              Expanded(flex: 1, child: SizedBox()),
               Expanded(
                 flex: 15,
                 child: new Row(

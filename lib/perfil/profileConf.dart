@@ -44,7 +44,6 @@ class MapScreenState extends State<ProfileConf>
   Widget build(BuildContext context) {
     String boardPath = boardList[globalData.board]['image'].replaceAll('svg','png');
     return new Scaffold(
-      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: greenAppBar,
@@ -72,10 +71,15 @@ class MapScreenState extends State<ProfileConf>
             )
         ),
           child: SingleChildScrollView(
+              child: ConstrainedBox(
+              constraints: BoxConstraints(
+                maxHeight: (MediaQuery.of(context).size.height - AppBar().preferredSize.height)*0.95
+              ),
               child: new Column(
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.02),
+                children: [
+                  Expanded(flex: 2, child: SizedBox()),
+                  Expanded(
+                    flex: 15,
                     child: new Stack(
                       fit: StackFit.loose,
                       children: <Widget>[
@@ -94,84 +98,81 @@ class MapScreenState extends State<ProfileConf>
                           ],
                         ),
                         Padding(
-                          padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.005, left: MediaQuery.of(context).size.width * 0.525),
-                          child: new Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: <Widget>[
+                            padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.005, left: MediaQuery.of(context).size.width * 0.525),
+                            child: new Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: <Widget>[
                                 TextButton(
                                   child: new CircleAvatar(
-                                    backgroundColor: purpleCamera,
-                                    radius: MediaQuery.of(context).size.height * 0.03,
-                                    child: new Icon(
-                                      Icons.camera_alt,
-                                      color: whiteWords,
-                                      size: MediaQuery.of(context).size.height * 0.03,
-                                    )
+                                      backgroundColor: purpleCamera,
+                                      radius: MediaQuery.of(context).size.height * 0.03,
+                                      child: new Icon(
+                                        Icons.camera_alt,
+                                        color: whiteWords,
+                                        size: MediaQuery.of(context).size.height * 0.03,
+                                      )
                                   ),
                                   onPressed: () {
                                     Navigator.pushNamed(context, '/avatarStore');
                                   },
                                 ),
-                            ],
-                          )
+                              ],
+                            )
                         ),
                       ],
                     ),
                   ),
-                  Padding(
-                      padding: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.02),
-                      child: new Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          new Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: <Widget>[
-                              new Text(globalData.name,
-                                  style: TextStyle(
-                                      fontSize: MediaQuery.of(context).size.height * 0.025,
-                                      fontWeight: FontWeight.bold)),
-                              new Text(
-                                globalData.email,
+                  Expanded(flex: 1, child: SizedBox()),
+                  Expanded(
+                    flex: 9,
+                    child: new Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        new Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            new Text(globalData.name,
                                 style: TextStyle(
-                                    fontSize: MediaQuery.of(context).size.height * 0.025,
-                                    fontWeight: FontWeight.normal),
-                              ),
-                            ],
-                          ),
-                        ],
-                      )
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
-                        right: MediaQuery.of(context).size.width *0.1,
-                        top: MediaQuery.of(context).size.height * 0.02
+                                    fontSize: MediaQuery.of(context).size.width * 0.05,
+                                    fontWeight: FontWeight.bold)),
+                            new Text(
+                              globalData.email,
+                              style: TextStyle(
+                                  fontSize: MediaQuery.of(context).size.width * 0.05,
+                                  fontWeight: FontWeight.normal),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
+                  ),
+                  Expanded(flex: 1, child: SizedBox()),
+                  Expanded(
+                    flex: 7,
                     child: ConstrainedBox(
-                      constraints: BoxConstraints.tight(Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.06)),
-                      child: TextFormField(
-                        controller: _name,
-                        decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                                borderSide: BorderSide(width: 1.0)),
-                            hintText: 'Cambiar nombre',
-                            isDense: true,
-                            fillColor: whiteWords,
-                            filled: true
-                        ),
-                        style: TextStyle(
-                          fontSize: MediaQuery.of(context).size.height * 0.022,
-                          fontWeight: FontWeight.normal,
-                          color: greyWords,
-                        ),
+                    constraints: BoxConstraints.tight(Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.06)),
+                    child: TextFormField(
+                      controller: _name,
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                              borderSide: BorderSide(width: 1.0)),
+                          hintText: 'Cambiar nombre',
+                          isDense: true,
+                          fillColor: whiteWords,
+                          filled: true
+                      ),
+                      style: TextStyle(
+                        fontSize: MediaQuery.of(context).size.width * 0.04,
+                        fontWeight: FontWeight.normal,
+                        color: greyWords,
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
-                        right: MediaQuery.of(context).size.width *0.1,
-                        top: MediaQuery.of(context).size.height * 0.02
-                    ),
+                  ),
+                  Expanded(flex: 1, child: SizedBox()),
+                  Expanded(
+                    flex: 7,
                     child: ConstrainedBox(
                       constraints: BoxConstraints.tight(Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.06)),
                       child: TextFormField(
@@ -186,7 +187,7 @@ class MapScreenState extends State<ProfileConf>
                             filled: true
                         ),
                         style: TextStyle(
-                          fontSize: MediaQuery.of(context).size.height * 0.022,
+                          fontSize: MediaQuery.of(context).size.width * 0.04,
                           fontWeight: FontWeight.normal,
                           color: greyWords,
                         ),
@@ -197,11 +198,9 @@ class MapScreenState extends State<ProfileConf>
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
-                        right: MediaQuery.of(context).size.width *0.1,
-                        top: MediaQuery.of(context).size.height * 0.02
-                    ),
+                  Expanded(flex: 1, child: SizedBox()),
+                  Expanded(
+                    flex: 7,
                     child: ConstrainedBox(
                       constraints: BoxConstraints.tight(Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.06)),
                       child: TextFormField(
@@ -216,7 +215,7 @@ class MapScreenState extends State<ProfileConf>
                             filled: true
                         ),
                         style: TextStyle(
-                          fontSize: MediaQuery.of(context).size.height * 0.022,
+                          fontSize: MediaQuery.of(context).size.width * 0.04,
                           fontWeight: FontWeight.normal,
                           color: greyWords,
                         ),
@@ -227,107 +226,189 @@ class MapScreenState extends State<ProfileConf>
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
-                        right: MediaQuery.of(context).size.width *0.1,
-                        top: MediaQuery.of(context).size.height * 0.02
-                    ),
+                  Expanded(flex: 1, child: SizedBox()),
+                  Expanded(
+                    flex: 10,
                     child: new Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        new Container(
-                          constraints: BoxConstraints.tight(Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.width * 0.15)),
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black45), // No se que color es, Leti no me lo tengas en cuenta
-                            borderRadius: BorderRadius.circular(8.0),
-                            color: whiteWords,  //add it here
-                          ),
-                          child: new Table(
-                            children: [ TableRow(
-                              children: <Widget>[
-                                Padding(
-                                  padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.022,
-                                      right: MediaQuery.of(context).size.width *0.022,
-                                      top: MediaQuery.of(context).size.height *0.0125,
-                                      bottom: MediaQuery.of(context).size.height *0.0125
-                                  ),
-                                    child: Container(
-                                      height: MediaQuery.of(context).size.height * 0.08,
-                                      width: MediaQuery.of(context).size.width * 0.05,
-                                      child: Column(
-                                          children: [
-                                            Expanded(
-                                                flex: 1,
-                                                child: SizedBox()
-                                            ),
-                                            Expanded(
-                                                flex: 3,
-                                                child: Text('Cambiar Tablero',
-                                                  textAlign: TextAlign.start,
-                                                  style: TextStyle(
-                                                    fontSize: MediaQuery.of(context).size.height * 0.022,
-                                                    fontWeight: FontWeight.normal,
-                                                    color: greyWords,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          new Container(
+                              constraints: BoxConstraints.tight(Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.width * 0.15)),
+                              decoration: BoxDecoration(
+                                border: Border.all(color: Colors.black45), // No se que color es, Leti no me lo tengas en cuenta
+                                borderRadius: BorderRadius.circular(8.0),
+                                color: whiteWords,  //add it here
+                              ),
+                              child: new Table(
+                                children: [ TableRow(
+                                    children: <Widget>[
+                                      Padding(
+                                        padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.022,
+                                            right: MediaQuery.of(context).size.width *0.022,
+                                            top: MediaQuery.of(context).size.height *0.0125,
+                                            bottom: MediaQuery.of(context).size.height *0.0125
+                                        ),
+                                        child: Container(
+                                            height: MediaQuery.of(context).size.height * 0.08,
+                                            width: MediaQuery.of(context).size.width * 0.05,
+                                            child: Column(
+                                                children: [
+                                                  Expanded(
+                                                      flex: 1,
+                                                      child: SizedBox()
                                                   ),
-                                                )
-                                            ),
-                                            Expanded(
-                                                flex: 1,
-                                                child: SizedBox()
-                                            ),
-                                          ]
-                                      )
-                                    ),
-                                ),
-                                Container(
-                                  height: MediaQuery.of(context).size.height * 0.08,
-                                  width: MediaQuery.of(context).size.width * 0.05,
-                                  child: Column(
-                                      children: [
-                                        Expanded(
-                                            flex: 1,
-                                            child: SizedBox()
+                                                  Expanded(
+                                                      flex: 3,
+                                                      child: Text('Cambiar Tablero',
+                                                        textAlign: TextAlign.start,
+                                                        style: TextStyle(
+                                                          fontSize: MediaQuery.of(context).size.width * 0.04,
+                                                          fontWeight: FontWeight.normal,
+                                                          color: greyWords,
+                                                        ),
+                                                      )
+                                                  ),
+                                                  Expanded(
+                                                      flex: 1,
+                                                      child: SizedBox()
+                                                  ),
+                                                ]
+                                            )
                                         ),
-                                        Expanded(
-                                          flex: 3,
-                                          child: Container(
-                                            constraints: BoxConstraints.expand(
-                                              width: MediaQuery.of(context).size.width * 0.15,
-                                            ),
-                                            alignment: Alignment.center,
-                                            decoration: BoxDecoration(
-                                                image: DecorationImage(
-                                                  image: AssetImage(("assets/common/")+boardPath),
-                                                  fit: BoxFit.cover,
-                                                )
-                                            ),
-                                            child: TextButton(
-                                              onPressed: () {
-                                                Navigator.pushNamed(context, '/boardStore');
-                                              }
-                                            ),
-                                          ),
+                                      ),
+                                      Container(
+                                        height: MediaQuery.of(context).size.height * 0.08,
+                                        width: MediaQuery.of(context).size.width * 0.05,
+                                        child: Column(
+                                            children: [
+                                              Expanded(
+                                                  flex: 1,
+                                                  child: SizedBox()
+                                              ),
+                                              Expanded(
+                                                flex: 3,
+                                                child: Container(
+                                                  constraints: BoxConstraints.expand(
+                                                    width: MediaQuery.of(context).size.width * 0.15,
+                                                  ),
+                                                  alignment: Alignment.center,
+                                                  decoration: BoxDecoration(
+                                                      image: DecorationImage(
+                                                        image: AssetImage(("assets/common/")+boardPath),
+                                                        fit: BoxFit.cover,
+                                                      )
+                                                  ),
+                                                  child: TextButton(
+                                                      onPressed: () {
+                                                        Navigator.pushNamed(context, '/boardStore');
+                                                      }
+                                                  ),
+                                                ),
+                                              ),
+                                              Expanded(
+                                                  flex: 1,
+                                                  child: SizedBox()
+                                              ),
+                                            ]
                                         ),
-                                        Expanded(
-                                            flex: 1,
-                                            child: SizedBox()
-                                        ),
-                                      ]
-                                  ),
-                                ),
-                                ]
+                                      ),
+                                    ]
+                                )
+                                ],
                               )
-                            ],
                           )
-                        )
-                      ]
-                    )
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
-                        right: MediaQuery.of(context).size.width *0.1,
-                        top: MediaQuery.of(context).size.height * 0.005
+                        ]
                     ),
+                  ),
+                  Expanded(flex: 2, child: SizedBox()),
+                  Expanded(
+                    flex: 7,
+                    child: new ElevatedButton(
+                      child: Text(
+                        "Guardar",
+                        style: TextStyle(
+                            fontSize: MediaQuery.of(context).size.width * 0.055,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        primary: purpleButton,
+                        onPrimary: whiteWords,
+                        minimumSize: Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.065),
+                      ),
+                      onPressed: () async {
+                        if(_name.text != ''){ // ok name
+                          if ( await modifyData('name',_name.text)){
+                            await getData();
+                            setState((){});
+                          }else {
+                            showDialog(
+                              barrierDismissible: false,
+                              context: context,
+                              builder: (BuildContext context) => ErrorPopup(),
+                            );
+                          }
+                        }
+                        if (_pass1.text != '' && _pass2.text != ''){ // ok password
+                          if(_pass1.text == _pass2.text){ // same password
+                            if ( await modifyData('password',_pass1.text)){
+                              // Nothing, all good
+                            }else {
+                              showDialog(
+                                barrierDismissible: false,
+                                context: context,
+                                builder: (BuildContext context) => ErrorPopup(),
+                              );
+                            }
+                          }else{ // error, not same password
+                            globalError = Error(error: 'Las contraseñas no coinciden');
+                            showDialog(
+                              barrierDismissible: false,
+                              context: context,
+                              builder: (BuildContext context) => ErrorPopup(),
+                            );
+                          }
+                        }
+                        if ( _name.text == '' && (_pass1.text == '' || _pass2.text == '')){ // None parameters
+                          if(_name.text == '' && _pass1.text == '' && _pass2.text == ''){
+                            globalError = Error(error: 'No se ha introducido ningún cambio');
+                            showDialog(
+                              barrierDismissible: false,
+                              context: context,
+                              builder: (BuildContext context) => ErrorPopup(),
+                            );
+                          }else if (_pass1.text == '' && _pass2.text != ''){
+                            globalError = Error(error: 'Primer campo de la contraseña vacio');
+                            showDialog(
+                              barrierDismissible: false,
+                              context: context,
+                              builder: (BuildContext context) => ErrorPopup(),
+                            );
+                          }else if (_pass1.text != '' && _pass2.text == ''){
+                            globalError = Error(error: 'Segundo campo de la contraseña vacio');
+                            showDialog(
+                              barrierDismissible: false,
+                              context: context,
+                              builder: (BuildContext context) => ErrorPopup(),
+                            );
+                          }else{
+                            globalError = Error(error: 'Error inesperado, intentelo de nuevo');
+                            showDialog(
+                              barrierDismissible: false,
+                              context: context,
+                              builder: (BuildContext context) => ErrorPopup(),
+                            );
+                          }
+                        }
+                        // Clean boxes
+                        _name.text = '';
+                        _pass1.text = '';
+                        _pass2.text = '';
+                        controllerStat.add(true);
+                      }),
+                  ),
+                  Expanded(flex: 2, child: SizedBox()),
+                  Expanded(
+                    flex: 10,
                     child: new Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
@@ -335,132 +416,35 @@ class MapScreenState extends State<ProfileConf>
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: <Widget>[
                             new ElevatedButton(
-                                child: const Text(
-                                  "Guardar",
+                                child: Text(
+                                  "Eliminar Cuenta",
                                   style: TextStyle(
-                                      fontSize: 20.0,
+                                      fontSize: MediaQuery.of(context).size.width * 0.055,
                                       fontWeight: FontWeight.bold),
                                 ),
                                 style: ElevatedButton.styleFrom(
-                                  primary: purpleButton,
-                                  onPrimary: whiteWords,
+                                  primary: whiteWords,
+                                  onPrimary: redButton,
+                                  side: BorderSide(color: redButton),
                                   minimumSize: Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.065),
                                 ),
-                                onPressed: () async {
-                                  if(_name.text != ''){ // ok name
-                                    if ( await modifyData('name',_name.text)){
-                                      await getData();
-                                      setState((){});
-                                    }else {
-                                      showDialog(
-                                        barrierDismissible: false,
-                                        context: context,
-                                        builder: (BuildContext context) => ErrorPopup(),
-                                      );
-                                    }
-                                  }
-                                  if (_pass1.text != '' && _pass2.text != ''){ // ok password
-                                    if(_pass1.text == _pass2.text){ // same password
-                                      if ( await modifyData('password',_pass1.text)){
-                                        // Nothing, all good
-                                      }else {
-                                        showDialog(
-                                          barrierDismissible: false,
-                                          context: context,
-                                          builder: (BuildContext context) => ErrorPopup(),
-                                        );
-                                      }
-                                    }else{ // error, not same password
-                                      globalError = Error(error: 'Las contraseñas no coinciden');
-                                      showDialog(
-                                        barrierDismissible: false,
-                                        context: context,
-                                        builder: (BuildContext context) => ErrorPopup(),
-                                      );
-                                    }
-                                  }
-                                  if ( _name.text == '' && (_pass1.text == '' || _pass2.text == '')){ // None parameters
-                                    if(_name.text == '' && _pass1.text == '' && _pass2.text == ''){
-                                      globalError = Error(error: 'No se ha introducido ningún cambio');
-                                      showDialog(
-                                        barrierDismissible: false,
-                                        context: context,
-                                        builder: (BuildContext context) => ErrorPopup(),
-                                      );
-                                    }else if (_pass1.text == '' && _pass2.text != ''){
-                                      globalError = Error(error: 'Primer campo de la contraseña vacio');
-                                      showDialog(
-                                        barrierDismissible: false,
-                                        context: context,
-                                        builder: (BuildContext context) => ErrorPopup(),
-                                      );
-                                    }else if (_pass1.text != '' && _pass2.text == ''){
-                                      globalError = Error(error: 'Segundo campo de la contraseña vacio');
-                                      showDialog(
-                                        barrierDismissible: false,
-                                        context: context,
-                                        builder: (BuildContext context) => ErrorPopup(),
-                                      );
-                                    }else{
-                                      globalError = Error(error: 'Error inesperado, intentelo de nuevo');
-                                      showDialog(
-                                        barrierDismissible: false,
-                                        context: context,
-                                        builder: (BuildContext context) => ErrorPopup(),
-                                      );
-                                    }
-                                  }
-                                  // Clean boxes
-                                  _name.text = '';
-                                  _pass1.text = '';
-                                  _pass2.text = '';
-                                  controllerStat.add(true);
+                                onPressed: () {
+                                  showDialog(
+                                    barrierDismissible: false,
+                                    context: context,
+                                    builder: (BuildContext context) => DeleteAccount(),
+                                  );
                                 }),
                           ],
                         ),
                       ],
-                    )
+                    ),
                   ),
-                  Padding(
-                      padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
-                          right: MediaQuery.of(context).size.width *0.1,
-                          top: MediaQuery.of(context).size.height * 0.005
-                      ),
-                      child: new Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          new Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: <Widget>[
-                              new ElevatedButton(
-                                  child: const Text(
-                                    "Eliminar Cuenta",
-                                    style: TextStyle(
-                                        fontSize: 20.0,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  style: ElevatedButton.styleFrom(
-                                    primary: whiteWords,
-                                    onPrimary: redButton,
-                                    side: BorderSide(color: redButton),
-                                    minimumSize: Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.065),
-                                  ),
-                                  onPressed: () {
-                                    showDialog(
-                                      barrierDismissible: false,
-                                      context: context,
-                                      builder: (BuildContext context) => DeleteAccount(),
-                                    );
-                                  }),
-                            ],
-                          ),
-                        ],
-                      )
-                  ),
+                  Expanded(flex: 2, child: SizedBox()),
                 ],
               ),
             ),
-          ),
+          ),)
         );
   }
   @override
