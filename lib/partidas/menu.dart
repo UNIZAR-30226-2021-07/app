@@ -48,6 +48,7 @@ class _GamesMenuState extends State<GamesMenu> {
         );
     });
     streamSubscription3 = streamGoToLogin.listen((_) {
+      disconnectWebSocket();
       Navigator.pushReplacementNamed(context, '/login');
     });
   }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gatovidapp/popUps/deleteAccount.dart';
 import 'package:gatovidapp/services/profile_modify.dart';
 import 'package:gatovidapp/services/models.dart';
+import 'package:gatovidapp/services/websockets.dart';
 import 'package:gatovidapp/popUps/error.dart';
 import 'package:gatovidapp/services/profile_stadistics.dart';
 import 'dart:async';
@@ -34,6 +35,7 @@ class MapScreenState extends State<ProfileConf>
   void initState() {
     super.initState();
     streamSubscription = streamGoToLogin.listen((_) {
+      disconnectWebSocket();
       Navigator.pushReplacementNamed(context, '/login');
     });
   }
