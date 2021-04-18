@@ -26,6 +26,7 @@ void startWebSocket(){
   socket.on('game_owner', (_) => gameOwnerHandler());
   socket.on('found_game', (data) => publicGameHandler(data));
   socket.on('game_cancelled', (_) => gameCancelledHandler());
+  socket.on('users_waiting', (data) => usersWaitingHandler(data));
   socket.on('connect_error', (_) => print('errorConnect: '+_.toString()));
   socket.on('error', (data) => errorMessageHandler(data)); // Probably the problem will be with the tokens
 }
@@ -64,6 +65,13 @@ void gameCancelledHandler(){
   print('Received: game_cancelled');
   controllerStartGame.add(false);
   globalError = Error(error: 'No se ha podido encontrar una partida, por favor, intentelo de nuevo');
+}
+
+void usersWaitingHandler(int data){
+  print('usersWaiting received');
+  print('Received: ' + data.toString());
+  numGamers = data;
+  controllerUsersWaiting.add(false);
 }
 
 void errorMessageHandler(Map <String, dynamic> json){

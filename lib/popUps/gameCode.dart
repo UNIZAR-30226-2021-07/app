@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gatovidapp/popUps/loadingGame.dart';
+import 'package:gatovidapp/popUps/loadingGameWithNumberGamers.dart';
 import 'package:gatovidapp/services/websockets.dart';
 import 'package:gatovidapp/services/models.dart';
 
@@ -17,35 +17,51 @@ class GameCode extends StatelessWidget {
 
     return WillPopScope(
         child: AlertDialog(
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              SizedBox(width: screenWidth * 0.04),
-              Icon(
-                Icons.done_outline,
-                color: Color(0xFF64DD17),
-                size: screenWidth * 0.08,
-              ),
-              SizedBox(width: screenWidth * 0.02),
-              Text('Unirse a partida',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: screenWidth * 0.06,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-              ),
-            ],
-          ),
-          content: Text('Introduce el código de partida y comienza a jugar con tus amigos.',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: screenWidth * 0.04,
-              fontWeight: FontWeight.normal,
-              color: Colors.black,
-            ),
-          ),
           actions: <Widget>[
+            SizedBox(height: screenHeight * 0.01),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Icon(
+                  Icons.done_outline,
+                  color: Color(0xFF64DD17),
+                  size: screenWidth * 0.07,
+                ),
+                SizedBox(width: screenWidth * 0.02),
+                Text('Unirse a partida',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: screenWidth * 0.055,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    FlatButton(
+                      child: Text('X',style: TextStyle(fontSize: screenWidth * 0.055)),
+                      height: screenHeight*0.025,
+                      minWidth: screenWidth*0.025,
+                      textColor: Colors.grey,
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            SizedBox(height: screenHeight *0.015),
+            Text('Introduce el código de partida y comienza a jugar con tus amigos.',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: screenWidth * 0.04,
+                fontWeight: FontWeight.normal,
+                color: Colors.black,
+              ),
+            ),
+            SizedBox(height: screenHeight *0.025),
             SizedBox(
               width: screenWidth,
               child: Row(
@@ -91,6 +107,7 @@ class GameCode extends StatelessWidget {
                               side: BorderSide(color: Colors.white, width: 2),
                             ),
                             onPressed: () {
+                              numGamers = 1;
                               Navigator.of(context).pop();
                               if (_code.text != ''){
                                 codeGame = _code.text;
@@ -98,7 +115,7 @@ class GameCode extends StatelessWidget {
                                 showDialog(
                                   barrierDismissible: false,
                                   context: context,
-                                  builder: (BuildContext context) => LoadingGame(),
+                                  builder: (BuildContext context) => LoadingGameWithNG(),
                                 );
                               }
                             }

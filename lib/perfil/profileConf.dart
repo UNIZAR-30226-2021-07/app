@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:gatovidapp/popUps/deleteAccount.dart';
 import 'package:gatovidapp/services/profile_modify.dart';
 import 'package:gatovidapp/services/models.dart';
+import 'package:gatovidapp/services/websockets.dart';
 import 'package:gatovidapp/popUps/error.dart';
 import 'package:gatovidapp/services/profile_stadistics.dart';
+import 'dart:async';
 
 // Colors to use
 
@@ -27,10 +29,15 @@ class ProfileConf extends StatefulWidget {
 class MapScreenState extends State<ProfileConf>
     with SingleTickerProviderStateMixin {
   final FocusNode myFocusNode = FocusNode();
+  StreamSubscription<bool> streamSubscription;
 
   @override
   void initState() {
     super.initState();
+    streamSubscription = streamGoToLogin.listen((_) {
+      disconnectWebSocket();
+      Navigator.pushReplacementNamed(context, '/login');
+    });
   }
 
   @override
@@ -355,7 +362,7 @@ class MapScreenState extends State<ProfileConf>
                                   if (_pass1.text != '' && _pass2.text != ''){ // ok password
                                     if(_pass1.text == _pass2.text){ // same password
                                       if ( await modifyData('password',_pass1.text)){
-                                        global_login_password = _pass1.text;
+                                        // Nothing, all good
                                       }else {
                                         showDialog(
                                           barrierDismissible: false,
@@ -455,5 +462,10 @@ class MapScreenState extends State<ProfileConf>
             ),
           ),
         );
+  }
+  @override
+  void dispose() {
+    super.dispose();
+    streamSubscription.cancel();
   }
 }

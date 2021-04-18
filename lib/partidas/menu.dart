@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:gatovidapp/popUps/gameCode.dart';
+import 'package:gatovidapp/popUps/loadingGameWithNumberGamers.dart';
 import 'package:gatovidapp/popUps/loadingGame.dart';
 import 'package:gatovidapp/popUps/readyGame.dart';
 import 'package:gatovidapp/popUps/error.dart';
@@ -8,6 +9,8 @@ import 'package:gatovidapp/services/profile_stadistics.dart';
 import 'package:gatovidapp/services/models.dart';
 import 'package:gatovidapp/services/websockets.dart';
 import 'dart:async';
+
+Color borderAvatar = Color(0xff6a1b9a);
 
 class GamesMenu extends StatefulWidget {
   @override
@@ -18,6 +21,7 @@ class _GamesMenuState extends State<GamesMenu> {
 
   StreamSubscription<bool> streamSubscription;
   StreamSubscription<bool> streamSubscription2;
+  StreamSubscription<bool> streamSubscription3;
 
   @override
   void initState() {
@@ -42,6 +46,10 @@ class _GamesMenuState extends State<GamesMenu> {
           context: context,
           builder: (BuildContext context) => ReadyGame(),
         );
+    });
+    streamSubscription3 = streamGoToLogin.listen((_) {
+      disconnectWebSocket();
+      Navigator.pushReplacementNamed(context, '/login');
     });
   }
 
@@ -75,16 +83,20 @@ class _GamesMenuState extends State<GamesMenu> {
                             children: [
                               Expanded(
                                 child: CircleAvatar(
-                                  backgroundImage: AssetImage(("assets/common/")+picsList[globalData.picture]['image']),
-                                  radius: screenHeight * 0.04,
-                                  child: TextButton(
-                                      onPressed: () async {
-                                        await  getStadistics();
-                                        Navigator.pushNamed(context, '/profile');
-                                        setState(() {});
-                                      }
+                                  radius:screenHeight * 0.045 ,
+                                  backgroundColor: borderAvatar,
+                                  child:CircleAvatar(
+                                    backgroundImage: AssetImage(("assets/common/")+picsList[globalData.picture]['image']),
+                                    radius: screenHeight * 0.04,
+                                    child: TextButton(
+                                        onPressed: () async {
+                                          await  getStadistics();
+                                          Navigator.pushNamed(context, '/profile');
+                                          setState(() {});
+                                        }
+                                    ),
                                   ),
-                                ),
+                                )
                               ),
                               Expanded(
                                 flex: 3,
@@ -169,6 +181,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                 child: ElevatedButton(
                                     onPressed: () {
                                       messages.clear();
+                                      numGamers = 1;
                                       createGame();
                                       showDialog(
                                         barrierDismissible: false,
@@ -208,6 +221,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                 child: ElevatedButton(
                                     onPressed: () {
                                       messages.clear();
+                                      numGamers = 1;
                                       showDialog(
                                         context: context,
                                         builder: (BuildContext context) => GameCode(),
@@ -245,6 +259,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                 child: ElevatedButton(
                                     onPressed: () {
                                       messages.clear();
+                                      numGamers = 1;
                                       publicGame();
                                       showDialog(
                                         barrierDismissible: false,
@@ -288,5 +303,6 @@ class _GamesMenuState extends State<GamesMenu> {
     super.dispose();
     streamSubscription.cancel();
     streamSubscription2.cancel();
+    streamSubscription3.cancel();
   }
 }

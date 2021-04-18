@@ -35,11 +35,7 @@ Future<bool> modifyData(String typeMod, String valueMod) async{
   }
   else {
     //statusCode = 401
-    //Pedir token
-    final AuthService _authService = AuthService();
-    if (await _authService.requestToken(response)) {
-    return await modifyData(typeMod, valueMod);
-    }
+    controllerGoToLogin.add(true);
     return false;
   }
 }

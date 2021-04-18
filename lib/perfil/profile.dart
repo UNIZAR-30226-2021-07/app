@@ -3,6 +3,7 @@ import 'package:gatovidapp/services/auth.dart';
 import 'package:gatovidapp/popUps/error.dart';
 import 'package:gatovidapp/services/models.dart';
 import 'package:gatovidapp/services/websockets.dart';
+import 'package:gatovidapp/services/persistance.dart';
 import 'dart:async';
 
 
@@ -162,14 +163,14 @@ class MapScreenState extends State<ProfilePage>
                           Text('Partidas jugadas:',
                               textAlign: TextAlign.left,
                               style: TextStyle(
-                                  fontSize: MediaQuery.of(context).size.height * 0.025,
+                                  fontSize: MediaQuery.of(context).size.width * 0.047,
                                   fontWeight: FontWeight.bold
                               )
                           ),
                           Text(globalStats.games,
                             textAlign: TextAlign.right,
                             style: TextStyle(
-                                fontSize: MediaQuery.of(context).size.height * 0.025,
+                                fontSize: MediaQuery.of(context).size.width * 0.047,
                                 fontWeight: FontWeight.normal
                             )
                         ),
@@ -188,14 +189,14 @@ class MapScreenState extends State<ProfilePage>
                               Text('Partidas ganadas:',
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
-                                      fontSize: MediaQuery.of(context).size.height * 0.025,
+                                      fontSize: MediaQuery.of(context).size.width * 0.047,
                                       fontWeight: FontWeight.bold
                                   )
                               ),
                               Text(globalStats.wins,
                                   textAlign: TextAlign.right,
                                   style: TextStyle(
-                                      fontSize: MediaQuery.of(context).size.height * 0.025,
+                                      fontSize: MediaQuery.of(context).size.width * 0.047,
                                       fontWeight: FontWeight.normal
                                   )
                               ),
@@ -214,14 +215,14 @@ class MapScreenState extends State<ProfilePage>
                               Text('Partidas perdidas:',
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
-                                      fontSize: MediaQuery.of(context).size.height * 0.025,
+                                      fontSize: MediaQuery.of(context).size.width * 0.047,
                                       fontWeight: FontWeight.bold
                                   )
                               ),
                               Text(globalStats.losses,
                                   textAlign: TextAlign.right,
                                   style: TextStyle(
-                                      fontSize: MediaQuery.of(context).size.height * 0.025,
+                                      fontSize: MediaQuery.of(context).size.width * 0.047,
                                       fontWeight: FontWeight.normal
                                   )
                               ),
@@ -240,14 +241,14 @@ class MapScreenState extends State<ProfilePage>
                               Text('Tiempo jugado:',
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
-                                      fontSize: MediaQuery.of(context).size.height * 0.025,
+                                      fontSize: MediaQuery.of(context).size.width * 0.047,
                                       fontWeight: FontWeight.bold
                                   )
                               ),
                               Text(globalStats.playtimeHour + ('h ') + globalStats.playtimeMin,
                                   textAlign: TextAlign.right,
                                   style: TextStyle(
-                                      fontSize: MediaQuery.of(context).size.height * 0.025,
+                                      fontSize: MediaQuery.of(context).size.width * 0.047,
                                       fontWeight: FontWeight.normal
                                   )
                               ),
@@ -256,7 +257,7 @@ class MapScreenState extends State<ProfilePage>
                     )
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.05),
+                    padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.02),
                     child: new Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
@@ -278,6 +279,7 @@ class MapScreenState extends State<ProfilePage>
                                   //Comprobación cierre de sesión
                                   if(await _authService.logout()) {
                                     Navigator.of(context).pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
+                                    removeValuesPersistence();
                                     disconnectWebSocket();
                                   }
                                   else {

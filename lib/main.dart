@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:gatovidapp/autentificacion/signup.dart';
 import 'package:gatovidapp/autentificacion/login.dart';
 import 'package:gatovidapp/perfil/profile.dart';
@@ -8,6 +9,7 @@ import 'package:gatovidapp/partidas/cardBoard.dart';
 import 'package:gatovidapp/partidas/rules.dart';
 import 'package:gatovidapp/tienda/boardStore.dart';
 import 'package:gatovidapp/tienda/avatarStore.dart';
+import 'package:gatovidapp/services/persistance.dart';
 import 'package:gatovidapp/chat/chat.dart';
 
 
@@ -30,11 +32,6 @@ void main() => runApp(
         },
       ),
     );
-
-checkIfAuthenticated() async {
-  await Future.delayed(Duration(seconds: 3)); // simulación de obtener la sesión
-  return false;
-}
 
 // Landing decide si acceder a la página de login
 // o al menú si está loggeado.

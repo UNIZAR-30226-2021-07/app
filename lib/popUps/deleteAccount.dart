@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gatovidapp/popUps/error.dart';
 import 'package:gatovidapp/services/auth.dart';
+import 'package:gatovidapp/services/persistance.dart';
 
 Color blackWords = Color(0xff000000);
 Color redButton = Color(0xffFF0000);
@@ -43,6 +44,7 @@ class DeleteAccount extends StatelessWidget {
               onPressed: () async {
                 //Comprobación borrar cuenta
                 if (await _authService.remove_user()){
+                  removeValuesPersistence();
                   Navigator.of(context).pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
                 }
                 else {
