@@ -128,7 +128,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: screenHeight * 0.03),
                                 ),
                                 SizedBox(width: screenWidth * 0.02),
-                                Icon(Icons.pets, size: 20, color: Colors.amber),
+                                Icon(Icons.pets, size: screenHeight * 0.03, color: Colors.amber),
                                 SizedBox(width: screenWidth * 0.04),
                               ],
                             ),
@@ -152,7 +152,7 @@ class _GamesMenuState extends State<GamesMenu> {
                             style: TextStyle(
                               fontFamily: 'ShortStack',
                               fontWeight: FontWeight.bold,
-                              fontSize: screenHeight * 0.05,
+                              fontSize: screenWidth * 0.085,
                             )
                           ),
                         ),
@@ -196,7 +196,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                     child: Text(
                                       "Crear partida privada",
                                       style:
-                                      TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+                                      TextStyle(fontWeight: FontWeight.bold, fontSize: screenWidth * 0.05),
                                     )
                                 ),
                               ),
@@ -234,7 +234,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                     child: Text(
                                       "Unirse a partida privada",
                                       style:
-                                      TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+                                      TextStyle(fontWeight: FontWeight.bold, fontSize: screenWidth * 0.05),
                                     )
                                 ),
                               ),
@@ -274,7 +274,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                     child: Text(
                                       "Unirse a partida pública",
                                       style:
-                                      TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+                                      TextStyle(fontWeight: FontWeight.bold, fontSize: screenWidth * 0.05),
                                     )
                                 ),
                               ),

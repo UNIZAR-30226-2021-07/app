@@ -81,7 +81,7 @@ class _LoginState extends State<Login> {
                                               child: Text(
                                                 'Email',
                                                 style:
-                                                TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+                                                TextStyle(fontWeight: FontWeight.bold, fontSize: screenWidth* 0.055),
                                               ),
                                             ),
                                           ],
@@ -142,7 +142,7 @@ class _LoginState extends State<Login> {
                                               child: Text(
                                                 'Contraseña',
                                                 style:
-                                                TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+                                                TextStyle(fontWeight: FontWeight.bold, fontSize: screenWidth* 0.055),
                                               ),
                                             ),
                                           ],
