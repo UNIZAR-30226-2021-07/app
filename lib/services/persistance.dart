@@ -8,14 +8,13 @@ SharedPreferences persistData;
 checkIfAuthenticated() async {
   persistData = await SharedPreferences.getInstance();
   final readToken = persistData.getString('token');
-  if (readToken == null){
+  if (readToken == null) {
     print('readToken == null');
     return false;
-  }
-  else{
+  } else {
     print('readToken != null');
     globalToken = Token(token: readToken);
-    if (await getData()){
+    if (await getData()) {
       await readPicsJson();
       await readBoardsJson();
       startWebSocket();
@@ -25,11 +24,11 @@ checkIfAuthenticated() async {
   }
 }
 
-void setValuesPersistence(){
+void setValuesPersistence() {
   persistData.setString('token', globalToken.token);
 }
 
-void removeValuesPersistence(){
+void removeValuesPersistence() {
   disconnectWebSocket();
   persistData.remove('token');
 }

@@ -15,19 +15,17 @@ class _RulesState extends State<Rules> {
         title: const Text(
           'Ayuda',
           style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 25.0,
-              color: Colors.black),
+              fontWeight: FontWeight.bold, fontSize: 25.0, color: Colors.black),
         ),
         leading: IconButton(
             icon: Icon(Icons.arrow_back_rounded),
-            color:  Colors.black,
+            color: Colors.black,
             onPressed: () {
               Navigator.pop(context);
             }),
       ),
       body: SafeArea(
-        child:Text("Pantalla Reglas"),
+        child: Text("Pantalla Reglas"),
       ),
     );
   }

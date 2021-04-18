@@ -9,19 +9,18 @@ Color greyButton = Color(0xffE5E5E5);
 Color whiteWords = Color(0xffffffff);
 
 class DeleteAccount extends StatelessWidget {
-
   final AuthService _authService = AuthService();
 
   @override
   Widget build(BuildContext context) {
     return new AlertDialog(
-      title: Text('¿Eliminar su cuenta permanentemente?',
+      title: Text(
+        '¿Eliminar su cuenta permanentemente?',
         textAlign: TextAlign.center,
         style: TextStyle(
           fontSize: MediaQuery.of(context).size.width * 0.06,
           fontWeight: FontWeight.bold,
           color: blackWords,
-
         ),
       ),
       actions: <Widget>[
@@ -37,17 +36,18 @@ class DeleteAccount extends StatelessWidget {
                 shape: new RoundedRectangleBorder(
                   borderRadius: new BorderRadius.circular(30.0),
                 ),
-                minimumSize: Size(MediaQuery.of(context).size.width, MediaQuery.of(context).size.height * 0.075),
+                minimumSize: Size(MediaQuery.of(context).size.width,
+                    MediaQuery.of(context).size.height * 0.075),
                 shadowColor: blackWords,
                 side: BorderSide(color: whiteWords, width: 2),
               ),
               onPressed: () async {
                 //Comprobación borrar cuenta
-                if (await _authService.remove_user()){
+                if (await _authService.remove_user()) {
                   removeValuesPersistence();
-                  Navigator.of(context).pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
-                }
-                else {
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      '/', (Route<dynamic> route) => false);
+                } else {
                   Navigator.pop(context);
                   showDialog(
                     barrierDismissible: false,
@@ -55,13 +55,11 @@ class DeleteAccount extends StatelessWidget {
                     builder: (BuildContext context) => ErrorPopup(),
                   );
                 }
-              }
-          ),
+              }),
         ),
         Padding(
-          padding: EdgeInsets.only(
-              top: MediaQuery.of(context).size.height * 0.023
-          ),
+          padding:
+              EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.023),
         ),
         new Center(
           child: new ElevatedButton(
@@ -75,14 +73,14 @@ class DeleteAccount extends StatelessWidget {
                 shape: new RoundedRectangleBorder(
                   borderRadius: new BorderRadius.circular(30.0),
                 ),
-                minimumSize: Size(MediaQuery.of(context).size.width, MediaQuery.of(context).size.height * 0.075),
+                minimumSize: Size(MediaQuery.of(context).size.width,
+                    MediaQuery.of(context).size.height * 0.075),
                 shadowColor: blackWords,
                 side: BorderSide(color: whiteWords, width: 2),
               ),
               onPressed: () {
                 Navigator.of(context).pop();
-              }
-          ),
+              }),
         )
       ],
     );
