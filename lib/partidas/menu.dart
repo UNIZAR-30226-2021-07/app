@@ -89,11 +89,14 @@ class _GamesMenuState extends State<GamesMenu> {
                               backgroundImage: AssetImage(("assets/common/") +
                                   picsList[globalData.picture]['image']),
                               radius: screenHeight * 0.04,
-                              child: TextButton(onPressed: () async {
-                                await getStadistics();
-                                Navigator.pushNamed(context, '/profile');
-                                setState(() {});
-                              }),
+                              child: TextButton(
+                                onPressed: () async {
+                                  await getStadistics();
+                                  Navigator.pushNamed(context, '/profile');
+                                  setState(() {});
+                                },
+                                child: null,
+                              ),
                             ),
                           ),
                         )),

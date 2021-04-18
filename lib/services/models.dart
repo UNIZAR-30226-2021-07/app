@@ -111,7 +111,8 @@ class UserStat {
     int aux = json['playtime_mins'];
     int mini = aux % 60;
     String min = mini.toString();
-    int houri = (aux / 60).toInt();
+    // x ~/ y es más eficiente que (x / y).toInt()
+    int houri = aux ~/ 60;
     String hour = houri.toString();
     return UserStat(
         games: json['games'].toString(),
@@ -129,6 +130,8 @@ Future<bool> readPicsJson() async {
       await rootBundle.loadString('assets/common/profile_pics.json');
   final auxList = await json.decode(response);
   picsList = auxList;
+
+  return true;
 }
 
 Future<bool> readBoardsJson() async {
@@ -136,4 +139,6 @@ Future<bool> readBoardsJson() async {
       await rootBundle.loadString('assets/common/boards.json');
   final auxList = await json.decode(response);
   boardList = auxList;
+
+  return true;
 }

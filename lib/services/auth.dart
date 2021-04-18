@@ -73,7 +73,7 @@ class AuthService {
     }
   }
 
-  Future<dynamic> remove_user() async {
+  Future<dynamic> removeUser() async {
     String request = "https://gatovid.herokuapp.com/data/remove_user";
     String token = globalToken.token;
     Map<String, String> header = {"Authorization": "Bearer $token"};
