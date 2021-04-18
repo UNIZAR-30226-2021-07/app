@@ -64,124 +64,136 @@ class MapScreenState extends State<ProfilePage>
               fit: BoxFit.cover,
             )
         ),
-        child: new Column(
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.04),
-                  child: new Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      new Container(
-                          width: MediaQuery.of(context).size.width * 0.4,
-                          height: MediaQuery.of(context).size.height * 0.2,
-                          child: CircleAvatar(
-                            backgroundImage: AssetImage(("assets/common/")+picsList[globalData.picture]['image']),
-                            radius: MediaQuery.of(context).size.width * 0.04,
-                          ),
+        child: ConstrainedBox(
+        constraints: BoxConstraints(
+          maxHeight: (MediaQuery.of(context).size.height - AppBar().preferredSize.height)*0.95),
+          child: new Column(
+            children: [
+              Expanded(flex: 1, child: SizedBox()),
+              Expanded(
+                flex: 30,
+                child: new Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    new Container(
+                      width: MediaQuery.of(context).size.width * 0.4,
+                      height: MediaQuery.of(context).size.height * 0.2,
+                      child: CircleAvatar(
+                        backgroundImage: AssetImage(("assets/common/")+picsList[globalData.picture]['image']),
+                        radius: MediaQuery.of(context).size.width * 0.04,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-                Padding(
-                    padding: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.02),
-                    child: new Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+              ),
+              Expanded(flex: 2, child: SizedBox()),
+              Expanded(
+                flex: 10,
+                child: new Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    new Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
-                        new Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: <Widget>[
-                            new Text(globalData.name,
-                                style: TextStyle(
-                                    fontSize: MediaQuery.of(context).size.height * 0.025,
-                                    fontWeight: FontWeight.bold)),
-                            new Text(
-                              globalData.email,
-                              style: TextStyle(
-                                  fontSize: MediaQuery.of(context).size.height * 0.025,
-                                  fontWeight: FontWeight.normal),
+                        new Text(globalData.name,
+                            style: TextStyle(
+                                fontSize: MediaQuery.of(context).size.width * 0.05,
+                                fontWeight: FontWeight.bold)),
+                        new Text(
+                          globalData.email,
+                          style: TextStyle(
+                              fontSize: MediaQuery.of(context).size.width * 0.05,
+                              fontWeight: FontWeight.normal),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(flex: 2, child: SizedBox()),
+              Expanded(
+                flex: 15,
+                child: new Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    new Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        new ElevatedButton(
+                            child: Text(
+                              "Editar Perfil",
+                              style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.width* 0.055),
                             ),
-                          ],
-                        ),
-                      ],
-                    )),
-                Padding(
-                    padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.02),
-                    child: new Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        new Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: <Widget>[
-                            new ElevatedButton(
-                                child: const Text(
-                                  "Editar Perfil",
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                style: ElevatedButton.styleFrom(
-                                  primary: greyButton,
-                                  onPrimary: whiteWords,
-                                  minimumSize: Size(MediaQuery.of(context).size.width * 0.4, MediaQuery.of(context).size.height * 0.05),
-                                ),
-                                onPressed: (){
-                                  setState(() {
-                                    Navigator.pushNamed(context, '/profile_edit');
-                                  });
-                                }),
-                          ],
-                        ),
-                      ],
-                    )),
-                Padding(
-                    padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.015),
-                    child: new Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        new Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            new Text(
-                              'Estadísticas',
-                              style: TextStyle(
-                                  fontSize: MediaQuery.of(context).size.height * 0.032,
-                                  fontWeight: FontWeight.bold),
+                            style: ElevatedButton.styleFrom(
+                              primary: greyButton,
+                              onPrimary: whiteWords,
+                              minimumSize: Size(MediaQuery.of(context).size.width * 0.45, MediaQuery.of(context).size.height * 0.05),
                             ),
-                          ],
+                            onPressed: (){
+                              setState(() {
+                                Navigator.pushNamed(context, '/profile_edit');
+                              });
+                            }),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                flex: 6,
+                child: new Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    new Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        new Text(
+                          'Estadísticas',
+                          style: TextStyle(
+                              fontSize: MediaQuery.of(context).size.width * 0.055,
+                              fontWeight: FontWeight.bold),
                         ),
                       ],
-                    )),
-                Padding(
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(flex: 1, child: SizedBox()),
+              Expanded(
+                flex: 6,
+                child: Padding(
                     padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
                         right: MediaQuery.of(context).size.width *0.1,
-                        top: MediaQuery.of(context).size.height * 0.02
                     ),
                     child: new Table(
-                      children: [ TableRow(
-                        children: <Widget>[
-                          Text('Partidas jugadas:',
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                  fontSize: MediaQuery.of(context).size.width * 0.047,
-                                  fontWeight: FontWeight.bold
-                              )
-                          ),
-                          Text(globalStats.games,
-                            textAlign: TextAlign.right,
-                            style: TextStyle(
-                                fontSize: MediaQuery.of(context).size.width * 0.047,
-                                fontWeight: FontWeight.normal
-                            )
-                        ),
-                      ]
-                    )]
-                  )
+                        children: [ TableRow(
+                            children: <Widget>[
+                              Text('Partidas jugadas:',
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                      fontSize: MediaQuery.of(context).size.width * 0.047,
+                                      fontWeight: FontWeight.bold
+                                  )
+                              ),
+                              Text(globalStats.games,
+                                  textAlign: TextAlign.right,
+                                  style: TextStyle(
+                                      fontSize: MediaQuery.of(context).size.width * 0.047,
+                                      fontWeight: FontWeight.normal
+                                  )
+                              ),
+                            ]
+                        )]
+                    )
                 ),
-                Padding(
+              ),
+              Expanded(flex: 1, child: SizedBox()),
+              Expanded(
+                flex: 6,
+                child: Padding(
                     padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
                         right: MediaQuery.of(context).size.width *0.1,
-                        top: MediaQuery.of(context).size.height * 0.025
                     ),
                     child: new Table(
                         children: [ TableRow(
@@ -204,10 +216,13 @@ class MapScreenState extends State<ProfilePage>
                         )]
                     )
                 ),
-                Padding(
+              ),
+              Expanded(flex: 1, child: SizedBox()),
+              Expanded(
+                flex: 6,
+                child: Padding(
                     padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
                         right: MediaQuery.of(context).size.width *0.1,
-                        top: MediaQuery.of(context).size.height * 0.025
                     ),
                     child: new Table(
                         children: [ TableRow(
@@ -230,10 +245,13 @@ class MapScreenState extends State<ProfilePage>
                         )]
                     )
                 ),
-                Padding(
+              ),
+              Expanded(flex: 1, child: SizedBox()),
+              Expanded(
+                flex: 6,
+                child: Padding(
                     padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.1,
                         right: MediaQuery.of(context).size.width *0.1,
-                        top: MediaQuery.of(context).size.height * 0.025
                     ),
                     child: new Table(
                         children: [ TableRow(
@@ -256,47 +274,52 @@ class MapScreenState extends State<ProfilePage>
                         )]
                     )
                 ),
-                Padding(
-                    padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.02),
-                    child: new Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+              ),
+              Expanded(flex: 2, child: SizedBox()),
+              Expanded(
+                flex: 15,
+                child: new Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    new Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
-                        new Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: <Widget>[
-                            new ElevatedButton(
-                                child: const Text(
-                                  "Cerrar sesión",
-                                  style: TextStyle(
-                                      fontSize: 20.0, fontWeight: FontWeight.bold),
-                                ),
-                                style: ElevatedButton.styleFrom(
-                                  primary: redButton,
-                                  onPrimary: whiteWords,
-                                  minimumSize: Size(MediaQuery.of(context).size.width * 0.6, MediaQuery.of(context).size.height * 0.065),
-                                ),
-                                onPressed: () async {
-                                  //Comprobación cierre de sesión
-                                  if(await _authService.logout()) {
-                                    Navigator.of(context).pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
-                                    removeValuesPersistence();
-                                    disconnectWebSocket();
-                                  }
-                                  else {
-                                    showDialog(
-                                      barrierDismissible: false,
-                                      context: context,
-                                      builder: (BuildContext context) => ErrorPopup(),
-                                    );
-                                  }
-                                }),
-                          ],
-                        ),
+                        new ElevatedButton(
+                            child: const Text(
+                              "Cerrar sesión",
+                              style: TextStyle(
+                                  fontSize: 20.0, fontWeight: FontWeight.bold),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              primary: redButton,
+                              onPrimary: whiteWords,
+                              minimumSize: Size(MediaQuery.of(context).size.width * 0.6, MediaQuery.of(context).size.height * 0.065),
+                            ),
+                            onPressed: () async {
+                              //Comprobación cierre de sesión
+                              if(await _authService.logout()) {
+                                Navigator.of(context).pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
+                                removeValuesPersistence();
+                                disconnectWebSocket();
+                              }
+                              else {
+                                showDialog(
+                                  barrierDismissible: false,
+                                  context: context,
+                                  builder: (BuildContext context) => ErrorPopup(),
+                                );
+                              }
+                            }),
                       ],
-                    )),
-              ],
-            ),
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(flex: 2, child: SizedBox()),
+            ],
+          ),
         )
+      )
     );
   }
 
