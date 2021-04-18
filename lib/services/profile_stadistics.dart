@@ -26,7 +26,6 @@ Future<bool> getData() async{
   }
   else {
     //statusCode = 401
-    // TODO: Irse al login
     return false;
   }
 }
