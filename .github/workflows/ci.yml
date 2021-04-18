@@ -2,11 +2,11 @@ name: CI
 
 # This workflow is triggered on pushes to the repository.
 
+# Solo se ejecuta el CI con commits en master o en pull requests.
 on:
-  push:
-    branches: [master]
   pull_request:
-    branches: [master]
+  push:
+    branches: main
         
 jobs:
   build:
