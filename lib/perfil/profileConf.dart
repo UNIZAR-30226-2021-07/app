@@ -240,6 +240,10 @@ class MapScreenState extends State<ProfileConf>
                                 color: whiteWords,  //add it here
                               ),
                               child: new Table(
+                                columnWidths: {
+                                  0: FlexColumnWidth(7),
+                                  1: FlexColumnWidth(3),
+                                },
                                 children: [ TableRow(
                                     children: <Widget>[
                                       Padding(
@@ -258,7 +262,7 @@ class MapScreenState extends State<ProfileConf>
                                                       child: SizedBox()
                                                   ),
                                                   Expanded(
-                                                      flex: 3,
+                                                      flex: 6,
                                                       child: Text('Cambiar Tablero',
                                                         textAlign: TextAlign.start,
                                                         style: TextStyle(

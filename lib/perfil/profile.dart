@@ -167,6 +167,10 @@ class MapScreenState extends State<ProfilePage>
                         right: MediaQuery.of(context).size.width *0.1,
                     ),
                     child: new Table(
+                        columnWidths: {
+                          0: FlexColumnWidth(7),
+                          1: FlexColumnWidth(3),
+                        },
                         children: [ TableRow(
                             children: <Widget>[
                               Text('Partidas jugadas:',
@@ -196,6 +200,10 @@ class MapScreenState extends State<ProfilePage>
                         right: MediaQuery.of(context).size.width *0.1,
                     ),
                     child: new Table(
+                        columnWidths: {
+                          0: FlexColumnWidth(7),
+                          1: FlexColumnWidth(3),
+                        },
                         children: [ TableRow(
                             children: <Widget>[
                               Text('Partidas ganadas:',
@@ -225,6 +233,10 @@ class MapScreenState extends State<ProfilePage>
                         right: MediaQuery.of(context).size.width *0.1,
                     ),
                     child: new Table(
+                        columnWidths: {
+                          0: FlexColumnWidth(7),
+                          1: FlexColumnWidth(3),
+                        },
                         children: [ TableRow(
                             children: <Widget>[
                               Text('Partidas perdidas:',
@@ -254,6 +266,10 @@ class MapScreenState extends State<ProfilePage>
                         right: MediaQuery.of(context).size.width *0.1,
                     ),
                     child: new Table(
+                        columnWidths: {
+                          0: FlexColumnWidth(7),
+                          1: FlexColumnWidth(3),
+                        },
                         children: [ TableRow(
                             children: <Widget>[
                               Text('Tiempo jugado:',
