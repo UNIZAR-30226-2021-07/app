@@ -15,6 +15,7 @@ void startWebSocket() {
           .setExtraHeaders({'Authorization': 'Bearer $token'}) // optional
           .build());
   // Connect socket
+  socket.io.options['forceNew'] = true;
   socket.connect();
   // Handler for each event:
   // socket.on('event', handler);
@@ -124,9 +125,15 @@ void leaveGame() {
 }
 
 void disconnectWebSocket() {
-  print('disconnect emit');
-  socket.emitWithAck('disconnect', null,
-      ack: (data) => errorMessageHandler(data));
+  try {
+    socket.disconnect();
+    socket.close();
+    socket.destroy();
+    socket=null;
+    print('SOCKET DISCONNECTED');
+  } catch (e) {
+    print(e);
+  }
 }
 
 class Message {

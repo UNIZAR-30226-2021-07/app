@@ -29,6 +29,5 @@ void setValuesPersistence() {
 }
 
 void removeValuesPersistence() {
-  disconnectWebSocket();
   persistData.remove('token');
 }
