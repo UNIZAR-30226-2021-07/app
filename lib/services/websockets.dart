@@ -16,7 +16,7 @@ void startWebSocket() {
           .enableAutoConnect()
           .setExtraHeaders({'Authorization': 'Bearer $token'})
           .enableForceNew()
-          .enableForceNewConnection()// optional
+          .enableForceNewConnection() // optional
           .enableReconnection()
           .build());
   // Handler for each event:
@@ -32,10 +32,7 @@ void startWebSocket() {
   socket.on('game_cancelled', (_) => gameCancelledHandler());
   socket.on('users_waiting', (data) => usersWaitingHandler(data));
   socket.on('connect_error', (_) => print('errorConnect: ' + _.toString()));
-  socket.on(
-      'error',
-      (data) => errorMessageHandler(
-          data));
+  socket.on('error', (data) => errorMessageHandler(data));
 }
 
 // Handlers for socket.on
