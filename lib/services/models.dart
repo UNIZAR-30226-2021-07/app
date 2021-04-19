@@ -17,8 +17,10 @@ int numGamers = 1;
 StreamController<bool> controllerChat = StreamController<bool>.broadcast();
 StreamController<bool> controllerStat = StreamController<bool>.broadcast();
 StreamController<bool> controllerStartGame = StreamController<bool>.broadcast();
-StreamController<bool> controllerCreateGame = StreamController<bool>.broadcast();
-StreamController<bool> controllerUsersWaiting = StreamController<bool>.broadcast();
+StreamController<bool> controllerCreateGame =
+    StreamController<bool>.broadcast();
+StreamController<bool> controllerUsersWaiting =
+    StreamController<bool>.broadcast();
 StreamController<bool> controllerGoToLogin = StreamController<bool>.broadcast();
 Stream streamChat = controllerChat.stream;
 Stream streamStat = controllerStat.stream;
@@ -27,14 +29,13 @@ Stream streamCreateGame = controllerCreateGame.stream;
 Stream streamUsersWaiting = controllerUsersWaiting.stream;
 Stream streamGoToLogin = controllerGoToLogin.stream;
 
-
 //Modelos para guardar información al traducir las respuestas de la API
 class Token {
   final String token;
 
   Token({this.token});
 
-  factory Token.fromJson(Map<String,dynamic> json) {
+  factory Token.fromJson(Map<String, dynamic> json) {
     return Token(token: json['access_token']);
   }
 }
@@ -44,7 +45,7 @@ class Error {
 
   Error({this.error});
 
-  factory Error.fromJson(Map<String,dynamic> json) {
+  factory Error.fromJson(Map<String, dynamic> json) {
     return Error(error: json['error']);
   }
 }
@@ -54,7 +55,7 @@ class Response {
 
   Response({this.message});
 
-  factory Response.fromJson(Map<String,dynamic> json) {
+  factory Response.fromJson(Map<String, dynamic> json) {
     return Response(message: json['error']);
   }
 }
@@ -65,11 +66,8 @@ class User {
 
   User({this.name, this.email});
 
-  factory User.fromJson(Map<String,dynamic> json) {
-    return User(
-        name: json['name'],
-        email: json['email']
-    );
+  factory User.fromJson(Map<String, dynamic> json) {
+    return User(name: json['name'], email: json['email']);
   }
 }
 
@@ -84,9 +82,14 @@ class UserData {
 
   UserData({this.name, this.email, this.coins, this.picture, this.board});
 
-  factory UserData.fromJson(Map<String,dynamic> json) {
+  factory UserData.fromJson(Map<String, dynamic> json) {
     print('name' + json['name']);
-    return UserData(name: json['name'], email: json['email'], coins: json['coins'].toString(), picture: json['picture'], board: json['board']);
+    return UserData(
+        name: json['name'],
+        email: json['email'],
+        coins: json['coins'].toString(),
+        picture: json['picture'],
+        board: json['board']);
   }
 }
 
@@ -97,28 +100,45 @@ class UserStat {
   final String playtimeMin;
   final String playtimeHour;
 
-  UserStat({this.games, this.losses, this.wins, this.playtimeMin, this.playtimeHour});
+  UserStat(
+      {this.games,
+      this.losses,
+      this.wins,
+      this.playtimeMin,
+      this.playtimeHour});
 
-  factory UserStat.fromJson(Map<String,dynamic> json) {
+  factory UserStat.fromJson(Map<String, dynamic> json) {
     int aux = json['playtime_mins'];
     int mini = aux % 60;
     String min = mini.toString();
-    int houri = (aux / 60).toInt();
+    // x ~/ y es más eficiente que (x / y).toInt()
+    int houri = aux ~/ 60;
     String hour = houri.toString();
-    return UserStat(games: json['games'].toString(), losses: json['losses'].toString(), wins: json['wins'].toString(), playtimeMin: min, playtimeHour: hour);
+    return UserStat(
+        games: json['games'].toString(),
+        losses: json['losses'].toString(),
+        wins: json['wins'].toString(),
+        playtimeMin: min,
+        playtimeHour: hour);
   }
 }
 
 //-------------------------------------------------------------------------------------------------------
 //Read json of pics, boards and cards
-Future<bool> readPicsJson() async{
-  final String response = await rootBundle.loadString('assets/common/profile_pics.json');
-  final auxList= await json.decode(response);
+Future<bool> readPicsJson() async {
+  final String response =
+      await rootBundle.loadString('assets/common/profile_pics.json');
+  final auxList = await json.decode(response);
   picsList = auxList;
+
+  return true;
 }
 
-Future<bool> readBoardsJson() async{
-  final String response = await rootBundle.loadString('assets/common/boards.json');
+Future<bool> readBoardsJson() async {
+  final String response =
+      await rootBundle.loadString('assets/common/boards.json');
   final auxList = await json.decode(response);
   boardList = auxList;
+
+  return true;
 }

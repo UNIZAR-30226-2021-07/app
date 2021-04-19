@@ -11,7 +11,6 @@ import 'package:gatovidapp/tienda/avatarStore.dart';
 import 'package:gatovidapp/services/persistance.dart';
 import 'package:gatovidapp/chat/chat.dart';
 
-
 void main() => runApp(
       MaterialApp(
         title: 'Gatovid',
@@ -23,11 +22,11 @@ void main() => runApp(
           '/home': (context) => GamesMenu(),
           '/profile': (context) => ProfilePage(),
           '/profile_edit': (context) => ProfileConf(),
-          '/rules' : (context) => Rules(),
-          '/board' : (context) => CardBoard(),
-          '/boardStore' : (context) => BoardStore(),
-          '/avatarStore' : (context) => PicturesStore(),
-          '/chat' : (context) => ChatScreen(),
+          '/rules': (context) => Rules(),
+          '/board': (context) => CardBoard(),
+          '/boardStore': (context) => BoardStore(),
+          '/avatarStore': (context) => PicturesStore(),
+          '/chat': (context) => ChatScreen(),
         },
       ),
     );

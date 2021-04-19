@@ -13,60 +13,54 @@ class _CardBoardState extends State<CardBoard> {
       onWillPop: () async => false,
       child: Scaffold(
         body: SafeArea(
-        child:Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text("Pantalla tablero partida"),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/rules');
-                },
-                style: ElevatedButton.styleFrom(
-                    primary: Color(0xFF9C4DCC),
-                    onPrimary: Colors.white,
-                    minimumSize: Size(double.infinity, 20 )),
-                child: Text(
-                  "Reglas",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, fontSize:20),
-                )
-            ),
-            SizedBox(height: 20, width: double.infinity),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/chat');
-                },
-                style: ElevatedButton.styleFrom(
-                    primary: Color(0xFF9C4DCC),
-                    onPrimary: Colors.white,
-                    minimumSize: Size(double.infinity, 20 )),
-                child: Text(
-                  "Chat",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, fontSize:20),
-                )
-            ),
-            ElevatedButton(
-                onPressed: () {
-                  leaveGame();
-                  Navigator.of(context).popUntil((route) => route.isFirst);
-                  Navigator.pushReplacementNamed(context, '/home');
-                },
-                style: ElevatedButton.styleFrom(
-                    primary: Color(0xFF9C4DCC),
-                    onPrimary: Colors.white,
-                    minimumSize: Size(double.infinity, 20 )),
-                child: Text(
-                  "Salir de la partida",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, fontSize:20),
-                )
-            )
-          ],
-        ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("Pantalla tablero partida"),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/rules');
+                  },
+                  style: ElevatedButton.styleFrom(
+                      primary: Color(0xFF9C4DCC),
+                      onPrimary: Colors.white,
+                      minimumSize: Size(double.infinity, 20)),
+                  child: Text(
+                    "Reglas",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                  )),
+              SizedBox(height: 20, width: double.infinity),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/chat');
+                  },
+                  style: ElevatedButton.styleFrom(
+                      primary: Color(0xFF9C4DCC),
+                      onPrimary: Colors.white,
+                      minimumSize: Size(double.infinity, 20)),
+                  child: Text(
+                    "Chat",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                  )),
+              ElevatedButton(
+                  onPressed: () {
+                    leaveGame();
+                    Navigator.of(context).popUntil((route) => route.isFirst);
+                    Navigator.pushReplacementNamed(context, '/home');
+                  },
+                  style: ElevatedButton.styleFrom(
+                      primary: Color(0xFF9C4DCC),
+                      onPrimary: Colors.white,
+                      minimumSize: Size(double.infinity, 20)),
+                  child: Text(
+                    "Salir de la partida",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                  ))
+            ],
+          ),
         ),
       ),
     );
