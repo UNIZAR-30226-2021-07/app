@@ -19,19 +19,28 @@ class LoadingGame extends StatelessWidget {
             ),
           ),
           actions: [
-            Center(
-              child: CircularProgressIndicator(),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+              children:[
+                CircularProgressIndicator(),
+              ]
             ),
-            Center(
-              child: Text(
-                '¿Lo sabías?',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: MediaQuery.of(context).size.width * 0.05,
-                  fontWeight: FontWeight.normal,
-                  color: blackWords,
+            SizedBox(height: MediaQuery.of(context).size.height * 0.03,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  '¿Lo sabías?',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.width * 0.05,
+                    fontWeight: FontWeight.normal,
+                    color: blackWords,
+                  ),
                 ),
-              ),
+              ],
             ),
             Center(
               child: Text(
