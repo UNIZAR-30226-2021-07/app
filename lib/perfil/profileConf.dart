@@ -42,39 +42,41 @@ class MapScreenState extends State<ProfileConf>
 
   @override
   Widget build(BuildContext context) {
-    String boardPath = boardList[globalData.board]['image'].replaceAll('svg','png');
+    String boardPath =
+        boardList[globalData.board]['image'].replaceAll('svg', 'png');
     return new Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: greenAppBar,
-        title: const Text(
-          'Configuración',
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 25.0,
-              color: Color(0xff000000)),
+        appBar: AppBar(
+          centerTitle: true,
+          backgroundColor: greenAppBar,
+          title: const Text(
+            'Configuración',
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 25.0,
+                color: Color(0xff000000)),
+          ),
+          leading: IconButton(
+              icon: Icon(Icons.arrow_back_rounded),
+              color: blackWords,
+              onPressed: () {
+                Navigator.pop(context);
+              }),
         ),
-        leading: IconButton(
-            icon: Icon(Icons.arrow_back_rounded),
-            color: blackWords,
-            onPressed: () {
-              Navigator.pop(context);
-            }),
-      ),
-      body: new Container(
-        constraints: BoxConstraints.expand(),
-        decoration: BoxDecoration(
-            image: DecorationImage(
-              colorFilter: new ColorFilter.mode(Colors.white.withOpacity(0.05), BlendMode.dstATop),
-              image: AssetImage("assets/images/bg.png"),
-              fit: BoxFit.cover,
-            )
-        ),
+        body: new Container(
+          constraints: BoxConstraints.expand(),
+          decoration: BoxDecoration(
+              image: DecorationImage(
+            colorFilter: new ColorFilter.mode(
+                Colors.white.withOpacity(0.05), BlendMode.dstATop),
+            image: AssetImage("assets/images/bg.png"),
+            fit: BoxFit.cover,
+          )),
           child: SingleChildScrollView(
-              child: ConstrainedBox(
+            child: ConstrainedBox(
               constraints: BoxConstraints(
-                maxHeight: (MediaQuery.of(context).size.height - AppBar().preferredSize.height)*0.95
-              ),
+                  maxHeight: (MediaQuery.of(context).size.height -
+                          AppBar().preferredSize.height) *
+                      0.95),
               child: new Column(
                 children: [
                   Expanded(flex: 2, child: SizedBox()),
@@ -91,34 +93,42 @@ class MapScreenState extends State<ProfileConf>
                               width: MediaQuery.of(context).size.width * 0.4,
                               height: MediaQuery.of(context).size.height * 0.15,
                               child: CircleAvatar(
-                                backgroundImage: AssetImage(("assets/common/")+picsList[globalData.picture]['image']),
-                                radius: MediaQuery.of(context).size.width * 0.04,
+                                backgroundImage: AssetImage(("assets/common/") +
+                                    picsList[globalData.picture]['image']),
+                                radius:
+                                    MediaQuery.of(context).size.width * 0.04,
                               ),
                             ),
                           ],
                         ),
                         Padding(
-                            padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.005, left: MediaQuery.of(context).size.width * 0.525),
+                            padding: EdgeInsets.only(
+                                top: MediaQuery.of(context).size.height * 0.005,
+                                left:
+                                    MediaQuery.of(context).size.width * 0.525),
                             child: new Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: <Widget>[
                                 TextButton(
                                   child: new CircleAvatar(
                                       backgroundColor: purpleCamera,
-                                      radius: MediaQuery.of(context).size.height * 0.03,
+                                      radius:
+                                          MediaQuery.of(context).size.height *
+                                              0.03,
                                       child: new Icon(
                                         Icons.camera_alt,
                                         color: whiteWords,
-                                        size: MediaQuery.of(context).size.height * 0.03,
-                                      )
-                                  ),
+                                        size:
+                                            MediaQuery.of(context).size.height *
+                                                0.03,
+                                      )),
                                   onPressed: () {
-                                    Navigator.pushNamed(context, '/avatarStore');
+                                    Navigator.pushNamed(
+                                        context, '/avatarStore');
                                   },
                                 ),
                               ],
-                            )
-                        ),
+                            )),
                       ],
                     ),
                   ),
@@ -133,12 +143,15 @@ class MapScreenState extends State<ProfileConf>
                           children: <Widget>[
                             new Text(globalData.name,
                                 style: TextStyle(
-                                    fontSize: MediaQuery.of(context).size.width * 0.05,
+                                    fontSize:
+                                        MediaQuery.of(context).size.width *
+                                            0.05,
                                     fontWeight: FontWeight.bold)),
                             new Text(
                               globalData.email,
                               style: TextStyle(
-                                  fontSize: MediaQuery.of(context).size.width * 0.05,
+                                  fontSize:
+                                      MediaQuery.of(context).size.width * 0.05,
                                   fontWeight: FontWeight.normal),
                             ),
                           ],
@@ -150,31 +163,34 @@ class MapScreenState extends State<ProfileConf>
                   Expanded(
                     flex: 7,
                     child: ConstrainedBox(
-                    constraints: BoxConstraints.tight(Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.06)),
-                    child: TextFormField(
-                      controller: _name,
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10.0),
-                              borderSide: BorderSide(width: 1.0)),
-                          hintText: 'Cambiar nombre',
-                          isDense: true,
-                          fillColor: whiteWords,
-                          filled: true
-                      ),
-                      style: TextStyle(
-                        fontSize: MediaQuery.of(context).size.width * 0.04,
-                        fontWeight: FontWeight.normal,
-                        color: greyWords,
+                      constraints: BoxConstraints.tight(Size(
+                          MediaQuery.of(context).size.width * 0.8,
+                          MediaQuery.of(context).size.height * 0.06)),
+                      child: TextFormField(
+                        controller: _name,
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                borderSide: BorderSide(width: 1.0)),
+                            hintText: 'Cambiar nombre',
+                            isDense: true,
+                            fillColor: whiteWords,
+                            filled: true),
+                        style: TextStyle(
+                          fontSize: MediaQuery.of(context).size.width * 0.04,
+                          fontWeight: FontWeight.normal,
+                          color: greyWords,
+                        ),
                       ),
                     ),
-                  ),
                   ),
                   Expanded(flex: 1, child: SizedBox()),
                   Expanded(
                     flex: 7,
                     child: ConstrainedBox(
-                      constraints: BoxConstraints.tight(Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.06)),
+                      constraints: BoxConstraints.tight(Size(
+                          MediaQuery.of(context).size.width * 0.8,
+                          MediaQuery.of(context).size.height * 0.06)),
                       child: TextFormField(
                         controller: _pass1,
                         decoration: InputDecoration(
@@ -184,8 +200,7 @@ class MapScreenState extends State<ProfileConf>
                             hintText: 'Cambiar contraseña',
                             isDense: true,
                             fillColor: whiteWords,
-                            filled: true
-                        ),
+                            filled: true),
                         style: TextStyle(
                           fontSize: MediaQuery.of(context).size.width * 0.04,
                           fontWeight: FontWeight.normal,
@@ -202,7 +217,9 @@ class MapScreenState extends State<ProfileConf>
                   Expanded(
                     flex: 7,
                     child: ConstrainedBox(
-                      constraints: BoxConstraints.tight(Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.06)),
+                      constraints: BoxConstraints.tight(Size(
+                          MediaQuery.of(context).size.width * 0.8,
+                          MediaQuery.of(context).size.height * 0.06)),
                       child: TextFormField(
                         controller: _pass2,
                         decoration: InputDecoration(
@@ -212,8 +229,7 @@ class MapScreenState extends State<ProfileConf>
                             hintText: 'Repita la contraseña',
                             isDense: true,
                             fillColor: whiteWords,
-                            filled: true
-                        ),
+                            filled: true),
                         style: TextStyle(
                           fontSize: MediaQuery.of(context).size.width * 0.04,
                           fontWeight: FontWeight.normal,
@@ -233,182 +249,216 @@ class MapScreenState extends State<ProfileConf>
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           new Container(
-                              constraints: BoxConstraints.tight(Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.width * 0.15)),
+                              constraints: BoxConstraints.tight(Size(
+                                  MediaQuery.of(context).size.width * 0.8,
+                                  MediaQuery.of(context).size.width * 0.15)),
                               decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black45), // No se que color es, Leti no me lo tengas en cuenta
+                                border: Border.all(
+                                    color: Colors
+                                        .black45), // No se que color es, Leti no me lo tengas en cuenta
                                 borderRadius: BorderRadius.circular(8.0),
-                                color: whiteWords,  //add it here
+                                color: whiteWords, //add it here
                               ),
                               child: new Table(
                                 columnWidths: {
                                   0: FlexColumnWidth(7),
                                   1: FlexColumnWidth(3),
                                 },
-                                children: [ TableRow(
-                                    children: <Widget>[
-                                      Padding(
-                                        padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.022,
-                                            right: MediaQuery.of(context).size.width *0.022,
-                                            top: MediaQuery.of(context).size.height *0.0125,
-                                            bottom: MediaQuery.of(context).size.height *0.0125
+                                children: [
+                                  TableRow(children: <Widget>[
+                                    Padding(
+                                      padding: EdgeInsets.only(
+                                          left: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.022,
+                                          right: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.022,
+                                          top: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.0125,
+                                          bottom: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.0125),
+                                      child: Container(
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.08,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.05,
+                                          child: Column(children: [
+                                            Expanded(
+                                                flex: 1, child: SizedBox()),
+                                            Expanded(
+                                                flex: 6,
+                                                child: Text(
+                                                  'Cambiar Tablero',
+                                                  textAlign: TextAlign.start,
+                                                  style: TextStyle(
+                                                    fontSize:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .width *
+                                                            0.04,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    color: greyWords,
+                                                  ),
+                                                )),
+                                            Expanded(
+                                                flex: 1, child: SizedBox()),
+                                          ])),
+                                    ),
+                                    Container(
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.08,
+                                      width: MediaQuery.of(context).size.width *
+                                          0.05,
+                                      child: Column(children: [
+                                        Expanded(flex: 1, child: SizedBox()),
+                                        Expanded(
+                                          flex: 3,
+                                          child: Container(
+                                            constraints: BoxConstraints.expand(
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.15,
+                                            ),
+                                            alignment: Alignment.center,
+                                            decoration: BoxDecoration(
+                                                image: DecorationImage(
+                                              image: AssetImage(
+                                                  ("assets/common/") +
+                                                      boardPath),
+                                              fit: BoxFit.cover,
+                                            )),
+                                            child: TextButton(onPressed: () {
+                                              Navigator.pushNamed(
+                                                  context, '/boardStore');
+                                            }),
+                                          ),
                                         ),
-                                        child: Container(
-                                            height: MediaQuery.of(context).size.height * 0.08,
-                                            width: MediaQuery.of(context).size.width * 0.05,
-                                            child: Column(
-                                                children: [
-                                                  Expanded(
-                                                      flex: 1,
-                                                      child: SizedBox()
-                                                  ),
-                                                  Expanded(
-                                                      flex: 6,
-                                                      child: Text('Cambiar Tablero',
-                                                        textAlign: TextAlign.start,
-                                                        style: TextStyle(
-                                                          fontSize: MediaQuery.of(context).size.width * 0.04,
-                                                          fontWeight: FontWeight.normal,
-                                                          color: greyWords,
-                                                        ),
-                                                      )
-                                                  ),
-                                                  Expanded(
-                                                      flex: 1,
-                                                      child: SizedBox()
-                                                  ),
-                                                ]
-                                            )
-                                        ),
-                                      ),
-                                      Container(
-                                        height: MediaQuery.of(context).size.height * 0.08,
-                                        width: MediaQuery.of(context).size.width * 0.05,
-                                        child: Column(
-                                            children: [
-                                              Expanded(
-                                                  flex: 1,
-                                                  child: SizedBox()
-                                              ),
-                                              Expanded(
-                                                flex: 3,
-                                                child: Container(
-                                                  constraints: BoxConstraints.expand(
-                                                    width: MediaQuery.of(context).size.width * 0.15,
-                                                  ),
-                                                  alignment: Alignment.center,
-                                                  decoration: BoxDecoration(
-                                                      image: DecorationImage(
-                                                        image: AssetImage(("assets/common/")+boardPath),
-                                                        fit: BoxFit.cover,
-                                                      )
-                                                  ),
-                                                  child: TextButton(
-                                                      onPressed: () {
-                                                        Navigator.pushNamed(context, '/boardStore');
-                                                      }
-                                                  ),
-                                                ),
-                                              ),
-                                              Expanded(
-                                                  flex: 1,
-                                                  child: SizedBox()
-                                              ),
-                                            ]
-                                        ),
-                                      ),
-                                    ]
-                                )
+                                        Expanded(flex: 1, child: SizedBox()),
+                                      ]),
+                                    ),
+                                  ])
                                 ],
-                              )
-                          )
-                        ]
-                    ),
+                              ))
+                        ]),
                   ),
                   Expanded(flex: 2, child: SizedBox()),
                   Expanded(
                     flex: 7,
                     child: new ElevatedButton(
-                      child: Text(
-                        "Guardar",
-                        style: TextStyle(
-                            fontSize: MediaQuery.of(context).size.width * 0.055,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        primary: purpleButton,
-                        onPrimary: whiteWords,
-                        minimumSize: Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.065),
-                      ),
-                      onPressed: () async {
-                        if(_name.text != ''){ // ok name
-                          if ( await modifyData('name',_name.text)){
-                            await getData();
-                            setState((){});
-                          }else {
-                            showDialog(
-                              barrierDismissible: false,
-                              context: context,
-                              builder: (BuildContext context) => ErrorPopup(),
-                            );
-                          }
-                        }
-                        if (_pass1.text != '' && _pass2.text != ''){ // ok password
-                          if(_pass1.text == _pass2.text){ // same password
-                            if ( await modifyData('password',_pass1.text)){
-                              // Nothing, all good
-                            }else {
+                        child: Text(
+                          "Guardar",
+                          style: TextStyle(
+                              fontSize:
+                                  MediaQuery.of(context).size.width * 0.055,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          primary: purpleButton,
+                          onPrimary: whiteWords,
+                          minimumSize: Size(
+                              MediaQuery.of(context).size.width * 0.8,
+                              MediaQuery.of(context).size.height * 0.065),
+                        ),
+                        onPressed: () async {
+                          if (_name.text != '') {
+                            // ok name
+                            if (await modifyData('name', _name.text)) {
+                              await getData();
+                              setState(() {});
+                            } else {
                               showDialog(
                                 barrierDismissible: false,
                                 context: context,
                                 builder: (BuildContext context) => ErrorPopup(),
                               );
                             }
-                          }else{ // error, not same password
-                            globalError = Error(error: 'Las contraseñas no coinciden');
-                            showDialog(
-                              barrierDismissible: false,
-                              context: context,
-                              builder: (BuildContext context) => ErrorPopup(),
-                            );
                           }
-                        }
-                        if ( _name.text == '' && (_pass1.text == '' || _pass2.text == '')){ // None parameters
-                          if(_name.text == '' && _pass1.text == '' && _pass2.text == ''){
-                            globalError = Error(error: 'No se ha introducido ningún cambio');
-                            showDialog(
-                              barrierDismissible: false,
-                              context: context,
-                              builder: (BuildContext context) => ErrorPopup(),
-                            );
-                          }else if (_pass1.text == '' && _pass2.text != ''){
-                            globalError = Error(error: 'Primer campo de la contraseña vacio');
-                            showDialog(
-                              barrierDismissible: false,
-                              context: context,
-                              builder: (BuildContext context) => ErrorPopup(),
-                            );
-                          }else if (_pass1.text != '' && _pass2.text == ''){
-                            globalError = Error(error: 'Segundo campo de la contraseña vacio');
-                            showDialog(
-                              barrierDismissible: false,
-                              context: context,
-                              builder: (BuildContext context) => ErrorPopup(),
-                            );
-                          }else{
-                            globalError = Error(error: 'Error inesperado, intentelo de nuevo');
-                            showDialog(
-                              barrierDismissible: false,
-                              context: context,
-                              builder: (BuildContext context) => ErrorPopup(),
-                            );
+                          if (_pass1.text != '' && _pass2.text != '') {
+                            // ok password
+                            if (_pass1.text == _pass2.text) {
+                              // same password
+                              if (await modifyData('password', _pass1.text)) {
+                                // Nothing, all good
+                              } else {
+                                showDialog(
+                                  barrierDismissible: false,
+                                  context: context,
+                                  builder: (BuildContext context) =>
+                                      ErrorPopup(),
+                                );
+                              }
+                            } else {
+                              // error, not same password
+                              globalError =
+                                  Error(error: 'Las contraseñas no coinciden');
+                              showDialog(
+                                barrierDismissible: false,
+                                context: context,
+                                builder: (BuildContext context) => ErrorPopup(),
+                              );
+                            }
                           }
-                        }
-                        // Clean boxes
-                        _name.text = '';
-                        _pass1.text = '';
-                        _pass2.text = '';
-                        controllerStat.add(true);
-                      }),
+                          if (_name.text == '' &&
+                              (_pass1.text == '' || _pass2.text == '')) {
+                            // None parameters
+                            if (_name.text == '' &&
+                                _pass1.text == '' &&
+                                _pass2.text == '') {
+                              globalError = Error(
+                                  error: 'No se ha introducido ningún cambio');
+                              showDialog(
+                                barrierDismissible: false,
+                                context: context,
+                                builder: (BuildContext context) => ErrorPopup(),
+                              );
+                            } else if (_pass1.text == '' && _pass2.text != '') {
+                              globalError = Error(
+                                  error: 'Primer campo de la contraseña vacio');
+                              showDialog(
+                                barrierDismissible: false,
+                                context: context,
+                                builder: (BuildContext context) => ErrorPopup(),
+                              );
+                            } else if (_pass1.text != '' && _pass2.text == '') {
+                              globalError = Error(
+                                  error:
+                                      'Segundo campo de la contraseña vacio');
+                              showDialog(
+                                barrierDismissible: false,
+                                context: context,
+                                builder: (BuildContext context) => ErrorPopup(),
+                              );
+                            } else {
+                              globalError = Error(
+                                  error:
+                                      'Error inesperado, intentelo de nuevo');
+                              showDialog(
+                                barrierDismissible: false,
+                                context: context,
+                                builder: (BuildContext context) => ErrorPopup(),
+                              );
+                            }
+                          }
+                          // Clean boxes
+                          _name.text = '';
+                          _pass1.text = '';
+                          _pass2.text = '';
+                          controllerStat.add(true);
+                        }),
                   ),
                   Expanded(flex: 2, child: SizedBox()),
                   Expanded(
@@ -423,20 +473,26 @@ class MapScreenState extends State<ProfileConf>
                                 child: Text(
                                   "Eliminar Cuenta",
                                   style: TextStyle(
-                                      fontSize: MediaQuery.of(context).size.width * 0.055,
+                                      fontSize:
+                                          MediaQuery.of(context).size.width *
+                                              0.055,
                                       fontWeight: FontWeight.bold),
                                 ),
                                 style: ElevatedButton.styleFrom(
                                   primary: whiteWords,
                                   onPrimary: redButton,
                                   side: BorderSide(color: redButton),
-                                  minimumSize: Size(MediaQuery.of(context).size.width * 0.8, MediaQuery.of(context).size.height * 0.065),
+                                  minimumSize: Size(
+                                      MediaQuery.of(context).size.width * 0.8,
+                                      MediaQuery.of(context).size.height *
+                                          0.065),
                                 ),
                                 onPressed: () {
                                   showDialog(
                                     barrierDismissible: false,
                                     context: context,
-                                    builder: (BuildContext context) => DeleteAccount(),
+                                    builder: (BuildContext context) =>
+                                        DeleteAccount(),
                                   );
                                 }),
                           ],
@@ -448,9 +504,10 @@ class MapScreenState extends State<ProfileConf>
                 ],
               ),
             ),
-          ),)
-        );
+          ),
+        ));
   }
+
   @override
   void dispose() {
     super.dispose();

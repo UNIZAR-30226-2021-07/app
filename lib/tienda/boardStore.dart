@@ -15,19 +15,17 @@ class _BoardStoreState extends State<BoardStore> {
         title: const Text(
           'Elegir Tablero',
           style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 25.0,
-              color: Colors.black),
+              fontWeight: FontWeight.bold, fontSize: 25.0, color: Colors.black),
         ),
         leading: IconButton(
             icon: Icon(Icons.arrow_back_rounded),
-            color:  Colors.black,
+            color: Colors.black,
             onPressed: () {
               Navigator.pop(context);
             }),
       ),
       body: SafeArea(
-        child:Column(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text("Pantalla tienda color tablero"),
@@ -38,14 +36,12 @@ class _BoardStoreState extends State<BoardStore> {
                 style: ElevatedButton.styleFrom(
                     primary: Color(0xFF9C4DCC),
                     onPrimary: Colors.white,
-                    minimumSize: Size(double.infinity, 20 )),
+                    minimumSize: Size(double.infinity, 20)),
                 child: Text(
                   "Avatar",
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, fontSize:20),
-                )
-            )
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ))
           ],
         ),
       ),

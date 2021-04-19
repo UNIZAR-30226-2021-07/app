@@ -3,15 +3,13 @@ import 'package:gatovidapp/services/models.dart';
 import 'dart:async';
 import 'dart:convert';
 
-
-
-Future<bool> getData() async{
+Future<bool> getData() async {
   String token = globalToken.token;
-  Map <String, String>  header = {
-    "Authorization" : "Bearer $token"
-  };
+  Map<String, String> header = {"Authorization": "Bearer $token"};
 
-  var response = await http.get(Uri.parse("https://gatovid.herokuapp.com/data/user_data"), headers: header);
+  var response = await http.get(
+      Uri.parse("https://gatovid.herokuapp.com/data/user_data"),
+      headers: header);
 
   print(response.body);
 
@@ -22,20 +20,18 @@ Future<bool> getData() async{
     //Transformar json datos a modelo creado
     globalData = UserData.fromJson(decoded);
     return true;
-  }
-  else {
+  } else {
     //statusCode = 401
     return false;
   }
 }
 
-
-Future<bool> getStadistics() async{
-
+Future<bool> getStadistics() async {
   String name = globalData.name;
   print(name);
 
-  var response = await http.get(Uri.parse("http://gatovid.herokuapp.com/data/user_stats?name=$name"));
+  var response = await http.get(
+      Uri.parse("http://gatovid.herokuapp.com/data/user_stats?name=$name"));
 
   print(response.body);
 

@@ -12,7 +12,6 @@ class ErrorPopup extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-
     return WillPopScope(
         onWillPop: () async => false,
         child: AlertDialog(
@@ -22,7 +21,8 @@ class ErrorPopup extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Icon(Icons.warning),
-                Text('¡Atención!',
+                Text(
+                  '¡Atención!',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: MediaQuery.of(context).size.width * 0.06,
@@ -31,17 +31,17 @@ class ErrorPopup extends StatelessWidget {
                   ),
                 ),
               ],
-
             ),
           ),
-          content:Text(globalError.error,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.width * 0.04,
-                    fontWeight: FontWeight.normal,
-                    color: blackWords,
-                  ),
-                ),
+          content: Text(
+            globalError.error,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: MediaQuery.of(context).size.width * 0.04,
+              fontWeight: FontWeight.normal,
+              color: blackWords,
+            ),
+          ),
           actions: <Widget>[
             new ElevatedButton(
                 child: const Text(
@@ -54,7 +54,8 @@ class ErrorPopup extends StatelessWidget {
                   shape: new RoundedRectangleBorder(
                     borderRadius: new BorderRadius.circular(30.0),
                   ),
-                  minimumSize: Size(MediaQuery.of(context).size.width, MediaQuery.of(context).size.height * 0.075),
+                  minimumSize: Size(MediaQuery.of(context).size.width,
+                      MediaQuery.of(context).size.height * 0.075),
                   shadowColor: blackWords,
                   side: BorderSide(color: whiteWords, width: 2),
                 ),
@@ -62,7 +63,6 @@ class ErrorPopup extends StatelessWidget {
                   Navigator.pop(context);
                 }),
           ],
-        )
-    );
+        ));
   }
 }
