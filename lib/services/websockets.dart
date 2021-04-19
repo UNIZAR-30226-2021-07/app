@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:gatovidapp/services/models.dart';
 import 'package:socket_io_client/socket_io_client.dart';
 
