@@ -7,42 +7,44 @@ class LoadingGame extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: () async => false,
-      child: new AlertDialog(
-        title: Text('Preparando partida...',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: MediaQuery.of(context).size.width * 0.06,
-            fontWeight: FontWeight.bold,
-            color: blackWords,
-          ),
-        ),
-        actions: [
-          Center(
-            child: Image.asset('assets/gifs/arrowloading.gif'),
-          ),
-          Center(
-            child: Text('¿Lo sabías?',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: MediaQuery.of(context).size.width * 0.05,
-                fontWeight: FontWeight.normal,
-                color: blackWords,
-              ),
+        onWillPop: () async => false,
+        child: new AlertDialog(
+          title: Text(
+            'Preparando partida...',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: MediaQuery.of(context).size.width * 0.06,
+              fontWeight: FontWeight.bold,
+              color: blackWords,
             ),
           ),
-          Center(
-            child: Text('Uno de cada cuatro gatos es albino',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: MediaQuery.of(context).size.width * 0.05,
-                fontWeight: FontWeight.normal,
-                color: blackWords,
+          actions: [
+            Center(
+              child: Image.asset('assets/gifs/arrowloading.gif'),
+            ),
+            Center(
+              child: Text(
+                '¿Lo sabías?',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: MediaQuery.of(context).size.width * 0.05,
+                  fontWeight: FontWeight.normal,
+                  color: blackWords,
+                ),
               ),
             ),
-          ),
-        ],
-      )
-    );
+            Center(
+              child: Text(
+                'Uno de cada cuatro gatos es albino',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: MediaQuery.of(context).size.width * 0.05,
+                  fontWeight: FontWeight.normal,
+                  color: blackWords,
+                ),
+              ),
+            ),
+          ],
+        ));
   }
 }

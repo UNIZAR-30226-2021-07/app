@@ -16,19 +16,17 @@ class _PicturesStoreState extends State<PicturesStore> {
         title: const Text(
           'Elegir Foto',
           style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 25.0,
-              color: Colors.black),
+              fontWeight: FontWeight.bold, fontSize: 25.0, color: Colors.black),
         ),
         leading: IconButton(
             icon: Icon(Icons.arrow_back_rounded),
-            color:  Colors.black,
+            color: Colors.black,
             onPressed: () {
               Navigator.pop(context);
             }),
       ),
       body: SafeArea(
-        child:Column(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text("Pantalla tienda avatar perfil"),
@@ -39,14 +37,12 @@ class _PicturesStoreState extends State<PicturesStore> {
                 style: ElevatedButton.styleFrom(
                     primary: Color(0xFF9C4DCC),
                     onPrimary: Colors.white,
-                    minimumSize: Size(double.infinity, 20 )),
+                    minimumSize: Size(double.infinity, 20)),
                 child: Text(
                   "Tablero",
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, fontSize:20),
-                )
-            )
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ))
           ],
         ),
       ),
