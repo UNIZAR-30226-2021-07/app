@@ -37,35 +37,36 @@ class _LoadingGameWithNG extends State<LoadingGameWithNG> {
           ),
           actions: [
             ConstrainedBox(
-                constraints: BoxConstraints(
-                    maxHeight: MediaQuery.of(context).size.height* 0.14,
-                    maxWidth: MediaQuery.of(context).size.width* 0.8),
+              constraints: BoxConstraints(
+                  maxHeight: MediaQuery.of(context).size.height * 0.14,
+                  maxWidth: MediaQuery.of(context).size.width * 0.8),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children:[
+                  children: [
                     Expanded(flex: 1, child: SizedBox()),
                     Expanded(
                         flex: 4,
                         child: Column(
                           children: [
                             CircularProgressIndicator(),
-                            SizedBox(height: MediaQuery.of(context).size.height*0.03,),
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.03,
+                            ),
                             Text(
                               numGamers.toString() + '/6 gaticos preparados',
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                fontSize: MediaQuery.of(context).size.width * 0.05,
+                                fontSize:
+                                    MediaQuery.of(context).size.width * 0.05,
                                 fontWeight: FontWeight.normal,
                                 color: blackWords,
                               ),
                             ),
                           ],
-                        )
-                    ),
+                        )),
                     Expanded(flex: 1, child: SizedBox()),
-                  ]
-              ),
+                  ]),
             )
           ],
         ));

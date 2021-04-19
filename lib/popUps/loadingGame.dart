@@ -22,11 +22,12 @@ class LoadingGame extends StatelessWidget {
             Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
-              children:[
-                CircularProgressIndicator(),
-              ]
+                children: [
+                  CircularProgressIndicator(),
+                ]),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.03,
             ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.03,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
