@@ -19,19 +19,29 @@ class LoadingGame extends StatelessWidget {
             ),
           ),
           actions: [
-            Center(
-              child: Image.asset('assets/gifs/arrowloading.gif'),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  CircularProgressIndicator(),
+                ]),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.03,
             ),
-            Center(
-              child: Text(
-                '¿Lo sabías?',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: MediaQuery.of(context).size.width * 0.05,
-                  fontWeight: FontWeight.normal,
-                  color: blackWords,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  '¿Lo sabías?',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.width * 0.05,
+                    fontWeight: FontWeight.normal,
+                    color: blackWords,
+                  ),
                 ),
-              ),
+              ],
             ),
             Center(
               child: Text(
