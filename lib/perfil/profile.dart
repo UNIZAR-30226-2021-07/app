@@ -322,11 +322,11 @@ class MapScreenState extends State<ProfilePage>
                                 onPressed: () async {
                                   //Comprobación cierre de sesión
                                   if (await _authService.logout()) {
+                                    removeValuesPersistence();
+                                    disconnectWebSocket();
                                     Navigator.of(context)
                                         .pushNamedAndRemoveUntil('/',
                                             (Route<dynamic> route) => false);
-                                    removeValuesPersistence();
-                                    disconnectWebSocket();
                                   } else {
                                     showDialog(
                                       barrierDismissible: false,
