@@ -20,7 +20,7 @@ class LoadingGame extends StatelessWidget {
           ),
           actions: [
             Center(
-              child: Image.asset('assets/gifs/arrowloading.gif'),
+              child: CircularProgressIndicator(),
             ),
             Center(
               child: Text(
