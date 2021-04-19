@@ -341,10 +341,12 @@ class MapScreenState extends State<ProfileConf>
                                                       boardPath),
                                               fit: BoxFit.cover,
                                             )),
-                                            child: TextButton(onPressed: () {
-                                              Navigator.pushNamed(
-                                                  context, '/boardStore');
-                                            }),
+                                            child: TextButton(
+                                                child: null,
+                                                onPressed: () {
+                                                  Navigator.pushNamed(
+                                                      context, '/boardStore');
+                                                }),
                                           ),
                                         ),
                                         Expanded(flex: 1, child: SizedBox()),

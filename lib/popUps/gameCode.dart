@@ -39,12 +39,14 @@ class GameCode extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    FlatButton(
+                    TextButton(
                       child: Text('X',
                           style: TextStyle(fontSize: screenWidth * 0.055)),
-                      height: screenHeight * 0.025,
-                      minWidth: screenWidth * 0.025,
-                      textColor: Colors.grey,
+                      style: TextButton.styleFrom(
+                        primary: Colors.grey,
+                        minimumSize:
+                            Size(screenHeight * 0.025, screenWidth * 0.025),
+                      ),
                       onPressed: () {
                         Navigator.pop(context);
                       },
