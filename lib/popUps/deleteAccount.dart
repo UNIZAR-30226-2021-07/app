@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gatovidapp/popUps/error.dart';
 import 'package:gatovidapp/services/auth.dart';
+import 'package:gatovidapp/services/websockets.dart';
 import 'package:gatovidapp/services/persistance.dart';
 
 Color blackWords = Color(0xff000000);
@@ -45,6 +46,7 @@ class DeleteAccount extends StatelessWidget {
                 //Comprobación borrar cuenta
                 if (await _authService.removeUser()) {
                   removeValuesPersistence();
+                  disconnectWebSocket();
                   Navigator.of(context).pushNamedAndRemoveUntil(
                       '/', (Route<dynamic> route) => false);
                 } else {
