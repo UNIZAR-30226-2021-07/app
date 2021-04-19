@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_restart/flutter_restart.dart';
 import 'package:gatovidapp/popUps/error.dart';
 import 'package:gatovidapp/services/auth.dart';
 import 'package:gatovidapp/services/websockets.dart';
@@ -47,6 +48,7 @@ class DeleteAccount extends StatelessWidget {
                 if (await _authService.removeUser()) {
                   removeValuesPersistence();
                   disconnectWebSocket();
+                  FlutterRestart.restartApp();
                   Navigator.of(context).pushNamedAndRemoveUntil(
                       '/', (Route<dynamic> route) => false);
                 } else {
