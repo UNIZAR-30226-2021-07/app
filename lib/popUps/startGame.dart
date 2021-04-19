@@ -29,7 +29,6 @@ class _StartGame extends State<StartGame> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-        onWillPop: () async => false,
         child: AlertDialog(
           title: Text(
             '¿Empezar partida?',
