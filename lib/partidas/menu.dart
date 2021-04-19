@@ -90,13 +90,12 @@ class _GamesMenuState extends State<GamesMenu> {
                                   picsList[globalData.picture]['image']),
                               radius: screenHeight * 0.04,
                               child: TextButton(
-                                onPressed: () async {
-                                  await getStadistics();
-                                  Navigator.pushNamed(context, '/profile');
-                                  setState(() {});
-                                },
-                                child: null,
-                              ),
+                                  child: null,
+                                  onPressed: () async {
+                                    await getStadistics();
+                                    Navigator.pushNamed(context, '/profile');
+                                    setState(() {});
+                                  }),
                             ),
                           ),
                         )),
@@ -128,7 +127,8 @@ class _GamesMenuState extends State<GamesMenu> {
                                 fontSize: screenHeight * 0.03),
                           ),
                           SizedBox(width: screenWidth * 0.02),
-                          Icon(Icons.pets, size: 20, color: Colors.amber),
+                          Icon(Icons.pets,
+                              size: screenHeight * 0.03, color: Colors.amber),
                           SizedBox(width: screenWidth * 0.04),
                         ],
                       ),
@@ -152,7 +152,7 @@ class _GamesMenuState extends State<GamesMenu> {
                           style: TextStyle(
                             fontFamily: 'ShortStack',
                             fontWeight: FontWeight.bold,
-                            fontSize: screenHeight * 0.05,
+                            fontSize: screenWidth * 0.085,
                           )),
                     ),
                   ],
@@ -192,7 +192,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                   "Crear partida privada",
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 20.0),
+                                      fontSize: screenWidth * 0.05),
                                 )),
                           ),
                           Expanded(child: SizedBox()),
@@ -225,7 +225,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                   "Unirse a partida privada",
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 20.0),
+                                      fontSize: screenWidth * 0.05),
                                 )),
                           ),
                           Expanded(child: SizedBox()),
@@ -260,7 +260,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                   "Unirse a partida pública",
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 20.0),
+                                      fontSize: screenWidth * 0.05),
                                 )),
                           ),
                           Expanded(child: SizedBox()),

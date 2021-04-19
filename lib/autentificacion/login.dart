@@ -75,7 +75,7 @@ class _LoginState extends State<Login> {
                                       'Email',
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 20.0),
+                                          fontSize: screenWidth * 0.04),
                                     ),
                                   ),
                                 ],
@@ -127,7 +127,7 @@ class _LoginState extends State<Login> {
                                       'Contraseña',
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 20.0),
+                                          fontSize: screenWidth * 0.04),
                                     ),
                                   ),
                                 ],

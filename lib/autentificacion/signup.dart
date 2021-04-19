@@ -76,7 +76,7 @@ class _SignupState extends State<Signup> {
                                         'Nombre de usuario',
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold,
-                                            fontSize: screenWidth * 0.05),
+                                            fontSize: screenWidth * 0.04),
                                       ),
                                     ),
                                   ],
@@ -134,7 +134,7 @@ class _SignupState extends State<Signup> {
                                         'Email',
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold,
-                                            fontSize: screenWidth * 0.05),
+                                            fontSize: screenWidth * 0.04),
                                       ),
                                     ),
                                   ],
@@ -189,7 +189,7 @@ class _SignupState extends State<Signup> {
                                       'Contraseña',
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
-                                          fontSize: screenWidth * 0.05),
+                                          fontSize: screenWidth * 0.04),
                                     ),
                                   ),
                                 ],
@@ -247,7 +247,7 @@ class _SignupState extends State<Signup> {
                                       'Repetir contraseña',
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
-                                          fontSize: screenWidth * 0.05),
+                                          fontSize: screenWidth * 0.04),
                                     ),
                                   ),
                                 ],
