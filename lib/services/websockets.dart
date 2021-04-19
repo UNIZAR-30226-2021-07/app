@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:gatovidapp/services/models.dart';
 import 'package:socket_io_client/socket_io_client.dart';
 
@@ -11,16 +13,17 @@ void startWebSocket() {
       'http://gatovid.herokuapp.com:80',
       OptionBuilder()
           .setTransports(['websocket']) // for Flutter or Dart VM
-          .disableAutoConnect() // disable auto-connection
-          .setExtraHeaders({'Authorization': 'Bearer $token'}) // optional
+          .enableAutoConnect()
+          .setExtraHeaders({'Authorization': 'Bearer $token'})
+          .enableForceNew()
+          .enableForceNewConnection()// optional
+          .enableReconnection()
           .build());
-  // Connect socket
-  socket.io.options['forceNew'] = true;
-  socket.connect();
   // Handler for each event:
   // socket.on('event', handler);
   print(socket);
   socket.on('connect', (_) => print('connect: ' + _.toString()));
+  socket.on('disconnect', (_) => print('disconnect: ' + _.toString()));
   socket.on('chat', (data) => chatReceivedHandler(data));
   socket.on('start_game', (_) => startGameHandler());
   socket.on('create_game', (data) => createGameHandler(data));
@@ -32,7 +35,7 @@ void startWebSocket() {
   socket.on(
       'error',
       (data) => errorMessageHandler(
-          data)); // Probably the problem will be with the tokens
+          data));
 }
 
 // Handlers for socket.on
@@ -126,10 +129,12 @@ void leaveGame() {
 
 void disconnectWebSocket() {
   try {
+    //socket.clearListeners();
     socket.disconnect();
-    socket.close();
-    socket.destroy();
-    socket=null;
+    //socket.close();
+    //socket.destroy();
+    //socket.dispose();
+    //socket=null;
     print('SOCKET DISCONNECTED');
   } catch (e) {
     print(e);

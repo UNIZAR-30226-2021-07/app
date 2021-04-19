@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_restart/flutter_restart.dart';
 import 'package:gatovidapp/popUps/gameCode.dart';
 import 'package:gatovidapp/popUps/loadingGame.dart';
 import 'package:gatovidapp/popUps/readyGame.dart';
@@ -7,6 +8,7 @@ import 'package:gatovidapp/popUps/error.dart';
 import 'package:gatovidapp/services/profile_stadistics.dart';
 import 'package:gatovidapp/services/models.dart';
 import 'package:gatovidapp/services/websockets.dart';
+import 'package:gatovidapp/services/persistance.dart';
 import 'dart:async';
 
 Color borderAvatar = Color(0xff6a1b9a);
@@ -45,7 +47,9 @@ class _GamesMenuState extends State<GamesMenu> {
       );
     });
     streamSubscription3 = streamGoToLogin.listen((_) {
+      removeValuesPersistence();
       disconnectWebSocket();
+      FlutterRestart.restartApp();
       Navigator.pushReplacementNamed(context, '/login');
     });
   }

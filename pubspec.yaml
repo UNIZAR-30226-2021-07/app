@@ -31,6 +31,7 @@ dependencies:
   socket_io_client: ^2.0.0-beta
   clipboard: ^0.1.3
   shared_preferences: ^2.0.5
+  flutter_restart: ^0.0.3
 
 dev_dependencies:
   flutter_test:
