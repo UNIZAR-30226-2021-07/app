@@ -43,7 +43,7 @@ class DeleteAccount extends StatelessWidget {
               ),
               onPressed: () async {
                 //Comprobación borrar cuenta
-                if (await _authService.remove_user()) {
+                if (await _authService.removeUser()) {
                   removeValuesPersistence();
                   Navigator.of(context).pushNamedAndRemoveUntil(
                       '/', (Route<dynamic> route) => false);
