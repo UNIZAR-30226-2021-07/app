@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gatovidapp/services/models.dart';
+import 'package:gatovidapp/services/websockets.dart';
 import 'dart:async';
 
 Color blackWords = Color(0xff000000);
@@ -23,16 +24,49 @@ class _LoadingGameWithNG extends State<LoadingGameWithNG> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    Size screenSize = MediaQuery.of(context).size;
+    double screenHeight = screenSize.height;
+    double screenWidth = screenSize.width;
     return WillPopScope(
         onWillPop: () async => false,
         child: new AlertDialog(
-          title: Text(
-            'Preparando partida...',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: MediaQuery.of(context).size.width * 0.06,
-              fontWeight: FontWeight.bold,
-              color: blackWords,
+          title: Container(
+            height: screenHeight*0.1,
+            width: screenWidth*0.8,
+            child: Row(
+              children: [
+                Expanded(
+                    flex: 1,
+                    child: SizedBox()),
+                Expanded(
+                  flex: 8,
+                  child: Text(
+                    'Preparando partida...',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.width * 0.06,
+                      fontWeight: FontWeight.bold,
+                      color: blackWords,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: TextButton(
+                    child: Text('X',
+                        style: TextStyle(fontSize: screenWidth * 0.055)),
+                    style: TextButton.styleFrom(
+                      primary: Colors.grey,
+                      minimumSize:
+                      Size(screenHeight * 0.025, screenWidth * 0.015),
+                    ),
+                    onPressed: () {
+                      leaveGame();
+                      Navigator.pop(context);
+                    },
+                  ),
+                ),
+              ],
             ),
           ),
           actions: [
