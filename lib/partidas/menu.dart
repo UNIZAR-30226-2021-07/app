@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_restart/flutter_restart.dart';
 import 'package:gatovidapp/popUps/gameCode.dart';
 import 'package:gatovidapp/popUps/loadingGame.dart';
+import 'package:gatovidapp/popUps/loadingGamePublic.dart';
 import 'package:gatovidapp/popUps/readyGame.dart';
 import 'package:gatovidapp/popUps/error.dart';
 import 'package:gatovidapp/services/profile_stadistics.dart';
@@ -253,7 +254,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                     barrierDismissible: false,
                                     context: context,
                                     builder: (BuildContext context) =>
-                                        LoadingGame(),
+                                        LoadingGamePublic(),
                                   );
                                 },
                                 style: ElevatedButton.styleFrom(
