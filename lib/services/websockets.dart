@@ -122,9 +122,10 @@ void leaveGame() {
   socket.emitWithAck('leave', null, ack: (data) => errorMessageHandler(data));
 }
 
-void stopSearchingPublic(){
+void stopSearchingPublic() {
   print('stop_searching emit');
-  socket.emitWithAck('stop_searching', null, ack: (data) => print('stop_searching ack received'));
+  socket.emitWithAck('stop_searching', null,
+      ack: (data) => print('stop_searching ack received'));
 }
 
 void disconnectWebSocket() {

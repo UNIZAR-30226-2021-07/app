@@ -38,7 +38,7 @@ class LoadingGamePublic extends StatelessWidget {
                     style: TextButton.styleFrom(
                       primary: Colors.grey,
                       minimumSize:
-                      Size(screenHeight * 0.025, screenWidth * 0.015),
+                          Size(screenHeight * 0.025, screenWidth * 0.015),
                     ),
                     onPressed: () {
                       stopSearchingPublic();
