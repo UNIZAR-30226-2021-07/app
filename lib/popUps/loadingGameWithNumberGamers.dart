@@ -31,18 +31,17 @@ class _LoadingGameWithNG extends State<LoadingGameWithNG> {
         onWillPop: () async => false,
         child: new AlertDialog(
           title: Container(
-            height: screenHeight * 0.1,
             width: screenWidth * 0.8,
             child: Row(
               children: [
                 Expanded(flex: 1, child: SizedBox()),
                 Expanded(
-                  flex: 8,
+                  flex: 15,
                   child: Text(
                     'Preparando partida...',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: MediaQuery.of(context).size.width * 0.06,
+                      fontSize: MediaQuery.of(context).size.width * 0.055,
                       fontWeight: FontWeight.bold,
                       color: blackWords,
                     ),
@@ -70,7 +69,7 @@ class _LoadingGameWithNG extends State<LoadingGameWithNG> {
           actions: [
             ConstrainedBox(
               constraints: BoxConstraints(
-                  maxHeight: MediaQuery.of(context).size.height * 0.22,
+                  maxHeight: MediaQuery.of(context).size.height * 0.17,
                   maxWidth: MediaQuery.of(context).size.width * 0.8),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -78,7 +77,7 @@ class _LoadingGameWithNG extends State<LoadingGameWithNG> {
                   children: [
                     Expanded(flex: 1, child: SizedBox()),
                     Expanded(
-                        flex: 4,
+                        flex: 8,
                         child: Column(
                           children: [
                             CircularProgressIndicator(),
