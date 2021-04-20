@@ -70,7 +70,7 @@ class _LoadingGameWithNG extends State<LoadingGameWithNG> {
           actions: [
             ConstrainedBox(
               constraints: BoxConstraints(
-                  maxHeight: MediaQuery.of(context).size.height * 0.14,
+                  maxHeight: MediaQuery.of(context).size.height * 0.22,
                   maxWidth: MediaQuery.of(context).size.width * 0.8),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
