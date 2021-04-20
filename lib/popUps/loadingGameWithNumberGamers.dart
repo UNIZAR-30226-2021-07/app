@@ -31,13 +31,11 @@ class _LoadingGameWithNG extends State<LoadingGameWithNG> {
         onWillPop: () async => false,
         child: new AlertDialog(
           title: Container(
-            height: screenHeight*0.1,
-            width: screenWidth*0.8,
+            height: screenHeight * 0.1,
+            width: screenWidth * 0.8,
             child: Row(
               children: [
-                Expanded(
-                    flex: 1,
-                    child: SizedBox()),
+                Expanded(flex: 1, child: SizedBox()),
                 Expanded(
                   flex: 8,
                   child: Text(
@@ -58,7 +56,7 @@ class _LoadingGameWithNG extends State<LoadingGameWithNG> {
                     style: TextButton.styleFrom(
                       primary: Colors.grey,
                       minimumSize:
-                      Size(screenHeight * 0.025, screenWidth * 0.015),
+                          Size(screenHeight * 0.025, screenWidth * 0.015),
                     ),
                     onPressed: () {
                       leaveGame();
