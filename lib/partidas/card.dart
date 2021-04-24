@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:gatovidapp/services/models.dart';
 
@@ -15,13 +14,11 @@ class CardTemplate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String cardPath =
-    cardList[this.numCard]['image'].replaceAll('svg', 'png');
+    String cardPath = cardList[this.numCard]['image'].replaceAll('svg', 'png');
     return Container(
       height: this.height,
       width: this.width,
       child: new Image.asset(("assets/common/") + cardPath),
     );
   }
-
 }

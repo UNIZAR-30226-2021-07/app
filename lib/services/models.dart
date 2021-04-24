@@ -146,7 +146,7 @@ Future<bool> readBoardsJson() async {
 
 Future<bool> readCardsJson() async {
   final String response =
-  await rootBundle.loadString('assets/common/cards.json');
+      await rootBundle.loadString('assets/common/cards.json');
   final auxList = await json.decode(response);
   cardList = auxList;
 
