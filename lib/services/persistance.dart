@@ -17,6 +17,7 @@ checkIfAuthenticated() async {
     if (await getData()) {
       await readPicsJson();
       await readBoardsJson();
+      await readCardsJson();
       startWebSocket();
       return true;
     }

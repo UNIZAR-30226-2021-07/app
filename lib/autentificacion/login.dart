@@ -194,6 +194,7 @@ class _LoginState extends State<Login> {
                                                 setValuesPersistence();
                                                 await readPicsJson();
                                                 await readBoardsJson();
+                                                await readCardsJson();
                                                 await getData();
                                                 startWebSocket();
                                                 Navigator.pushReplacementNamed(
