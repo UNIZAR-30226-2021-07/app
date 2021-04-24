@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gatovidapp/services/models.dart';
 
 Color blackWords = Color(0xff000000);
 Color redButton = Color(0xffFF0000);
@@ -8,7 +7,7 @@ Color purpleButton = Color(0xff6A1B9A);
 Color whiteWords = Color(0xffffffff);
 Color greyWords = Color(0xff474747);
 
-class gamePaused extends StatelessWidget {
+class GamePaused extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {

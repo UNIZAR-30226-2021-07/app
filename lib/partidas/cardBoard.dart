@@ -65,7 +65,7 @@ class _CardBoardState extends State<CardBoard> {
                     showDialog(
                       barrierDismissible: false,
                       context: context,
-                      builder: (BuildContext context) => gamePaused(),
+                      builder: (BuildContext context) => GamePaused(),
                     );
                   },
                   style: ElevatedButton.styleFrom(
