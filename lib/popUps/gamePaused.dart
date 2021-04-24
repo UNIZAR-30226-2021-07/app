@@ -20,7 +20,10 @@ class gamePaused extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Icon(Icons.pause_circle_outline_rounded, size: MediaQuery.of(context).size.width*0.1,),
+                Icon(
+                  Icons.pause_circle_outline_rounded,
+                  size: MediaQuery.of(context).size.width * 0.1,
+                ),
                 Text(
                   'Partida Pausada',
                   textAlign: TextAlign.center,
@@ -46,7 +49,9 @@ class gamePaused extends StatelessWidget {
             new ElevatedButton(
                 child: Text(
                   "Reanudar Partida",
-                  style: TextStyle(fontSize: MediaQuery.of(context).size.width*0.0525, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.width * 0.0525,
+                      fontWeight: FontWeight.bold),
                 ),
                 style: ElevatedButton.styleFrom(
                   primary: purpleButton,
@@ -64,7 +69,7 @@ class gamePaused extends StatelessWidget {
                   //TODO: Funcionalidad de reanudar partida
                 }),
             SizedBox(
-              height: MediaQuery.of(context).size.width*0.03,
+              height: MediaQuery.of(context).size.width * 0.03,
             ),
           ],
         ));
