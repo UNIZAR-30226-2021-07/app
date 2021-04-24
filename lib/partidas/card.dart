@@ -1,6 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:gatovidapp/services/models.dart';
 
+class CardData {
+  int ID;
+  CardData({this.ID});
+}
+
 class CardTemplate extends StatelessWidget {
   const CardTemplate({
     this.width,
