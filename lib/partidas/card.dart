@@ -1,7 +1,6 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:gatovidapp/services/models.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class CardTemplate extends StatelessWidget {
   const CardTemplate({
@@ -19,7 +18,7 @@ class CardTemplate extends StatelessWidget {
     return Container(
       height: this.height,
       width: this.width,
-      child: SvgPicture.asset(("assets/common/") + cardList[this.numCard]['image']),
+      child: new Image.asset(("assets/common/") + cardList[this.numCard]['image']),
     );
   }
 
