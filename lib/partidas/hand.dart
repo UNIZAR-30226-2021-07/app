@@ -135,8 +135,6 @@ class HandTemplate extends StatelessWidget {
         ),
       );
     }
-    if (listCard.length == 0) {
-      return Container();
-    }
+    return Container();
   }
 }
