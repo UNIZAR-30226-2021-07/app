@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gatovidapp/popUps/gamePaused.dart';
 import 'package:gatovidapp/services/websockets.dart';
 
 class CardBoard extends StatefulWidget {
@@ -58,7 +59,24 @@ class _CardBoardState extends State<CardBoard> {
                     "Salir de la partida",
                     textAlign: TextAlign.center,
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                  ))
+                  )),
+              ElevatedButton(
+                  onPressed: () {
+                    showDialog(
+                      barrierDismissible: false,
+                      context: context,
+                      builder: (BuildContext context) => GamePaused(),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                      primary: Color(0xFF9C4DCC),
+                      onPrimary: Colors.white,
+                      minimumSize: Size(double.infinity, 20)),
+                  child: Text(
+                    "Popup gamePaused",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                  )),
             ],
           ),
         ),
