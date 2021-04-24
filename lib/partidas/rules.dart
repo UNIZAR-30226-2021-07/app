@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gatovidapp/partidas/card.dart';
 import 'package:gatovidapp/partidas/stackCard.dart';
 
 class Rules extends StatefulWidget {
