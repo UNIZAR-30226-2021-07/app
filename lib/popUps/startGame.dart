@@ -28,26 +28,61 @@ class _StartGame extends State<StartGame> {
 
   @override
   Widget build(BuildContext context) {
+    Size screenSize = MediaQuery.of(context).size;
+    double screenHeight = screenSize.height;
+    double screenWidth = screenSize.width;
     return AlertDialog(
-      title: Text(
-        '¿Empezar partida?',
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: MediaQuery.of(context).size.width * 0.06,
-          fontWeight: FontWeight.bold,
-          color: blackWords,
-        ),
-      ),
-      content: Text(
-        numGamers.toString() + '/6 gaticos preparados',
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: MediaQuery.of(context).size.width * 0.04,
-          fontWeight: FontWeight.normal,
-          color: blackWords,
-        ),
-      ),
       actions: <Widget>[
+        Container(
+          height: screenHeight * 0.1,
+          width: screenWidth * 0.8,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(flex: 1, child: SizedBox()),
+              Expanded(
+                flex: 6,
+                child: Text(
+                  '¿Empezar partida?',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.width * 0.06,
+                    fontWeight: FontWeight.bold,
+                    color: blackWords,
+                  ),
+                ),
+              ),
+              Expanded(
+                flex: 1,
+                child: TextButton(
+                  child: Text('X',
+                      style: TextStyle(fontSize: screenWidth * 0.055)),
+                  style: TextButton.styleFrom(
+                    primary: Colors.grey,
+                    minimumSize:
+                        Size(screenHeight * 0.025, screenWidth * 0.015),
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
+        SizedBox(height: screenHeight * 0.01),
+        Center(
+          child: Text(
+            numGamers.toString() + '/6 gaticos preparados',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: MediaQuery.of(context).size.width * 0.04,
+              fontWeight: FontWeight.normal,
+              color: blackWords,
+            ),
+          ),
+        ),
+        SizedBox(height: screenHeight * 0.02),
         new ElevatedButton(
             child: const Text(
               "Empezar Partida",
@@ -72,6 +107,7 @@ class _StartGame extends State<StartGame> {
                 builder: (BuildContext context) => LoadingGame(),
               );
             }),
+        SizedBox(height: screenHeight * 0.01),
       ],
     );
   }
