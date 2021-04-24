@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:gatovidapp/services/models.dart';
 
 class CardData {
-  int ID;
-  CardData({this.ID});
+  int id;
+  CardData({this.id});
 }
 
 class CardTemplate extends StatelessWidget {

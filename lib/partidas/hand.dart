@@ -27,7 +27,7 @@ class HandTemplate extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Draggable<CardData>(
-              data: new CardData(ID: listCard[0]),
+              data: new CardData(id: listCard[0]),
               feedback: CardTemplate(
                   width: this.width * 0.3,
                   height: this.height,
@@ -42,7 +42,7 @@ class HandTemplate extends StatelessWidget {
               width: this.width * 0.03,
             ),
             Draggable<CardData>(
-              data: new CardData(ID: listCard[1]),
+              data: new CardData(id: listCard[1]),
               feedback: CardTemplate(
                   width: this.width * 0.3,
                   height: this.height,
@@ -57,7 +57,7 @@ class HandTemplate extends StatelessWidget {
               width: this.width * 0.03,
             ),
             Draggable<CardData>(
-              data: new CardData(ID: listCard[2]),
+              data: new CardData(id: listCard[2]),
               feedback: CardTemplate(
                   width: this.width * 0.3,
                   height: this.height,
@@ -81,7 +81,7 @@ class HandTemplate extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Draggable<CardData>(
-              data: new CardData(ID: listCard[0]),
+              data: new CardData(id: listCard[0]),
               feedback: CardTemplate(
                   width: this.width * 0.3,
                   height: this.height,
@@ -96,7 +96,7 @@ class HandTemplate extends StatelessWidget {
               width: this.width * 0.2,
             ),
             Draggable<CardData>(
-              data: new CardData(ID: listCard[1]),
+              data: new CardData(id: listCard[1]),
               feedback: CardTemplate(
                   width: this.width * 0.3,
                   height: this.height,
@@ -120,7 +120,7 @@ class HandTemplate extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Draggable<CardData>(
-              data: new CardData(ID: listCard[0]),
+              data: new CardData(id: listCard[0]),
               feedback: CardTemplate(
                   width: this.width * 0.3,
                   height: this.height,
