@@ -11,7 +11,7 @@ import 'dart:async';
 
 Color greenAppBar = Color(0xff64DD17);
 Color blackWords = Color(0xff000000);
-Color greyButton = Color(0xffB4B4B4);
+Color greyButton = Color(0xff6A1B9A);
 Color whiteWords = Color(0xffffffff);
 Color redButton = Color(0xffFF0000);
 
