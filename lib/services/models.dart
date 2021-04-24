@@ -11,6 +11,7 @@ UserData globalData;
 UserStat globalStats;
 List picsList = [];
 List boardList = [];
+List cardList = [];
 String codeGame = '';
 int numGamers = 1;
 
@@ -139,6 +140,15 @@ Future<bool> readBoardsJson() async {
       await rootBundle.loadString('assets/common/boards.json');
   final auxList = await json.decode(response);
   boardList = auxList;
+
+  return true;
+}
+
+Future<bool> readCardsJson() async {
+  final String response =
+      await rootBundle.loadString('assets/common/cards.json');
+  final auxList = await json.decode(response);
+  cardList = auxList;
 
   return true;
 }

@@ -49,7 +49,7 @@ flutter:
     - assets/common/cards.json
     - assets/common/profile_pics.json
     - assets/common/boards/
-    #- assets/common/cards/
+    - assets/common/cards/
     #- assets/common/icons/
     - assets/common/logo/
     - assets/common/profile_pics/

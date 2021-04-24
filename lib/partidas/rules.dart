@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gatovidapp/partidas/stackCard.dart';
 
 class Rules extends StatefulWidget {
   @override
@@ -25,7 +26,22 @@ class _RulesState extends State<Rules> {
             }),
       ),
       body: SafeArea(
-        child: Text("Pantalla Reglas"),
+        child: Row(
+          children: [
+            StackCardTemplate(
+                width: MediaQuery.of(context).size.width * 0.3,
+                height: MediaQuery.of(context).size.height * 0.3,
+                listCard: [1]),
+            StackCardTemplate(
+                width: MediaQuery.of(context).size.width * 0.3,
+                height: MediaQuery.of(context).size.height * 0.3,
+                listCard: [1, 2]),
+            StackCardTemplate(
+                width: MediaQuery.of(context).size.width * 0.3,
+                height: MediaQuery.of(context).size.height * 0.3,
+                listCard: [1, 2, 3]),
+          ],
+        ),
       ),
     );
   }
