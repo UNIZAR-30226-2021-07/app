@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gatovidapp/partidas/hand.dart';
 import 'package:gatovidapp/partidas/stackCard.dart';
 
 class Rules extends StatefulWidget {
@@ -26,20 +27,32 @@ class _RulesState extends State<Rules> {
             }),
       ),
       body: SafeArea(
-        child: Row(
+        child: Column(
           children: [
-            StackCardTemplate(
-                width: MediaQuery.of(context).size.width * 0.3,
-                height: MediaQuery.of(context).size.height * 0.3,
-                listCard: [1]),
-            StackCardTemplate(
-                width: MediaQuery.of(context).size.width * 0.3,
-                height: MediaQuery.of(context).size.height * 0.3,
-                listCard: [1, 2]),
-            StackCardTemplate(
-                width: MediaQuery.of(context).size.width * 0.3,
+            Row(
+              children: [
+                StackCardTemplate(
+                    width: MediaQuery.of(context).size.width * 0.3,
+                    height: MediaQuery.of(context).size.height * 0.3,
+                    listCard: [1]),
+                StackCardTemplate(
+                    width: MediaQuery.of(context).size.width * 0.3,
+                    height: MediaQuery.of(context).size.height * 0.3,
+                    listCard: [1, 2]),
+                StackCardTemplate(
+                    width: MediaQuery.of(context).size.width * 0.3,
+                    height: MediaQuery.of(context).size.height * 0.3,
+                    listCard: [1, 2, 3]),
+              ],
+            ),
+            HandTemplate(
+                width: MediaQuery.of(context).size.width * 0.9,
                 height: MediaQuery.of(context).size.height * 0.3,
                 listCard: [1, 2, 3]),
+            HandTemplate(
+                width: MediaQuery.of(context).size.width * 0.9,
+                height: MediaQuery.of(context).size.height * 0.3,
+                listCard: [1, 2]),
           ],
         ),
       ),
