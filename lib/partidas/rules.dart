@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gatovidapp/partidas/hand.dart';
 import 'package:gatovidapp/partidas/stackCard.dart';
 import 'package:gatovidapp/partidas/playerBox.dart';
 import 'package:gatovidapp/services/models.dart';
