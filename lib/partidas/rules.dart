@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:gatovidapp/partidas/stackCard.dart';
 import 'package:gatovidapp/partidas/playerBox.dart';
 import 'package:gatovidapp/services/models.dart';
+import 'package:gatovidapp/partidas/body.dart';
+import 'package:gatovidapp/partidas/hand.dart';
+import 'package:gatovidapp/partidas/card.dart';
 
 class Rules extends StatefulWidget {
   @override
@@ -32,28 +35,31 @@ class _RulesState extends State<Rules> {
           children: [
             Row(
               children: [
-                StackCardTemplate(
+                /*StackCardTemplate(
                     width: MediaQuery.of(context).size.width * 0.3,
                     height: MediaQuery.of(context).size.height * 0.3,
                     listCard: [1]),
-                /*StackCardTemplate(
+                StackCardTemplate(
                     width: MediaQuery.of(context).size.width * 0.3,
                     height: MediaQuery.of(context).size.height * 0.3,
                     listCard: [1, 2]),
                 StackCardTemplate(
                     width: MediaQuery.of(context).size.width * 0.3,
                     height: MediaQuery.of(context).size.height * 0.3,
-                    listCard: [1, 2, 3]),*/
-              ],
+                    listCard: [1, 2, 3]),
+              //],
+            //),*/
+                CardTemplate(
+                width: MediaQuery.of(context).size.width * 0.5,
+                height: MediaQuery.of(context).size.height * 0.2,
+                  numCard: 8,
             ),
-            /*HandTemplate(
-                width: MediaQuery.of(context).size.width * 0.9,
-                height: MediaQuery.of(context).size.height * 0.3,
-                listCard: [1, 2, 3]),
             HandTemplate(
                 width: MediaQuery.of(context).size.width * 0.9,
                 height: MediaQuery.of(context).size.height * 0.3,
-                listCard: [1, 2]),*/
+                listCard: [1, 2]),
+            ]
+            ),
             PlayerBox(
               width: MediaQuery.of(context).size.width * 0.4,
               height: MediaQuery.of(context).size.height * 0.15,
@@ -62,13 +68,18 @@ class _RulesState extends State<Rules> {
               playerName: globalData.name,
             ),
             SizedBox(height: 10),
-            PlayerBox(
+            /*PlayerBox(
               width: MediaQuery.of(context).size.width * 0.8,
               height: MediaQuery.of(context).size.height * 0.3,
               playerImage:
                   ("assets/common/") + picsList[globalData.picture]['image'],
               playerName: globalData.name,
-            ),
+            ),*/
+            Body(
+              width: 300.0,
+              height: 150.0,
+              listOrgans: [],
+            )
           ],
         ),
       ),
