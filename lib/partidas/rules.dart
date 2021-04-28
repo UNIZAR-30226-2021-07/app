@@ -58,16 +58,16 @@ class _RulesState extends State<Rules> {
             PlayerBox(
               width: MediaQuery.of(context).size.width * 0.4,
               height: MediaQuery.of(context).size.height * 0.15,
-              playerImage: ("assets/common/") +
-                  picsList[globalData.picture]['image'],
+              playerImage:
+                  ("assets/common/") + picsList[globalData.picture]['image'],
               playerName: globalData.name,
             ),
             SizedBox(height: 10),
             PlayerBox(
               width: MediaQuery.of(context).size.width * 0.8,
               height: MediaQuery.of(context).size.height * 0.3,
-              playerImage: ("assets/common/") +
-                  picsList[globalData.picture]['image'],
+              playerImage:
+                  ("assets/common/") + picsList[globalData.picture]['image'],
               playerName: globalData.name,
             ),
           ],
