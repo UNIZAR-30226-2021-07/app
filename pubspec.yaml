@@ -77,7 +77,7 @@ flutter:
   fonts:
     - family: ShortStack
       fonts:
-        - asset: fonts/ShortStack-Regular.ttf
+        - asset: assets/fonts/ShortStack-Regular.ttf
 
   #
   # For details regarding fonts from package dependencies,

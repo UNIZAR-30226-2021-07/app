@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gatovidapp/partidas/stackCard.dart';
-import 'package:gatovidapp/partidas/playerBox.dart';
-import 'package:gatovidapp/services/models.dart';
+import 'package:gatovidapp/partidas/body.dart';
+import 'package:gatovidapp/partidas/hand.dart';
 
 class Rules extends StatefulWidget {
   @override
@@ -30,44 +29,84 @@ class _RulesState extends State<Rules> {
       body: SafeArea(
         child: Column(
           children: [
-            Row(
-              children: [
-                StackCardTemplate(
+            Row(children: [
+              /*StackCardTemplate(
                     width: MediaQuery.of(context).size.width * 0.3,
                     height: MediaQuery.of(context).size.height * 0.3,
                     listCard: [1]),
-                /*StackCardTemplate(
+                StackCardTemplate(
                     width: MediaQuery.of(context).size.width * 0.3,
                     height: MediaQuery.of(context).size.height * 0.3,
                     listCard: [1, 2]),
                 StackCardTemplate(
                     width: MediaQuery.of(context).size.width * 0.3,
                     height: MediaQuery.of(context).size.height * 0.3,
-                    listCard: [1, 2, 3]),*/
-              ],
-            ),
-            /*HandTemplate(
-                width: MediaQuery.of(context).size.width * 0.9,
-                height: MediaQuery.of(context).size.height * 0.3,
-                listCard: [1, 2, 3]),
-            HandTemplate(
-                width: MediaQuery.of(context).size.width * 0.9,
-                height: MediaQuery.of(context).size.height * 0.3,
-                listCard: [1, 2]),*/
-            PlayerBox(
+                    listCard: [1, 2, 3]),
+              //],
+            //),*/
+              HandTemplate(
+                  width: MediaQuery.of(context).size.width * 0.5,
+                  height: MediaQuery.of(context).size.height * 0.1,
+                  listCard: [1, 2, 3]),
+              HandTemplate(
+                  width: MediaQuery.of(context).size.width * 0.5,
+                  height: MediaQuery.of(context).size.height * 0.1,
+                  listCard: [4, 0, 5]),
+            ]),
+            SizedBox(height: 10),
+            /*PlayerBox(
               width: MediaQuery.of(context).size.width * 0.4,
               height: MediaQuery.of(context).size.height * 0.15,
               playerImage:
                   ("assets/common/") + picsList[globalData.picture]['image'],
               playerName: globalData.name,
-            ),
+            ),*/
             SizedBox(height: 10),
-            PlayerBox(
+            /*PlayerBox(
               width: MediaQuery.of(context).size.width * 0.8,
               height: MediaQuery.of(context).size.height * 0.3,
               playerImage:
                   ("assets/common/") + picsList[globalData.picture]['image'],
               playerName: globalData.name,
+            ),*/
+            Body(
+              width: MediaQuery.of(context).size.width * 0.7,
+              height: MediaQuery.of(context).size.height * 0.15,
+              listOrgans: [],
+            ),
+            Body(
+              width: MediaQuery.of(context).size.width * 0.7,
+              height: MediaQuery.of(context).size.height * 0.15,
+              listOrgans: [
+                [0]
+              ],
+            ),
+            Body(
+              width: MediaQuery.of(context).size.width * 0.7,
+              height: MediaQuery.of(context).size.height * 0.15,
+              listOrgans: [
+                [2, 7],
+                [1, 11]
+              ],
+            ),
+            Body(
+              width: MediaQuery.of(context).size.width * 0.7,
+              height: MediaQuery.of(context).size.height * 0.15,
+              listOrgans: [
+                [1, 6],
+                [2, 7],
+                [3]
+              ],
+            ),
+            Body(
+              width: MediaQuery.of(context).size.width * 0.7,
+              height: MediaQuery.of(context).size.height * 0.15,
+              listOrgans: [
+                [1, 6],
+                [2, 7],
+                [3],
+                [4]
+              ],
             ),
           ],
         ),
