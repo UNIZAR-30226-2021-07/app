@@ -49,11 +49,6 @@ class _RulesState extends State<Rules> {
                     listCard: [1, 2, 3]),
               //],
             //),*/
-                CardTemplate(
-                width: MediaQuery.of(context).size.width * 0.5,
-                height: MediaQuery.of(context).size.height * 0.2,
-                  numCard: 8,
-            ),
             HandTemplate(
                 width: MediaQuery.of(context).size.width * 0.9,
                 height: MediaQuery.of(context).size.height * 0.3,
@@ -76,9 +71,9 @@ class _RulesState extends State<Rules> {
               playerName: globalData.name,
             ),*/
             Body(
-              width: 300.0,
-              height: 150.0,
-              listOrgans: [],
+              width: MediaQuery.of(context).size.width * 0.9,
+              height:  MediaQuery.of(context).size.height * 0.3,
+              listOrgans: [[1,2],[3,4],[5,6],[7,8],],
             )
           ],
         ),
