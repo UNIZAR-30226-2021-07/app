@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-//import 'package:gatovidapp/partidas/playerBox.dart';
-//import 'package:gatovidapp/services/models.dart';
 import 'package:gatovidapp/partidas/body.dart';
 import 'package:gatovidapp/partidas/hand.dart';
 
@@ -53,7 +51,7 @@ class _RulesState extends State<Rules> {
               HandTemplate(
                   width: MediaQuery.of(context).size.width * 0.5,
                   height: MediaQuery.of(context).size.height * 0.1,
-                  listCard: [4,0,5]),
+                  listCard: [4, 0, 5]),
             ]),
             SizedBox(height: 10),
             /*PlayerBox(
@@ -74,27 +72,41 @@ class _RulesState extends State<Rules> {
             Body(
               width: MediaQuery.of(context).size.width * 0.7,
               height: MediaQuery.of(context).size.height * 0.15,
-              listOrgans: [ ],
+              listOrgans: [],
             ),
             Body(
               width: MediaQuery.of(context).size.width * 0.7,
               height: MediaQuery.of(context).size.height * 0.15,
-              listOrgans: [ [0] ],
+              listOrgans: [
+                [0]
+              ],
             ),
             Body(
               width: MediaQuery.of(context).size.width * 0.7,
               height: MediaQuery.of(context).size.height * 0.15,
-              listOrgans: [ [2,7], [1,11] ],
+              listOrgans: [
+                [2, 7],
+                [1, 11]
+              ],
             ),
             Body(
               width: MediaQuery.of(context).size.width * 0.7,
               height: MediaQuery.of(context).size.height * 0.15,
-              listOrgans: [ [1,6], [2,7], [3] ],
+              listOrgans: [
+                [1, 6],
+                [2, 7],
+                [3]
+              ],
             ),
             Body(
               width: MediaQuery.of(context).size.width * 0.7,
               height: MediaQuery.of(context).size.height * 0.15,
-              listOrgans: [ [1,6], [2,7], [3], [4] ],
+              listOrgans: [
+                [1, 6],
+                [2, 7],
+                [3],
+                [4]
+              ],
             ),
           ],
         ),
