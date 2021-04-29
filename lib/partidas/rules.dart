@@ -33,9 +33,8 @@ class _RulesState extends State<Rules> {
       body: SafeArea(
         child: Column(
           children: [
-            Row(
-              children: [
-                /*StackCardTemplate(
+            Row(children: [
+              /*StackCardTemplate(
                     width: MediaQuery.of(context).size.width * 0.3,
                     height: MediaQuery.of(context).size.height * 0.3,
                     listCard: [1]),
@@ -49,12 +48,11 @@ class _RulesState extends State<Rules> {
                     listCard: [1, 2, 3]),
               //],
             //),*/
-            HandTemplate(
-                width: MediaQuery.of(context).size.width * 0.9,
-                height: MediaQuery.of(context).size.height * 0.3,
-                listCard: [1, 2]),
-            ]
-            ),
+              HandTemplate(
+                  width: MediaQuery.of(context).size.width * 0.9,
+                  height: MediaQuery.of(context).size.height * 0.3,
+                  listCard: [1, 2]),
+            ]),
             PlayerBox(
               width: MediaQuery.of(context).size.width * 0.4,
               height: MediaQuery.of(context).size.height * 0.15,
@@ -72,8 +70,13 @@ class _RulesState extends State<Rules> {
             ),*/
             Body(
               width: MediaQuery.of(context).size.width * 0.9,
-              height:  MediaQuery.of(context).size.height * 0.3,
-              listOrgans: [[1,2],[3,4],[5,6],[7,8],],
+              height: MediaQuery.of(context).size.height * 0.3,
+              listOrgans: [
+                [1, 2],
+                [3, 4],
+                [5, 6],
+                [7, 8],
+              ],
             )
           ],
         ),
