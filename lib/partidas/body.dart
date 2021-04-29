@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gatovidapp/partidas/stackCard.dart';
 import 'package:gatovidapp/partidas/card.dart';
-import 'package:gatovidapp/partidas/stackCard.dart';
 
 class Body extends StatelessWidget {
   const Body({
@@ -334,9 +333,7 @@ class Body extends StatelessWidget {
             ],
           ));
     }
-    if (listOrgans.length > 4) {
-      print('Numero de cartas diferente a 3:' + listOrgans.length.toString());
-      return Container(); // If the number of cards is different with 3, it's an error
-    }
+    print('Numero de cartas diferente a 3:' + listOrgans.length.toString());
+    return Container(); // If the number of cards is different with 3, it's an error
   }
 }

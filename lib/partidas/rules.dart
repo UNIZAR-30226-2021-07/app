@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gatovidapp/partidas/stackCard.dart';
 import 'package:gatovidapp/partidas/playerBox.dart';
 import 'package:gatovidapp/services/models.dart';
 import 'package:gatovidapp/partidas/body.dart';
 import 'package:gatovidapp/partidas/hand.dart';
-import 'package:gatovidapp/partidas/card.dart';
 
 class Rules extends StatefulWidget {
   @override
