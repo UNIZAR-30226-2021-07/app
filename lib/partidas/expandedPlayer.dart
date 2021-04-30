@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gatovidapp/partidas/playerBox.dart';
 import 'package:gatovidapp/services/models.dart';
 
-
-Widget ExpandedPlayer (BuildContext context, bool expanded) {
+Widget ExpandedPlayer(BuildContext context, bool expanded) {
   return Column(
     children: [
       Row(
@@ -19,27 +18,23 @@ Widget ExpandedPlayer (BuildContext context, bool expanded) {
                   expanded = false;
                   print(expanded);
                 },
-              )
-          ),
-          Expanded(
-              flex: 8,
-              child: SizedBox()
-          )
+              )),
+          Expanded(flex: 8, child: SizedBox())
         ],
       ),
       Expanded(
         flex: 9,
-        child: Container (
+        child: Container(
           child: PlayerBox(
-            width: MediaQuery.of(context).size.width * 0.9 ,
+            width: MediaQuery.of(context).size.width * 0.9,
             height: MediaQuery.of(context).size.height * 0.3,
             playerImage:
-            ("assets/common/") + picsList[globalData.picture]['image'],
+                ("assets/common/") + picsList[globalData.picture]['image'],
             playerName: globalData.name,
             //TODO: la lista con la info del servidor
-            listOrgansplayer:  [
-              [1, 6,5],
-              [7,6],
+            listOrgansplayer: [
+              [1, 6, 5],
+              [7, 6],
               [4],
               [4]
             ],

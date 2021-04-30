@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:gatovidapp/partidas/body.dart';
 
-
 class PlayerBox extends StatelessWidget {
-  const PlayerBox({this.width, this.height, this.playerName, this.playerImage, this.listOrgansplayer});
+  const PlayerBox(
+      {this.width,
+      this.height,
+      this.playerName,
+      this.playerImage,
+      this.listOrgansplayer});
 
   final width;
   final height;
@@ -62,12 +66,10 @@ class PlayerBox extends StatelessWidget {
               flex: 4,
               child: Container(
                 child: Body(
-                  width: this.width,
-                  height: this.height * 0.65,
-                  listOrgans: listOrgansplayer
-                ),
-              )
-          )
+                    width: this.width,
+                    height: this.height * 0.65,
+                    listOrgans: listOrgansplayer),
+              ))
         ],
       ),
     );

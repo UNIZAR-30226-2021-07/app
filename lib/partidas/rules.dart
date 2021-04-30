@@ -66,7 +66,7 @@ class _RulesState extends State<Rules> {
                   ("assets/common/") + picsList[globalData.picture]['image'],
               playerName: globalData.name,
             ),*/
-           /* Body(
+            /* Body(
               width: MediaQuery.of(context).size.width * 0.7,
               height: MediaQuery.of(context).size.height * 0.15,
               listOrgans: [],
@@ -100,7 +100,7 @@ class _RulesState extends State<Rules> {
               height: MediaQuery.of(context).size.height * 0.15,
               listOrgans: [
                 [1, 6],
-                [7,6],
+                [7, 6],
                 [4],
                 [4]
               ],

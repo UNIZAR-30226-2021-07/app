@@ -7,14 +7,12 @@ import 'package:gatovidapp/partidas/hand.dart';
 import 'package:gatovidapp/partidas/body.dart';
 import 'package:gatovidapp/partidas/playersTable.dart';
 
-
 class CardBoard extends StatefulWidget {
   @override
   _CardBoardState createState() => _CardBoardState();
 }
 
 class _CardBoardState extends State<CardBoard> {
-
   bool expanded = true;
 
   @override
@@ -27,12 +25,12 @@ class _CardBoardState extends State<CardBoard> {
             constraints: BoxConstraints.expand(),
             decoration: BoxDecoration(
                 image: DecorationImage(
-                  colorFilter: ColorFilter.mode(
-                      Colors.white.withOpacity(0.05), BlendMode.dstATop),
-                  //TODO: imagen tablero correspondiente
-                  image: AssetImage("assets/images/bg.png"),
-                  fit: BoxFit.cover,
-                )),
+              colorFilter: ColorFilter.mode(
+                  Colors.white.withOpacity(0.05), BlendMode.dstATop),
+              //TODO: imagen tablero correspondiente
+              image: AssetImage("assets/images/bg.png"),
+              fit: BoxFit.cover,
+            )),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -43,8 +41,8 @@ class _CardBoardState extends State<CardBoard> {
                         child: ElevatedButton(
                             onPressed: () {
                               leaveGame();
-                              Navigator.of(context).popUntil((route) =>
-                              route.isFirst);
+                              Navigator.of(context)
+                                  .popUntil((route) => route.isFirst);
                               Navigator.pushReplacementNamed(context, '/home');
                             },
                             style: ElevatedButton.styleFrom(
@@ -56,8 +54,7 @@ class _CardBoardState extends State<CardBoard> {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 20),
-                            )
-                        ),
+                            )),
                       ),
                       Expanded(
                         child: ElevatedButton(
@@ -77,8 +74,7 @@ class _CardBoardState extends State<CardBoard> {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 20),
-                            )
-                        ),
+                            )),
                       ),
                       Expanded(
                         child: ElevatedButton(
@@ -94,8 +90,7 @@ class _CardBoardState extends State<CardBoard> {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 20),
-                            )
-                        ),
+                            )),
                       ),
                       Expanded(
                         child: ElevatedButton(
@@ -120,43 +115,37 @@ class _CardBoardState extends State<CardBoard> {
                     flex: 7,
                     //TODO: deberia funcionar condicion pero solo coge lo de detras de :
                     //child: (expanded ? PlayersTable(context) : ExpandedPlayer(context, expanded))
-                    child: (expanded ? ExpandedPlayer(context, expanded) :  PlayersTable(context))
-                ),
+                    child: (expanded
+                        ? ExpandedPlayer(context, expanded)
+                        : PlayersTable(context))),
                 Expanded(
                     child: Container(
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: Container(
-                              color: Colors.deepPurple,
-                            ),
-                          ),
-                          Expanded(
-                            child: Container(
-                              color: Colors.pinkAccent,
-                            ),
-                          ),
-                          Expanded(
-                            child: Container(
-                              color: Colors.grey,
-                            ),
-                          ),
-                        ],
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          color: Colors.deepPurple,
+                        ),
                       ),
-                    )
-                ),
+                      Expanded(
+                        child: Container(
+                          color: Colors.pinkAccent,
+                        ),
+                      ),
+                      Expanded(
+                        child: Container(
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ],
+                  ),
+                )),
                 Expanded(
                     flex: 2,
                     child: Container(
                       child: Body(
-                        width: MediaQuery
-                            .of(context)
-                            .size
-                            .width,
-                        height: MediaQuery
-                            .of(context)
-                            .size
-                            .height * 0.13,
+                        width: MediaQuery.of(context).size.width,
+                        height: MediaQuery.of(context).size.height * 0.13,
                         //TODO:  la lista con la info del servidor
                         listOrgans: [
                           [0],
@@ -165,30 +154,19 @@ class _CardBoardState extends State<CardBoard> {
                           [9, 10, 15]
                         ],
                       ),
-                    )
-                ),
-                SizedBox(height: MediaQuery
-                    .of(context)
-                    .size
-                    .height * 0.02),
+                    )),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                 Expanded(
                   flex: 2,
                   child: Container(
                     child: HandTemplate(
-                        width: MediaQuery
-                            .of(context)
-                            .size
-                            .width,
+                        width: MediaQuery.of(context).size.width,
                         height: double.infinity,
                         //TODO: la lista con la info del servidor
-                        listCard: [0, 4, 5]
-                    ),
+                        listCard: [0, 4, 5]),
                   ),
                 ),
-                SizedBox(height: MediaQuery
-                    .of(context)
-                    .size
-                    .height * 0.01),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.01),
               ],
             ),
           ),
