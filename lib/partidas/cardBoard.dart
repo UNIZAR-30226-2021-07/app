@@ -113,11 +113,9 @@ class _CardBoardState extends State<CardBoard> {
                 ),
                 Expanded(
                     flex: 7,
-                    //TODO: deberia funcionar condicion pero solo coge lo de detras de :
-                    //child: (expanded ? PlayersTable(context) : ExpandedPlayer(context, expanded))
-                    child: (expanded
-                        ? ExpandedPlayer(context, expanded)
-                        : PlayersTable(context))),
+                    child: (expanded ? PlayersTable(context) : ExpandedPlayer(context, expanded))
+                    //child: (expanded? ExpandedPlayer(context, expanded): PlayersTable(context))
+                ),
                 Expanded(
                     child: Container(
                   child: Row(
