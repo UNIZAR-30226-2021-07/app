@@ -113,27 +113,44 @@ class _CardBoardState extends State<CardBoard> {
                 ),
                 Expanded(
                     flex: 7,
-                    child: (expanded ? PlayersTable(context) : ExpandedPlayer(context, expanded))
+                    child: (expanded
+                        ? PlayersTable(context)
+                        : ExpandedPlayer(context, expanded))
                     //child: (expanded? ExpandedPlayer(context, expanded): PlayersTable(context))
-                ),
+                    ),
                 Expanded(
                     child: Container(
                   child: Row(
                     children: [
                       Expanded(
                         child: Container(
-                          color: Colors.deepPurple,
-                        ),
+                            color: Colors.deepPurple,
+                            child: Text(
+                              "Boton pasar",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 20),
+                            )),
                       ),
                       Expanded(
                         child: Container(
-                          color: Colors.pinkAccent,
-                        ),
+                            color: Colors.pinkAccent,
+                            child: Text(
+                              "Tiempo",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 20),
+                            )),
                       ),
                       Expanded(
                         child: Container(
-                          color: Colors.grey,
-                        ),
+                            color: Colors.grey,
+                            child: Text(
+                              "Descartes",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 20),
+                            )),
                       ),
                     ],
                   ),
