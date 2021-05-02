@@ -114,9 +114,9 @@ class _CardBoardState extends State<CardBoard> {
                 Expanded(
                     flex: 7,
                     child: (expanded
-                        ? PlayersTable(context)
-                        : ExpandedPlayer(context, expanded))
-                    //child: (expanded? ExpandedPlayer(context, expanded): PlayersTable(context))
+                        ? playersTable(context)
+                        : expandedPlayer(context, expanded))
+                    //child: (expanded? expandedPlayer(context, expanded): playersTable(context))
                     ),
                 Expanded(
                     child: Container(

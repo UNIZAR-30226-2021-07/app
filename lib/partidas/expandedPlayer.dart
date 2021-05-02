@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gatovidapp/partidas/playerBox.dart';
 import 'package:gatovidapp/services/models.dart';
 
-Widget ExpandedPlayer(BuildContext context, bool expanded) {
+Widget expandedPlayer(BuildContext context, bool expanded) {
   return Column(
     children: [
       Row(

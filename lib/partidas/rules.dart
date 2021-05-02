@@ -57,7 +57,7 @@ class _RulesState extends State<Rules> {
                   listCard: [4, 0, 5]),
             ]),
             SizedBox(height: 10),
-            PlayersTable(context),
+            playersTable(context),
             SizedBox(height: 10),
             /*PlayerBox(
               width: MediaQuery.of(context).size.width * 0.8,
