@@ -176,7 +176,7 @@ class _CardBoardState extends State<CardBoard> {
                   child: Container(
                     child: HandTemplate(
                         width: MediaQuery.of(context).size.width,
-                        height: double.infinity,
+                        height: MediaQuery.of(context).size.height * 0.15,
                         //TODO: la lista con la info del servidor
                         listCard: [0, 4, 5]),
                   ),

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gatovidapp/partidas/body.dart';
 import 'package:gatovidapp/partidas/hand.dart';
-import 'package:gatovidapp/partidas/playerBox.dart';
 import 'package:gatovidapp/partidas/playersTable.dart';
-import 'package:gatovidapp/services/models.dart';
 
 class Rules extends StatefulWidget {
   @override
@@ -47,10 +45,12 @@ class _RulesState extends State<Rules> {
                     listCard: [1, 2, 3]),
               //],
             //),*/
-              HandTemplate(
-                  width: MediaQuery.of(context).size.width * 0.5,
-                  height: MediaQuery.of(context).size.height * 0.1,
-                  listCard: [1, 2, 3]),
+              Container(
+                child: HandTemplate(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    height: MediaQuery.of(context).size.height * 0.1,
+                    listCard: [1, 2, 3]),
+              ),
               HandTemplate(
                   width: MediaQuery.of(context).size.width * 0.5,
                   height: MediaQuery.of(context).size.height * 0.1,
