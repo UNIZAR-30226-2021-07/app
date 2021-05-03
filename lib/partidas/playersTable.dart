@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:gatovidapp/partidas/playerBox.dart';
 import 'package:gatovidapp/services/models.dart';
 
-class playersTableTemplate extends StatelessWidget {
-  const playersTableTemplate({
+class PlayersTableTemplate extends StatelessWidget {
+  const PlayersTableTemplate({
     this.width,
     this.height,
   });
