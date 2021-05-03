@@ -20,7 +20,7 @@ class _CardBoardState extends State<CardBoard> {
   @override
   Widget build(BuildContext context) {
     String boardPath =
-    boardList[globalData.board]['image'].replaceAll('svg', 'png');
+        boardList[globalData.board]['image'].replaceAll('svg', 'png');
     return new WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
@@ -120,7 +120,9 @@ class _CardBoardState extends State<CardBoard> {
                     width: MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height * 0.5,
                     child: (expanded
-                        ? playersTableTemplate(height: MediaQuery.of(context).size.height * 0.5, width: MediaQuery.of(context).size.width)
+                        ? playersTableTemplate(
+                            height: MediaQuery.of(context).size.height * 0.5,
+                            width: MediaQuery.of(context).size.width)
                         : expandedPlayer(context, expanded))
                     //child: (expanded? expandedPlayer(context, expanded): playersTable(context))
                     ),
@@ -131,31 +133,34 @@ class _CardBoardState extends State<CardBoard> {
                   child: Row(
                     children: [
                       Container(
-                        width: MediaQuery.of(context).size.width *0.33,
-                        height: MediaQuery.of(context).size.height * 0.04,
-                        color: Colors.deepPurple,
-                        child: Text(
-                          "Boton pasar",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 20),
-                        )),
+                          width: MediaQuery.of(context).size.width * 0.33,
+                          height: MediaQuery.of(context).size.height * 0.04,
+                          color: Colors.deepPurple,
+                          child: Text(
+                            "Boton pasar",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 20),
+                          )),
                       Container(
-                        width: MediaQuery.of(context).size.width *0.34,
-                        height: MediaQuery.of(context).size.height * 0.04,
-                        color: Colors.pinkAccent,
-                        child: TimerTemplate(width: MediaQuery.of(context).size.width*0.3,height: MediaQuery.of(context).size.height * 0.04,myTurn: false,)
-                      ),
+                          width: MediaQuery.of(context).size.width * 0.34,
+                          height: MediaQuery.of(context).size.height * 0.04,
+                          color: Colors.pinkAccent,
+                          child: TimerTemplate(
+                            width: MediaQuery.of(context).size.width * 0.3,
+                            height: MediaQuery.of(context).size.height * 0.04,
+                            myTurn: false,
+                          )),
                       Container(
-                        width: MediaQuery.of(context).size.width *0.33,
-                        height: MediaQuery.of(context).size.height * 0.04,
-                        color: Colors.grey,
-                        child: Text(
-                          "Descartes",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 20),
-                        )),
+                          width: MediaQuery.of(context).size.width * 0.33,
+                          height: MediaQuery.of(context).size.height * 0.04,
+                          color: Colors.grey,
+                          child: Text(
+                            "Descartes",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 20),
+                          )),
                     ],
                   ),
                 ),
@@ -178,12 +183,12 @@ class _CardBoardState extends State<CardBoard> {
                 Container(
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height * 0.14,
-                    child: HandTemplate(
-                        width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height * 0.14,
-                        //TODO: la lista con la info del servidor
-                        listCard: [0, 4, 5]),
-                  ),
+                  child: HandTemplate(
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height * 0.14,
+                      //TODO: la lista con la info del servidor
+                      listCard: [0, 4, 5]),
+                ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.01),
               ],
             ),

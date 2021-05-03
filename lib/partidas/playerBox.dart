@@ -46,8 +46,7 @@ class PlayerBox extends StatelessWidget {
                       bottom: this.width * 0.05,
                     ),
                     decoration: BoxDecoration(
-                        borderRadius:
-                        BorderRadius.circular(this.width * 0.03),
+                        borderRadius: BorderRadius.circular(this.width * 0.03),
                         color: Colors.white,
                         border: Border()),
                     child: Center(
@@ -65,12 +64,12 @@ class PlayerBox extends StatelessWidget {
             ),
           ),
           //Espacio para el cuerpo
-         Container(
+          Container(
             child: Body(
                 width: this.width,
                 height: this.height * 0.65,
                 listOrgans: listOrgansplayer),
-         )
+          )
         ],
       ),
     );

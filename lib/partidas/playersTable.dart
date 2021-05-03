@@ -12,9 +12,9 @@ class playersTableTemplate extends StatelessWidget {
   final height;
 
   @override
-    Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     return Container(
-      child: (() {
+        child: (() {
       if (numGamers == 6) {
         return Container(
           child: Column(
@@ -42,9 +42,7 @@ class playersTableTemplate extends StatelessWidget {
                             [4]
                           ],
                         ),
-                        onPressed: () {
-
-                        }),
+                        onPressed: () {}),
                   ),
                   SizedBox(width: this.width * 0.02),
                   Container(
@@ -65,14 +63,12 @@ class playersTableTemplate extends StatelessWidget {
                             [4]
                           ],
                         ),
-                        onPressed: () {
-
-                        }),
+                        onPressed: () {}),
                   ),
                   SizedBox(width: this.width * 0.02),
                 ],
               ),
-              SizedBox(height:this.height * 0.01),
+              SizedBox(height: this.height * 0.01),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -95,9 +91,7 @@ class playersTableTemplate extends StatelessWidget {
                             [4]
                           ],
                         ),
-                        onPressed: () {
-
-                        }),
+                        onPressed: () {}),
                   ),
                   SizedBox(width: this.width * 0.02),
                   Container(
@@ -118,14 +112,12 @@ class playersTableTemplate extends StatelessWidget {
                             [4]
                           ],
                         ),
-                        onPressed: () {
-
-                        }),
+                        onPressed: () {}),
                   ),
                   SizedBox(width: this.width * 0.02),
                 ],
               ),
-              SizedBox(height:this.height * 0.01),
+              SizedBox(height: this.height * 0.01),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -147,9 +139,7 @@ class playersTableTemplate extends StatelessWidget {
                             [4]
                           ],
                         ),
-                        onPressed: () {
-
-                        }),
+                        onPressed: () {}),
                   ),
                 ],
               ),
@@ -183,9 +173,7 @@ class playersTableTemplate extends StatelessWidget {
                             [4]
                           ],
                         ),
-                        onPressed: () {
-
-                        }),
+                        onPressed: () {}),
                   ),
                   SizedBox(width: this.width * 0.02),
                   Container(
@@ -206,9 +194,7 @@ class playersTableTemplate extends StatelessWidget {
                             [4]
                           ],
                         ),
-                        onPressed: () {
-
-                        }),
+                        onPressed: () {}),
                   ),
                   SizedBox(width: this.width * 0.02),
                 ],
@@ -236,9 +222,7 @@ class playersTableTemplate extends StatelessWidget {
                             [4]
                           ],
                         ),
-                        onPressed: () {
-
-                        }),
+                        onPressed: () {}),
                   ),
                   SizedBox(width: this.width * 0.02),
                   Container(
@@ -259,9 +243,7 @@ class playersTableTemplate extends StatelessWidget {
                             [4]
                           ],
                         ),
-                        onPressed: () {
-
-                        }),
+                        onPressed: () {}),
                   ),
                   SizedBox(width: this.width * 0.02),
                 ],
@@ -296,9 +278,7 @@ class playersTableTemplate extends StatelessWidget {
                             [4]
                           ],
                         ),
-                        onPressed: () {
-
-                        }),
+                        onPressed: () {}),
                   ),
                   SizedBox(width: this.width * 0.02),
                   Container(
@@ -319,9 +299,7 @@ class playersTableTemplate extends StatelessWidget {
                             [4]
                           ],
                         ),
-                        onPressed: () {
-
-                        }),
+                        onPressed: () {}),
                   ),
                   SizedBox(width: this.width * 0.02),
                 ],
@@ -349,9 +327,7 @@ class playersTableTemplate extends StatelessWidget {
                             [4]
                           ],
                         ),
-                        onPressed: () {
-
-                        }),
+                        onPressed: () {}),
                   ),
                 ],
               ),
@@ -384,9 +360,7 @@ class playersTableTemplate extends StatelessWidget {
                             [4]
                           ],
                         ),
-                        onPressed: () {
-
-                        }),
+                        onPressed: () {}),
                   ),
                 ],
               ),
@@ -412,9 +386,7 @@ class playersTableTemplate extends StatelessWidget {
                             [4]
                           ],
                         ),
-                        onPressed: () {
-
-                        }),
+                        onPressed: () {}),
                   ),
                 ],
               ),
@@ -447,9 +419,7 @@ class playersTableTemplate extends StatelessWidget {
                             [4]
                           ],
                         ),
-                        onPressed: () {
-
-                        }),
+                        onPressed: () {}),
                   ),
                 ],
               ),
