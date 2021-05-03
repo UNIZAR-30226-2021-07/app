@@ -8,6 +8,7 @@ import 'package:gatovidapp/partidas/hand.dart';
 import 'package:gatovidapp/partidas/body.dart';
 import 'package:gatovidapp/partidas/playersTable.dart';
 import 'package:gatovidapp/partidas/timer.dart';
+import 'dart:async';
 
 class CardBoard extends StatefulWidget {
   @override
@@ -15,7 +16,16 @@ class CardBoard extends StatefulWidget {
 }
 
 class _CardBoardState extends State<CardBoard> {
-  bool expanded = true;
+  StreamSubscription<bool> streamSubscription;
+
+  @override
+  void initState() {
+    super.initState();
+    expansion = 0;
+    streamSubscription = streamGame.listen((data) {
+      setState(() {});
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -119,11 +129,11 @@ class _CardBoardState extends State<CardBoard> {
                 Container(
                     width: MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height * 0.5,
-                    child: (expanded
+                    child: ((expansion == 0)
                         ? playersTableTemplate(
                             height: MediaQuery.of(context).size.height * 0.5,
                             width: MediaQuery.of(context).size.width)
-                        : expandedPlayer(context, expanded))
+                        : expandedPlayer(context))
                     //child: (expanded? expandedPlayer(context, expanded): playersTable(context))
                     ),
                 Container(
@@ -196,5 +206,11 @@ class _CardBoardState extends State<CardBoard> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    streamSubscription.cancel();
   }
 }

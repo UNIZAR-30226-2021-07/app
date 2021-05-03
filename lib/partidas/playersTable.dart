@@ -343,7 +343,7 @@ class playersTableTemplate extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    width: this.width * 0.9,
+                    width: this.width*0.9,
                     height: this.height * 0.45,
                     child: TextButton(
                         child: PlayerBox(
@@ -369,7 +369,7 @@ class playersTableTemplate extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    width: this.width * 0.9,
+                    width: this.width*0.9,
                     height: this.height * 0.45,
                     child: TextButton(
                         child: PlayerBox(
@@ -402,11 +402,11 @@ class playersTableTemplate extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
-                    width: this.width * 0.9,
+                    width: this.width,
                     height: this.height * 0.9,
                     child: TextButton(
                         child: PlayerBox(
-                          width: this.width * 0.75,
+                          width: this.width * 0.9,
                           height: this.height * 0.75,
                           playerImage: ("assets/common/") +
                               picsList[globalData.picture]['image'],
@@ -419,7 +419,11 @@ class playersTableTemplate extends StatelessWidget {
                             [4]
                           ],
                         ),
-                        onPressed: () {}),
+                        onPressed: () {
+                          expansion = 1;
+                          controlGame.add(true);
+                          print(expansion.toString());
+                        }),
                   ),
                 ],
               ),

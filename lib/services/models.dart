@@ -14,6 +14,7 @@ List boardList = [];
 List cardList = [];
 String codeGame = '';
 int numGamers = 1;
+int expansion = 0;
 
 StreamController<bool> controllerChat = StreamController<bool>.broadcast();
 StreamController<bool> controllerStat = StreamController<bool>.broadcast();
@@ -32,7 +33,9 @@ Stream streamGoToLogin = controllerGoToLogin.stream;
 
 // Partida
 StreamController<bool> controlTimer = StreamController<bool>.broadcast();
+StreamController<bool> controlGame = StreamController<bool>.broadcast();
 Stream streamTimer = controlTimer.stream;
+Stream streamGame = controlGame.stream;
 
 //Modelos para guardar información al traducir las respuestas de la API
 class Token {
