@@ -61,7 +61,7 @@ class _CardBoardState extends State<CardBoard> {
                       Expanded(
                         child: ElevatedButton(
                             onPressed: () {
-                              numGamers = 6;
+                              numGamers = 2;
                               setState(() {
 
                               });

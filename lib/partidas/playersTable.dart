@@ -164,14 +164,14 @@ class playersTableTemplate extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(width: MediaQuery.of(context).size.width * 0.02),
+                  SizedBox(width: this.width * 0.02),
                   Container(
                     width: this.width * 0.45,
-                    height: this.height * 0.32,
+                    height: this.height * 0.45,
                     child: TextButton(
                         child: PlayerBox(
                           width: this.width * 0.4,
-                          height: this.height * 0.25,
+                          height: this.height * 0.4,
                           playerImage: ("assets/common/") +
                               picsList[globalData.picture]['image'],
                           playerName: globalData.name,
@@ -187,14 +187,14 @@ class playersTableTemplate extends StatelessWidget {
 
                         }),
                   ),
-                  SizedBox(width: MediaQuery.of(context).size.width * 0.02),
+                  SizedBox(width: this.width * 0.02),
                   Container(
                     width: this.width * 0.45,
-                    height: this.height * 0.32,
+                    height: this.height * 0.45,
                     child: TextButton(
                         child: PlayerBox(
                           width: this.width * 0.4,
-                          height: this.height * 0.25,
+                          height: this.height * 0.4,
                           playerImage: ("assets/common/") +
                               picsList[globalData.picture]['image'],
                           playerName: globalData.name,
@@ -210,44 +210,60 @@ class playersTableTemplate extends StatelessWidget {
 
                         }),
                   ),
-                  SizedBox(width: MediaQuery.of(context).size.width * 0.02),
+                  SizedBox(width: this.width * 0.02),
                 ],
               ),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+              SizedBox(height: this.height * 0.03),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(width: MediaQuery.of(context).size.width * 0.02),
-                  PlayerBox(
-                    width: MediaQuery.of(context).size.width * 0.45,
-                    height: MediaQuery.of(context).size.height * 0.15,
-                    playerImage: ("assets/common/") +
-                        picsList[globalData.picture]['image'],
-                    playerName: globalData.name,
-                    //TODO: la lista con la info del servidor
-                    listOrgansplayer: [
-                      [1, 6, 5],
-                      [7, 6],
-                      [4],
-                      [4]
-                    ],
+                  SizedBox(width: this.width * 0.02),
+                  Container(
+                    width: this.width * 0.45,
+                    height: this.height * 0.45,
+                    child: TextButton(
+                        child: PlayerBox(
+                          width: this.width * 0.4,
+                          height: this.height * 0.4,
+                          playerImage: ("assets/common/") +
+                              picsList[globalData.picture]['image'],
+                          playerName: globalData.name,
+                          //TODO: la lista con la info del servidor
+                          listOrgansplayer: [
+                            [1, 6, 5],
+                            [7, 6],
+                            [4],
+                            [4]
+                          ],
+                        ),
+                        onPressed: () {
+
+                        }),
                   ),
-                  SizedBox(width: MediaQuery.of(context).size.width * 0.02),
-                  PlayerBox(
-                    width: MediaQuery.of(context).size.width * 0.45,
-                    height: MediaQuery.of(context).size.height * 0.15,
-                    playerImage: ("assets/common/") +
-                        picsList[globalData.picture]['image'],
-                    playerName: globalData.name,
-                    //TODO: la lista con la info del servidor
-                    listOrgansplayer: [
-                      [1, 6, 5],
-                      [7, 6],
-                      [4],
-                      [4]
-                    ],
+                  SizedBox(width: this.width * 0.02),
+                  Container(
+                    width: this.width * 0.45,
+                    height: this.height * 0.45,
+                    child: TextButton(
+                        child: PlayerBox(
+                          width: this.width * 0.4,
+                          height: this.height * 0.4,
+                          playerImage: ("assets/common/") +
+                              picsList[globalData.picture]['image'],
+                          playerName: globalData.name,
+                          //TODO: la lista con la info del servidor
+                          listOrgansplayer: [
+                            [1, 6, 5],
+                            [7, 6],
+                            [4],
+                            [4]
+                          ],
+                        ),
+                        onPressed: () {
+
+                        }),
                   ),
-                  SizedBox(width: MediaQuery.of(context).size.width * 0.02),
+                  SizedBox(width: this.width * 0.02),
                 ],
               ),
             ],
@@ -261,56 +277,81 @@ class playersTableTemplate extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(width: MediaQuery.of(context).size.width * 0.02),
-                  PlayerBox(
-                    width: MediaQuery.of(context).size.width * 0.45,
-                    height: MediaQuery.of(context).size.height * 0.15,
-                    playerImage: ("assets/common/") +
-                        picsList[globalData.picture]['image'],
-                    playerName: globalData.name,
-                    //TODO: la lista con la info del servidor
-                    listOrgansplayer: [
-                      [1, 6, 5],
-                      [7, 6],
-                      [4],
-                      [4]
-                    ],
+                  SizedBox(width: this.width * 0.02),
+                  Container(
+                    width: this.width * 0.45,
+                    height: this.height * 0.45,
+                    child: TextButton(
+                        child: PlayerBox(
+                          width: this.width * 0.4,
+                          height: this.height * 0.4,
+                          playerImage: ("assets/common/") +
+                              picsList[globalData.picture]['image'],
+                          playerName: globalData.name,
+                          //TODO: la lista con la info del servidor
+                          listOrgansplayer: [
+                            [1, 6, 5],
+                            [7, 6],
+                            [4],
+                            [4]
+                          ],
+                        ),
+                        onPressed: () {
+
+                        }),
                   ),
-                  SizedBox(width: MediaQuery.of(context).size.width * 0.02),
-                  PlayerBox(
-                    width: MediaQuery.of(context).size.width * 0.45,
-                    height: MediaQuery.of(context).size.height * 0.15,
-                    playerImage: ("assets/common/") +
-                        picsList[globalData.picture]['image'],
-                    playerName: globalData.name,
-                    //TODO: la lista con la info del servidor
-                    listOrgansplayer: [
-                      [1, 6, 5],
-                      [7, 6],
-                      [4],
-                      [4]
-                    ],
+                  SizedBox(width: this.width * 0.02),
+                  Container(
+                    width: this.width * 0.45,
+                    height: this.height * 0.45,
+                    child: TextButton(
+                        child: PlayerBox(
+                          width: this.width * 0.4,
+                          height: this.height * 0.4,
+                          playerImage: ("assets/common/") +
+                              picsList[globalData.picture]['image'],
+                          playerName: globalData.name,
+                          //TODO: la lista con la info del servidor
+                          listOrgansplayer: [
+                            [1, 6, 5],
+                            [7, 6],
+                            [4],
+                            [4]
+                          ],
+                        ),
+                        onPressed: () {
+
+                        }),
                   ),
-                  SizedBox(width: MediaQuery.of(context).size.width * 0.02),
+                  SizedBox(width: this.width * 0.02),
                 ],
               ),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+              SizedBox(height: this.height * 0.03),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  PlayerBox(
-                    width: MediaQuery.of(context).size.width * 0.8,
-                    height: MediaQuery.of(context).size.height * 0.25,
-                    playerImage: ("assets/common/") +
-                        picsList[globalData.picture]['image'],
-                    playerName: globalData.name,
-                    //TODO: la lista con la info del servidor
-                    listOrgansplayer: [
-                      [1, 6, 5],
-                      [7, 6],
-                      [4],
-                      [4]
-                    ],
+                  SizedBox(width: this.width * 0.02),
+                  Container(
+                    width: this.width * 0.45,
+                    height: this.height * 0.45,
+                    child: TextButton(
+                        child: PlayerBox(
+                          width: this.width * 0.4,
+                          height: this.height * 0.4,
+                          playerImage: ("assets/common/") +
+                              picsList[globalData.picture]['image'],
+                          playerName: globalData.name,
+                          //TODO: la lista con la info del servidor
+                          listOrgansplayer: [
+                            [1, 6, 5],
+                            [7, 6],
+                            [4],
+                            [4]
+                          ],
+                        ),
+                        onPressed: () {
+
+                        }),
                   ),
                 ],
               ),
@@ -325,40 +366,56 @@ class playersTableTemplate extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  PlayerBox(
-                    width: MediaQuery.of(context).size.width * 0.8,
-                    height: MediaQuery.of(context).size.height * 0.23,
-                    playerImage: ("assets/common/") +
-                        picsList[globalData.picture]['image'],
-                    playerName: globalData.name,
-                    //TODO: la lista con la info del servidor
-                    listOrgansplayer: [
-                      [1, 6, 5],
-                      [7, 6],
-                      [4],
-                      [4]
-                    ],
-                  )
+                  Container(
+                    width: this.width * 0.9,
+                    height: this.height * 0.45,
+                    child: TextButton(
+                        child: PlayerBox(
+                          width: this.width * 0.75,
+                          height: this.height * 0.4,
+                          playerImage: ("assets/common/") +
+                              picsList[globalData.picture]['image'],
+                          playerName: globalData.name,
+                          //TODO: la lista con la info del servidor
+                          listOrgansplayer: [
+                            [1, 6, 5],
+                            [7, 6],
+                            [4],
+                            [4]
+                          ],
+                        ),
+                        onPressed: () {
+
+                        }),
+                  ),
                 ],
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.01),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  PlayerBox(
-                    width: MediaQuery.of(context).size.width * 0.8,
-                    height: MediaQuery.of(context).size.height * 0.23,
-                    playerImage: ("assets/common/") +
-                        picsList[globalData.picture]['image'],
-                    playerName: globalData.name,
-                    //TODO: la lista con la info del servidor
-                    listOrgansplayer: [
-                      [1, 6, 5],
-                      [7, 6],
-                      [4],
-                      [4]
-                    ],
-                  )
+                  Container(
+                    width: this.width * 0.9,
+                    height: this.height * 0.45,
+                    child: TextButton(
+                        child: PlayerBox(
+                          width: this.width * 0.75,
+                          height: this.height * 0.4,
+                          playerImage: ("assets/common/") +
+                              picsList[globalData.picture]['image'],
+                          playerName: globalData.name,
+                          //TODO: la lista con la info del servidor
+                          listOrgansplayer: [
+                            [1, 6, 5],
+                            [7, 6],
+                            [4],
+                            [4]
+                          ],
+                        ),
+                        onPressed: () {
+
+                        }),
+                  ),
                 ],
               ),
             ],
@@ -372,19 +429,27 @@ class playersTableTemplate extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  PlayerBox(
-                    width: MediaQuery.of(context).size.width * 0.9,
-                    height: MediaQuery.of(context).size.height * 0.3,
-                    playerImage: ("assets/common/") +
-                        picsList[globalData.picture]['image'],
-                    playerName: globalData.name,
-                    //TODO: la lista con la info del servidor
-                    listOrgansplayer: [
-                      [1, 6, 5],
-                      [7, 6],
-                      [4],
-                      [4]
-                    ],
+                  Container(
+                    width: this.width * 0.9,
+                    height: this.height * 0.9,
+                    child: TextButton(
+                        child: PlayerBox(
+                          width: this.width * 0.75,
+                          height: this.height * 0.75,
+                          playerImage: ("assets/common/") +
+                              picsList[globalData.picture]['image'],
+                          playerName: globalData.name,
+                          //TODO: la lista con la info del servidor
+                          listOrgansplayer: [
+                            [1, 6, 5],
+                            [7, 6],
+                            [4],
+                            [4]
+                          ],
+                        ),
+                        onPressed: () {
+
+                        }),
                   ),
                 ],
               ),
