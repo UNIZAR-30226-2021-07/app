@@ -6,25 +6,24 @@ const COUNT_DOWN_SEGS = 30;
 Timer _timer;
 const oneSec = const Duration(seconds: 1);
 int _start = 0;
+bool myTurn = false;
 
 Color purpleColor = Color(0xff6A1B9A);
 
 class TimerTemplate extends StatefulWidget {
   final width;
   final height;
-  bool myTurn;
-  TimerTemplate({this.width, this.height, this.myTurn});
+
+  TimerTemplate({this.width, this.height});
 
   @override
-  _TimerTemplate createState() =>
-      _TimerTemplate(this.width, this.height, this.myTurn);
+  _TimerTemplate createState() => _TimerTemplate(this.width, this.height);
 }
 
 class _TimerTemplate extends State<TimerTemplate> {
   StreamSubscription<bool> streamSubscription;
   double width;
   double height;
-  bool myTurn;
 
   @override
   void initState() {
@@ -32,7 +31,7 @@ class _TimerTemplate extends State<TimerTemplate> {
     streamSubscription = streamTimer.listen((data) {
       if (data == true) {
         _start = COUNT_DOWN_SEGS;
-        this.myTurn = true;
+        myTurn = true;
         startTimer();
         setState(() {});
       } else {
@@ -40,22 +39,17 @@ class _TimerTemplate extends State<TimerTemplate> {
           _timer.cancel();
         } catch (e) {}
         _start = 0;
-        this.myTurn = false;
+        myTurn = false;
         setState(() {});
       }
     });
   }
 
-  _TimerTemplate(width, height, myTurn) {
+  _TimerTemplate(width, height) {
     this.width = width;
     this.height = height;
-    this.myTurn = myTurn;
-    if (myTurn == true) {
-      _start = COUNT_DOWN_SEGS;
-      startTimer();
-    } else {
-      _start = 0;
-    }
+    myTurn = false;
+    _start = 0;
   }
 
   void startTimer() {
