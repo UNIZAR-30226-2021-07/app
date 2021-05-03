@@ -18,6 +18,8 @@ class _CardBoardState extends State<CardBoard> {
 
   @override
   Widget build(BuildContext context) {
+    String boardPath =
+    boardList[globalData.board]['image'].replaceAll('svg', 'png');
     return new WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
@@ -26,10 +28,7 @@ class _CardBoardState extends State<CardBoard> {
             constraints: BoxConstraints.expand(),
             decoration: BoxDecoration(
                 image: DecorationImage(
-              colorFilter: ColorFilter.mode(
-                  Colors.white.withOpacity(0.05), BlendMode.dstATop),
-              //TODO: imagen tablero correspondiente
-              image: AssetImage("assets/images/bg.png"),
+              image: AssetImage("assets/common/" + boardPath),
               fit: BoxFit.cover,
             )),
             child: Column(
@@ -64,7 +63,7 @@ class _CardBoardState extends State<CardBoard> {
                             onPressed: () {
                               numGamers = 6;
                               setState(() {
-                                
+
                               });
                               showDialog(
                                 barrierDismissible: false,
