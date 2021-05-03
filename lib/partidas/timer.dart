@@ -31,8 +31,6 @@ class _TimerTemplate extends State<TimerTemplate> {
     super.initState();
     streamSubscription = streamTimer.listen((data) {
       if (data == true) {
-        print('es de nuevo mi turno');
-        print('es mi turno');
         _start = COUNT_DOWN_SEGS;
         this.myTurn = true;
         startTimer();
@@ -41,11 +39,9 @@ class _TimerTemplate extends State<TimerTemplate> {
         try {
           _timer.cancel();
         } catch (e) {}
-        print('sigue sin ser mi turno');
         _start = 0;
         this.myTurn = false;
         setState(() {});
-        print('no es mi turno');
       }
     });
   }
@@ -55,17 +51,14 @@ class _TimerTemplate extends State<TimerTemplate> {
     this.height = height;
     this.myTurn = myTurn;
     if (myTurn == true) {
-      print('es mi turno');
       _start = COUNT_DOWN_SEGS;
       startTimer();
     } else {
       _start = 0;
-      print('no es mi turno');
     }
   }
 
   void startTimer() {
-    print('comenzando timer con $_start');
     try {
       _timer.cancel();
     } catch (e) {}
@@ -74,12 +67,10 @@ class _TimerTemplate extends State<TimerTemplate> {
       (Timer timer) {
         if (_start == 0) {
           setState(() {
-            print('se acabo el turno');
             timer.cancel();
           });
         } else {
           setState(() {
-            print('inicio del turno');
             _start--;
           });
         }
