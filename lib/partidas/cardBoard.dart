@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:gatovidapp/partidas/expandedPlayer.dart';
 import 'package:gatovidapp/popUps/gamePaused.dart';
+import 'package:gatovidapp/services/models.dart';
 import 'package:gatovidapp/services/websockets.dart';
 import 'package:gatovidapp/partidas/hand.dart';
 import 'package:gatovidapp/partidas/body.dart';
 import 'package:gatovidapp/partidas/playersTable.dart';
+import 'package:gatovidapp/partidas/timer.dart';
+import 'dart:async';
 
 class CardBoard extends StatefulWidget {
   @override
@@ -13,10 +16,21 @@ class CardBoard extends StatefulWidget {
 }
 
 class _CardBoardState extends State<CardBoard> {
-  bool expanded = true;
+  StreamSubscription<bool> streamSubscription;
+
+  @override
+  void initState() {
+    super.initState();
+    expansion = 0;
+    streamSubscription = streamGame.listen((data) {
+      setState(() {});
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    String boardPath =
+        boardList[globalData.board]['image'].replaceAll('svg', 'png');
     return new WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
@@ -25,16 +39,15 @@ class _CardBoardState extends State<CardBoard> {
             constraints: BoxConstraints.expand(),
             decoration: BoxDecoration(
                 image: DecorationImage(
-              colorFilter: ColorFilter.mode(
-                  Colors.white.withOpacity(0.05), BlendMode.dstATop),
-              //TODO: imagen tablero correspondiente
-              image: AssetImage("assets/images/bg.png"),
+              image: AssetImage("assets/common/" + boardPath),
               fit: BoxFit.cover,
             )),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Expanded(
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height * 0.05,
                   child: Row(
                     children: [
                       Expanded(
@@ -59,6 +72,7 @@ class _CardBoardState extends State<CardBoard> {
                       Expanded(
                         child: ElevatedButton(
                             onPressed: () {
+                              controlTimer.add(false); // TODO: QUITAR ESTO
                               showDialog(
                                 barrierDismissible: false,
                                 context: context,
@@ -79,6 +93,7 @@ class _CardBoardState extends State<CardBoard> {
                       Expanded(
                         child: ElevatedButton(
                             onPressed: () {
+                              controlTimer.add(true); // TODO: QUITAR ESTO
                               Navigator.pushNamed(context, '/rules');
                             },
                             style: ElevatedButton.styleFrom(
@@ -111,75 +126,77 @@ class _CardBoardState extends State<CardBoard> {
                     ],
                   ),
                 ),
-                Expanded(
-                    flex: 7,
-                    child: (expanded
-                        ? playersTable(context)
-                        : expandedPlayer(context, expanded))
+                Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height * 0.5,
+                    child: ((expansion == 0)
+                        ? PlayersTableTemplate(
+                            height: MediaQuery.of(context).size.height * 0.5,
+                            width: MediaQuery.of(context).size.width)
+                        : expandedPlayer(context))
                     //child: (expanded? expandedPlayer(context, expanded): playersTable(context))
                     ),
-                Expanded(
-                    child: Container(
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height * 0.05,
+                  alignment: Alignment.center,
                   child: Row(
                     children: [
-                      Expanded(
-                        child: Container(
-                            color: Colors.deepPurple,
-                            child: Text(
-                              "Boton pasar",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 20),
-                            )),
-                      ),
-                      Expanded(
-                        child: Container(
-                            color: Colors.pinkAccent,
-                            child: Text(
-                              "Tiempo",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 20),
-                            )),
-                      ),
-                      Expanded(
-                        child: Container(
-                            color: Colors.grey,
-                            child: Text(
-                              "Descartes",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 20),
-                            )),
-                      ),
+                      Container(
+                          width: MediaQuery.of(context).size.width * 0.33,
+                          height: MediaQuery.of(context).size.height * 0.04,
+                          color: Colors.deepPurple,
+                          child: Text(
+                            "Boton pasar",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 20),
+                          )),
+                      Container(
+                          width: MediaQuery.of(context).size.width * 0.34,
+                          height: MediaQuery.of(context).size.height * 0.04,
+                          color: Colors.pinkAccent,
+                          child: TimerTemplate(
+                            width: MediaQuery.of(context).size.width * 0.3,
+                            height: MediaQuery.of(context).size.height * 0.04,
+                          )),
+                      Container(
+                          width: MediaQuery.of(context).size.width * 0.33,
+                          height: MediaQuery.of(context).size.height * 0.04,
+                          color: Colors.grey,
+                          child: Text(
+                            "Descartes",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 20),
+                          )),
                     ],
                   ),
-                )),
-                Expanded(
-                    flex: 2,
-                    child: Container(
-                      child: Body(
-                        width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height * 0.13,
-                        //TODO:  la lista con la info del servidor
-                        listOrgans: [
-                          [0],
-                          [1, 5, 8],
-                          [9, 7],
-                          [9, 10, 15]
-                        ],
-                      ),
-                    )),
-                SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                Expanded(
-                  flex: 2,
-                  child: Container(
-                    child: HandTemplate(
-                        width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height * 0.15,
-                        //TODO: la lista con la info del servidor
-                        listCard: [0, 4, 5]),
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height * 0.13,
+                  child: Body(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height * 0.13,
+                    //TODO:  la lista con la info del servidor
+                    listOrgans: [
+                      [0],
+                      [1, 5, 8],
+                      [9, 7],
+                      [9, 10, 15]
+                    ],
                   ),
+                ),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height * 0.14,
+                  child: HandTemplate(
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height * 0.14,
+                      //TODO: la lista con la info del servidor
+                      listCard: [0, 4, 5]),
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.01),
               ],
@@ -188,5 +205,11 @@ class _CardBoardState extends State<CardBoard> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    streamSubscription.cancel();
   }
 }

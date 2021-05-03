@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gatovidapp/partidas/playerBox.dart';
 import 'package:gatovidapp/services/models.dart';
 
-Widget expandedPlayer(BuildContext context, bool expanded) {
+Widget expandedPlayer(BuildContext context) {
   return Column(
     children: [
       Row(
@@ -14,9 +14,9 @@ Widget expandedPlayer(BuildContext context, bool expanded) {
                 color: Colors.black,
                 iconSize: 50,
                 onPressed: () {
-                  //TODO: control sobre ampliacion o no
-                  expanded = false;
-                  print(expanded);
+                  expansion = 0;
+                  print(expansion);
+                  controlGame.add(true);
                 },
               )),
           Expanded(flex: 8, child: SizedBox())
@@ -25,6 +25,7 @@ Widget expandedPlayer(BuildContext context, bool expanded) {
       Expanded(
         flex: 9,
         child: Container(
+          // TODO: Hacer que se muestre el jugador seleccionado y no uno cualquiera
           child: PlayerBox(
             width: MediaQuery.of(context).size.width * 0.9,
             height: MediaQuery.of(context).size.height * 0.3,
