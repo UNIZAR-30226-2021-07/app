@@ -7,6 +7,7 @@ import 'package:gatovidapp/services/websockets.dart';
 import 'package:gatovidapp/partidas/hand.dart';
 import 'package:gatovidapp/partidas/body.dart';
 import 'package:gatovidapp/partidas/playersTable.dart';
+import 'package:gatovidapp/partidas/timer.dart';
 
 class CardBoard extends StatefulWidget {
   @override
@@ -61,10 +62,7 @@ class _CardBoardState extends State<CardBoard> {
                       Expanded(
                         child: ElevatedButton(
                             onPressed: () {
-                              numGamers = 2;
-                              setState(() {
-
-                              });
+                              controlTimer.add(false); // TODO: QUITAR ESTO
                               showDialog(
                                 barrierDismissible: false,
                                 context: context,
@@ -85,6 +83,7 @@ class _CardBoardState extends State<CardBoard> {
                       Expanded(
                         child: ElevatedButton(
                             onPressed: () {
+                              controlTimer.add(true); // TODO: QUITAR ESTO
                               Navigator.pushNamed(context, '/rules');
                             },
                             style: ElevatedButton.styleFrom(
@@ -143,12 +142,8 @@ class _CardBoardState extends State<CardBoard> {
                       Expanded(
                         child: Container(
                             color: Colors.pinkAccent,
-                            child: Text(
-                              "Tiempo",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 20),
-                            )),
+                            child: TimerTemplate(width: MediaQuery.of(context).size.width*0.3,height: MediaQuery.of(context).size.height * 0.04,myTurn: false,)
+                        )
                       ),
                       Expanded(
                         child: Container(

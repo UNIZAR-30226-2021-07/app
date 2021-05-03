@@ -30,6 +30,10 @@ Stream streamCreateGame = controllerCreateGame.stream;
 Stream streamUsersWaiting = controllerUsersWaiting.stream;
 Stream streamGoToLogin = controllerGoToLogin.stream;
 
+// Partida
+StreamController<bool> controlTimer = StreamController<bool>.broadcast();
+Stream streamTimer = controlTimer.stream;
+
 //Modelos para guardar información al traducir las respuestas de la API
 class Token {
   final String token;
