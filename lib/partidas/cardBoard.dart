@@ -141,7 +141,7 @@ class _CardBoardState extends State<CardBoard> {
                               fontWeight: FontWeight.bold, fontSize: 20),
                         )),
                       Container(
-                        width: MediaQuery.of(context).size.width *0.33,
+                        width: MediaQuery.of(context).size.width *0.34,
                         height: MediaQuery.of(context).size.height * 0.04,
                         color: Colors.pinkAccent,
                         child: TimerTemplate(width: MediaQuery.of(context).size.width*0.3,height: MediaQuery.of(context).size.height * 0.04,myTurn: false,)
