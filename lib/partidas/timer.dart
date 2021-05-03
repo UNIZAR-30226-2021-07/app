@@ -32,9 +32,10 @@ Color purpleColor = Color(0xff6A1B9A);
      streamSubscription = streamTimer.listen((data) {
        if (data == true){
          print('es de nuevo mi turno');
+         print('es mi turno');
          _start = COUNT_DOWN_SEGS;
-         startTimer();
          this.myTurn = true;
+         startTimer();
          setState(() {});
        }
        else{
@@ -43,9 +44,10 @@ Color purpleColor = Color(0xff6A1B9A);
          }
          catch (e) {}
          print('sigue sin ser mi turno');
-         this.myTurn = false;
          _start = 0;
+         this.myTurn = false;
          setState(() {});
+         print('no es mi turno');
        }
      });
    }
@@ -58,10 +60,8 @@ Color purpleColor = Color(0xff6A1B9A);
        print('es mi turno');
        _start = COUNT_DOWN_SEGS;
        startTimer();
-       setState(() {});
      } else {
        _start = 0;
-       setState(() {});
        print('no es mi turno');
      }
    }
