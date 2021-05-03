@@ -127,34 +127,35 @@ class _CardBoardState extends State<CardBoard> {
                 Container(
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height * 0.05,
+                  alignment: Alignment.center,
                   child: Row(
                     children: [
-                      Expanded(
-                        child: Container(
-                            color: Colors.deepPurple,
-                            child: Text(
-                              "Boton pasar",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 20),
-                            )),
+                      Container(
+                        width: MediaQuery.of(context).size.width *0.33,
+                        height: MediaQuery.of(context).size.height * 0.04,
+                        color: Colors.deepPurple,
+                        child: Text(
+                          "Boton pasar",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 20),
+                        )),
+                      Container(
+                        width: MediaQuery.of(context).size.width *0.33,
+                        height: MediaQuery.of(context).size.height * 0.04,
+                        color: Colors.pinkAccent,
+                        child: TimerTemplate(width: MediaQuery.of(context).size.width*0.3,height: MediaQuery.of(context).size.height * 0.04,myTurn: false,)
                       ),
-                      Expanded(
-                        child: Container(
-                            color: Colors.pinkAccent,
-                            child: TimerTemplate(width: MediaQuery.of(context).size.width*0.3,height: MediaQuery.of(context).size.height * 0.04,myTurn: false,)
-                        )
-                      ),
-                      Expanded(
-                        child: Container(
-                            color: Colors.grey,
-                            child: Text(
-                              "Descartes",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 20),
-                            )),
-                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width *0.33,
+                        height: MediaQuery.of(context).size.height * 0.04,
+                        color: Colors.grey,
+                        child: Text(
+                          "Descartes",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 20),
+                        )),
                     ],
                   ),
                 ),
