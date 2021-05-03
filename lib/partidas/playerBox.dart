@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:gatovidapp/partidas/body.dart';
 
 class PlayerBox extends StatelessWidget {
-  const PlayerBox({this.width, this.height, this.playerName, this.playerImage});
+  const PlayerBox(
+      {this.width,
+      this.height,
+      this.playerName,
+      this.playerImage,
+      this.listOrgansplayer});
 
   final width;
   final height;
   final playerName;
   final playerImage;
+  final listOrgansplayer;
 
   @override
   Widget build(BuildContext context) {
@@ -57,8 +64,12 @@ class PlayerBox extends StatelessWidget {
           //Espacio para el cuerpo
           Expanded(
               flex: 4,
-              //TODO: cuerpo jugador contrario
-              child: Container())
+              child: Container(
+                child: Body(
+                    width: this.width,
+                    height: this.height * 0.65,
+                    listOrgans: listOrgansplayer),
+              ))
         ],
       ),
     );

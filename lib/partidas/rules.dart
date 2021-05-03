@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gatovidapp/partidas/body.dart';
 import 'package:gatovidapp/partidas/hand.dart';
+import 'package:gatovidapp/partidas/playersTable.dart';
 
 class Rules extends StatefulWidget {
   @override
@@ -44,23 +45,19 @@ class _RulesState extends State<Rules> {
                     listCard: [1, 2, 3]),
               //],
             //),*/
-              HandTemplate(
-                  width: MediaQuery.of(context).size.width * 0.5,
-                  height: MediaQuery.of(context).size.height * 0.1,
-                  listCard: [1, 2, 3]),
+              Container(
+                child: HandTemplate(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    height: MediaQuery.of(context).size.height * 0.1,
+                    listCard: [1, 2, 3]),
+              ),
               HandTemplate(
                   width: MediaQuery.of(context).size.width * 0.5,
                   height: MediaQuery.of(context).size.height * 0.1,
                   listCard: [4, 0, 5]),
             ]),
             SizedBox(height: 10),
-            /*PlayerBox(
-              width: MediaQuery.of(context).size.width * 0.4,
-              height: MediaQuery.of(context).size.height * 0.15,
-              playerImage:
-                  ("assets/common/") + picsList[globalData.picture]['image'],
-              playerName: globalData.name,
-            ),*/
+            playersTable(context),
             SizedBox(height: 10),
             /*PlayerBox(
               width: MediaQuery.of(context).size.width * 0.8,
@@ -69,7 +66,7 @@ class _RulesState extends State<Rules> {
                   ("assets/common/") + picsList[globalData.picture]['image'],
               playerName: globalData.name,
             ),*/
-            Body(
+            /* Body(
               width: MediaQuery.of(context).size.width * 0.7,
               height: MediaQuery.of(context).size.height * 0.15,
               listOrgans: [],
@@ -97,14 +94,14 @@ class _RulesState extends State<Rules> {
                 [2, 7],
                 [3]
               ],
-            ),
+            ),*/
             Body(
               width: MediaQuery.of(context).size.width * 0.7,
               height: MediaQuery.of(context).size.height * 0.15,
               listOrgans: [
                 [1, 6],
-                [2, 7],
-                [3],
+                [7, 6],
+                [4],
                 [4]
               ],
             ),
