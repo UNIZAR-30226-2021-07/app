@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:gatovidapp/partidas/expandedPlayer.dart';
 import 'package:gatovidapp/popUps/gamePaused.dart';
+import 'package:gatovidapp/services/models.dart';
 import 'package:gatovidapp/services/websockets.dart';
 import 'package:gatovidapp/partidas/hand.dart';
 import 'package:gatovidapp/partidas/body.dart';
@@ -34,7 +35,9 @@ class _CardBoardState extends State<CardBoard> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Expanded(
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height * 0.05,
                   child: Row(
                     children: [
                       Expanded(
@@ -59,6 +62,10 @@ class _CardBoardState extends State<CardBoard> {
                       Expanded(
                         child: ElevatedButton(
                             onPressed: () {
+                              numGamers = 6;
+                              setState(() {
+                                
+                              });
                               showDialog(
                                 barrierDismissible: false,
                                 context: context,
@@ -111,15 +118,17 @@ class _CardBoardState extends State<CardBoard> {
                     ],
                   ),
                 ),
-                Expanded(
-                    flex: 7,
+                Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height * 0.5,
                     child: (expanded
-                        ? playersTable(context)
+                        ? playersTableTemplate(height: MediaQuery.of(context).size.height * 0.5, width: MediaQuery.of(context).size.width)
                         : expandedPlayer(context, expanded))
                     //child: (expanded? expandedPlayer(context, expanded): playersTable(context))
                     ),
-                Expanded(
-                    child: Container(
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height * 0.05,
                   child: Row(
                     children: [
                       Expanded(
@@ -154,33 +163,32 @@ class _CardBoardState extends State<CardBoard> {
                       ),
                     ],
                   ),
-                )),
-                Expanded(
-                    flex: 2,
-                    child: Container(
-                      child: Body(
-                        width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height * 0.13,
-                        //TODO:  la lista con la info del servidor
-                        listOrgans: [
-                          [0],
-                          [1, 5, 8],
-                          [9, 7],
-                          [9, 10, 15]
-                        ],
-                      ),
-                    )),
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height * 0.13,
+                  child: Body(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height * 0.13,
+                    //TODO:  la lista con la info del servidor
+                    listOrgans: [
+                      [0],
+                      [1, 5, 8],
+                      [9, 7],
+                      [9, 10, 15]
+                    ],
+                  ),
+                ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                Expanded(
-                  flex: 2,
-                  child: Container(
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height * 0.14,
                     child: HandTemplate(
                         width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height * 0.15,
+                        height: MediaQuery.of(context).size.height * 0.14,
                         //TODO: la lista con la info del servidor
                         listCard: [0, 4, 5]),
                   ),
-                ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.01),
               ],
             ),

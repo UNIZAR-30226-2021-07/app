@@ -26,50 +26,51 @@ class PlayerBox extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Expanded(
-              flex: 2,
-              child: Row(
-                children: [
-                  Expanded(
-                    flex: 1,
-                    child: CircleAvatar(
-                        backgroundImage: AssetImage(this.playerImage)),
-                  ),
-                  Expanded(
-                    flex: 4,
-                    child: Container(
-                      margin: EdgeInsets.only(
-                        left: this.width * 0.05,
-                        right: this.width * 0.05,
-                        top: this.width * 0.05,
-                        bottom: this.width * 0.05,
-                      ),
-                      decoration: BoxDecoration(
-                          borderRadius:
-                              BorderRadius.circular(this.width * 0.03),
-                          color: Colors.white,
-                          border: Border()),
-                      child: Center(
-                        child: Text(
-                          this.playerName,
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: this.height * 0.12),
-                        ),
+          Container(
+            width: this.width,
+            height: this.height * 0.35,
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: CircleAvatar(
+                      backgroundImage: AssetImage(this.playerImage)),
+                ),
+                Expanded(
+                  flex: 4,
+                  child: Container(
+                    margin: EdgeInsets.only(
+                      left: this.width * 0.05,
+                      right: this.width * 0.05,
+                      top: this.width * 0.05,
+                      bottom: this.width * 0.05,
+                    ),
+                    decoration: BoxDecoration(
+                        borderRadius:
+                        BorderRadius.circular(this.width * 0.03),
+                        color: Colors.white,
+                        border: Border()),
+                    child: Center(
+                      child: Text(
+                        this.playerName,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                            fontSize: this.height * 0.12),
                       ),
                     ),
-                  )
-                ],
-              )),
+                  ),
+                )
+              ],
+            ),
+          ),
           //Espacio para el cuerpo
-          Expanded(
-              flex: 4,
-              child: Container(
-                child: Body(
-                    width: this.width,
-                    height: this.height * 0.65,
-                    listOrgans: listOrgansplayer),
-              ))
+         Container(
+            child: Body(
+                width: this.width,
+                height: this.height * 0.65,
+                listOrgans: listOrgansplayer),
+         )
         ],
       ),
     );
