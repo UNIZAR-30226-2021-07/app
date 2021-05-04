@@ -204,13 +204,8 @@ int findCard(String cardType, String color, String treatmentType) {
     }
   }
 
-  print('we have a problem' +
-      cardType +
-      " " +
-      color +
-      " " +
-      treatmentType +
-      " ");
+  print(
+      'we have a problem' + cardType + " " + color + " " + treatmentType + " ");
   return -1;
 }
 
