@@ -32,17 +32,16 @@ class PlayersTableTemplate extends StatelessWidget {
                           width: this.width * 0.4,
                           height: this.height * 0.25,
                           playerImage: ("assets/common/") +
-                              picsList[globalData.picture]['image'],
-                          playerName: globalData.name,
+                              picsList[listOfGamers[4].pictureId]['image'],
+                          playerName: listOfGamers[4].name,
                           //TODO: la lista con la info del servidor
-                          listOrgansplayer: [
-                            [1, 6, 5],
-                            [7, 6],
-                            [4],
-                            [4]
-                          ],
+                          listOrgansplayer: listOfGamers[4].bodyList,
                         ),
-                        onPressed: () {}),
+                        onPressed: () {
+                          expansion = 5;
+                          controlGame.add(true);
+                          print(expansion.toString());
+                        }),
                   ),
                   SizedBox(width: this.width * 0.02),
                   Container(
@@ -53,66 +52,16 @@ class PlayersTableTemplate extends StatelessWidget {
                           width: this.width * 0.4,
                           height: this.height * 0.25,
                           playerImage: ("assets/common/") +
-                              picsList[globalData.picture]['image'],
-                          playerName: globalData.name,
+                              picsList[listOfGamers[3].pictureId]['image'],
+                          playerName: listOfGamers[3].name,
                           //TODO: la lista con la info del servidor
-                          listOrgansplayer: [
-                            [1, 6, 5],
-                            [7, 6],
-                            [4],
-                            [4]
-                          ],
+                          listOrgansplayer: listOfGamers[3].bodyList,
                         ),
-                        onPressed: () {}),
-                  ),
-                  SizedBox(width: this.width * 0.02),
-                ],
-              ),
-              SizedBox(height: this.height * 0.01),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(width: this.width * 0.02),
-                  Container(
-                    width: this.width * 0.45,
-                    height: this.height * 0.32,
-                    child: TextButton(
-                        child: PlayerBox(
-                          width: this.width * 0.4,
-                          height: this.height * 0.25,
-                          playerImage: ("assets/common/") +
-                              picsList[globalData.picture]['image'],
-                          playerName: globalData.name,
-                          //TODO: la lista con la info del servidor
-                          listOrgansplayer: [
-                            [1, 6, 5],
-                            [7, 6],
-                            [4],
-                            [4]
-                          ],
-                        ),
-                        onPressed: () {}),
-                  ),
-                  SizedBox(width: this.width * 0.02),
-                  Container(
-                    width: this.width * 0.45,
-                    height: this.height * 0.32,
-                    child: TextButton(
-                        child: PlayerBox(
-                          width: this.width * 0.4,
-                          height: this.height * 0.25,
-                          playerImage: ("assets/common/") +
-                              picsList[globalData.picture]['image'],
-                          playerName: globalData.name,
-                          //TODO: la lista con la info del servidor
-                          listOrgansplayer: [
-                            [1, 6, 5],
-                            [7, 6],
-                            [4],
-                            [4]
-                          ],
-                        ),
-                        onPressed: () {}),
+                        onPressed: () {
+                          expansion = 4;
+                          controlGame.add(true);
+                          print(expansion.toString());
+                        }),
                   ),
                   SizedBox(width: this.width * 0.02),
                 ],
@@ -121,6 +70,7 @@ class PlayersTableTemplate extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  SizedBox(width: this.width * 0.02),
                   Container(
                     width: this.width * 0.45,
                     height: this.height * 0.32,
@@ -129,17 +79,62 @@ class PlayersTableTemplate extends StatelessWidget {
                           width: this.width * 0.4,
                           height: this.height * 0.25,
                           playerImage: ("assets/common/") +
-                              picsList[globalData.picture]['image'],
-                          playerName: globalData.name,
+                              picsList[listOfGamers[2].pictureId]['image'],
+                          playerName: listOfGamers[2].name,
                           //TODO: la lista con la info del servidor
-                          listOrgansplayer: [
-                            [1, 6, 5],
-                            [7, 6],
-                            [4],
-                            [4]
-                          ],
+                          listOrgansplayer: listOfGamers[2].bodyList,
                         ),
-                        onPressed: () {}),
+                        onPressed: () {
+                          expansion = 3;
+                          controlGame.add(true);
+                          print(expansion.toString());
+                        }),
+                  ),
+                  SizedBox(width: this.width * 0.02),
+                  Container(
+                    width: this.width * 0.45,
+                    height: this.height * 0.32,
+                    child: TextButton(
+                        child: PlayerBox(
+                          width: this.width * 0.4,
+                          height: this.height * 0.25,
+                          playerImage: ("assets/common/") +
+                              picsList[listOfGamers[1].pictureId]['image'],
+                          playerName: listOfGamers[1].name,
+                          //TODO: la lista con la info del servidor
+                          listOrgansplayer: listOfGamers[1].bodyList,
+                        ),
+                        onPressed: () {
+                          expansion = 2;
+                          controlGame.add(true);
+                          print(expansion.toString());
+                        }),
+                  ),
+                  SizedBox(width: this.width * 0.02),
+                ],
+              ),
+              SizedBox(height: this.height * 0.01),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    width: this.width * 0.45,
+                    height: this.height * 0.32,
+                    child: TextButton(
+                        child: PlayerBox(
+                          width: this.width * 0.4,
+                          height: this.height * 0.25,
+                          playerImage: ("assets/common/") +
+                              picsList[listOfGamers[0].pictureId]['image'],
+                          playerName: listOfGamers[0].name,
+                          //TODO: la lista con la info del servidor
+                          listOrgansplayer: listOfGamers[0].bodyList,
+                        ),
+                        onPressed: () {
+                          expansion = 1;
+                          controlGame.add(true);
+                          print(expansion.toString());
+                        }),
                   ),
                 ],
               ),
@@ -163,17 +158,16 @@ class PlayersTableTemplate extends StatelessWidget {
                           width: this.width * 0.4,
                           height: this.height * 0.4,
                           playerImage: ("assets/common/") +
-                              picsList[globalData.picture]['image'],
-                          playerName: globalData.name,
+                              picsList[listOfGamers[3].pictureId]['image'],
+                          playerName: listOfGamers[3].name,
                           //TODO: la lista con la info del servidor
-                          listOrgansplayer: [
-                            [1, 6, 5],
-                            [7, 6],
-                            [4],
-                            [4]
-                          ],
+                          listOrgansplayer: listOfGamers[3].bodyList,
                         ),
-                        onPressed: () {}),
+                        onPressed: () {
+                          expansion = 4;
+                          controlGame.add(true);
+                          print(expansion.toString());
+                        }),
                   ),
                   SizedBox(width: this.width * 0.02),
                   Container(
@@ -184,17 +178,16 @@ class PlayersTableTemplate extends StatelessWidget {
                           width: this.width * 0.4,
                           height: this.height * 0.4,
                           playerImage: ("assets/common/") +
-                              picsList[globalData.picture]['image'],
-                          playerName: globalData.name,
+                              picsList[listOfGamers[2].pictureId]['image'],
+                          playerName: listOfGamers[2].name,
                           //TODO: la lista con la info del servidor
-                          listOrgansplayer: [
-                            [1, 6, 5],
-                            [7, 6],
-                            [4],
-                            [4]
-                          ],
+                          listOrgansplayer: listOfGamers[2].bodyList,
                         ),
-                        onPressed: () {}),
+                        onPressed: () {
+                          expansion = 3;
+                          controlGame.add(true);
+                          print(expansion.toString());
+                        }),
                   ),
                   SizedBox(width: this.width * 0.02),
                 ],
@@ -212,17 +205,16 @@ class PlayersTableTemplate extends StatelessWidget {
                           width: this.width * 0.4,
                           height: this.height * 0.4,
                           playerImage: ("assets/common/") +
-                              picsList[globalData.picture]['image'],
-                          playerName: globalData.name,
+                              picsList[listOfGamers[1].pictureId]['image'],
+                          playerName: listOfGamers[1].name,
                           //TODO: la lista con la info del servidor
-                          listOrgansplayer: [
-                            [1, 6, 5],
-                            [7, 6],
-                            [4],
-                            [4]
-                          ],
+                          listOrgansplayer: listOfGamers[1].bodyList,
                         ),
-                        onPressed: () {}),
+                        onPressed: () {
+                          expansion = 2;
+                          controlGame.add(true);
+                          print(expansion.toString());
+                        }),
                   ),
                   SizedBox(width: this.width * 0.02),
                   Container(
@@ -233,17 +225,16 @@ class PlayersTableTemplate extends StatelessWidget {
                           width: this.width * 0.4,
                           height: this.height * 0.4,
                           playerImage: ("assets/common/") +
-                              picsList[globalData.picture]['image'],
-                          playerName: globalData.name,
+                              picsList[listOfGamers[0].pictureId]['image'],
+                          playerName: listOfGamers[0].name,
                           //TODO: la lista con la info del servidor
-                          listOrgansplayer: [
-                            [1, 6, 5],
-                            [7, 6],
-                            [4],
-                            [4]
-                          ],
+                          listOrgansplayer: listOfGamers[0].bodyList,
                         ),
-                        onPressed: () {}),
+                        onPressed: () {
+                          expansion = 1;
+                          controlGame.add(true);
+                          print(expansion.toString());
+                        }),
                   ),
                   SizedBox(width: this.width * 0.02),
                 ],
@@ -268,17 +259,16 @@ class PlayersTableTemplate extends StatelessWidget {
                           width: this.width * 0.4,
                           height: this.height * 0.4,
                           playerImage: ("assets/common/") +
-                              picsList[globalData.picture]['image'],
-                          playerName: globalData.name,
+                              picsList[listOfGamers[2].pictureId]['image'],
+                          playerName: listOfGamers[2].name,
                           //TODO: la lista con la info del servidor
-                          listOrgansplayer: [
-                            [1, 6, 5],
-                            [7, 6],
-                            [4],
-                            [4]
-                          ],
+                          listOrgansplayer: listOfGamers[2].bodyList,
                         ),
-                        onPressed: () {}),
+                        onPressed: () {
+                          expansion = 3;
+                          controlGame.add(true);
+                          print(expansion.toString());
+                        }),
                   ),
                   SizedBox(width: this.width * 0.02),
                   Container(
@@ -289,17 +279,16 @@ class PlayersTableTemplate extends StatelessWidget {
                           width: this.width * 0.4,
                           height: this.height * 0.4,
                           playerImage: ("assets/common/") +
-                              picsList[globalData.picture]['image'],
-                          playerName: globalData.name,
+                              picsList[listOfGamers[1].pictureId]['image'],
+                          playerName: listOfGamers[1].name,
                           //TODO: la lista con la info del servidor
-                          listOrgansplayer: [
-                            [1, 6, 5],
-                            [7, 6],
-                            [4],
-                            [4]
-                          ],
+                          listOrgansplayer: listOfGamers[1].bodyList,
                         ),
-                        onPressed: () {}),
+                        onPressed: () {
+                          expansion = 2;
+                          controlGame.add(true);
+                          print(expansion.toString());
+                        }),
                   ),
                   SizedBox(width: this.width * 0.02),
                 ],
@@ -317,17 +306,16 @@ class PlayersTableTemplate extends StatelessWidget {
                           width: this.width * 0.4,
                           height: this.height * 0.4,
                           playerImage: ("assets/common/") +
-                              picsList[globalData.picture]['image'],
-                          playerName: globalData.name,
+                              picsList[listOfGamers[0].pictureId]['image'],
+                          playerName: listOfGamers[0].name,
                           //TODO: la lista con la info del servidor
-                          listOrgansplayer: [
-                            [1, 6, 5],
-                            [7, 6],
-                            [4],
-                            [4]
-                          ],
+                          listOrgansplayer: listOfGamers[0].bodyList,
                         ),
-                        onPressed: () {}),
+                        onPressed: () {
+                          expansion = 1;
+                          controlGame.add(true);
+                          print(expansion.toString());
+                        }),
                   ),
                 ],
               ),
@@ -350,17 +338,16 @@ class PlayersTableTemplate extends StatelessWidget {
                           width: this.width * 0.75,
                           height: this.height * 0.4,
                           playerImage: ("assets/common/") +
-                              picsList[globalData.picture]['image'],
-                          playerName: globalData.name,
+                              picsList[listOfGamers[1].pictureId]['image'],
+                          playerName: listOfGamers[1].name,
                           //TODO: la lista con la info del servidor
-                          listOrgansplayer: [
-                            [1, 6, 5],
-                            [7, 6],
-                            [4],
-                            [4]
-                          ],
+                          listOrgansplayer: listOfGamers[1].bodyList,
                         ),
-                        onPressed: () {}),
+                        onPressed: () {
+                          expansion = 2;
+                          controlGame.add(true);
+                          print(expansion.toString());
+                        }),
                   ),
                 ],
               ),
@@ -376,17 +363,16 @@ class PlayersTableTemplate extends StatelessWidget {
                           width: this.width * 0.75,
                           height: this.height * 0.4,
                           playerImage: ("assets/common/") +
-                              picsList[globalData.picture]['image'],
-                          playerName: globalData.name,
+                              picsList[listOfGamers[0].pictureId]['image'],
+                          playerName: listOfGamers[0].name,
                           //TODO: la lista con la info del servidor
-                          listOrgansplayer: [
-                            [1, 6, 5],
-                            [7, 6],
-                            [4],
-                            [4]
-                          ],
+                          listOrgansplayer: listOfGamers[0].bodyList,
                         ),
-                        onPressed: () {}),
+                        onPressed: () {
+                          expansion = 1;
+                          controlGame.add(true);
+                          print(expansion.toString());
+                        }),
                   ),
                 ],
               ),
