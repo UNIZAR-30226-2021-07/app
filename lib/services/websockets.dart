@@ -29,6 +29,7 @@ void startWebSocket() {
   socket.on('found_game', (data) => publicGameHandler(data));
   socket.on('game_cancelled', (_) => gameCancelledHandler());
   socket.on('users_waiting', (data) => usersWaitingHandler(data));
+  socket.on('game_update', (data) => gameUpdateHandler(data));
   socket.on('connect_error', (_) => print('errorConnect: ' + _.toString()));
   socket.on('error', (data) => errorMessageHandler(data));
 }
@@ -76,6 +77,33 @@ void usersWaitingHandler(int data) {
   print('Received: ' + data.toString());
   numGamers = data;
   controllerUsersWaiting.add(false);
+}
+
+void gameUpdateHandler(Map<String, dynamic> json) {
+  print('Received: update_game');
+  print(json.toString());
+
+  if (json['finished'] != null){
+    //TODO: Logica de que se ha acabado la partida
+  }
+  if (json['current_turn'] != null){
+    currentTurnPlayer = json['current_turn'];
+  }
+  if (json['players'] != null){
+    List aux = json['players'];
+    listOfGamers.clear(); // Clean of the list
+    for(int i=0; i < aux.length; i++){
+      if (aux[i]['name'].toString() != globalData.name){
+        listOfGamers.add(GamePlayer(aux[i]['name'], aux[i]['picture']));
+      }
+    }
+  }
+
+  /*
+  * Lectura del json recibido
+  * */
+
+  controlGame.add(true);
 }
 
 void errorMessageHandler(Map<String, dynamic> json) {

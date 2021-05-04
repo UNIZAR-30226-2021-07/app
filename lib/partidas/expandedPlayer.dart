@@ -30,15 +30,10 @@ Widget expandedPlayer(BuildContext context) {
             width: MediaQuery.of(context).size.width * 0.9,
             height: MediaQuery.of(context).size.height * 0.3,
             playerImage:
-                ("assets/common/") + picsList[globalData.picture]['image'],
-            playerName: globalData.name,
+                ("assets/common/") + picsList[listOfGamers[expansion-1].pictureId]['image'],
+            playerName: listOfGamers[expansion-1].name,
             //TODO: la lista con la info del servidor
-            listOrgansplayer: [
-              [1, 6, 5],
-              [7, 6],
-              [4],
-              [4]
-            ],
+            listOrgansplayer: listOfGamers[expansion-1].bodyList,
           ),
         ),
       ),

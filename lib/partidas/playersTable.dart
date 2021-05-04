@@ -15,7 +15,7 @@ class PlayersTableTemplate extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         child: (() {
-      if (numGamers == 6) {
+      if (listOfGamers.length == 5) {
         return Container(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -146,7 +146,7 @@ class PlayersTableTemplate extends StatelessWidget {
             ],
           ),
         );
-      } else if (numGamers == 5) {
+      } else if (listOfGamers.length == 4) {
         return Container(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -251,7 +251,7 @@ class PlayersTableTemplate extends StatelessWidget {
             ],
           ),
         );
-      } else if (numGamers == 4) {
+      } else if (listOfGamers.length == 3) {
         return Container(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -334,7 +334,7 @@ class PlayersTableTemplate extends StatelessWidget {
             ],
           ),
         );
-      } else if (numGamers == 3) {
+      } else if (listOfGamers.length == 2) {
         return Container(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -393,7 +393,7 @@ class PlayersTableTemplate extends StatelessWidget {
             ],
           ),
         );
-      } else if (numGamers == 2) {
+      } else if (listOfGamers.length == 1) {
         return Container(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -409,15 +409,10 @@ class PlayersTableTemplate extends StatelessWidget {
                           width: this.width * 0.9,
                           height: this.height * 0.75,
                           playerImage: ("assets/common/") +
-                              picsList[globalData.picture]['image'],
-                          playerName: globalData.name,
+                              picsList[listOfGamers[0].pictureId]['image'],
+                          playerName: listOfGamers[0].name,
                           //TODO: la lista con la info del servidor
-                          listOrgansplayer: [
-                            [1, 6, 5],
-                            [7, 6],
-                            [4],
-                            [4]
-                          ],
+                          listOrgansplayer: listOfGamers[0].bodyList,
                         ),
                         onPressed: () {
                           expansion = 1;

@@ -72,7 +72,6 @@ class _CardBoardState extends State<CardBoard> {
                       Expanded(
                         child: ElevatedButton(
                             onPressed: () {
-                              controlTimer.add(false); // TODO: QUITAR ESTO
                               showDialog(
                                 barrierDismissible: false,
                                 context: context,
@@ -93,7 +92,6 @@ class _CardBoardState extends State<CardBoard> {
                       Expanded(
                         child: ElevatedButton(
                             onPressed: () {
-                              controlTimer.add(true); // TODO: QUITAR ESTO
                               Navigator.pushNamed(context, '/rules');
                             },
                             style: ElevatedButton.styleFrom(

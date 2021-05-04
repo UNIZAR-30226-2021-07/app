@@ -15,6 +15,8 @@ List cardList = [];
 String codeGame = '';
 int numGamers = 1;
 int expansion = 0;
+String currentTurnPlayer = '';
+List listOfGamers = [];
 
 StreamController<bool> controllerChat = StreamController<bool>.broadcast();
 StreamController<bool> controllerStat = StreamController<bool>.broadcast();
@@ -128,6 +130,21 @@ class UserStat {
         wins: json['wins'].toString(),
         playtimeMin: min,
         playtimeHour: hour);
+  }
+}
+
+//-------------------------------------------------------------------------------------------------------
+// Game staff
+
+class GamePlayer{
+  String name;
+  int pictureId;
+  List bodyList;
+
+  GamePlayer(String nameP, int id){
+    this.name = nameP;
+    this.pictureId = id;
+    this.bodyList = [];
   }
 }
 
