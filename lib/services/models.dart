@@ -169,7 +169,10 @@ class CardData {
 // return of the id of the card
 int findCard(String card_type, String color, String treatment_type){
   // Is not a treatment card
-  if(treatment_type == ''){
+  // TODO: Uncomment cuando backend haga lo del treatment_type
+  //if(treatment_type == ''){
+  // TODO: borrar cuando backend haga lo del treatment_type
+  if(card_type != 'treatment'){
     for(int i = 0; i < cardList.length; i++){
       if ((cardList[i]['type'] == card_type) && (cardList[i]['color'] == color)){
         return i;
@@ -179,11 +182,20 @@ int findCard(String card_type, String color, String treatment_type){
     return -1;
   }
   // Is a treatment card
+  // TODO: Uncomment cuando backend haga lo del treatment_type
+  /*
   for(int i = 0; i < cardList.length; i++){
     if ((cardList[i]['type'] == card_type) && (cardList[i]['treatment_type'] == treatment_type)){
       return i;
     }
+  }*/
+  // TODO: borrar cuando backend haga lo del treatment_type
+  for(int i = 0; i < cardList.length; i++){
+    if (cardList[i]['type'] == 'treatment'){
+      return i;
+    }
   }
+
   print('we have a problem' + card_type + " " + color + " " + treatment_type + " ");
   return -1;
 }
