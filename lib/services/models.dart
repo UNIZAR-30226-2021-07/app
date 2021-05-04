@@ -141,12 +141,12 @@ class UserStat {
 //-------------------------------------------------------------------------------------------------------
 // Game staff
 
-class GamePlayer{
+class GamePlayer {
   String name;
   int pictureId;
   List bodyList;
 
-  GamePlayer(String nameP, int id){
+  GamePlayer(String nameP, int id) {
     this.name = nameP;
     this.pictureId = id;
     this.bodyList = [];
@@ -154,32 +154,39 @@ class GamePlayer{
 }
 
 class CardData {
-  String card_type;
+  String cardType;
   String color;
-  String treatment_type;
+  String treatmentType;
   int id;
 
-  CardData(String card_typeP, String colorP, String treatment_typeP){
-    this.card_type = card_typeP;
+  CardData(String cardTypeP, String colorP, String treatmentTypeP) {
+    this.cardType = cardTypeP;
     this.color = colorP;
-    this.treatment_type = treatment_typeP;
-    this.id = findCard(card_typeP, colorP, treatment_typeP);
+    this.treatmentType = treatmentTypeP;
+    this.id = findCard(cardTypeP, colorP, treatmentTypeP);
   }
 }
 
 // return of the id of the card
-int findCard(String card_type, String color, String treatment_type){
+int findCard(String cardType, String color, String treatmentType) {
   // Is not a treatment card
   // TODO: Uncomment cuando backend haga lo del treatment_type
   //if(treatment_type == ''){
   // TODO: borrar cuando backend haga lo del treatment_type
-  if(card_type != 'treatment'){
-    for(int i = 0; i < cardList.length; i++){
-      if ((cardList[i]['type'] == card_type) && (cardList[i]['color'] == color)){
+  if (cardType != 'treatment') {
+    for (int i = 0; i < cardList.length; i++) {
+      if ((cardList[i]['type'] == cardType) &&
+          (cardList[i]['color'] == color)) {
         return i;
       }
     }
-    print('we have a problem' + card_type + " " + color + " " + treatment_type + " ");
+    print('we have a problem' +
+        cardType +
+        " " +
+        color +
+        " " +
+        treatmentType +
+        " ");
     return -1;
   }
   // Is a treatment card
@@ -191,13 +198,19 @@ int findCard(String card_type, String color, String treatment_type){
     }
   }*/
   // TODO: borrar cuando backend haga lo del treatment_type
-  for(int i = 0; i < cardList.length; i++){
-    if (cardList[i]['type'] == 'treatment'){
+  for (int i = 0; i < cardList.length; i++) {
+    if (cardList[i]['type'] == 'treatment') {
       return i;
     }
   }
 
-  print('we have a problem' + card_type + " " + color + " " + treatment_type + " ");
+  print('we have a problem' +
+      cardType +
+      " " +
+      color +
+      " " +
+      treatmentType +
+      " ");
   return -1;
 }
 

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gatovidapp/services/models.dart';
 import 'package:simple_timer/simple_timer.dart';
-import 'dart:async';
 
 const COUNT_DOWN_SEGS = 30;
 
@@ -15,10 +13,12 @@ class TimerTemplate extends StatefulWidget {
   TimerTemplate({this.width, this.height, this.turnOk});
 
   @override
-  _TimerTemplate createState() => _TimerTemplate(width: this.width, height: this.height, turnOk: this.turnOk);
+  _TimerTemplate createState() => _TimerTemplate(
+      width: this.width, height: this.height, turnOk: this.turnOk);
 }
 
-class _TimerTemplate extends State<TimerTemplate> with SingleTickerProviderStateMixin {
+class _TimerTemplate extends State<TimerTemplate>
+    with SingleTickerProviderStateMixin {
   final width;
   final height;
   final turnOk;
@@ -34,9 +34,9 @@ class _TimerTemplate extends State<TimerTemplate> with SingleTickerProviderState
     super.initState();
   }
 
-  String durationToSeconds(Duration duration){
+  String durationToSeconds(Duration duration) {
     return "${(duration.inSeconds.remainder(60))}";
-}
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +57,10 @@ class _TimerTemplate extends State<TimerTemplate> with SingleTickerProviderState
           valueListener: timerValueChangeListener,
           backgroundColor: Color(0xff6A1B9A),
           progressTextFormatter: durationToSeconds,
-          progressTextStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: this.width * 0.2),
+          progressTextStyle: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: this.width * 0.2),
         ),
       );
     }
@@ -69,14 +72,14 @@ class _TimerTemplate extends State<TimerTemplate> with SingleTickerProviderState
       child: Text(
         "0",
         style: TextStyle(
-            color: Colors.white, fontWeight: FontWeight.bold, fontSize:this.width * 0.2),
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: this.width * 0.2),
       ),
     );
   }
 
-  void timerValueChangeListener(Duration timeElapsed) {
-
-  }
+  void timerValueChangeListener(Duration timeElapsed) {}
 
   void handleTimerOnStart() {
     print("timer has just started");

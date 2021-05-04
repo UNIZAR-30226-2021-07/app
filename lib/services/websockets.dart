@@ -83,43 +83,44 @@ void gameUpdateHandler(Map<String, dynamic> json) {
   print('Received: update_game');
   print(json.toString());
 
-  if (json['finished'] != null){
+  if (json['finished'] != null) {
     // TODO: Logica de que se ha acabado la partida
     // Habrá que leer tmb leaderboard y playtime_mins
   }
-  if (json['current_turn'] != null){
+  if (json['current_turn'] != null) {
     currentTurnPlayer = json['current_turn'];
-    print('El turno es de ->'+currentTurnPlayer);
-    if(currentTurnPlayer == globalData.name){
+    print('El turno es de ->' + currentTurnPlayer);
+    if (currentTurnPlayer == globalData.name) {
       isMyTurn = true;
-    }else{
+    } else {
       isMyTurn = false; // not player turn
     }
   }
-  if (json['players'] != null){
+  if (json['players'] != null) {
     List aux = json['players'];
     listOfGamers.clear(); // Clean of the list
-    for(int i=0; i < aux.length; i++){
-      if (aux[i]['name'].toString() != globalData.name){
+    for (int i = 0; i < aux.length; i++) {
+      if (aux[i]['name'].toString() != globalData.name) {
         listOfGamers.add(GamePlayer(aux[i]['name'], aux[i]['picture']));
       }
     }
   }
-  if (json['hand'] != null){
+  if (json['hand'] != null) {
     List aux = json['hand'];
     handOfPlayer.clear();
-    for(int i=0; i < aux.length; i++){
+    for (int i = 0; i < aux.length; i++) {
       // Is a treatment type
-      if (aux[i]['treatment_type'] == null){
+      if (aux[i]['treatment_type'] == null) {
         handOfPlayer.add(CardData(aux[i]['card_type'], aux[i]['color'], ''));
       }
       // Is not a treatment type
-      else{
-        handOfPlayer.add(CardData(aux[i]['card_type'], aux[i]['color'], aux[i]['treatment_type']));
+      else {
+        handOfPlayer.add(CardData(
+            aux[i]['card_type'], aux[i]['color'], aux[i]['treatment_type']));
       }
     }
   }
-  if (json['bodies'] != null){
+  if (json['bodies'] != null) {
     // TODO: Read all bodies
   }
 
