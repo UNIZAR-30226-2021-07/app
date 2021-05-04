@@ -21,6 +21,7 @@ int expansion = 0;
 String currentTurnPlayer = '';
 List listOfGamers = [];
 List handOfPlayer = [];
+bool isMyTurn = false;
 
 StreamController<bool> controllerChat = StreamController<bool>.broadcast();
 StreamController<bool> controllerStat = StreamController<bool>.broadcast();

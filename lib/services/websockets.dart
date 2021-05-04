@@ -84,12 +84,17 @@ void gameUpdateHandler(Map<String, dynamic> json) {
   print(json.toString());
 
   if (json['finished'] != null){
-    //TODO: Logica de que se ha acabado la partida
+    // TODO: Logica de que se ha acabado la partida
     // Habrá que leer tmb leaderboard y playtime_mins
   }
   if (json['current_turn'] != null){
-    // TODO: Logica de los turnos
     currentTurnPlayer = json['current_turn'];
+    print('El turno es de ->'+currentTurnPlayer);
+    if(currentTurnPlayer == globalData.name){
+      isMyTurn = true;
+    }else{
+      isMyTurn = false; // not player turn
+    }
   }
   if (json['players'] != null){
     List aux = json['players'];
