@@ -72,7 +72,6 @@ class _CardBoardState extends State<CardBoard> {
                       Expanded(
                         child: ElevatedButton(
                             onPressed: () {
-                              controlTimer.add(false); // TODO: QUITAR ESTO
                               showDialog(
                                 barrierDismissible: false,
                                 context: context,
@@ -93,7 +92,6 @@ class _CardBoardState extends State<CardBoard> {
                       Expanded(
                         child: ElevatedButton(
                             onPressed: () {
-                              controlTimer.add(true); // TODO: QUITAR ESTO
                               Navigator.pushNamed(context, '/rules');
                             },
                             style: ElevatedButton.styleFrom(
@@ -159,6 +157,7 @@ class _CardBoardState extends State<CardBoard> {
                           child: TimerTemplate(
                             width: MediaQuery.of(context).size.width * 0.3,
                             height: MediaQuery.of(context).size.height * 0.04,
+                            turnOk: isMyTurn,
                           )),
                       Container(
                           width: MediaQuery.of(context).size.width * 0.33,
@@ -193,10 +192,9 @@ class _CardBoardState extends State<CardBoard> {
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height * 0.14,
                   child: HandTemplate(
-                      width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height * 0.14,
-                      //TODO: la lista con la info del servidor
-                      listCard: [0, 4, 5]),
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height * 0.14,
+                  ),
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.01),
               ],

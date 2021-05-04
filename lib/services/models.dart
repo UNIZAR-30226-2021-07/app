@@ -14,7 +14,14 @@ List boardList = [];
 List cardList = [];
 String codeGame = '';
 int numGamers = 1;
+
+// Game data
+
 int expansion = 0;
+String currentTurnPlayer = '';
+List listOfGamers = [];
+List handOfPlayer = [];
+bool isMyTurn = false;
 
 StreamController<bool> controllerChat = StreamController<bool>.broadcast();
 StreamController<bool> controllerStat = StreamController<bool>.broadcast();
@@ -129,6 +136,77 @@ class UserStat {
         playtimeMin: min,
         playtimeHour: hour);
   }
+}
+
+//-------------------------------------------------------------------------------------------------------
+// Game staff
+
+class GamePlayer {
+  String name;
+  int pictureId;
+  List bodyList;
+
+  GamePlayer(String nameP, int id) {
+    this.name = nameP;
+    this.pictureId = id;
+    this.bodyList = [];
+  }
+}
+
+class CardData {
+  String cardType;
+  String color;
+  String treatmentType;
+  int id;
+
+  CardData(String cardTypeP, String colorP, String treatmentTypeP) {
+    this.cardType = cardTypeP;
+    this.color = colorP;
+    this.treatmentType = treatmentTypeP;
+    this.id = findCard(cardTypeP, colorP, treatmentTypeP);
+  }
+}
+
+// return of the id of the card
+int findCard(String cardType, String color, String treatmentType) {
+  // Is not a treatment card
+  // TODO: Uncomment cuando backend haga lo del treatment_type
+  //if(treatment_type == ''){
+  // TODO: borrar cuando backend haga lo del treatment_type
+  if (cardType != 'treatment') {
+    for (int i = 0; i < cardList.length; i++) {
+      if ((cardList[i]['type'] == cardType) &&
+          (cardList[i]['color'] == color)) {
+        return i;
+      }
+    }
+    print('we have a problem' +
+        cardType +
+        " " +
+        color +
+        " " +
+        treatmentType +
+        " ");
+    return -1;
+  }
+  // Is a treatment card
+  // TODO: Uncomment cuando backend haga lo del treatment_type
+  /*
+  for(int i = 0; i < cardList.length; i++){
+    if ((cardList[i]['type'] == card_type) && (cardList[i]['treatment_type'] == treatment_type)){
+      return i;
+    }
+  }*/
+  // TODO: borrar cuando backend haga lo del treatment_type
+  for (int i = 0; i < cardList.length; i++) {
+    if (cardList[i]['type'] == 'treatment') {
+      return i;
+    }
+  }
+
+  print(
+      'we have a problem' + cardType + " " + color + " " + treatmentType + " ");
+  return -1;
 }
 
 //-------------------------------------------------------------------------------------------------------

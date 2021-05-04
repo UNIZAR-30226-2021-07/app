@@ -1,89 +1,66 @@
 import 'package:flutter/material.dart';
-import 'package:gatovidapp/services/models.dart';
-import 'dart:async';
+import 'package:simple_timer/simple_timer.dart';
 
 const COUNT_DOWN_SEGS = 30;
-Timer _timer;
-const oneSec = const Duration(seconds: 1);
-int _start = 0;
-bool myTurn = false;
 
 Color purpleColor = Color(0xff6A1B9A);
 
 class TimerTemplate extends StatefulWidget {
   final width;
   final height;
+  final turnOk;
 
-  TimerTemplate({this.width, this.height});
+  TimerTemplate({this.width, this.height, this.turnOk});
 
   @override
-  _TimerTemplate createState() => _TimerTemplate(this.width, this.height);
+  _TimerTemplate createState() => _TimerTemplate(
+      width: this.width, height: this.height, turnOk: this.turnOk);
 }
 
-class _TimerTemplate extends State<TimerTemplate> {
-  StreamSubscription<bool> streamSubscription;
-  double width;
-  double height;
+class _TimerTemplate extends State<TimerTemplate>
+    with SingleTickerProviderStateMixin {
+  final width;
+  final height;
+  final turnOk;
+
+  TimerController _timerController;
+
+  _TimerTemplate({this.width, this.height, this.turnOk});
 
   @override
   void initState() {
+    // initialize timercontroller
+    _timerController = null;
     super.initState();
-    streamSubscription = streamTimer.listen((data) {
-      if (data == true) {
-        _start = COUNT_DOWN_SEGS;
-        myTurn = true;
-        startTimer();
-        setState(() {});
-      } else {
-        try {
-          _timer.cancel();
-        } catch (e) {}
-        _start = 0;
-        myTurn = false;
-        setState(() {});
-      }
-    });
   }
 
-  _TimerTemplate(width, height) {
-    this.width = width;
-    this.height = height;
-    myTurn = false;
-    _start = 0;
-  }
-
-  void startTimer() {
-    try {
-      _timer.cancel();
-    } catch (e) {}
-    _timer = new Timer.periodic(
-      oneSec,
-      (Timer timer) {
-        if (_start == 0) {
-          setState(() {
-            timer.cancel();
-          });
-        } else {
-          setState(() {
-            _start--;
-          });
-        }
-      },
-    );
+  String durationToSeconds(Duration duration) {
+    return "${(duration.inSeconds.remainder(60))}";
   }
 
   @override
   Widget build(BuildContext context) {
-    if (myTurn == true) {
+    if (this.turnOk == true) {
       return Container(
         height: this.height,
         width: this.width,
         color: Color(0xff6A1B9A),
         alignment: Alignment.center,
-        child: Text(
-          "$_start",
-          style: TextStyle(
-              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
+        child: SimpleTimer(
+          duration: const Duration(seconds: COUNT_DOWN_SEGS),
+          controller: _timerController,
+          onStart: handleTimerOnStart,
+          onEnd: handleTimerOnEnd,
+          status: TimerStatus.start,
+          timerStyle: TimerStyle.expanding_segment,
+          progressIndicatorColor: Color(0xff6A1B9A),
+          valueListener: timerValueChangeListener,
+          backgroundColor: Color(0xff6A1B9A),
+          progressTextFormatter: durationToSeconds,
+          progressTextStyle: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: this.width * 0.2),
         ),
       );
     }
@@ -93,17 +70,22 @@ class _TimerTemplate extends State<TimerTemplate> {
       color: Color(0xffC5C5C5),
       alignment: Alignment.center,
       child: Text(
-        "$_start",
+        "0",
         style: TextStyle(
-            color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: this.width * 0.2),
       ),
     );
   }
 
-  @override
-  void dispose() {
-    _timer.cancel();
-    streamSubscription.cancel();
-    super.dispose();
+  void timerValueChangeListener(Duration timeElapsed) {}
+
+  void handleTimerOnStart() {
+    print("timer has just started");
+  }
+
+  void handleTimerOnEnd() {
+    print("timer has ended");
   }
 }
