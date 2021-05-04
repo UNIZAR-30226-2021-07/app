@@ -57,7 +57,7 @@ class _TimerTemplate extends State<TimerTemplate> with SingleTickerProviderState
           valueListener: timerValueChangeListener,
           backgroundColor: Color(0xff6A1B9A),
           progressTextFormatter: durationToSeconds,
-          progressTextStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
+          progressTextStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: this.width * 0.2),
         ),
       );
     }
@@ -69,7 +69,7 @@ class _TimerTemplate extends State<TimerTemplate> with SingleTickerProviderState
       child: Text(
         "0",
         style: TextStyle(
-            color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
+            color: Colors.white, fontWeight: FontWeight.bold, fontSize:this.width * 0.2),
       ),
     );
   }
