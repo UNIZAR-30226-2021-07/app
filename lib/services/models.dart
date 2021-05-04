@@ -14,9 +14,13 @@ List boardList = [];
 List cardList = [];
 String codeGame = '';
 int numGamers = 1;
+
+// Game data
+
 int expansion = 0;
 String currentTurnPlayer = '';
 List listOfGamers = [];
+List handOfPlayer = [];
 
 StreamController<bool> controllerChat = StreamController<bool>.broadcast();
 StreamController<bool> controllerStat = StreamController<bool>.broadcast();
@@ -146,6 +150,42 @@ class GamePlayer{
     this.pictureId = id;
     this.bodyList = [];
   }
+}
+
+class CardData {
+  String card_type;
+  String color;
+  String treatment_type;
+  int id;
+
+  CardData(String card_typeP, String colorP, String treatment_typeP){
+    this.card_type = card_typeP;
+    this.color = colorP;
+    this.treatment_type = treatment_typeP;
+    this.id = findCard(card_typeP, colorP, treatment_typeP);
+  }
+}
+
+// return of the id of the card
+int findCard(String card_type, String color, String treatment_type){
+  // Is not a treatment card
+  if(treatment_type == ''){
+    for(int i = 0; i < cardList.length; i++){
+      if ((cardList[i]['type'] == card_type) && (cardList[i]['color'] == color)){
+        return i;
+      }
+    }
+    print('we have a problem' + card_type + " " + color + " " + treatment_type + " ");
+    return -1;
+  }
+  // Is a treatment card
+  for(int i = 0; i < cardList.length; i++){
+    if ((cardList[i]['type'] == card_type) && (cardList[i]['treatment_type'] == treatment_type)){
+      return i;
+    }
+  }
+  print('we have a problem' + card_type + " " + color + " " + treatment_type + " ");
+  return -1;
 }
 
 //-------------------------------------------------------------------------------------------------------

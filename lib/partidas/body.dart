@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gatovidapp/partidas/stackCard.dart';
-import 'package:gatovidapp/partidas/card.dart';
+import 'package:gatovidapp/services/models.dart';
 
 class Body extends StatelessWidget {
   const Body({

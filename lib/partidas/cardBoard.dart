@@ -192,9 +192,7 @@ class _CardBoardState extends State<CardBoard> {
                   height: MediaQuery.of(context).size.height * 0.14,
                   child: HandTemplate(
                       width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height * 0.14,
-                      //TODO: la lista con la info del servidor
-                      listCard: [0, 4, 5]),
+                      height: MediaQuery.of(context).size.height * 0.14,),
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.01),
               ],
