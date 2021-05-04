@@ -34,7 +34,6 @@ class PlayersTableTemplate extends StatelessWidget {
                           playerImage: ("assets/common/") +
                               picsList[listOfGamers[4].pictureId]['image'],
                           playerName: listOfGamers[4].name,
-                          //TODO: la lista con la info del servidor
                           listOrgansplayer: listOfGamers[4].bodyList,
                         ),
                         onPressed: () {
@@ -54,7 +53,6 @@ class PlayersTableTemplate extends StatelessWidget {
                           playerImage: ("assets/common/") +
                               picsList[listOfGamers[3].pictureId]['image'],
                           playerName: listOfGamers[3].name,
-                          //TODO: la lista con la info del servidor
                           listOrgansplayer: listOfGamers[3].bodyList,
                         ),
                         onPressed: () {
@@ -81,7 +79,6 @@ class PlayersTableTemplate extends StatelessWidget {
                           playerImage: ("assets/common/") +
                               picsList[listOfGamers[2].pictureId]['image'],
                           playerName: listOfGamers[2].name,
-                          //TODO: la lista con la info del servidor
                           listOrgansplayer: listOfGamers[2].bodyList,
                         ),
                         onPressed: () {
@@ -101,7 +98,6 @@ class PlayersTableTemplate extends StatelessWidget {
                           playerImage: ("assets/common/") +
                               picsList[listOfGamers[1].pictureId]['image'],
                           playerName: listOfGamers[1].name,
-                          //TODO: la lista con la info del servidor
                           listOrgansplayer: listOfGamers[1].bodyList,
                         ),
                         onPressed: () {
@@ -127,7 +123,6 @@ class PlayersTableTemplate extends StatelessWidget {
                           playerImage: ("assets/common/") +
                               picsList[listOfGamers[0].pictureId]['image'],
                           playerName: listOfGamers[0].name,
-                          //TODO: la lista con la info del servidor
                           listOrgansplayer: listOfGamers[0].bodyList,
                         ),
                         onPressed: () {
@@ -160,7 +155,6 @@ class PlayersTableTemplate extends StatelessWidget {
                           playerImage: ("assets/common/") +
                               picsList[listOfGamers[3].pictureId]['image'],
                           playerName: listOfGamers[3].name,
-                          //TODO: la lista con la info del servidor
                           listOrgansplayer: listOfGamers[3].bodyList,
                         ),
                         onPressed: () {
@@ -180,7 +174,6 @@ class PlayersTableTemplate extends StatelessWidget {
                           playerImage: ("assets/common/") +
                               picsList[listOfGamers[2].pictureId]['image'],
                           playerName: listOfGamers[2].name,
-                          //TODO: la lista con la info del servidor
                           listOrgansplayer: listOfGamers[2].bodyList,
                         ),
                         onPressed: () {
@@ -207,7 +200,6 @@ class PlayersTableTemplate extends StatelessWidget {
                           playerImage: ("assets/common/") +
                               picsList[listOfGamers[1].pictureId]['image'],
                           playerName: listOfGamers[1].name,
-                          //TODO: la lista con la info del servidor
                           listOrgansplayer: listOfGamers[1].bodyList,
                         ),
                         onPressed: () {
@@ -227,7 +219,6 @@ class PlayersTableTemplate extends StatelessWidget {
                           playerImage: ("assets/common/") +
                               picsList[listOfGamers[0].pictureId]['image'],
                           playerName: listOfGamers[0].name,
-                          //TODO: la lista con la info del servidor
                           listOrgansplayer: listOfGamers[0].bodyList,
                         ),
                         onPressed: () {
@@ -261,7 +252,6 @@ class PlayersTableTemplate extends StatelessWidget {
                           playerImage: ("assets/common/") +
                               picsList[listOfGamers[2].pictureId]['image'],
                           playerName: listOfGamers[2].name,
-                          //TODO: la lista con la info del servidor
                           listOrgansplayer: listOfGamers[2].bodyList,
                         ),
                         onPressed: () {
@@ -281,7 +271,6 @@ class PlayersTableTemplate extends StatelessWidget {
                           playerImage: ("assets/common/") +
                               picsList[listOfGamers[1].pictureId]['image'],
                           playerName: listOfGamers[1].name,
-                          //TODO: la lista con la info del servidor
                           listOrgansplayer: listOfGamers[1].bodyList,
                         ),
                         onPressed: () {
@@ -308,7 +297,6 @@ class PlayersTableTemplate extends StatelessWidget {
                           playerImage: ("assets/common/") +
                               picsList[listOfGamers[0].pictureId]['image'],
                           playerName: listOfGamers[0].name,
-                          //TODO: la lista con la info del servidor
                           listOrgansplayer: listOfGamers[0].bodyList,
                         ),
                         onPressed: () {
@@ -340,7 +328,6 @@ class PlayersTableTemplate extends StatelessWidget {
                           playerImage: ("assets/common/") +
                               picsList[listOfGamers[1].pictureId]['image'],
                           playerName: listOfGamers[1].name,
-                          //TODO: la lista con la info del servidor
                           listOrgansplayer: listOfGamers[1].bodyList,
                         ),
                         onPressed: () {
@@ -365,7 +352,6 @@ class PlayersTableTemplate extends StatelessWidget {
                           playerImage: ("assets/common/") +
                               picsList[listOfGamers[0].pictureId]['image'],
                           playerName: listOfGamers[0].name,
-                          //TODO: la lista con la info del servidor
                           listOrgansplayer: listOfGamers[0].bodyList,
                         ),
                         onPressed: () {
@@ -397,7 +383,6 @@ class PlayersTableTemplate extends StatelessWidget {
                           playerImage: ("assets/common/") +
                               picsList[listOfGamers[0].pictureId]['image'],
                           playerName: listOfGamers[0].name,
-                          //TODO: la lista con la info del servidor
                           listOrgansplayer: listOfGamers[0].bodyList,
                         ),
                         onPressed: () {
