@@ -114,6 +114,9 @@ void gameUpdateHandler(Map<String, dynamic> json) {
       }
     }
   }
+  if (json['bodies'] != null){
+    // TODO: Read all bodies
+  }
 
   /*
   * Lectura del json recibido
