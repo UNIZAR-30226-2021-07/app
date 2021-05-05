@@ -121,12 +121,57 @@ void gameUpdateHandler(Map<String, dynamic> json) {
     }
   }
   if (json['bodies'] != null) {
-    // TODO: Read all bodies
+    Map<String, dynamic> aux = json['bodies'];
+    // Upgrade all the bodies of the rest of players
+    for (int i = 0; i < listOfGamers.length; i++) {
+      String playerActual = aux[listOfGamers[i]['name']];
+      // There's an upgrade
+      if (aux[playerActual] != null){
+        // At this point we have to extract organs and identifiers
+        listOfGamers[i]['bodyList'].clear();
+        // List of stacks that we receive
+        List aux2 = aux[playerActual];
+        for(int j = 0; j < aux2.length; j++){
+          // We trust in backend so much at this point
+          // organ
+          if(aux2[j]['organ'] != null){
+            listOfGamers[i]['bodyList'].add(CardData(aux2[j]['organ']['card_type'], aux2[j]['organ']['color'], ''));
+          }
+          // Modifiers
+          if(aux2[j]['modifiers'] != null){
+            List aux3 = aux2[j]['modifiers'];
+            if (aux3.length > 0){
+              for(int k = 0; k < aux3.length; k++){
+                listOfGamers[i]['bodyList'].add(CardData(aux3[k]['card_type'], aux2[k]['color'], ''));
+              }
+            }
+          }
+        }
+      }
+    }
+    if(aux[globalData.name]!=null){
+      // At this point we have to extract organs and identifiers
+      bodyOfPlayer.clear();
+      // List of stacks that we receive
+      List aux2 = aux[globalData.name];
+      for(int j = 0; j < aux2.length; j++){
+        // We trust in backend so much at this point
+        // organ
+        if(aux2[j]['organ'] != null){
+          bodyOfPlayer.add(CardData(aux2[j]['organ']['card_type'], aux2[j]['organ']['color'], ''));
+        }
+        // Modifiers
+        if(aux2[j]['modifiers'] != null){
+          List aux3 = aux2[j]['modifiers'];
+          if (aux3.length > 0){
+            for(int k = 0; k < aux3.length; k++){
+              bodyOfPlayer.add(CardData(aux3[k]['card_type'], aux2[k]['color'], ''));
+            }
+          }
+        }
+      }
+    }
   }
-
-  /*
-  * Lectura del json recibido
-  * */
 
   controlGame.add(true);
 }
