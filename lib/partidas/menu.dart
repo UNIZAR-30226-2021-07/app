@@ -182,6 +182,12 @@ class _GamesMenuState extends State<GamesMenu> {
                                   messages.clear();
                                   numGamers = 1;
                                   createGame();
+                                  listOfGamers.clear();
+                                  handOfPlayer.clear();
+                                  bodyOfPlayer.clear();
+                                  bodyOfPlayer = [[], [], [], []];
+                                  isMyTurn = false;
+                                  colorBase = greyColor;
                                   showDialog(
                                     barrierDismissible: false,
                                     context: context,
@@ -216,6 +222,12 @@ class _GamesMenuState extends State<GamesMenu> {
                                 onPressed: () {
                                   messages.clear();
                                   numGamers = 1;
+                                  listOfGamers.clear();
+                                  handOfPlayer.clear();
+                                  bodyOfPlayer.clear();
+                                  bodyOfPlayer = [[], [], [], []];
+                                  isMyTurn = false;
+                                  colorBase = greyColor;
                                   showDialog(
                                     context: context,
                                     builder: (BuildContext context) =>
@@ -250,6 +262,12 @@ class _GamesMenuState extends State<GamesMenu> {
                                   messages.clear();
                                   numGamers = 1;
                                   publicGame();
+                                  listOfGamers.clear();
+                                  handOfPlayer.clear();
+                                  bodyOfPlayer.clear();
+                                  bodyOfPlayer = [[], [], [], []];
+                                  isMyTurn = false;
+                                  colorBase = greyColor;
                                   showDialog(
                                     barrierDismissible: false,
                                     context: context,

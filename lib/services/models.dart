@@ -1,4 +1,6 @@
 import 'package:flutter/services.dart';
+import 'package:flutter/material.dart';
+import 'package:simple_timer/simple_timer.dart';
 import 'dart:convert';
 import 'dart:async';
 
@@ -21,7 +23,14 @@ int expansion = 0;
 String currentTurnPlayer = '';
 List listOfGamers = [];
 List handOfPlayer = [];
+List bodyOfPlayer = [];
+TimerStatus timerStatusPlayer = TimerStatus.pause;
+
+Color purpleColor = Color(0xff6A1B9A);
+Color greyColor = Color(0xffC5C5C5);
+
 bool isMyTurn = false;
+Color colorBase = greyColor;
 
 StreamController<bool> controllerChat = StreamController<bool>.broadcast();
 StreamController<bool> controllerStat = StreamController<bool>.broadcast();
@@ -39,9 +48,7 @@ Stream streamUsersWaiting = controllerUsersWaiting.stream;
 Stream streamGoToLogin = controllerGoToLogin.stream;
 
 // Partida
-StreamController<bool> controlTimer = StreamController<bool>.broadcast();
 StreamController<bool> controlGame = StreamController<bool>.broadcast();
-Stream streamTimer = controlTimer.stream;
 Stream streamGame = controlGame.stream;
 
 //Modelos para guardar información al traducir las respuestas de la API
@@ -149,7 +156,7 @@ class GamePlayer {
   GamePlayer(String nameP, int id) {
     this.name = nameP;
     this.pictureId = id;
-    this.bodyList = [];
+    this.bodyList = [[], [], [], []];
   }
 }
 
@@ -158,12 +165,15 @@ class CardData {
   String color;
   String treatmentType;
   int id;
+  int indice;
 
-  CardData(String cardTypeP, String colorP, String treatmentTypeP) {
+  CardData(
+      String cardTypeP, String colorP, String treatmentTypeP, int indiceP) {
     this.cardType = cardTypeP;
     this.color = colorP;
     this.treatmentType = treatmentTypeP;
     this.id = findCard(cardTypeP, colorP, treatmentTypeP);
+    this.indice = indiceP;
   }
 }
 

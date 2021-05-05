@@ -66,9 +66,11 @@ class PlayerBox extends StatelessWidget {
           //Espacio para el cuerpo
           Container(
             child: Body(
-                width: this.width,
-                height: this.height * 0.65,
-                listOrgans: listOrgansplayer),
+              width: this.width,
+              height: this.height * 0.65,
+              listOrgans: this.listOrgansplayer,
+              name: this.playerName,
+            ),
           )
         ],
       ),

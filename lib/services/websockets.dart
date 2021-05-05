@@ -111,23 +111,74 @@ void gameUpdateHandler(Map<String, dynamic> json) {
     for (int i = 0; i < aux.length; i++) {
       // Is a treatment type
       if (aux[i]['treatment_type'] == null) {
-        handOfPlayer.add(CardData(aux[i]['card_type'], aux[i]['color'], ''));
+        handOfPlayer.add(CardData(aux[i]['card_type'], aux[i]['color'], '', i));
       }
       // Is not a treatment type
       else {
         handOfPlayer.add(CardData(
-            aux[i]['card_type'], aux[i]['color'], aux[i]['treatment_type']));
+            aux[i]['card_type'], aux[i]['color'], aux[i]['treatment_type'], i));
       }
     }
   }
   if (json['bodies'] != null) {
-    // TODO: Read all bodies
+    Map<String, dynamic> aux = json['bodies'];
+    // Upgrade all the bodies of the rest of players
+    for (int i = 0; i < listOfGamers.length; i++) {
+      // There's an upgrade
+      if (aux[listOfGamers[i].name] != null) {
+        // At this point we have to extract organs and identifiers
+        listOfGamers[i].bodyList.clear();
+        // List of stacks that we receive
+        List aux2 = aux[listOfGamers[i].name];
+        for (int j = 0; j < aux2.length; j++) {
+          listOfGamers[i].bodyList.add([]);
+          // We trust in backend so much at this point
+          // organ
+          if (aux2[j]['organ'] != null) {
+            listOfGamers[i].bodyList[j].add(CardData(
+                aux2[j]['organ']['card_type'],
+                aux2[j]['organ']['color'],
+                '',
+                -1));
+          }
+          // Modifiers
+          if (aux2[j]['modifiers'] != null) {
+            List aux3 = aux2[j]['modifiers'];
+            if (aux3.length > 0) {
+              for (int k = 0; k < aux3.length; k++) {
+                listOfGamers[i].bodyList[j].add(
+                    CardData(aux3[k]['card_type'], aux3[k]['color'], '', -1));
+              }
+            }
+          }
+        }
+      }
+    }
+    if (aux[globalData.name] != null) {
+      // At this point we have to extract organs and identifiers
+      bodyOfPlayer.clear();
+      // List of stacks that we receive
+      List aux2 = aux[globalData.name];
+      for (int i = 0; i < aux2.length; i++) {
+        bodyOfPlayer.add([]);
+        // We trust in backend so much at this point
+        // organ
+        if (aux2[i]['organ'] != null) {
+          bodyOfPlayer[i].add(CardData(aux2[i]['organ']['card_type'],
+              aux2[i]['organ']['color'], '', -1));
+          if (aux2[i]['modifiers'] != null) {
+            List aux3 = aux2[i]['modifiers'];
+            if (aux3.length > 0) {
+              for (int j = 0; j < aux3.length; j++) {
+                bodyOfPlayer[i].add(
+                    CardData(aux3[j]['card_type'], aux3[j]['color'], '', -1));
+              }
+            }
+          }
+        }
+      }
+    }
   }
-
-  /*
-  * Lectura del json recibido
-  * */
-
   controlGame.add(true);
 }
 
@@ -179,6 +230,24 @@ void stopSearchingPublic() {
   print('stop_searching emit');
   socket.emitWithAck('stop_searching', null,
       ack: (data) => print('stop_searching ack received'));
+}
+
+void playCard(String target, int organPile, int slot) {
+  print('play_card emit-> Target: ' +
+      target +
+      ' |organ_pile: ' +
+      organPile.toString() +
+      ' |slot: ' +
+      slot.toString());
+  print('Card Type: ' + handOfPlayer[slot].cardType.toString());
+  socket.emitWithAck(
+      'play_card',
+      {
+        'slot': slot,
+        'target': target,
+        'organ_pile': organPile,
+      },
+      ack: (data) => print('PlayCard error:' + data.toString()));
 }
 
 void disconnectWebSocket() {
