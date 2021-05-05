@@ -30,12 +30,18 @@ class _CardBoardState extends State<CardBoard>
   void initState() {
     super.initState();
     expansion = 0;
-    _timerController = null;
+    _timerController = TimerController(this);
     if (isMyTurn) {
-      timerStatusPlayer = TimerStatus.start;
+      new Timer(const Duration(milliseconds: 1000), () {
+        setState(() {
+          _timerController.restart(
+              startFrom: const Duration(seconds: COUNT_DOWN_SEGS - 1));
+        });
+      });
       colorBase = purpleColor;
-    } else {
-      timerStatusPlayer = TimerStatus.pause;
+    }
+    // Not my turn
+    else {
       colorBase = greyColor;
     }
 
@@ -195,7 +201,6 @@ class _CardBoardState extends State<CardBoard>
                             onEnd: handleTimerOnEnd,
                             timerStyle: TimerStyle.expanding_segment,
                             progressIndicatorColor: colorBase,
-                            status: timerStatusPlayer,
                             backgroundColor: colorBase,
                             progressTextFormatter: durationToSeconds,
                             progressTextStyle: TextStyle(
