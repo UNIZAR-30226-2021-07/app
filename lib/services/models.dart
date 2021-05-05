@@ -148,7 +148,7 @@ class GamePlayer {
   GamePlayer(String nameP, int id) {
     this.name = nameP;
     this.pictureId = id;
-    this.bodyList = [];
+    this.bodyList = [[],[],[],[]];
   }
 }
 
@@ -157,12 +157,14 @@ class CardData {
   String color;
   String treatmentType;
   int id;
+  int indice;
 
-  CardData(String cardTypeP, String colorP, String treatmentTypeP) {
+  CardData(String cardTypeP, String colorP, String treatmentTypeP, int indiceP) {
     this.cardType = cardTypeP;
     this.color = colorP;
     this.treatmentType = treatmentTypeP;
     this.id = findCard(cardTypeP, colorP, treatmentTypeP);
+    this.indice = indiceP;
   }
 }
 

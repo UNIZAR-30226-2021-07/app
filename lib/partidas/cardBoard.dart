@@ -220,8 +220,8 @@ class _CardBoardState extends State<CardBoard> with SingleTickerProviderStateMix
                   child: Body(
                     width: MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height * 0.13,
-                    //TODO:  la lista con la info del servidor
                     listOrgans: bodyOfPlayer,
+                    name: globalData.name,
                   ),
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.02),
