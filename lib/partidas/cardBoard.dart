@@ -33,7 +33,7 @@ class _CardBoardState extends State<CardBoard>
     _timerController = TimerController(this);
 
     if (isMyTurn) {
-      _timerController.restart();
+      _timerController.restart(startFrom: const Duration(seconds: COUNT_DOWN_SEGS));
       colorBase = purpleColor;
     }
     // Not my turn
@@ -46,7 +46,7 @@ class _CardBoardState extends State<CardBoard>
       print('My turn -> ' + isMyTurn.toString());
       // My turn
       if (isMyTurn) {
-        _timerController.restart();
+        _timerController.restart(startFrom: const Duration(seconds: COUNT_DOWN_SEGS));
         colorBase = purpleColor;
       }
       // Not my turn
@@ -197,7 +197,6 @@ class _CardBoardState extends State<CardBoard>
                             onEnd: handleTimerOnEnd,
                             timerStyle: TimerStyle.expanding_segment,
                             progressIndicatorColor: colorBase,
-                            valueListener: timerValueChangeListener,
                             backgroundColor: colorBase,
                             progressTextFormatter: durationToSeconds,
                             progressTextStyle: TextStyle(
@@ -251,10 +250,9 @@ class _CardBoardState extends State<CardBoard>
   @override
   void dispose() {
     super.dispose();
+    _timerController.dispose();
     streamSubscription.cancel();
   }
-
-  void timerValueChangeListener(Duration timeElapsed) {}
 
   void handleTimerOnStart() {
     print("timer has just started");
