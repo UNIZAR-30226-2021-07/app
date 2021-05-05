@@ -185,7 +185,9 @@ class _GamesMenuState extends State<GamesMenu> {
                                   listOfGamers.clear();
                                   handOfPlayer.clear();
                                   bodyOfPlayer.clear();
-                                  bodyOfPlayer = [[],[],[],[]];
+                                  bodyOfPlayer = [[], [], [], []];
+                                  isMyTurn = false;
+                                  colorBase = greyColor;
                                   showDialog(
                                     barrierDismissible: false,
                                     context: context,
@@ -223,7 +225,9 @@ class _GamesMenuState extends State<GamesMenu> {
                                   listOfGamers.clear();
                                   handOfPlayer.clear();
                                   bodyOfPlayer.clear();
-                                  bodyOfPlayer = [[],[],[],[]];
+                                  bodyOfPlayer = [[], [], [], []];
+                                  isMyTurn = false;
+                                  colorBase = greyColor;
                                   showDialog(
                                     context: context,
                                     builder: (BuildContext context) =>
@@ -261,7 +265,9 @@ class _GamesMenuState extends State<GamesMenu> {
                                   listOfGamers.clear();
                                   handOfPlayer.clear();
                                   bodyOfPlayer.clear();
-                                  bodyOfPlayer = [[],[],[],[]];
+                                  bodyOfPlayer = [[], [], [], []];
+                                  isMyTurn = false;
+                                  colorBase = greyColor;
                                   showDialog(
                                     barrierDismissible: false,
                                     context: context,

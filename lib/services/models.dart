@@ -1,4 +1,5 @@
 import 'package:flutter/services.dart';
+import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'dart:async';
 
@@ -22,7 +23,12 @@ String currentTurnPlayer = '';
 List listOfGamers = [];
 List handOfPlayer = [];
 List bodyOfPlayer = [];
+
+Color purpleColor = Color(0xff6A1B9A);
+Color greyColor = Color(0xffC5C5C5);
+
 bool isMyTurn = false;
+Color colorBase = greyColor;
 
 StreamController<bool> controllerChat = StreamController<bool>.broadcast();
 StreamController<bool> controllerStat = StreamController<bool>.broadcast();
@@ -148,7 +154,7 @@ class GamePlayer {
   GamePlayer(String nameP, int id) {
     this.name = nameP;
     this.pictureId = id;
-    this.bodyList = [[],[],[],[]];
+    this.bodyList = [[], [], [], []];
   }
 }
 
@@ -159,7 +165,8 @@ class CardData {
   int id;
   int indice;
 
-  CardData(String cardTypeP, String colorP, String treatmentTypeP, int indiceP) {
+  CardData(
+      String cardTypeP, String colorP, String treatmentTypeP, int indiceP) {
     this.cardType = cardTypeP;
     this.color = colorP;
     this.treatmentType = treatmentTypeP;

@@ -29,7 +29,7 @@ class Body extends StatelessWidget {
             ),
             DragTarget<CardData>(
               builder: (context, candidateItems, rejectedItems) {
-                if(listOrgans[0].length > 0){
+                if (listOrgans[0].length > 0) {
                   return StackCardTemplate(
                     width: this.width * 0.225,
                     height: this.height,
@@ -45,7 +45,7 @@ class Body extends StatelessWidget {
                 return true;
               },
               onAccept: (data) {
-                playCard(this.name, 0, data.indice) ;
+                playCard(this.name, 0, data.indice);
               },
             ),
             Container(
@@ -54,7 +54,7 @@ class Body extends StatelessWidget {
             ),
             DragTarget<CardData>(
               builder: (context, candidateItems, rejectedItems) {
-                if(listOrgans[1].length > 0){
+                if (listOrgans[1].length > 0) {
                   return StackCardTemplate(
                     width: this.width * 0.225,
                     height: this.height,
@@ -70,7 +70,7 @@ class Body extends StatelessWidget {
                 return true;
               },
               onAccept: (data) {
-                playCard(this.name, 1, data.indice) ;
+                playCard(this.name, 1, data.indice);
               },
             ),
             Container(
@@ -79,7 +79,7 @@ class Body extends StatelessWidget {
             ),
             DragTarget<CardData>(
               builder: (context, candidateItems, rejectedItems) {
-                if(listOrgans[2].length > 0){
+                if (listOrgans[2].length > 0) {
                   return StackCardTemplate(
                     width: this.width * 0.225,
                     height: this.height,
@@ -95,7 +95,7 @@ class Body extends StatelessWidget {
                 return true;
               },
               onAccept: (data) {
-                playCard(this.name, 2, data.indice) ;
+                playCard(this.name, 2, data.indice);
               },
             ),
             Container(
@@ -104,7 +104,7 @@ class Body extends StatelessWidget {
             ),
             DragTarget<CardData>(
               builder: (context, candidateItems, rejectedItems) {
-                if(listOrgans[3].length > 0){
+                if (listOrgans[3].length > 0) {
                   return StackCardTemplate(
                     width: this.width * 0.225,
                     height: this.height,
@@ -120,7 +120,7 @@ class Body extends StatelessWidget {
                 return true;
               },
               onAccept: (data) {
-                playCard(this.name, 3, data.indice) ;
+                playCard(this.name, 3, data.indice);
               },
             ),
             Container(
