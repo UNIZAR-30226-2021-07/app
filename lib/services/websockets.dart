@@ -143,7 +143,7 @@ void gameUpdateHandler(Map<String, dynamic> json) {
           }
           // Modifiers
           if (aux2[j]['modifiers'] != null) {
-            List<Map<String, Object>> aux3 = aux2[j]['modifiers'];
+            List aux3 = aux2[j]['modifiers'];
             if (aux3.length > 0) {
               for (int k = 0; k < aux3.length; k++) {
                 listOfGamers[i].bodyList[j].add(
