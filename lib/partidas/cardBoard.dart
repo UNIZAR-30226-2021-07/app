@@ -179,12 +179,7 @@ class _CardBoardState extends State<CardBoard> {
                     width: MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height * 0.13,
                     //TODO:  la lista con la info del servidor
-                    listOrgans: [
-                      [0],
-                      [1, 5, 8],
-                      [9, 7],
-                      [9, 10, 15]
-                    ],
+                    listOrgans: bodyOfPlayer,
                   ),
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.02),

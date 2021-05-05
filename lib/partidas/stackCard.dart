@@ -26,7 +26,7 @@ class StackCardTemplate extends StatelessWidget {
               child: CardTemplate(
                   width: this.width * 0.9,
                   height: this.height * 0.8,
-                  numCard: listCard[0]),
+                  numCard: listCard[0].id),
             ),
           ],
         ),
@@ -44,14 +44,14 @@ class StackCardTemplate extends StatelessWidget {
               child: CardTemplate(
                   width: this.width * 0.9,
                   height: this.height * 0.8,
-                  numCard: listCard[0]),
+                  numCard: listCard[0].id),
             ),
             Positioned(
               top: this.height * 0.1,
               child: CardTemplate(
                   width: this.width * 0.9,
                   height: this.height * 0.8,
-                  numCard: listCard[1]),
+                  numCard: listCard[1].id),
             ),
           ],
         ),
@@ -68,21 +68,21 @@ class StackCardTemplate extends StatelessWidget {
             child: CardTemplate(
                 width: this.width * 0.9,
                 height: this.height * 0.8,
-                numCard: listCard[0]),
+                numCard: listCard[0].id),
           ),
           Positioned(
             top: this.height * 0.1,
             child: CardTemplate(
                 width: this.width * 0.9,
                 height: this.height * 0.8,
-                numCard: listCard[1]),
+                numCard: listCard[1].id),
           ),
           Positioned(
             top: this.height * 0.2,
             child: CardTemplate(
                 width: this.width * 0.9,
                 height: this.height * 0.8,
-                numCard: listCard[2]),
+                numCard: listCard[2].id),
           ),
         ],
       ),

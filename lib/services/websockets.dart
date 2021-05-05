@@ -120,29 +120,64 @@ void gameUpdateHandler(Map<String, dynamic> json) {
       }
     }
   }
+  //////////////////////////////////////////////////////////////////////////////
+  // TODO: Borrar despues de probar que funciona
+  json['bodies'] = {
+    // Pila del jugador, siempre de longitud 4.
+    "tomenos": [
+      {
+        // Puede ser nulo si no hay nada en esa posición.
+        "organ": {
+          "card_type": "organ",
+          "color": "red"
+        },
+        // Puede estar vacío si no hay modificadores.
+        "modifiers": [
+          {"card_type": "virus", "color": "red"},
+        ]
+      },
+    ],
+    "tomenos18": [
+      {
+        // Puede ser nulo si no hay nada en esa posición.
+        "organ": {
+          "card_type": "organ",
+          "color": "red"
+        },
+        // Puede estar vacío si no hay modificadores.
+        "modifiers": [
+          {"card_type": "virus", "color": "red"},
+        ]
+      },
+    ],
+  };
+
+  //////////////////////////////////////////////////////////////////////////////
   if (json['bodies'] != null) {
     Map<String, dynamic> aux = json['bodies'];
     // Upgrade all the bodies of the rest of players
     for (int i = 0; i < listOfGamers.length; i++) {
-      String playerActual = aux[listOfGamers[i]['name']];
+      print(aux[listOfGamers[i].name].toString());
+      List<Map<String, Object>> playerActual = aux[listOfGamers[i].name];
       // There's an upgrade
       if (aux[playerActual] != null){
         // At this point we have to extract organs and identifiers
-        listOfGamers[i]['bodyList'].clear();
+        listOfGamers[i].bodyList.clear();
         // List of stacks that we receive
         List aux2 = aux[playerActual];
         for(int j = 0; j < aux2.length; j++){
+          listOfGamers[i].bodyList.add([]);
           // We trust in backend so much at this point
           // organ
           if(aux2[j]['organ'] != null){
-            listOfGamers[i]['bodyList'].add(CardData(aux2[j]['organ']['card_type'], aux2[j]['organ']['color'], ''));
+            listOfGamers[i].bodyList[j].add(CardData(aux2[j]['organ']['card_type'], aux2[j]['organ']['color'], ''));
           }
           // Modifiers
           if(aux2[j]['modifiers'] != null){
             List aux3 = aux2[j]['modifiers'];
             if (aux3.length > 0){
               for(int k = 0; k < aux3.length; k++){
-                listOfGamers[i]['bodyList'].add(CardData(aux3[k]['card_type'], aux2[k]['color'], ''));
+                listOfGamers[i].bodyList[j].add(CardData(aux3[k]['card_type'], aux2[k]['color'], ''));
               }
             }
           }
@@ -154,18 +189,19 @@ void gameUpdateHandler(Map<String, dynamic> json) {
       bodyOfPlayer.clear();
       // List of stacks that we receive
       List aux2 = aux[globalData.name];
-      for(int j = 0; j < aux2.length; j++){
+      for(int i = 0; i < aux2.length; i++){
+        bodyOfPlayer.add([]);
         // We trust in backend so much at this point
         // organ
-        if(aux2[j]['organ'] != null){
-          bodyOfPlayer.add(CardData(aux2[j]['organ']['card_type'], aux2[j]['organ']['color'], ''));
+        if(aux2[i]['organ'] != null){
+          bodyOfPlayer[i].add(CardData(aux2[i]['organ']['card_type'], aux2[i]['organ']['color'], ''));
         }
         // Modifiers
-        if(aux2[j]['modifiers'] != null){
-          List aux3 = aux2[j]['modifiers'];
+        if(aux2[i]['modifiers'] != null){
+          List aux3 = aux2[i]['modifiers'];
           if (aux3.length > 0){
-            for(int k = 0; k < aux3.length; k++){
-              bodyOfPlayer.add(CardData(aux3[k]['card_type'], aux2[k]['color'], ''));
+            for(int j = 0; j < aux3.length; j++){
+              bodyOfPlayer[i].add(CardData(aux3[j]['card_type'], aux3[j]['color'], ''));
             }
           }
         }
