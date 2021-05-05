@@ -32,21 +32,12 @@ class _CardBoardState extends State<CardBoard>
     expansion = 0;
     _timerController = TimerController(this);
 
-    if (isMyTurn) {
-      _timerController.restart(startFrom: const Duration(seconds: COUNT_DOWN_SEGS));
-      colorBase = purpleColor;
-    }
-    // Not my turn
-    else {
-      _timerController.reset();
-      colorBase = greyColor;
-    }
-
     streamSubscription = streamGame.listen((data) {
       print('My turn -> ' + isMyTurn.toString());
       // My turn
       if (isMyTurn) {
-        _timerController.restart(startFrom: const Duration(seconds: COUNT_DOWN_SEGS));
+        _timerController.restart(
+            startFrom: const Duration(seconds: COUNT_DOWN_SEGS));
         colorBase = purpleColor;
       }
       // Not my turn
