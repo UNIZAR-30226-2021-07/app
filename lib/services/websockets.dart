@@ -120,51 +120,16 @@ void gameUpdateHandler(Map<String, dynamic> json) {
       }
     }
   }
-  //////////////////////////////////////////////////////////////////////////////
-  // TODO: Borrar despues de probar que funciona
-  json['bodies'] = {
-    // Pila del jugador, siempre de longitud 4.
-    "tomenos": [
-      {
-        // Puede ser nulo si no hay nada en esa posición.
-        "organ": {
-          "card_type": "organ",
-          "color": "red"
-        },
-        // Puede estar vacío si no hay modificadores.
-        "modifiers": [
-          {"card_type": "virus", "color": "red"},
-        ]
-      },
-    ],
-    "tomenos18": [
-      {
-        // Puede ser nulo si no hay nada en esa posición.
-        "organ": {
-          "card_type": "organ",
-          "color": "red"
-        },
-        // Puede estar vacío si no hay modificadores.
-        "modifiers": [
-          {"card_type": "virus", "color": "red"},
-        ]
-      },
-    ],
-  };
-
-  //////////////////////////////////////////////////////////////////////////////
   if (json['bodies'] != null) {
     Map<String, dynamic> aux = json['bodies'];
     // Upgrade all the bodies of the rest of players
     for (int i = 0; i < listOfGamers.length; i++) {
-      print(aux[listOfGamers[i].name].toString());
-      List<Map<String, Object>> playerActual = aux[listOfGamers[i].name];
       // There's an upgrade
-      if (aux[playerActual] != null){
+      if (aux[listOfGamers[i].name] != null){
         // At this point we have to extract organs and identifiers
         listOfGamers[i].bodyList.clear();
         // List of stacks that we receive
-        List aux2 = aux[playerActual];
+        List aux2 = aux[listOfGamers[i].name];
         for(int j = 0; j < aux2.length; j++){
           listOfGamers[i].bodyList.add([]);
           // We trust in backend so much at this point
@@ -174,10 +139,10 @@ void gameUpdateHandler(Map<String, dynamic> json) {
           }
           // Modifiers
           if(aux2[j]['modifiers'] != null){
-            List aux3 = aux2[j]['modifiers'];
+            List<Map<String, Object>> aux3 = aux2[j]['modifiers'];
             if (aux3.length > 0){
               for(int k = 0; k < aux3.length; k++){
-                listOfGamers[i].bodyList[j].add(CardData(aux3[k]['card_type'], aux2[k]['color'], ''));
+                listOfGamers[i].bodyList[j].add(CardData(aux3[k]['card_type'], aux3[k]['color'], ''));
               }
             }
           }
