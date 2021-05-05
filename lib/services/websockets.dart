@@ -173,7 +173,6 @@ void gameUpdateHandler(Map<String, dynamic> json) {
       }
     }
   }
-
   controlGame.add(true);
 }
 

@@ -40,9 +40,7 @@ Stream streamUsersWaiting = controllerUsersWaiting.stream;
 Stream streamGoToLogin = controllerGoToLogin.stream;
 
 // Partida
-StreamController<bool> controlTimer = StreamController<bool>.broadcast();
 StreamController<bool> controlGame = StreamController<bool>.broadcast();
-Stream streamTimer = controlTimer.stream;
 Stream streamGame = controlGame.stream;
 
 //Modelos para guardar información al traducir las respuestas de la API

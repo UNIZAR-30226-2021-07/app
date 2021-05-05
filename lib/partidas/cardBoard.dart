@@ -7,22 +7,47 @@ import 'package:gatovidapp/services/websockets.dart';
 import 'package:gatovidapp/partidas/hand.dart';
 import 'package:gatovidapp/partidas/body.dart';
 import 'package:gatovidapp/partidas/playersTable.dart';
-import 'package:gatovidapp/partidas/timer.dart';
+import 'package:simple_timer/simple_timer.dart';
 import 'dart:async';
+
+const COUNT_DOWN_SEGS = 30;
+
+Color purpleColor = Color(0xff6A1B9A);
+Color greyColor = Color(0xffC5C5C5);
+
+String durationToSeconds(Duration duration) {
+  return "${(duration.inSeconds.remainder(60))}";
+}
 
 class CardBoard extends StatefulWidget {
   @override
   _CardBoardState createState() => _CardBoardState();
 }
 
-class _CardBoardState extends State<CardBoard> {
+class _CardBoardState extends State<CardBoard> with SingleTickerProviderStateMixin{
   StreamSubscription<bool> streamSubscription;
+  TimerController _timerController;
+  Color colorBase;
 
   @override
   void initState() {
     super.initState();
+    isMyTurn = false;
     expansion = 0;
+    colorBase = greyColor;
+    _timerController = TimerController(this);
     streamSubscription = streamGame.listen((data) {
+      print('My turn -> '+isMyTurn.toString());
+      // My turn
+      if(isMyTurn){
+        _timerController.restart();
+        colorBase = purpleColor;
+      }
+      // Not my turn
+      else{
+        _timerController.reset();
+        colorBase = greyColor;
+      }
       setState(() {});
     });
   }
@@ -154,11 +179,28 @@ class _CardBoardState extends State<CardBoard> {
                           width: MediaQuery.of(context).size.width * 0.34,
                           height: MediaQuery.of(context).size.height * 0.04,
                           color: Colors.pinkAccent,
-                          child: TimerTemplate(
-                            width: MediaQuery.of(context).size.width * 0.3,
-                            height: MediaQuery.of(context).size.height * 0.04,
-                            turnOk: isMyTurn,
-                          )),
+                          child: Container(
+                            height: MediaQuery.of(context).size.height * 0.035,
+                            width: MediaQuery.of(context).size.width * 0.32,
+                            color: colorBase,
+                            alignment: Alignment.center,
+                            child: SimpleTimer(
+                              duration: const Duration(seconds: COUNT_DOWN_SEGS),
+                              controller: _timerController,
+                              onStart: handleTimerOnStart,
+                              onEnd: handleTimerOnEnd,
+                              timerStyle: TimerStyle.expanding_segment,
+                              progressIndicatorColor: colorBase,
+                              valueListener: timerValueChangeListener,
+                              backgroundColor: colorBase,
+                              progressTextFormatter: durationToSeconds,
+                              progressTextStyle: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20),
+                            ),
+                          ),
+                      ),
                       Container(
                           width: MediaQuery.of(context).size.width * 0.33,
                           height: MediaQuery.of(context).size.height * 0.04,
@@ -204,5 +246,15 @@ class _CardBoardState extends State<CardBoard> {
   void dispose() {
     super.dispose();
     streamSubscription.cancel();
+  }
+
+  void timerValueChangeListener(Duration timeElapsed) {}
+
+  void handleTimerOnStart() {
+    print("timer has just started");
+  }
+
+  void handleTimerOnEnd() {
+    print("timer has ended");
   }
 }
