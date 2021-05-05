@@ -1,5 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
+import 'package:simple_timer/simple_timer.dart';
 import 'dart:convert';
 import 'dart:async';
 
@@ -23,6 +24,7 @@ String currentTurnPlayer = '';
 List listOfGamers = [];
 List handOfPlayer = [];
 List bodyOfPlayer = [];
+TimerStatus timerStatusPlayer = TimerStatus.pause;
 
 Color purpleColor = Color(0xff6A1B9A);
 Color greyColor = Color(0xffC5C5C5);

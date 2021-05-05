@@ -30,7 +30,14 @@ class _CardBoardState extends State<CardBoard>
   void initState() {
     super.initState();
     expansion = 0;
-    _timerController = TimerController(this);
+    _timerController = null;
+    if (isMyTurn) {
+      timerStatusPlayer = TimerStatus.start;
+      colorBase = purpleColor;
+    } else {
+      timerStatusPlayer = TimerStatus.pause;
+      colorBase = greyColor;
+    }
 
     streamSubscription = streamGame.listen((data) {
       print('My turn -> ' + isMyTurn.toString());
@@ -188,6 +195,7 @@ class _CardBoardState extends State<CardBoard>
                             onEnd: handleTimerOnEnd,
                             timerStyle: TimerStyle.expanding_segment,
                             progressIndicatorColor: colorBase,
+                            status: timerStatusPlayer,
                             backgroundColor: colorBase,
                             progressTextFormatter: durationToSeconds,
                             progressTextStyle: TextStyle(
