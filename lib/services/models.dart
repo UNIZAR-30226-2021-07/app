@@ -26,6 +26,9 @@ List handOfPlayer = [];
 List bodyOfPlayer = [];
 TimerStatus timerStatusPlayer = TimerStatus.pause;
 
+// Store
+String costPurchaseSelected = '900';
+
 Color purpleColor = Color(0xff6A1B9A);
 Color greyColor = Color(0xffC5C5C5);
 

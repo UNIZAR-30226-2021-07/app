@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:gatovidapp/tienda/money.dart';
 import 'package:gatovidapp/tienda/purchasable.dart';
+import 'package:gatovidapp/popUps/confirmPurchase.dart';
 
 class PicturesStore extends StatefulWidget {
   @override
@@ -74,7 +75,24 @@ class _PicturesStoreState extends State<PicturesStore> {
                   "Tablero",
                   textAlign: TextAlign.center,
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                ))
+                )),
+            ElevatedButton(
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) => PurchaseAlert(),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                    primary: Color(0xFF9C4DCC),
+                    onPrimary: Colors.white,
+                    minimumSize: Size(double.infinity, 20)),
+                child: Text(
+                  "Pop-up confirmar compra",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                )
+            )
           ],
         ),
       ),

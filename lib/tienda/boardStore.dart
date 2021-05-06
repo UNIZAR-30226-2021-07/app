@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gatovidapp/tienda/money.dart';
+import 'package:gatovidapp/tienda/purchasable.dart';
+import 'package:gatovidapp/popUps/confirmPurchase.dart';
 
 class BoardStore extends StatefulWidget {
   @override
@@ -37,6 +39,28 @@ class _BoardStoreState extends State<BoardStore> {
                 Container(width: MediaQuery.of(context).size.width * 0.075,),
               ],
             ),
+            Container(height: MediaQuery.of(context).size.height * 0.025),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(width: MediaQuery.of(context).size.width * 0.1,),
+                PurchaseTemplate(width: MediaQuery.of(context).size.width * 0.35, idPurchase: 0, typePurchase: 'board', isPurchased: true, isSelected: true,),
+                Container(width: MediaQuery.of(context).size.width * 0.1,),
+                PurchaseTemplate(width: MediaQuery.of(context).size.width * 0.35, idPurchase: 1, typePurchase: 'board', isPurchased: true, isSelected: false,),
+                Container(width: MediaQuery.of(context).size.width * 0.1,),
+              ],
+            ),
+            Container(height: MediaQuery.of(context).size.height * 0.025),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(width: MediaQuery.of(context).size.width * 0.1,),
+                PurchaseTemplate(width: MediaQuery.of(context).size.width * 0.35, idPurchase: 2, typePurchase: 'board', isPurchased: false, isSelected: false,),
+                Container(width: MediaQuery.of(context).size.width * 0.1,),
+                PurchaseTemplate(width: MediaQuery.of(context).size.width * 0.35, idPurchase: 3, typePurchase: 'board', isPurchased: true, isSelected: false,),
+                Container(width: MediaQuery.of(context).size.width * 0.1,),
+              ],
+            ),
             Text("Pantalla tienda color tablero"),
             ElevatedButton(
                 onPressed: () {
@@ -50,7 +74,24 @@ class _BoardStoreState extends State<BoardStore> {
                   "Avatar",
                   textAlign: TextAlign.center,
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                ))
+                )),
+            ElevatedButton(
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) => PurchaseAlert(),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                    primary: Color(0xFF9C4DCC),
+                    onPrimary: Colors.white,
+                    minimumSize: Size(double.infinity, 20)),
+                child: Text(
+                  "Pop-up confirmar compra",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                )
+            )
           ],
         ),
       ),
