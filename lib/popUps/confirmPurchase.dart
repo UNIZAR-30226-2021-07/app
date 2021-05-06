@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gatovidapp/services/auth.dart';
 import 'package:gatovidapp/services/models.dart';
 
 Color blackWords = Color(0xff000000);
@@ -8,8 +7,6 @@ Color greyButton = Color(0xffE5E5E5);
 Color whiteWords = Color(0xffffffff);
 
 class PurchaseAlert extends StatelessWidget {
-  final AuthService _authService = AuthService();
-
   @override
   Widget build(BuildContext context) {
     return new AlertDialog(
@@ -35,15 +32,18 @@ class PurchaseAlert extends StatelessWidget {
                   color: Color(0xff000000),
                 ),
               ),
-              Container(width: MediaQuery.of(context).size.width * 0.03,),
+              Container(
+                width: MediaQuery.of(context).size.width * 0.03,
+              ),
               Icon(Icons.pets,
-                  size: MediaQuery.of(context).size.width * 0.1, color: Colors.amber),
+                  size: MediaQuery.of(context).size.width * 0.1,
+                  color: Colors.amber),
             ],
           ),
         ),
         Padding(
           padding:
-          EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.023),
+              EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.023),
         ),
         new Center(
           child: new ElevatedButton(

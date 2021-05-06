@@ -106,18 +106,24 @@ class UserData {
   final List purchasedPicts;
   //List
 
-  UserData({this.name, this.email, this.coins, this.picture, this.board, this.purchasedBoards, this.purchasedPicts});
+  UserData(
+      {this.name,
+      this.email,
+      this.coins,
+      this.picture,
+      this.board,
+      this.purchasedBoards,
+      this.purchasedPicts});
 
   factory UserData.fromJson(Map<String, dynamic> json) {
     print('name' + json['name']);
     List boardsAux = [];
     List picsAux = [];
-    print('AAAAAAAAAAAAAAAAA'+json['purchases'].toString());
-    for(int i = 0; i < json['purchases'].length; i++){
-      if(json['purchases'][i]['type'] == 'board'){
+    print('AAAAAAAAAAAAAAAAA' + json['purchases'].toString());
+    for (int i = 0; i < json['purchases'].length; i++) {
+      if (json['purchases'][i]['type'] == 'board') {
         boardsAux.add(json['purchases'][i]['item_id']);
-      }
-      else{
+      } else {
         picsAux.add(json['purchases'][i]['item_id']);
       }
     }

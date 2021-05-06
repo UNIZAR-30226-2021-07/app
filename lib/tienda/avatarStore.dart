@@ -45,30 +45,42 @@ class _PicturesStoreState extends State<PicturesStore> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(width: MediaQuery.of(context).size.width * 0.075,),
-                MoneyTemplate(width: MediaQuery.of(context).size.width * 0.85,height: MediaQuery.of(context).size.height * 0.1),
-                Container(width: MediaQuery.of(context).size.width * 0.075,),
+                Container(
+                  width: MediaQuery.of(context).size.width * 0.075,
+                ),
+                MoneyTemplate(
+                    width: MediaQuery.of(context).size.width * 0.85,
+                    height: MediaQuery.of(context).size.height * 0.1),
+                Container(
+                  width: MediaQuery.of(context).size.width * 0.075,
+                ),
               ],
             ),
             Expanded(
               child: new GridView.count(
                 padding: EdgeInsets.only(
-                  left:MediaQuery.of(context).size.width*0.1,
-                  right: MediaQuery.of(context).size.width*0.1,
+                  left: MediaQuery.of(context).size.width * 0.1,
+                  right: MediaQuery.of(context).size.width * 0.1,
                 ),
-                crossAxisSpacing: MediaQuery.of(context).size.width*0.1,
-                mainAxisSpacing: MediaQuery.of(context).size.width*0.1,
+                crossAxisSpacing: MediaQuery.of(context).size.width * 0.1,
+                mainAxisSpacing: MediaQuery.of(context).size.width * 0.1,
                 crossAxisCount: 2,
-                children: List.generate(picsList.length-1, (index) {
+                children: List.generate(picsList.length - 1, (index) {
                   bool aux1 = false;
-                  for(int i = 0; i < globalData.purchasedPicts.length; i++){
-                    if (index == globalData.purchasedPicts[i]){
+                  for (int i = 0; i < globalData.purchasedPicts.length; i++) {
+                    if (index == globalData.purchasedPicts[i]) {
                       aux1 = true;
                       break;
                     }
                   }
                   bool aux2 = (index == globalData.board);
-                  return PurchaseTemplate(width: MediaQuery.of(context).size.width * 0.35, idPurchase: index, typePurchase: 'picture', isPurchased: aux1, isSelected: aux2,);
+                  return PurchaseTemplate(
+                    width: MediaQuery.of(context).size.width * 0.35,
+                    idPurchase: index,
+                    typePurchase: 'picture',
+                    isPurchased: aux1,
+                    isSelected: aux2,
+                  );
                 }),
               ),
             ),
@@ -81,27 +93,32 @@ class _PicturesStoreState extends State<PicturesStore> {
             width: MediaQuery.of(context).size.width * 0.5,
             color: Color(0xff9C4DCC),
             child: TextButton(
-              child: Text('Tablero',
+              child: Text(
+                'Tablero',
                 style: TextStyle(
                   fontSize: MediaQuery.of(context).size.width * 0.05,
                   fontWeight: FontWeight.bold,
                   color: Color(0xffffffff),
-                ),),
-              onPressed: (){
-                Navigator.pushReplacementNamed(context, '/boardStore');},
+                ),
+              ),
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, '/boardStore');
+              },
             ),
           ),
           Container(
             width: MediaQuery.of(context).size.width * 0.5,
             color: Color(0xff6A1B9A),
             child: TextButton(
-              child: Text('Avatar',
+              child: Text(
+                'Avatar',
                 style: TextStyle(
                   fontSize: MediaQuery.of(context).size.width * 0.05,
                   fontWeight: FontWeight.bold,
                   color: Color(0xffffffff),
-                ),),
-              onPressed: (){/*nothing*/},
+                ),
+              ),
+              onPressed: () {/*nothing*/},
             ),
           ),
         ],

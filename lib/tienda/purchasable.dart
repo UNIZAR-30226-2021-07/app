@@ -20,17 +20,17 @@ class PurchaseTemplate extends StatelessWidget {
   Widget build(BuildContext context) {
     String pathImage;
     String costPutchase;
-    if (typePurchase == 'board'){
+    if (typePurchase == 'board') {
       pathImage = ("assets/common/") +
           boardList[idPurchase]['image'].replaceAll('svg', 'png');
       costPutchase = boardList[idPurchase]['cost'].toString();
-    }else{
+    } else {
       pathImage = ("assets/common/") +
           picsList[idPurchase]['image'].replaceAll('svg', 'png');
       costPutchase = picsList[idPurchase]['cost'].toString();
     }
 
-    if (isSelected == true){
+    if (isSelected == true) {
       return Container(
         height: this.width,
         width: this.width,
@@ -39,23 +39,22 @@ class PurchaseTemplate extends StatelessWidget {
               image: AssetImage(pathImage),
               fit: BoxFit.cover,
             ),
-            borderRadius: BorderRadius.circular(20.0)
-        ),
+            borderRadius: BorderRadius.circular(20.0)),
         child: TextButton(
-          onPressed: (){
+          onPressed: () {
             // nothing
           },
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                height: this.width*0.5,
-                width: this.width*0.5,
+                height: this.width * 0.5,
+                width: this.width * 0.5,
                 decoration: BoxDecoration(
                   color: Color(0xff3BB54A),
                   borderRadius: BorderRadius.circular(360.0),
                   border: Border.all(
-                    width: this.width*0.025,
+                    width: this.width * 0.025,
                   ),
                 ),
                 child: Icon(Icons.check,
@@ -66,7 +65,7 @@ class PurchaseTemplate extends StatelessWidget {
         ),
       );
     }
-    if (isPurchased == true){
+    if (isPurchased == true) {
       return Container(
         height: this.width,
         width: this.width,
@@ -75,16 +74,15 @@ class PurchaseTemplate extends StatelessWidget {
               image: AssetImage(pathImage),
               fit: BoxFit.cover,
             ),
-            borderRadius: BorderRadius.circular(20.0)
-        ),
+            borderRadius: BorderRadius.circular(20.0)),
         child: TextButton(
-          onPressed: (){
+          child: Container(),
+          onPressed: () {
             //TODO: Seleccionar este como el nuevo seleccionado
           },
         ),
       );
-    }
-    else{
+    } else {
       return Container(
         height: this.width,
         width: this.width,
@@ -93,25 +91,23 @@ class PurchaseTemplate extends StatelessWidget {
               image: AssetImage(pathImage),
               fit: BoxFit.cover,
             ),
-            borderRadius: BorderRadius.circular(20.0)
-        ),
+            borderRadius: BorderRadius.circular(20.0)),
         child: TextButton(
-          onPressed: (){
+          onPressed: () {
             //TODO: Comprar el seleccionado
           },
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.lock,
-                  size: this.width * 0.4, color: Colors.black),
+              Icon(Icons.lock, size: this.width * 0.4, color: Colors.black),
               Container(
-                height: this.width*0.3,
-                width: this.width*0.7,
+                height: this.width * 0.3,
+                width: this.width * 0.7,
                 decoration: BoxDecoration(
                   color: Color(0xffffffff),
                   borderRadius: BorderRadius.circular(30.0),
                   border: Border.all(
-                    width: this.width*0.025,
+                    width: this.width * 0.025,
                   ),
                 ),
                 child: Row(
@@ -125,7 +121,9 @@ class PurchaseTemplate extends StatelessWidget {
                         color: Color(0xff000000),
                       ),
                     ),
-                    Container(width: this.width*0.03,),
+                    Container(
+                      width: this.width * 0.03,
+                    ),
                     Icon(Icons.pets,
                         size: this.width * 0.15, color: Colors.amber),
                   ],
