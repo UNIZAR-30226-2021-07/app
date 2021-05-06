@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:gatovidapp/services/models.dart';
 import 'package:gatovidapp/tienda/money.dart';
 import 'package:gatovidapp/tienda/purchasable.dart';
-import 'package:gatovidapp/popUps/confirmPurchase.dart';
 
 class BoardStore extends StatefulWidget {
   @override
@@ -56,15 +55,20 @@ class _BoardStoreState extends State<BoardStore> {
                 padding: EdgeInsets.only(
                   left:MediaQuery.of(context).size.width*0.1,
                   right: MediaQuery.of(context).size.width*0.1,
-
                 ),
                 crossAxisSpacing: MediaQuery.of(context).size.width*0.1,
                 mainAxisSpacing: MediaQuery.of(context).size.width*0.1,
                 crossAxisCount: 2,
                 children: List.generate(boardList.length-1, (index) {
-                  bool aux1 = true; // TODO: si algo está comprado
+                  bool aux1 = false;
+                  for(int i = 0; i < globalData.purchasedBoards.length; i++){
+                    if (index == globalData.purchasedBoards[i]){
+                      aux1 = true;
+                      break;
+                    }
+                  }
                   bool aux2 = (index == globalData.board);
-                  return PurchaseTemplate(width: MediaQuery.of(context).size.width * 0.35, idPurchase: 0, typePurchase: 'picture', isPurchased: aux1, isSelected: aux2,);
+                  return PurchaseTemplate(width: MediaQuery.of(context).size.width * 0.35, idPurchase: index, typePurchase: 'board', isPurchased: aux1, isSelected: aux2,);
                 }),
               ),
             ),

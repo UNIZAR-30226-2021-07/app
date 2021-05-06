@@ -1,8 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:gatovidapp/services/models.dart';
 import 'package:gatovidapp/tienda/money.dart';
 import 'package:gatovidapp/tienda/purchasable.dart';
-import 'package:gatovidapp/popUps/confirmPurchase.dart';
 
 class PicturesStore extends StatefulWidget {
   @override
@@ -17,7 +17,7 @@ class _PicturesStoreState extends State<PicturesStore> {
         centerTitle: true,
         backgroundColor: Color(0xFF64DD17),
         title: const Text(
-          'Elegir Foto',
+          'Elegir Avatar',
           style: TextStyle(
               fontWeight: FontWeight.bold, fontSize: 25.0, color: Colors.black),
         ),
@@ -36,8 +36,11 @@ class _PicturesStoreState extends State<PicturesStore> {
                     Colors.white.withOpacity(0.05), BlendMode.dstATop),
                 image: AssetImage("assets/images/bg.png"),
                 fit: BoxFit.cover)),
+        height: MediaQuery.of(context).size.height * 0.8,
+        width: MediaQuery.of(context).size.width,
         child: Column(
-          children: [
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
             Container(height: MediaQuery.of(context).size.height * 0.025),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -47,61 +50,61 @@ class _PicturesStoreState extends State<PicturesStore> {
                 Container(width: MediaQuery.of(context).size.width * 0.075,),
               ],
             ),
-            Container(height: MediaQuery.of(context).size.height * 0.025),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(width: MediaQuery.of(context).size.width * 0.1,),
-                PurchaseTemplate(width: MediaQuery.of(context).size.width * 0.35, idPurchase: 0, typePurchase: 'picture', isPurchased: true, isSelected: true,),
-                Container(width: MediaQuery.of(context).size.width * 0.1,),
-                PurchaseTemplate(width: MediaQuery.of(context).size.width * 0.35, idPurchase: 1, typePurchase: 'picture', isPurchased: true, isSelected: false,),
-                Container(width: MediaQuery.of(context).size.width * 0.1,),
-              ],
+            Expanded(
+              child: new GridView.count(
+                padding: EdgeInsets.only(
+                  left:MediaQuery.of(context).size.width*0.1,
+                  right: MediaQuery.of(context).size.width*0.1,
+                ),
+                crossAxisSpacing: MediaQuery.of(context).size.width*0.1,
+                mainAxisSpacing: MediaQuery.of(context).size.width*0.1,
+                crossAxisCount: 2,
+                children: List.generate(picsList.length-1, (index) {
+                  bool aux1 = false;
+                  for(int i = 0; i < globalData.purchasedPicts.length; i++){
+                    if (index == globalData.purchasedPicts[i]){
+                      aux1 = true;
+                      break;
+                    }
+                  }
+                  bool aux2 = (index == globalData.board);
+                  return PurchaseTemplate(width: MediaQuery.of(context).size.width * 0.35, idPurchase: index, typePurchase: 'picture', isPurchased: aux1, isSelected: aux2,);
+                }),
+              ),
             ),
-            Container(height: MediaQuery.of(context).size.height * 0.025),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(width: MediaQuery.of(context).size.width * 0.1,),
-                PurchaseTemplate(width: MediaQuery.of(context).size.width * 0.35, idPurchase: 0, typePurchase: 'picture', isPurchased: false, isSelected: false,),
-                Container(width: MediaQuery.of(context).size.width * 0.1,),
-                PurchaseTemplate(width: MediaQuery.of(context).size.width * 0.35, idPurchase: 1, typePurchase: 'picture', isPurchased: true, isSelected: false,),
-                Container(width: MediaQuery.of(context).size.width * 0.1,),
-              ],
-            ),
-            Text("Pantalla tienda avatar perfil"),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/boardStore');
-                },
-                style: ElevatedButton.styleFrom(
-                    primary: Color(0xFF9C4DCC),
-                    onPrimary: Colors.white,
-                    minimumSize: Size(double.infinity, 20)),
-                child: Text(
-                  "Tablero",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                )),
-            ElevatedButton(
-                onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) => PurchaseAlert(),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                    primary: Color(0xFF9C4DCC),
-                    onPrimary: Colors.white,
-                    minimumSize: Size(double.infinity, 20)),
-                child: Text(
-                  "Pop-up confirmar compra",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                )
-            )
           ],
         ),
+      ),
+      bottomNavigationBar: Row(
+        children: [
+          Container(
+            width: MediaQuery.of(context).size.width * 0.5,
+            color: Color(0xff9C4DCC),
+            child: TextButton(
+              child: Text('Tablero',
+                style: TextStyle(
+                  fontSize: MediaQuery.of(context).size.width * 0.05,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xffffffff),
+                ),),
+              onPressed: (){
+                Navigator.pushReplacementNamed(context, '/boardStore');},
+            ),
+          ),
+          Container(
+            width: MediaQuery.of(context).size.width * 0.5,
+            color: Color(0xff6A1B9A),
+            child: TextButton(
+              child: Text('Avatar',
+                style: TextStyle(
+                  fontSize: MediaQuery.of(context).size.width * 0.05,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xffffffff),
+                ),),
+              onPressed: (){/*nothing*/},
+            ),
+          ),
+        ],
       ),
     );
   }
