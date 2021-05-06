@@ -51,11 +51,13 @@ class _BoardStoreState extends State<BoardStore> {
                 Container(width: MediaQuery.of(context).size.width * 0.075,),
               ],
             ),
-            Container(
-              height: MediaQuery.of(context).size.height * 0.65,
-              width: MediaQuery.of(context).size.width * 0.9,
+            Expanded(
               child: new GridView.count(
-                padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.1),
+                padding: EdgeInsets.only(
+                  left:MediaQuery.of(context).size.width*0.1,
+                  right: MediaQuery.of(context).size.width*0.1,
+
+                ),
                 crossAxisSpacing: MediaQuery.of(context).size.width*0.1,
                 mainAxisSpacing: MediaQuery.of(context).size.width*0.1,
                 crossAxisCount: 2,
