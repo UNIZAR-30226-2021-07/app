@@ -28,7 +28,14 @@ class _PicturesStoreState extends State<PicturesStore> {
               Navigator.pop(context);
             }),
       ),
-      body: SafeArea(
+      body: Container(
+        constraints: BoxConstraints.expand(),
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                colorFilter: ColorFilter.mode(
+                    Colors.white.withOpacity(0.05), BlendMode.dstATop),
+                image: AssetImage("assets/images/bg.png"),
+                fit: BoxFit.cover)),
         child: Column(
           children: [
             Container(height: MediaQuery.of(context).size.height * 0.025),
