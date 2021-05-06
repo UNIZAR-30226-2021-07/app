@@ -21,6 +21,7 @@ class MoneyTemplate extends StatelessWidget {
           color: Color(0xffffffff),
           width: 8,
         ),
+        borderRadius: BorderRadius.circular(20.0)
       ),
       child: Row(
         children: [
