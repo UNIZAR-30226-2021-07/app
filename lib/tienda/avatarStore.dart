@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:gatovidapp/tienda/money.dart';
 
 class PicturesStore extends StatefulWidget {
   @override
@@ -27,8 +28,16 @@ class _PicturesStoreState extends State<PicturesStore> {
       ),
       body: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Container(height: MediaQuery.of(context).size.height * 0.025),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(width: MediaQuery.of(context).size.width * 0.075,),
+                MoneyTemplate(width: MediaQuery.of(context).size.width * 0.85,height: MediaQuery.of(context).size.height * 0.1),
+                Container(width: MediaQuery.of(context).size.width * 0.075,),
+              ],
+            ),
             Text("Pantalla tienda avatar perfil"),
             ElevatedButton(
                 onPressed: () {
