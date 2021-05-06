@@ -41,23 +41,28 @@ class PurchaseTemplate extends StatelessWidget {
             ),
             borderRadius: BorderRadius.circular(20.0)
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              height: this.width*0.5,
-              width: this.width*0.5,
-              decoration: BoxDecoration(
-                color: Color(0xff3BB54A),
-                borderRadius: BorderRadius.circular(360.0),
-                border: Border.all(
-                  width: this.width*0.025,
+        child: TextButton(
+          onPressed: (){
+            // nothing
+          },
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                height: this.width*0.5,
+                width: this.width*0.5,
+                decoration: BoxDecoration(
+                  color: Color(0xff3BB54A),
+                  borderRadius: BorderRadius.circular(360.0),
+                  border: Border.all(
+                    width: this.width*0.025,
+                  ),
                 ),
+                child: Icon(Icons.check,
+                    size: this.width * 0.4, color: Colors.white),
               ),
-              child: Icon(Icons.check,
-                  size: this.width * 0.4, color: Colors.white),
-            ),
-          ],
+            ],
+          ),
         ),
       );
     }
@@ -72,6 +77,11 @@ class PurchaseTemplate extends StatelessWidget {
             ),
             borderRadius: BorderRadius.circular(20.0)
         ),
+        child: TextButton(
+          onPressed: (){
+            //TODO: Seleccionar este como el nuevo seleccionado
+          },
+        ),
       );
     }
     else{
@@ -85,39 +95,44 @@ class PurchaseTemplate extends StatelessWidget {
             ),
             borderRadius: BorderRadius.circular(20.0)
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(Icons.lock,
-                size: this.width * 0.4, color: Colors.black),
-            Container(
-              height: this.width*0.3,
-              width: this.width*0.7,
-              decoration: BoxDecoration(
-                color: Color(0xffffffff),
-                borderRadius: BorderRadius.circular(30.0),
-                border: Border.all(
-                  width: this.width*0.025,
+        child: TextButton(
+          onPressed: (){
+            //TODO: Comprar el seleccionado
+          },
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(Icons.lock,
+                  size: this.width * 0.4, color: Colors.black),
+              Container(
+                height: this.width*0.3,
+                width: this.width*0.7,
+                decoration: BoxDecoration(
+                  color: Color(0xffffffff),
+                  borderRadius: BorderRadius.circular(30.0),
+                  border: Border.all(
+                    width: this.width*0.025,
+                  ),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      costPutchase,
+                      style: TextStyle(
+                        fontSize: this.width * 0.15,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xff000000),
+                      ),
+                    ),
+                    Container(width: this.width*0.03,),
+                    Icon(Icons.pets,
+                        size: this.width * 0.15, color: Colors.amber),
+                  ],
                 ),
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    costPutchase,
-                    style: TextStyle(
-                      fontSize: this.width * 0.15,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xff000000),
-                    ),
-                  ),
-                  Container(width: this.width*0.03,),
-                  Icon(Icons.pets,
-                      size: this.width * 0.15, color: Colors.amber),
-                ],
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       );
     }
