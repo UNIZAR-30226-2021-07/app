@@ -240,25 +240,24 @@ class _CardBoardState extends State<CardBoard>
                       Container(
                         width: MediaQuery.of(context).size.width * 0.25,
                         height: MediaQuery.of(context).size.height * 0.06,
-                        decoration: BoxDecoration(
-                            color: Color(0x00000000),
-                            borderRadius: BorderRadius.circular(20.0)),
+                        color: Color(0x88655F5F),
                         alignment: Alignment.center,
                         child: DragTarget<CardData>(
                           builder: (context, candidateItems, rejectedItems) {
                             return DottedBorder(
-                              color: Colors.black,
+                              color: Colors.white,
                               strokeWidth: 1,
                               child: Container(
-                                width: MediaQuery.of(context).size.width * 0.32,
+                                width: MediaQuery.of(context).size.width * 0.25,
                                 height:
-                                    MediaQuery.of(context).size.height * 0.05,
+                                    MediaQuery.of(context).size.height * 0.055,
                                 alignment: Alignment.center,
                                 child: Text(
                                   "Descartar",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
+                                      color: Colors.white,
                                       fontSize:
                                           MediaQuery.of(context).size.width *
                                               0.04),
