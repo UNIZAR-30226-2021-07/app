@@ -11,7 +11,6 @@ class BoardStore extends StatefulWidget {
 }
 
 class _BoardStoreState extends State<BoardStore> {
-
   StreamSubscription<bool> streamSubscription;
 
   @override

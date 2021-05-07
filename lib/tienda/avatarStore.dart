@@ -11,7 +11,6 @@ class PicturesStore extends StatefulWidget {
 }
 
 class _PicturesStoreState extends State<PicturesStore> {
-
   StreamSubscription<bool> streamSubscription;
 
   @override

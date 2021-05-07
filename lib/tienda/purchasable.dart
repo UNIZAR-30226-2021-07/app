@@ -83,7 +83,7 @@ class PurchaseTemplate extends StatelessWidget {
         child: TextButton(
           child: Container(),
           onPressed: () async {
-              // ok name
+            // ok name
             if (await modifyData(typeModify, this.idPurchase.toString())) {
               await getData();
               controllerStat.add(true);
