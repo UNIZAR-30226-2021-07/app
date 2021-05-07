@@ -243,10 +243,7 @@ void discardCard(int slot) {
       slot.toString());
   print('Card Type: ' + handOfPlayer[slot].cardType.toString());
   socket.emitWithAck(
-      'play_discard',
-      {
-        'card': slot,
-      },
+      'play_discard', slot,
       ack: (data) => print('play_discard error:' + data.toString()));
 }
 
