@@ -179,16 +179,25 @@ class _CardBoardState extends State<CardBoard>
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                          width: MediaQuery.of(context).size.width * 0.33,
+                          width: MediaQuery.of(context).size.width * 0.25,
                           height: MediaQuery.of(context).size.height * 0.045,
-                          color: colorBase,
+                          decoration: BoxDecoration(
+                            color: colorBase,
+                            border: Border.all(color: Colors.white),
+                            borderRadius: BorderRadius.circular(20.0)),
                           alignment: Alignment.center,
-                          child: Text(
-                            "Boton pasar",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 20),
-                          )),
+                          child: TextButton(
+                            child: Text(
+                              "Pasar",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(color: Colors.white,
+                                  fontWeight: FontWeight.bold, fontSize: 20),
+                            ),
+                            onPressed: (){
+                              // TODO: Funcionalidad de pasar turno
+                            },
+                          ),
+                        ),
                       Container(width: MediaQuery.of(context).size.width * 0.05,),
                       Container(
                         width: MediaQuery.of(context).size.width * 0.22,
@@ -217,29 +226,28 @@ class _CardBoardState extends State<CardBoard>
                       ),
                       Container(width: MediaQuery.of(context).size.width * 0.05,),
                       Container(
-                          width: MediaQuery.of(context).size.width * 0.33,
+                          width: MediaQuery.of(context).size.width * 0.25,
                           height: MediaQuery.of(context).size.height * 0.045,
                           decoration: BoxDecoration(
                               color: Color(0x00000000),
                               borderRadius: BorderRadius.circular(20.0)),
                           alignment: Alignment.center,
-                          child: Expanded(
                             child: DottedBorder(
-                              color: Colors.black,
-                              strokeWidth: 1,
-                              child: Container(
-                                width: MediaQuery.of(context).size.width * 0.32,
-                                height: MediaQuery.of(context).size.height * 0.05,
-                                alignment: Alignment.center,
-                                child: Text(
-                                  "Descartar",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold, fontSize: 20),
-                                ),
+                            color: Colors.black,
+                            strokeWidth: 1,
+                            child: Container(
+                              width: MediaQuery.of(context).size.width * 0.32,
+                              height: MediaQuery.of(context).size.height * 0.05,
+                              alignment: Alignment.center,
+                              child: Text(
+                                "Descartar",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 20),
                               ),
                             ),
-                          )),
+                          ),
+                        ),
                     ],
                   ),
                 ),
