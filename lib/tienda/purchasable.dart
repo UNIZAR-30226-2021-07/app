@@ -22,14 +22,17 @@ class PurchaseTemplate extends StatelessWidget {
   Widget build(BuildContext context) {
     String pathImage;
     String costPutchase;
+    String typeModify;
     if (typePurchase == 'board') {
       pathImage = ("assets/common/") +
           boardList[idPurchase]['image'].replaceAll('svg', 'png');
       costPutchase = boardList[idPurchase]['cost'].toString();
+      typeModify = 'board';
     } else {
       pathImage = ("assets/common/") +
           picsList[idPurchase]['image'].replaceAll('svg', 'png');
       costPutchase = picsList[idPurchase]['cost'].toString();
+      typeModify = 'picture';
     }
 
     if (isSelected == true) {
@@ -81,7 +84,7 @@ class PurchaseTemplate extends StatelessWidget {
           child: Container(),
           onPressed: () async {
               // ok name
-            if (await modifyData(this.typePurchase, this.idPurchase.toString())) {
+            if (await modifyData(typeModify, this.idPurchase.toString())) {
               await getData();
               controllerStat.add(true);
             }

@@ -85,11 +85,11 @@ class _PicturesStoreState extends State<PicturesStore> {
                       break;
                     }
                   }
-                  bool aux2 = (index == globalData.board);
+                  bool aux2 = (index == globalData.picture);
                   return PurchaseTemplate(
                     width: MediaQuery.of(context).size.width * 0.35,
                     idPurchase: index,
-                    typePurchase: 'picture',
+                    typePurchase: 'profile_pic',
                     isPurchased: aux1,
                     isSelected: aux2,
                   );
