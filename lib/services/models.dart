@@ -33,6 +33,7 @@ Color purpleColor = Color(0xff6A1B9A);
 Color greyColor = Color(0xffC5C5C5);
 
 bool isMyTurn = false;
+bool notAgain = false;
 Color colorBase = greyColor;
 
 StreamController<bool> controllerChat = StreamController<bool>.broadcast();
