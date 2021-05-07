@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gatovidapp/services/models.dart';
+import 'package:gatovidapp/services/profile_modify.dart';
+import 'package:gatovidapp/services/profile_stadistics.dart';
 
 class PurchaseTemplate extends StatelessWidget {
   const PurchaseTemplate({
@@ -77,8 +79,12 @@ class PurchaseTemplate extends StatelessWidget {
             borderRadius: BorderRadius.circular(20.0)),
         child: TextButton(
           child: Container(),
-          onPressed: () {
-            //TODO: Seleccionar este como el nuevo seleccionado
+          onPressed: () async {
+              // ok name
+            if (await modifyData(typePurchase, this.idPurchase.toString())) {
+              await getData();
+              controllerStat.add(true);
+            }
           },
         ),
       );

@@ -30,6 +30,7 @@ class MapScreenState extends State<ProfileConf>
     with SingleTickerProviderStateMixin {
   final FocusNode myFocusNode = FocusNode();
   StreamSubscription<bool> streamSubscription;
+  StreamSubscription<bool> streamSubscription2;
 
   @override
   void initState() {
@@ -37,6 +38,9 @@ class MapScreenState extends State<ProfileConf>
     streamSubscription = streamGoToLogin.listen((_) {
       disconnectWebSocket();
       Navigator.pushReplacementNamed(context, '/login');
+    });
+    streamSubscription2 = streamStat.listen((_) {
+      setState(() {/* Empty instruction */});
     });
   }
 
@@ -514,5 +518,6 @@ class MapScreenState extends State<ProfileConf>
   void dispose() {
     super.dispose();
     streamSubscription.cancel();
+    streamSubscription2.cancel();
   }
 }
