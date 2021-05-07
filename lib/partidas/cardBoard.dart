@@ -33,6 +33,7 @@ class _CardBoardState extends State<CardBoard>
     expansion = 0;
     _timerController = TimerController(this);
     if (isMyTurn) {
+      notAgain = false;
       new Timer(const Duration(milliseconds: 1000), () {
         setState(() {
           _timerController.restart(
@@ -43,19 +44,23 @@ class _CardBoardState extends State<CardBoard>
     }
     // Not my turn
     else {
+      notAgain = true;
       colorBase = greyColor;
     }
 
     streamSubscription = streamGame.listen((data) {
       print('My turn -> ' + isMyTurn.toString());
       // My turn
-      if (isMyTurn) {
+      if (isMyTurn && notAgain) {
         _timerController.restart(
             startFrom: const Duration(seconds: COUNT_DOWN_SEGS));
         colorBase = purpleColor;
+        notAgain = false;
       }
       // Not my turn
-      else {
+      else if (isMyTurn) {
+        /*nothing*/
+      } else {
         _timerController.reset();
         colorBase = greyColor;
       }
@@ -172,36 +177,41 @@ class _CardBoardState extends State<CardBoard>
                     ),
                 Container(
                   width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height * 0.05,
+                  height: MediaQuery.of(context).size.height * 0.06,
                   alignment: Alignment.center,
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                          width: MediaQuery.of(context).size.width * 0.25,
-                          height: MediaQuery.of(context).size.height * 0.045,
-                          decoration: BoxDecoration(
+                        width: MediaQuery.of(context).size.width * 0.25,
+                        height: MediaQuery.of(context).size.height * 0.06,
+                        decoration: BoxDecoration(
                             color: colorBase,
                             border: Border.all(color: Colors.white),
                             borderRadius: BorderRadius.circular(20.0)),
-                          alignment: Alignment.center,
-                          child: TextButton(
-                            child: Text(
-                              "Pasar",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(color: Colors.white,
-                                  fontWeight: FontWeight.bold, fontSize: 20),
-                            ),
-                            onPressed: (){
-                              passTurn();
-                            },
+                        alignment: Alignment.center,
+                        child: TextButton(
+                          child: Text(
+                            "Pasar",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize:
+                                    MediaQuery.of(context).size.width * 0.04),
                           ),
+                          onPressed: () {
+                            passTurn();
+                          },
                         ),
-                      Container(width: MediaQuery.of(context).size.width * 0.05,),
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.05,
+                      ),
                       Container(
                         width: MediaQuery.of(context).size.width * 0.22,
-                        height: MediaQuery.of(context).size.height * 0.045,
+                        height: MediaQuery.of(context).size.height * 0.06,
                         color: Colors.pinkAccent,
                         child: Container(
                           height: MediaQuery.of(context).size.height * 0.035,
@@ -224,28 +234,34 @@ class _CardBoardState extends State<CardBoard>
                           ),
                         ),
                       ),
-                      Container(width: MediaQuery.of(context).size.width * 0.05,),
                       Container(
-                          width: MediaQuery.of(context).size.width * 0.25,
-                          height: MediaQuery.of(context).size.height * 0.045,
-                          decoration: BoxDecoration(
-                              color: Color(0x00000000),
-                              borderRadius: BorderRadius.circular(20.0)),
-                          alignment: Alignment.center,
-                          child: DragTarget<CardData>(
+                        width: MediaQuery.of(context).size.width * 0.05,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.25,
+                        height: MediaQuery.of(context).size.height * 0.06,
+                        decoration: BoxDecoration(
+                            color: Color(0x00000000),
+                            borderRadius: BorderRadius.circular(20.0)),
+                        alignment: Alignment.center,
+                        child: DragTarget<CardData>(
                           builder: (context, candidateItems, rejectedItems) {
-                            return  DottedBorder(
+                            return DottedBorder(
                               color: Colors.black,
                               strokeWidth: 1,
                               child: Container(
                                 width: MediaQuery.of(context).size.width * 0.32,
-                                height: MediaQuery.of(context).size.height * 0.05,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.05,
                                 alignment: Alignment.center,
                                 child: Text(
                                   "Descartar",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                      fontWeight: FontWeight.bold, fontSize: 20),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize:
+                                          MediaQuery.of(context).size.width *
+                                              0.04),
                                 ),
                               ),
                             );
@@ -261,6 +277,7 @@ class _CardBoardState extends State<CardBoard>
                     ],
                   ),
                 ),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                 Container(
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height * 0.13,
@@ -271,7 +288,7 @@ class _CardBoardState extends State<CardBoard>
                     name: globalData.name,
                   ),
                 ),
-                SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                 Container(
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height * 0.14,
