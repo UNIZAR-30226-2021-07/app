@@ -81,7 +81,7 @@ class PurchaseTemplate extends StatelessWidget {
           child: Container(),
           onPressed: () async {
               // ok name
-            if (await modifyData(typePurchase, this.idPurchase.toString())) {
+            if (await modifyData(this.typePurchase, this.idPurchase.toString())) {
               await getData();
               controllerStat.add(true);
             }
@@ -99,8 +99,12 @@ class PurchaseTemplate extends StatelessWidget {
             ),
             borderRadius: BorderRadius.circular(20.0)),
         child: TextButton(
-          onPressed: () {
-            //TODO: Comprar el seleccionado
+          onPressed: () async {
+            // ok name
+            if (await buyItem(this.typePurchase, this.idPurchase.toString())) {
+              await getData();
+              controllerStat.add(true);
+            }
           },
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
