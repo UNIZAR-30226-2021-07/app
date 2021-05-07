@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gatovidapp/services/models.dart';
 import 'package:gatovidapp/tienda/money.dart';
 import 'package:gatovidapp/tienda/purchasable.dart';
+import 'dart:async';
 
 class BoardStore extends StatefulWidget {
   @override
@@ -10,6 +11,16 @@ class BoardStore extends StatefulWidget {
 }
 
 class _BoardStoreState extends State<BoardStore> {
+  StreamSubscription<bool> streamSubscription;
+
+  @override
+  void initState() {
+    super.initState();
+    streamSubscription = streamStat.listen((_) {
+      setState(() {/* Empty instruction */});
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -124,5 +135,11 @@ class _BoardStoreState extends State<BoardStore> {
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    streamSubscription.cancel();
   }
 }

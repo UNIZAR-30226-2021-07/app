@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gatovidapp/services/models.dart';
+import 'package:gatovidapp/services/profile_modify.dart';
+import 'package:gatovidapp/services/profile_stadistics.dart';
+import 'package:gatovidapp/popUps/error.dart';
 
 class PurchaseTemplate extends StatelessWidget {
   const PurchaseTemplate({
@@ -20,14 +23,17 @@ class PurchaseTemplate extends StatelessWidget {
   Widget build(BuildContext context) {
     String pathImage;
     String costPutchase;
+    String typeModify;
     if (typePurchase == 'board') {
       pathImage = ("assets/common/") +
           boardList[idPurchase]['image'].replaceAll('svg', 'png');
       costPutchase = boardList[idPurchase]['cost'].toString();
+      typeModify = 'board';
     } else {
       pathImage = ("assets/common/") +
           picsList[idPurchase]['image'].replaceAll('svg', 'png');
       costPutchase = picsList[idPurchase]['cost'].toString();
+      typeModify = 'picture';
     }
 
     if (isSelected == true) {
@@ -77,8 +83,12 @@ class PurchaseTemplate extends StatelessWidget {
             borderRadius: BorderRadius.circular(20.0)),
         child: TextButton(
           child: Container(),
-          onPressed: () {
-            //TODO: Seleccionar este como el nuevo seleccionado
+          onPressed: () async {
+            // ok name
+            if (await modifyData(typeModify, this.idPurchase.toString())) {
+              await getData();
+              controllerStat.add(true);
+            }
           },
         ),
       );
@@ -93,8 +103,21 @@ class PurchaseTemplate extends StatelessWidget {
             ),
             borderRadius: BorderRadius.circular(20.0)),
         child: TextButton(
-          onPressed: () {
-            //TODO: Comprar el seleccionado
+          onPressed: () async {
+            // ok name
+            if (await buyItem(this.typePurchase, this.idPurchase.toString())) {
+              await getData();
+              controllerStat.add(true);
+            } else {
+              globalError = Error(
+                  error:
+                      'No se ha podido completar la compra con éxito, por favor, compruebe que tiene saldo suficiente');
+              showDialog(
+                barrierDismissible: false,
+                context: context,
+                builder: (BuildContext context) => ErrorPopup(),
+              );
+            }
           },
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

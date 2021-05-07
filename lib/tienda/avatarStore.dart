@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gatovidapp/services/models.dart';
 import 'package:gatovidapp/tienda/money.dart';
 import 'package:gatovidapp/tienda/purchasable.dart';
+import 'dart:async';
 
 class PicturesStore extends StatefulWidget {
   @override
@@ -10,6 +11,16 @@ class PicturesStore extends StatefulWidget {
 }
 
 class _PicturesStoreState extends State<PicturesStore> {
+  StreamSubscription<bool> streamSubscription;
+
+  @override
+  void initState() {
+    super.initState();
+    streamSubscription = streamStat.listen((_) {
+      setState(() {/* Empty instruction */});
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,11 +84,11 @@ class _PicturesStoreState extends State<PicturesStore> {
                       break;
                     }
                   }
-                  bool aux2 = (index == globalData.board);
+                  bool aux2 = (index == globalData.picture);
                   return PurchaseTemplate(
                     width: MediaQuery.of(context).size.width * 0.35,
                     idPurchase: index,
-                    typePurchase: 'picture',
+                    typePurchase: 'profile_pic',
                     isPurchased: aux1,
                     isSelected: aux2,
                   );
@@ -124,5 +135,11 @@ class _PicturesStoreState extends State<PicturesStore> {
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    streamSubscription.cancel();
   }
 }

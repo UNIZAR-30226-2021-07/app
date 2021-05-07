@@ -23,6 +23,7 @@ class _GamesMenuState extends State<GamesMenu> {
   StreamSubscription<bool> streamSubscription;
   StreamSubscription<bool> streamSubscription2;
   StreamSubscription<bool> streamSubscription3;
+  StreamSubscription<bool> streamSubscription4;
 
   @override
   void initState() {
@@ -52,6 +53,9 @@ class _GamesMenuState extends State<GamesMenu> {
       disconnectWebSocket();
       FlutterRestart.restartApp();
       Navigator.pushReplacementNamed(context, '/login');
+    });
+    streamSubscription4 = streamStat.listen((_) {
+      setState(() {/* Empty instruction */});
     });
   }
 
@@ -307,5 +311,6 @@ class _GamesMenuState extends State<GamesMenu> {
     streamSubscription.cancel();
     streamSubscription2.cancel();
     streamSubscription3.cancel();
+    streamSubscription4.cancel();
   }
 }
