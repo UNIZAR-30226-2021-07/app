@@ -232,6 +232,24 @@ void stopSearchingPublic() {
       ack: (data) => print('stop_searching ack received'));
 }
 
+void passTurn() {
+  print('play_pass emit');
+  socket.emitWithAck('play_pass', null,
+      ack: (data) => print('play_pass ack received: '+ data.toString()));
+}
+
+void discardCard(int slot) {
+  print('play_discard emit-> slot: ' +
+      slot.toString());
+  print('Card Type: ' + handOfPlayer[slot].cardType.toString());
+  socket.emitWithAck(
+      'play_discard',
+      {
+        'card': slot,
+      },
+      ack: (data) => print('play_discard error:' + data.toString()));
+}
+
 void playCard(String target, int organPile, int slot) {
   print('play_card emit-> Target: ' +
       target +

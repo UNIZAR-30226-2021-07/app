@@ -194,7 +194,7 @@ class _CardBoardState extends State<CardBoard>
                                   fontWeight: FontWeight.bold, fontSize: 20),
                             ),
                             onPressed: (){
-                              // TODO: Funcionalidad de pasar turno
+                              passTurn();
                             },
                           ),
                         ),
@@ -232,22 +232,32 @@ class _CardBoardState extends State<CardBoard>
                               color: Color(0x00000000),
                               borderRadius: BorderRadius.circular(20.0)),
                           alignment: Alignment.center,
-                            child: DottedBorder(
-                            color: Colors.black,
-                            strokeWidth: 1,
-                            child: Container(
-                              width: MediaQuery.of(context).size.width * 0.32,
-                              height: MediaQuery.of(context).size.height * 0.05,
-                              alignment: Alignment.center,
-                              child: Text(
-                                "Descartar",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 20),
+                          child: DragTarget<CardData>(
+                          builder: (context, candidateItems, rejectedItems) {
+                            return  DottedBorder(
+                              color: Colors.black,
+                              strokeWidth: 1,
+                              child: Container(
+                                width: MediaQuery.of(context).size.width * 0.32,
+                                height: MediaQuery.of(context).size.height * 0.05,
+                                alignment: Alignment.center,
+                                child: Text(
+                                  "Descartar",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold, fontSize: 20),
+                                ),
                               ),
-                            ),
-                          ),
+                            );
+                          },
+                          onAcceptWithDetails: (data) {
+                            return true;
+                          },
+                          onAccept: (data) {
+                            discardCard(data.indice);
+                          },
                         ),
+                      ),
                     ],
                   ),
                 ),
