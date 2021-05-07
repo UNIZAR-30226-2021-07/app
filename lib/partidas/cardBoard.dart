@@ -8,6 +8,7 @@ import 'package:gatovidapp/partidas/hand.dart';
 import 'package:gatovidapp/partidas/body.dart';
 import 'package:gatovidapp/partidas/playersTable.dart';
 import 'package:simple_timer/simple_timer.dart';
+import 'package:dotted_border/dotted_border.dart';
 import 'dart:async';
 
 const COUNT_DOWN_SEGS = 30;
@@ -174,24 +175,28 @@ class _CardBoardState extends State<CardBoard>
                   height: MediaQuery.of(context).size.height * 0.05,
                   alignment: Alignment.center,
                   child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
                           width: MediaQuery.of(context).size.width * 0.33,
-                          height: MediaQuery.of(context).size.height * 0.04,
-                          color: Colors.deepPurple,
+                          height: MediaQuery.of(context).size.height * 0.045,
+                          color: colorBase,
+                          alignment: Alignment.center,
                           child: Text(
                             "Boton pasar",
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 20),
                           )),
+                      Container(width: MediaQuery.of(context).size.width * 0.05,),
                       Container(
-                        width: MediaQuery.of(context).size.width * 0.34,
-                        height: MediaQuery.of(context).size.height * 0.04,
+                        width: MediaQuery.of(context).size.width * 0.22,
+                        height: MediaQuery.of(context).size.height * 0.045,
                         color: Colors.pinkAccent,
                         child: Container(
                           height: MediaQuery.of(context).size.height * 0.035,
-                          width: MediaQuery.of(context).size.width * 0.32,
+                          width: MediaQuery.of(context).size.width * 0.2,
                           color: colorBase,
                           alignment: Alignment.center,
                           child: SimpleTimer(
@@ -210,15 +215,30 @@ class _CardBoardState extends State<CardBoard>
                           ),
                         ),
                       ),
+                      Container(width: MediaQuery.of(context).size.width * 0.05,),
                       Container(
                           width: MediaQuery.of(context).size.width * 0.33,
-                          height: MediaQuery.of(context).size.height * 0.04,
-                          color: Colors.grey,
-                          child: Text(
-                            "Descartes",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 20),
+                          height: MediaQuery.of(context).size.height * 0.045,
+                          decoration: BoxDecoration(
+                              color: Color(0x00000000),
+                              borderRadius: BorderRadius.circular(20.0)),
+                          alignment: Alignment.center,
+                          child: Expanded(
+                            child: DottedBorder(
+                              color: Colors.black,
+                              strokeWidth: 1,
+                              child: Container(
+                                width: MediaQuery.of(context).size.width * 0.32,
+                                height: MediaQuery.of(context).size.height * 0.05,
+                                alignment: Alignment.center,
+                                child: Text(
+                                  "Descartar",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold, fontSize: 20),
+                                ),
+                              ),
+                            ),
                           )),
                     ],
                   ),
