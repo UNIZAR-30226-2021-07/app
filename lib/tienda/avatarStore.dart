@@ -67,6 +67,9 @@ class _PicturesStoreState extends State<PicturesStore> {
                 ),
               ],
             ),
+            Container(
+              height: MediaQuery.of(context).size.width * 0.05,
+            ),
             Expanded(
               child: new GridView.count(
                 padding: EdgeInsets.only(

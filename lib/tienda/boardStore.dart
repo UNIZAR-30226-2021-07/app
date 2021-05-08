@@ -67,6 +67,9 @@ class _BoardStoreState extends State<BoardStore> {
                 ),
               ],
             ),
+            Container(
+              height: MediaQuery.of(context).size.width * 0.05,
+            ),
             Expanded(
               child: new GridView.count(
                 padding: EdgeInsets.only(
@@ -76,7 +79,7 @@ class _BoardStoreState extends State<BoardStore> {
                 crossAxisSpacing: MediaQuery.of(context).size.width * 0.1,
                 mainAxisSpacing: MediaQuery.of(context).size.width * 0.1,
                 crossAxisCount: 2,
-                children: List.generate(boardList.length - 1, (index) {
+                children: List.generate(boardList.length, (index) {
                   bool aux1 = false;
                   for (int i = 0; i < globalData.purchasedBoards.length; i++) {
                     if (index == globalData.purchasedBoards[i]) {
