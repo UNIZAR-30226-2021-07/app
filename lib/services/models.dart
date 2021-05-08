@@ -16,6 +16,7 @@ List boardList = [];
 List cardList = [];
 String codeGame = '';
 int numGamers = 1;
+bool pauseGame;
 
 // Game data
 

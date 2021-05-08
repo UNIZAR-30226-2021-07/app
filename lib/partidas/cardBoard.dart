@@ -113,6 +113,8 @@ class _CardBoardState extends State<CardBoard>
                       Expanded(
                         child: ElevatedButton(
                             onPressed: () {
+                              pauseGame = true;
+                              gamePaused(pauseGame);
                               showDialog(
                                 barrierDismissible: false,
                                 context: context,

@@ -32,6 +32,7 @@ void startWebSocket() {
   socket.on('game_update', (data) => gameUpdateHandler(data));
   socket.on('connect_error', (_) => print('errorConnect: ' + _.toString()));
   socket.on('error', (data) => errorMessageHandler(data));
+  socket.on('pause_game', (data) => gamePausedHandler(data));
 }
 
 // Handlers for socket.on
@@ -192,6 +193,11 @@ void errorMessageHandler(Map<String, dynamic> json) {
   }
 }
 
+void gamePausedHandler(Map<String, dynamic> json) {
+  bool pause;
+  gamePaused(pause);
+}
+
 // Functions to send data with the websocket
 
 void createGame() {
@@ -262,6 +268,11 @@ void playCard(String target, int organPile, int slot) {
         'organ_pile': organPile,
       },
       ack: (data) => print('PlayCard error:' + data.toString()));
+}
+
+void gamePaused(bool pause) {
+  print('pause_game emit');
+  socket.emitWithAck('pause_game', pause, ack: (data) => errorMessageHandler(data));
 }
 
 void disconnectWebSocket() {
