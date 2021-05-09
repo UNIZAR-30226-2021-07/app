@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:gatovidapp/services/websockets.dart';
 
 Color blackWords = Color(0xff000000);
-Color redButton = Color(0xffFF0000);
-Color greenButton = Color(0xff10E73F);
 Color purpleButton = Color(0xff6A1B9A);
 Color whiteWords = Color(0xffffffff);
-Color greyWords = Color(0xff474747);
 
 class GamePaused extends StatelessWidget {
   // This widget is the root of your application.
@@ -64,8 +62,7 @@ class GamePaused extends StatelessWidget {
                   side: BorderSide(color: whiteWords, width: 2),
                 ),
                 onPressed: () {
-                  Navigator.pop(context);
-                  //TODO: Funcionalidad de reanudar partida
+                  gamePaused(false);
                 }),
             SizedBox(
               height: MediaQuery.of(context).size.width * 0.03,
