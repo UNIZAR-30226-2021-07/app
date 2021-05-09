@@ -72,18 +72,27 @@ class _CardBoardState extends State<CardBoard>
 
     streamSubscription2 = streamPaused.listen((data) {
       if (data == true) {
+        if (isMyTurn) {
+          _timerController.pause();
+        }
         showDialog(
           context: context,
           builder: (BuildContext context) => GamePausedOthers(),
         );
       } else {
         // false
+        if (isMyTurn) {
+          _timerController.start();
+        }
         Navigator.of(context).popUntil((route) => route.isFirst);
       }
     });
 
     streamSubscription3 = streamPausedMe.listen((data) {
       if (data == true) {
+        if (isMyTurn) {
+          _timerController.pause();
+        }
         showDialog(
           barrierDismissible: false,
           context: context,
@@ -91,6 +100,9 @@ class _CardBoardState extends State<CardBoard>
         );
       } else {
         // false
+        if (isMyTurn) {
+          _timerController.start();
+        }
         Navigator.of(context).popUntil((route) => route.isFirst);
       }
     });
