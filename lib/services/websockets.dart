@@ -32,7 +32,6 @@ void startWebSocket() {
   socket.on('game_update', (data) => gameUpdateHandler(data));
   socket.on('connect_error', (_) => print('errorConnect: ' + _.toString()));
   socket.on('error', (data) => errorMessageHandler(data));
-  socket.on('pause_game', (data) => gamePausedHandler(data));
 }
 
 // Handlers for socket.on
@@ -181,6 +180,19 @@ void gameUpdateHandler(Map<String, dynamic> json) {
       }
     }
   }
+  if(json['paused']!=null){
+    if(json['paused'] == true){
+      playerWhoPaused = json['paused_by'];
+      if (playerWhoPaused != globalData.name){
+        controllerPausedGame.add(true);
+      }
+    }
+    else{ // false
+      if (playerWhoPaused != globalData.name){
+        controllerPausedGame.add(false);
+      }
+    }
+  }
   controlGame.add(true);
 }
 
@@ -191,11 +203,6 @@ void errorMessageHandler(Map<String, dynamic> json) {
         false); // If the error is from create private or public, it works too
     globalError = Error.fromJson(json);
   }
-}
-
-void gamePausedHandler(Map<String, dynamic> json) {
-  bool pause;
-  gamePaused(pause);
 }
 
 // Functions to send data with the websocket
@@ -272,7 +279,7 @@ void playCard(String target, int organPile, int slot) {
 
 void gamePaused(bool pause) {
   print('pause_game emit');
-  socket.emitWithAck('pause_game', pause, ack: (data) => errorMessageHandler(data));
+  socket.emitWithAck('pause_game', pause, ack: (data) => print('pause_game error:' + data.toString()));
 }
 
 void disconnectWebSocket() {

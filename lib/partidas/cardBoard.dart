@@ -25,6 +25,7 @@ class CardBoard extends StatefulWidget {
 class _CardBoardState extends State<CardBoard>
     with SingleTickerProviderStateMixin {
   StreamSubscription<bool> streamSubscription;
+  StreamSubscription<bool> streamSubscription2;
   TimerController _timerController;
 
   @override
@@ -65,6 +66,17 @@ class _CardBoardState extends State<CardBoard>
         colorBase = greyColor;
       }
       setState(() {});
+    });
+
+    streamSubscription2 = streamPaused.listen((data) {
+      if (data == true){
+        showDialog(
+          context: context,
+          builder: (BuildContext context) => ReadyGame(), // TODO: Poner el de pausa pero no se puede quitar la pausa
+        );
+      }else{ // false
+        Navigator.of(context).popUntil((route) => route.isFirst);
+      }
     });
   }
 
@@ -312,6 +324,7 @@ class _CardBoardState extends State<CardBoard>
     super.dispose();
     _timerController.dispose();
     streamSubscription.cancel();
+    streamSubscription2.cancel();
   }
 
   void handleTimerOnStart() {
