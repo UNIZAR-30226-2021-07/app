@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:gatovidapp/partidas/expandedPlayer.dart';
 import 'package:gatovidapp/popUps/gamePaused.dart';
+import 'package:gatovidapp/popUps/gamePausedOthers.dart';
 import 'package:gatovidapp/services/models.dart';
 import 'package:gatovidapp/services/websockets.dart';
 import 'package:gatovidapp/partidas/hand.dart';
@@ -26,6 +27,7 @@ class _CardBoardState extends State<CardBoard>
     with SingleTickerProviderStateMixin {
   StreamSubscription<bool> streamSubscription;
   StreamSubscription<bool> streamSubscription2;
+  StreamSubscription<bool> streamSubscription3;
   TimerController _timerController;
 
   @override
@@ -72,9 +74,23 @@ class _CardBoardState extends State<CardBoard>
       if (data == true){
         showDialog(
           context: context,
-          builder: (BuildContext context) => ReadyGame(), // TODO: Poner el de pausa pero no se puede quitar la pausa
+          builder: (BuildContext context) => GamePausedOthers(),
         );
-      }else{ // false
+      }else{
+        // false
+        Navigator.of(context).popUntil((route) => route.isFirst);
+      }
+    });
+
+    streamSubscription3 = streamPausedMe.listen((data) {
+      if (data == true){
+        showDialog(
+          barrierDismissible: false,
+          context: context,
+          builder: (BuildContext context) => GamePaused(),
+        );
+      }else{
+        // false
         Navigator.of(context).popUntil((route) => route.isFirst);
       }
     });
@@ -125,13 +141,14 @@ class _CardBoardState extends State<CardBoard>
                       Expanded(
                         child: ElevatedButton(
                             onPressed: () {
-                              pauseGame = true;
-                              gamePaused(pauseGame);
-                              showDialog(
-                                barrierDismissible: false,
-                                context: context,
-                                builder: (BuildContext context) => GamePaused(),
-                              );
+                              gamePaused(true);
+                              /*if (pauseGame) {
+                                showDialog(
+                                  barrierDismissible: false,
+                                  context: context,
+                                  builder: (BuildContext context) => GamePaused(),
+                                );
+                              }*/
                             },
                             style: ElevatedButton.styleFrom(
                                 primary: Color(0xFF9C4DCC),
@@ -325,6 +342,7 @@ class _CardBoardState extends State<CardBoard>
     _timerController.dispose();
     streamSubscription.cancel();
     streamSubscription2.cancel();
+    streamSubscription3.cancel();
   }
 
   void handleTimerOnStart() {

@@ -186,10 +186,16 @@ void gameUpdateHandler(Map<String, dynamic> json) {
       if (playerWhoPaused != globalData.name){
         controllerPausedGame.add(true);
       }
+      else {
+        controllerPausedGameMe.add(true);
+      }
     }
     else{ // false
       if (playerWhoPaused != globalData.name){
         controllerPausedGame.add(false);
+      }
+      else {
+        controllerPausedGameMe.add(false);
       }
     }
   }
