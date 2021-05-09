@@ -72,7 +72,7 @@ class _CardBoardState extends State<CardBoard>
 
     streamSubscription2 = streamPaused.listen((data) {
       if (data == true) {
-        if (isMyTurn){
+        if (isMyTurn) {
           _timerController.pause();
         }
         showDialog(
@@ -81,7 +81,7 @@ class _CardBoardState extends State<CardBoard>
         );
       } else {
         // false
-        if (isMyTurn){
+        if (isMyTurn) {
           _timerController.start();
         }
         Navigator.of(context).popUntil((route) => route.isFirst);
@@ -90,7 +90,7 @@ class _CardBoardState extends State<CardBoard>
 
     streamSubscription3 = streamPausedMe.listen((data) {
       if (data == true) {
-        if (isMyTurn){
+        if (isMyTurn) {
           _timerController.pause();
         }
         showDialog(
@@ -100,7 +100,7 @@ class _CardBoardState extends State<CardBoard>
         );
       } else {
         // false
-        if (isMyTurn){
+        if (isMyTurn) {
           _timerController.start();
         }
         Navigator.of(context).popUntil((route) => route.isFirst);
