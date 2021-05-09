@@ -180,21 +180,19 @@ void gameUpdateHandler(Map<String, dynamic> json) {
       }
     }
   }
-  if(json['paused']!=null){
-    if(json['paused'] == true){
+  if (json['paused'] != null) {
+    if (json['paused'] == true) {
       playerWhoPaused = json['paused_by'];
-      if (playerWhoPaused != globalData.name){
+      if (playerWhoPaused != globalData.name) {
         controllerPausedGame.add(true);
-      }
-      else {
+      } else {
         controllerPausedGameMe.add(true);
       }
-    }
-    else{ // false
-      if (playerWhoPaused != globalData.name){
+    } else {
+      // false
+      if (playerWhoPaused != globalData.name) {
         controllerPausedGame.add(false);
-      }
-      else {
+      } else {
         controllerPausedGameMe.add(false);
       }
     }
@@ -285,7 +283,8 @@ void playCard(String target, int organPile, int slot) {
 
 void gamePaused(bool pause) {
   print('pause_game emit');
-  socket.emitWithAck('pause_game', pause, ack: (data) => print('pause_game error:' + data.toString()));
+  socket.emitWithAck('pause_game', pause,
+      ack: (data) => print('pause_game error:' + data.toString()));
 }
 
 void disconnectWebSocket() {

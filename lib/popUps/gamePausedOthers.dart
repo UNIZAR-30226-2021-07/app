@@ -10,36 +10,35 @@ class GamePausedOthers extends StatelessWidget {
     return WillPopScope(
         onWillPop: () async => false,
         child: AlertDialog(
-          title: Center(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.pause_circle_outline_rounded,
-                  size: MediaQuery.of(context).size.width * 0.1,
-                ),
-                Text(
-                  'Partida Pausada',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.width * 0.06,
-                    fontWeight: FontWeight.bold,
-                    color: blackWords,
+            title: Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.pause_circle_outline_rounded,
+                    size: MediaQuery.of(context).size.width * 0.1,
                   ),
-                ),
-              ],
+                  Text(
+                    'Partida Pausada',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.width * 0.06,
+                      fontWeight: FontWeight.bold,
+                      color: blackWords,
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-          content: Text(
-            'El gatico ' + playerWhoPaused + ' ha parado la partida.',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: MediaQuery.of(context).size.width * 0.04,
-              fontWeight: FontWeight.normal,
-              color: blackWords,
-            ),
-          )
-        ));
+            content: Text(
+              'El gatico ' + playerWhoPaused + ' ha parado la partida.',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: MediaQuery.of(context).size.width * 0.04,
+                fontWeight: FontWeight.normal,
+                color: blackWords,
+              ),
+            )));
   }
 }

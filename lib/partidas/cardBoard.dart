@@ -71,25 +71,25 @@ class _CardBoardState extends State<CardBoard>
     });
 
     streamSubscription2 = streamPaused.listen((data) {
-      if (data == true){
+      if (data == true) {
         showDialog(
           context: context,
           builder: (BuildContext context) => GamePausedOthers(),
         );
-      }else{
+      } else {
         // false
         Navigator.of(context).popUntil((route) => route.isFirst);
       }
     });
 
     streamSubscription3 = streamPausedMe.listen((data) {
-      if (data == true){
+      if (data == true) {
         showDialog(
           barrierDismissible: false,
           context: context,
           builder: (BuildContext context) => GamePaused(),
         );
-      }else{
+      } else {
         // false
         Navigator.of(context).popUntil((route) => route.isFirst);
       }
