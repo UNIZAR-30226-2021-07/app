@@ -184,6 +184,7 @@ class _GamesMenuState extends State<GamesMenu> {
                             child: ElevatedButton(
                                 onPressed: () {
                                   messages.clear();
+                                  publicIsPublicGame = false;
                                   numGamers = 1;
                                   createGame();
                                   listOfGamers.clear();
@@ -225,6 +226,7 @@ class _GamesMenuState extends State<GamesMenu> {
                             child: ElevatedButton(
                                 onPressed: () {
                                   messages.clear();
+                                  publicIsPublicGame = false;
                                   numGamers = 1;
                                   listOfGamers.clear();
                                   handOfPlayer.clear();
@@ -264,6 +266,7 @@ class _GamesMenuState extends State<GamesMenu> {
                             child: ElevatedButton(
                                 onPressed: () {
                                   messages.clear();
+                                  publicIsPublicGame = true;
                                   numGamers = 1;
                                   publicGame();
                                   listOfGamers.clear();
