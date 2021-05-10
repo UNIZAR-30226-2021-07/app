@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gatovidapp/services/websockets.dart';
 import 'package:gatovidapp/services/models.dart';
+import 'package:gatovidapp/popUps/exitPrivate.dart';
+import 'package:gatovidapp/popUps/exitPublic.dart';
 
 class UpButtons extends StatelessWidget {
   const UpButtons({
@@ -24,9 +26,11 @@ class UpButtons extends StatelessWidget {
             Expanded(
               child: TextButton(
                   onPressed: () {
-                    leaveGame(); //TODO: Implementar pop-up salir de la partida
-                    Navigator.of(context).popUntil((route) => route.isFirst);
-                    Navigator.pushReplacementNamed(context, '/home');
+                    showDialog(
+                      barrierDismissible: false,
+                      context: context,
+                      builder: (BuildContext context) => ExitPublic(),
+                    );
                   },
                   child: Icon(
                     Icons.arrow_back,
@@ -80,9 +84,11 @@ class UpButtons extends StatelessWidget {
           Expanded(
             child: TextButton(
                 onPressed: () {
-                  leaveGame(); //TODO: Implementar pop-up salir de la partida
-                  Navigator.of(context).popUntil((route) => route.isFirst);
-                  Navigator.pushReplacementNamed(context, '/home');
+                  showDialog(
+                    barrierDismissible: false,
+                    context: context,
+                    builder: (BuildContext context) => ExitPrivate(),
+                  );
                 },
                 child: Icon(
                   Icons.arrow_back,
