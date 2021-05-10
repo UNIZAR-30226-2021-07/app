@@ -111,10 +111,8 @@ class PurchaseTemplate extends StatelessWidget {
             showDialog(
               barrierDismissible: false,
               context: context,
-              builder: (BuildContext context) =>
-                  PurchaseAlert(),
+              builder: (BuildContext context) => PurchaseAlert(),
             );
-
           },
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

@@ -76,7 +76,7 @@ class PurchaseAlert extends StatelessWidget {
                   Navigator.of(context).pop();
                   globalError = Error(
                       error:
-                      'No se ha podido completar la compra con éxito, por favor, compruebe que tiene saldo suficiente');
+                          'No se ha podido completar la compra con éxito, por favor, compruebe que tiene saldo suficiente');
                   showDialog(
                     context: context,
                     builder: (BuildContext context) => ErrorPopup(),
