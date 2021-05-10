@@ -3,7 +3,6 @@ import 'package:gatovidapp/popUps/loadingGameWithNumberGamers.dart';
 import 'package:gatovidapp/services/websockets.dart';
 
 class ExitPublic extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
@@ -34,7 +33,8 @@ class ExitPublic extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
                       ),
-                    ),),
+                    ),
+                  ),
                   Expanded(
                     flex: 2,
                     child: Row(
@@ -46,7 +46,7 @@ class ExitPublic extends StatelessWidget {
                           style: TextButton.styleFrom(
                             primary: Colors.grey,
                             minimumSize:
-                            Size(screenHeight * 0.025, screenWidth * 0.025),
+                                Size(screenHeight * 0.025, screenWidth * 0.025),
                           ),
                           onPressed: () {
                             Navigator.pop(context);
