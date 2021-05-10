@@ -130,7 +130,10 @@ class _CardBoardState extends State<CardBoard>
                 Container(
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height * 0.05,
-                  child: UpButtons(width: MediaQuery.of(context).size.width, height: MediaQuery.of(context).size.height * 0.05,), //TODO: Implementar esto
+                  child: UpButtons(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height * 0.05,
+                  ), //TODO: Implementar esto
                 ),
                 Container(
                     width: MediaQuery.of(context).size.width,
