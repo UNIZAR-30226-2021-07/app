@@ -32,7 +32,8 @@ Widget expandedPlayer(BuildContext context) {
             playerImage: ("assets/common/") +
                 picsList[listOfGamers[expansion - 1].pictureId]['image'],
             playerName: listOfGamers[expansion - 1].name,
-            listOrgansplayer: listOfGamersBody[listOfGamers[expansion - 1].name],
+            listOrgansplayer:
+                listOfGamersBody[listOfGamers[expansion - 1].name],
           ),
         ),
       ),

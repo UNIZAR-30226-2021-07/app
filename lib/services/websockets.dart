@@ -99,30 +99,31 @@ void gameUpdateHandler(Map<String, dynamic> json) {
   }
   if (json['players'] != null) {
     List aux = json['players'];
-    if(listOfGamers.length <= 0){
+    if (listOfGamers.length <= 0) {
       for (int i = 0; i < aux.length; i++) {
         if (aux[i]['name'].toString() != globalData.name) {
           listOfGamers.add(GamePlayer(aux[i]['name'], aux[i]['picture']));
-          listOfGamersBody[aux[i]['name']] = [[],[],[],[]];
+          listOfGamersBody[aux[i]['name']] = [[], [], [], []];
         }
       }
-    }
-    else{
+    } else {
       List previousList = [];
-      for(int i = 0; i < aux.length ; i++){
-        bool isNotHere = true;
-        for(int j = 0; j < listOfGamers.length; j++){
-          if (aux[i]['name'].toString() != globalData.name) {
-            if (aux[i]['name'].toString() == listOfGamers[j].name) {
-              previousList.add(GamePlayer(aux[i]['name'], listOfGamers[i].pictureId));
-              isNotHere = false;
-              break;
+      for (int i = 0; i < aux.length; i++) {
+        if (aux[i]['is_ai'] != null) {
+          print(aux[i]['name'].toString());
+          previousList
+              .add(GamePlayer(aux[i]['name'].toString(), aux[i]['picture']));
+          listOfGamersBody[aux[i]['name'].toString()] = [[], [], [], []];
+        } else {
+          for (int j = 0; j < listOfGamers.length; j++) {
+            if (aux[i]['name'].toString() != globalData.name) {
+              if (aux[i]['name'].toString() == listOfGamers[j].name) {
+                previousList
+                    .add(GamePlayer(aux[i]['name'], listOfGamers[j].pictureId));
+                break;
+              }
             }
           }
-        }
-        if (isNotHere){
-          listOfGamers.add(GamePlayer(aux[i]['name'], aux[i]['picture']));
-          listOfGamersBody[aux[i]['name']] = [[],[],[],[]];
         }
       }
       listOfGamers.clear();
@@ -177,7 +178,6 @@ void gameUpdateHandler(Map<String, dynamic> json) {
             }
           }
         }
-        listOfGamersBody[listOfGamers[i].name];
       }
     }
     if (aux[globalData.name] != null) {
