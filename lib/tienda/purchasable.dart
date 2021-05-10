@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gatovidapp/services/models.dart';
 import 'package:gatovidapp/services/profile_modify.dart';
 import 'package:gatovidapp/services/profile_stadistics.dart';
-import 'package:gatovidapp/popUps/error.dart';
+import 'package:gatovidapp/popUps/confirmPurchase.dart';
 
 class PurchaseTemplate extends StatelessWidget {
   const PurchaseTemplate({
@@ -105,19 +105,16 @@ class PurchaseTemplate extends StatelessWidget {
         child: TextButton(
           onPressed: () async {
             // ok name
-            if (await buyItem(this.typePurchase, this.idPurchase.toString())) {
-              await getData();
-              controllerStat.add(true);
-            } else {
-              globalError = Error(
-                  error:
-                      'No se ha podido completar la compra con éxito, por favor, compruebe que tiene saldo suficiente');
-              showDialog(
-                barrierDismissible: false,
-                context: context,
-                builder: (BuildContext context) => ErrorPopup(),
-              );
-            }
+            costPurchaseSelected = costPutchase;
+            typePurchaseSelected = this.typePurchase;
+            idPurchaseSelected = this.idPurchase.toString();
+            showDialog(
+              barrierDismissible: false,
+              context: context,
+              builder: (BuildContext context) =>
+                  PurchaseAlert(),
+            );
+
           },
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

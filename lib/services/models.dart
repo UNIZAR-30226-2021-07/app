@@ -28,7 +28,10 @@ TimerStatus timerStatusPlayer = TimerStatus.pause;
 String playerWhoPaused = '';
 
 // Store
-String costPurchaseSelected = '900';
+String costPurchaseSelected = '';
+String typePurchaseSelected = '';
+String idPurchaseSelected = '';
+
 
 Color purpleColor = Color(0xff6A1B9A);
 Color greyColor = Color(0xffC5C5C5);
