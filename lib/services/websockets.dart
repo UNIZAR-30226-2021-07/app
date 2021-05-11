@@ -111,9 +111,15 @@ void gameUpdateHandler(Map<String, dynamic> json) {
       for (int i = 0; i < aux.length; i++) {
         if (aux[i]['is_ai'] != null) {
           print(aux[i]['name'].toString());
-          previousList
-              .add(GamePlayer(aux[i]['name'].toString(), aux[i]['picture']));
-          listOfGamersBody[aux[i]['name'].toString()] = [[], [], [], []];
+          previousList.add(GamePlayer(
+              aux[i]['name'].toString() + ' [BOT]', aux[i]['picture']));
+          if (listOfGamersBody
+              .containsKey(aux[i]['name'].toString() + ' [BOT]')) {
+            // Nothing
+          } else {
+            listOfGamersBody[aux[i]['name'].toString() + ' [BOT]'] =
+                listOfGamersBody[aux[i]['name'].toString()];
+          }
         } else {
           for (int j = 0; j < listOfGamers.length; j++) {
             if (aux[i]['name'].toString() != globalData.name) {

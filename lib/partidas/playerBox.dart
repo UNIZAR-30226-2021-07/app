@@ -55,7 +55,7 @@ class PlayerBox extends StatelessWidget {
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.black,
-                            fontSize: this.height * 0.12),
+                            fontSize: this.height * 0.09),
                       ),
                     ),
                   ),
