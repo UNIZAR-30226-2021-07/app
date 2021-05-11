@@ -37,8 +37,21 @@ class Body extends StatelessWidget {
                   );
                 }
                 return Container(
-                  width: this.width * 0.225,
                   height: this.height,
+                  width: this.width * 0.225,
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: <Widget>[
+                      Positioned(
+                        top: this.height * 0.0,
+                        child: Container(
+                          width: this.width * 0.9 * 0.225,
+                          height: this.height * 0.8,
+                          child: Image.asset("assets/images/empty.png"),
+                        ),
+                      ),
+                    ],
+                  ),
                 );
               },
               onAcceptWithDetails: (data) {
@@ -62,8 +75,21 @@ class Body extends StatelessWidget {
                   );
                 }
                 return Container(
-                  width: this.width * 0.225,
                   height: this.height,
+                  width: this.width * 0.225,
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: <Widget>[
+                      Positioned(
+                        top: this.height * 0.0,
+                        child: Container(
+                          width: this.width * 0.9 * 0.225,
+                          height: this.height * 0.8,
+                          child: Image.asset("assets/images/empty.png"),
+                        ),
+                      ),
+                    ],
+                  ),
                 );
               },
               onAcceptWithDetails: (data) {
@@ -87,8 +113,21 @@ class Body extends StatelessWidget {
                   );
                 }
                 return Container(
-                  width: this.width * 0.225,
                   height: this.height,
+                  width: this.width * 0.225,
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: <Widget>[
+                      Positioned(
+                        top: this.height * 0.0,
+                        child: Container(
+                          width: this.width * 0.9 * 0.225,
+                          height: this.height * 0.8,
+                          child: Image.asset("assets/images/empty.png"),
+                        ),
+                      ),
+                    ],
+                  ),
                 );
               },
               onAcceptWithDetails: (data) {
@@ -112,8 +151,21 @@ class Body extends StatelessWidget {
                   );
                 }
                 return Container(
-                  width: this.width * 0.225,
                   height: this.height,
+                  width: this.width * 0.225,
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: <Widget>[
+                      Positioned(
+                        top: this.height * 0.0,
+                        child: Container(
+                          width: this.width * 0.9 * 0.225,
+                          height: this.height * 0.8,
+                          child: Image.asset("assets/images/empty.png"),
+                        ),
+                      ),
+                    ],
+                  ),
                 );
               },
               onAcceptWithDetails: (data) {

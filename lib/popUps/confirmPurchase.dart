@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gatovidapp/services/models.dart';
+import 'package:gatovidapp/popUps/error.dart';
+import 'package:gatovidapp/services/profile_modify.dart';
+import 'package:gatovidapp/services/profile_stadistics.dart';
 
 Color blackWords = Color(0xff000000);
 Color redButton = Color(0xffFF0000);
@@ -62,8 +65,23 @@ class PurchaseAlert extends StatelessWidget {
                 shadowColor: blackWords,
                 side: BorderSide(color: whiteWords, width: 2),
               ),
-              onPressed: () {
-                Navigator.of(context).pop();
+              onPressed: () async {
+                if (await buyItem(typePurchaseSelected, idPurchaseSelected)) {
+                  print('Comprado');
+                  await getData();
+                  controllerStat.add(true);
+                  Navigator.of(context).pop();
+                } else {
+                  print('No comprado');
+                  Navigator.of(context).pop();
+                  globalError = Error(
+                      error:
+                          'No se ha podido completar la compra con éxito, por favor, compruebe que tiene saldo suficiente');
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) => ErrorPopup(),
+                  );
+                }
               }),
         ),
         Padding(
