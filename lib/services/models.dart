@@ -183,10 +183,12 @@ class UserStat {
 
 class GamePlayer {
   String name;
+  String displayname;
   int pictureId;
 
-  GamePlayer(String nameP, int id) {
+  GamePlayer(String nameP, String nameAuxP, int id) {
     this.name = nameP;
+    this.displayname = nameAuxP;
     this.pictureId = id;
   }
 }

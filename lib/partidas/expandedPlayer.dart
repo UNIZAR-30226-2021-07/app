@@ -31,9 +31,10 @@ Widget expandedPlayer(BuildContext context) {
             height: MediaQuery.of(context).size.height * 0.3,
             playerImage: ("assets/common/") +
                 picsList[listOfGamers[expansion - 1].pictureId]['image'],
-            playerName: listOfGamers[expansion - 1].name,
+            playerName: listOfGamers[expansion - 1].displayname,
             listOrgansplayer:
                 listOfGamersBody[listOfGamers[expansion - 1].name],
+            playerTarget: listOfGamers[expansion - 1].name,
           ),
         ),
       ),

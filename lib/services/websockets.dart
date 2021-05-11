@@ -102,7 +102,8 @@ void gameUpdateHandler(Map<String, dynamic> json) {
     if (listOfGamers.length <= 0) {
       for (int i = 0; i < aux.length; i++) {
         if (aux[i]['name'].toString() != globalData.name) {
-          listOfGamers.add(GamePlayer(aux[i]['name'], aux[i]['picture']));
+          listOfGamers.add(
+              GamePlayer(aux[i]['name'], aux[i]['name'], aux[i]['picture']));
           listOfGamersBody[aux[i]['name']] = [[], [], [], []];
         }
       }
@@ -111,21 +112,14 @@ void gameUpdateHandler(Map<String, dynamic> json) {
       for (int i = 0; i < aux.length; i++) {
         if (aux[i]['is_ai'] != null) {
           print(aux[i]['name'].toString());
-          previousList.add(GamePlayer(
+          previousList.add(GamePlayer(aux[i]['name'].toString(),
               aux[i]['name'].toString() + ' [BOT]', aux[i]['picture']));
-          if (listOfGamersBody
-              .containsKey(aux[i]['name'].toString() + ' [BOT]')) {
-            // Nothing
-          } else {
-            listOfGamersBody[aux[i]['name'].toString() + ' [BOT]'] =
-                listOfGamersBody[aux[i]['name'].toString()];
-          }
         } else {
           for (int j = 0; j < listOfGamers.length; j++) {
             if (aux[i]['name'].toString() != globalData.name) {
               if (aux[i]['name'].toString() == listOfGamers[j].name) {
-                previousList
-                    .add(GamePlayer(aux[i]['name'], listOfGamers[j].pictureId));
+                previousList.add(GamePlayer(
+                    aux[i]['name'], aux[i]['name'], listOfGamers[j].pictureId));
                 break;
               }
             }

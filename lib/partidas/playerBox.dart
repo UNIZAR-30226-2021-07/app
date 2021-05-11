@@ -7,11 +7,13 @@ class PlayerBox extends StatelessWidget {
       this.height,
       this.playerName,
       this.playerImage,
+      this.playerTarget,
       this.listOrgansplayer});
 
   final width;
   final height;
   final playerName;
+  final playerTarget;
   final playerImage;
   final listOrgansplayer;
 
@@ -69,7 +71,7 @@ class PlayerBox extends StatelessWidget {
               width: this.width,
               height: this.height * 0.65,
               listOrgans: this.listOrgansplayer,
-              name: this.playerName,
+              name: this.playerTarget,
             ),
           )
         ],
