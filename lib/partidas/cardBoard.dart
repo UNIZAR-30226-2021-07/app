@@ -8,6 +8,7 @@ import 'package:gatovidapp/services/websockets.dart';
 import 'package:gatovidapp/partidas/hand.dart';
 import 'package:gatovidapp/partidas/body.dart';
 import 'package:gatovidapp/partidas/playersTable.dart';
+import 'package:gatovidapp/partidas/upButtons.dart';
 import 'package:simple_timer/simple_timer.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'dart:async';
@@ -129,83 +130,9 @@ class _CardBoardState extends State<CardBoard>
                 Container(
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height * 0.05,
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: ElevatedButton(
-                            onPressed: () {
-                              leaveGame();
-                              Navigator.of(context)
-                                  .popUntil((route) => route.isFirst);
-                              Navigator.pushReplacementNamed(context, '/home');
-                            },
-                            style: ElevatedButton.styleFrom(
-                                primary: Colors.orange,
-                                onPrimary: Colors.white,
-                                minimumSize: Size(double.infinity, 20)),
-                            child: Text(
-                              "Salir",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 20),
-                            )),
-                      ),
-                      Expanded(
-                        child: ElevatedButton(
-                            onPressed: () {
-                              gamePaused(true);
-                              /*if (pauseGame) {
-                                showDialog(
-                                  barrierDismissible: false,
-                                  context: context,
-                                  builder: (BuildContext context) => GamePaused(),
-                                );
-                              }*/
-                            },
-                            style: ElevatedButton.styleFrom(
-                                primary: Color(0xFF9C4DCC),
-                                onPrimary: Colors.white,
-                                minimumSize: Size(double.infinity, 20)),
-                            child: Text(
-                              "Pausa",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 20),
-                            )),
-                      ),
-                      Expanded(
-                        child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, '/rules');
-                            },
-                            style: ElevatedButton.styleFrom(
-                                primary: Colors.blue,
-                                onPrimary: Colors.white,
-                                minimumSize: Size(double.infinity, 20)),
-                            child: Text(
-                              "Reglas",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 20),
-                            )),
-                      ),
-                      Expanded(
-                        child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, '/chat');
-                            },
-                            style: ElevatedButton.styleFrom(
-                                primary: Color(0xFF9C4DCC),
-                                onPrimary: Colors.white,
-                                minimumSize: Size(double.infinity, 20)),
-                            child: Text(
-                              "Chat",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 20),
-                            )),
-                      ),
-                    ],
+                  child: UpButtons(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height * 0.05,
                   ),
                 ),
                 Container(

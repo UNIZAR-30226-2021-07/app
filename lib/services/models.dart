@@ -26,6 +26,7 @@ List handOfPlayer = [];
 List bodyOfPlayer = [];
 TimerStatus timerStatusPlayer = TimerStatus.pause;
 String playerWhoPaused = '';
+bool publicIsPublicGame = false;
 
 // Store
 String costPurchaseSelected = '900';
