@@ -188,6 +188,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                   numGamers = 1;
                                   createGame();
                                   listOfGamers.clear();
+                                  listOfGamersBody.clear();
                                   handOfPlayer.clear();
                                   bodyOfPlayer.clear();
                                   bodyOfPlayer = [[], [], [], []];
@@ -229,6 +230,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                   publicIsPublicGame = false;
                                   numGamers = 1;
                                   listOfGamers.clear();
+                                  listOfGamersBody.clear();
                                   handOfPlayer.clear();
                                   bodyOfPlayer.clear();
                                   bodyOfPlayer = [[], [], [], []];
@@ -270,6 +272,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                   numGamers = 1;
                                   publicGame();
                                   listOfGamers.clear();
+                                  listOfGamersBody.clear();
                                   handOfPlayer.clear();
                                   bodyOfPlayer.clear();
                                   bodyOfPlayer = [[], [], [], []];

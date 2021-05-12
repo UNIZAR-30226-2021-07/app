@@ -13,6 +13,8 @@ class PlayersTableTemplate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(listOfGamers);
+    print(listOfGamersBody);
     return Container(
         child: (() {
       if (listOfGamers.length == 5) {
@@ -33,8 +35,10 @@ class PlayersTableTemplate extends StatelessWidget {
                           height: this.height * 0.25,
                           playerImage: ("assets/common/") +
                               picsList[listOfGamers[4].pictureId]['image'],
-                          playerName: listOfGamers[4].name,
-                          listOrgansplayer: listOfGamers[4].bodyList,
+                          playerName: listOfGamers[4].displayname,
+                          listOrgansplayer:
+                              listOfGamersBody[listOfGamers[4].name],
+                          playerTarget: listOfGamers[4].name,
                         ),
                         onPressed: () {
                           expansion = 5;
@@ -52,8 +56,10 @@ class PlayersTableTemplate extends StatelessWidget {
                           height: this.height * 0.25,
                           playerImage: ("assets/common/") +
                               picsList[listOfGamers[3].pictureId]['image'],
-                          playerName: listOfGamers[3].name,
-                          listOrgansplayer: listOfGamers[3].bodyList,
+                          playerName: listOfGamers[3].displayname,
+                          listOrgansplayer:
+                              listOfGamersBody[listOfGamers[3].name],
+                          playerTarget: listOfGamers[3].name,
                         ),
                         onPressed: () {
                           expansion = 4;
@@ -78,8 +84,10 @@ class PlayersTableTemplate extends StatelessWidget {
                           height: this.height * 0.25,
                           playerImage: ("assets/common/") +
                               picsList[listOfGamers[2].pictureId]['image'],
-                          playerName: listOfGamers[2].name,
-                          listOrgansplayer: listOfGamers[2].bodyList,
+                          playerName: listOfGamers[2].displayname,
+                          listOrgansplayer:
+                              listOfGamersBody[listOfGamers[2].name],
+                          playerTarget: listOfGamers[2].name,
                         ),
                         onPressed: () {
                           expansion = 3;
@@ -97,8 +105,10 @@ class PlayersTableTemplate extends StatelessWidget {
                           height: this.height * 0.25,
                           playerImage: ("assets/common/") +
                               picsList[listOfGamers[1].pictureId]['image'],
-                          playerName: listOfGamers[1].name,
-                          listOrgansplayer: listOfGamers[1].bodyList,
+                          playerName: listOfGamers[1].displayname,
+                          listOrgansplayer:
+                              listOfGamersBody[listOfGamers[1].name],
+                          playerTarget: listOfGamers[1].name,
                         ),
                         onPressed: () {
                           expansion = 2;
@@ -122,8 +132,10 @@ class PlayersTableTemplate extends StatelessWidget {
                           height: this.height * 0.25,
                           playerImage: ("assets/common/") +
                               picsList[listOfGamers[0].pictureId]['image'],
-                          playerName: listOfGamers[0].name,
-                          listOrgansplayer: listOfGamers[0].bodyList,
+                          playerName: listOfGamers[0].displayname,
+                          listOrgansplayer:
+                              listOfGamersBody[listOfGamers[0].name],
+                          playerTarget: listOfGamers[0].name,
                         ),
                         onPressed: () {
                           expansion = 1;
@@ -154,8 +166,10 @@ class PlayersTableTemplate extends StatelessWidget {
                           height: this.height * 0.4,
                           playerImage: ("assets/common/") +
                               picsList[listOfGamers[3].pictureId]['image'],
-                          playerName: listOfGamers[3].name,
-                          listOrgansplayer: listOfGamers[3].bodyList,
+                          playerName: listOfGamers[3].displayname,
+                          listOrgansplayer:
+                              listOfGamersBody[listOfGamers[3].name],
+                          playerTarget: listOfGamers[3].name,
                         ),
                         onPressed: () {
                           expansion = 4;
@@ -173,8 +187,10 @@ class PlayersTableTemplate extends StatelessWidget {
                           height: this.height * 0.4,
                           playerImage: ("assets/common/") +
                               picsList[listOfGamers[2].pictureId]['image'],
-                          playerName: listOfGamers[2].name,
-                          listOrgansplayer: listOfGamers[2].bodyList,
+                          playerName: listOfGamers[2].displayname,
+                          listOrgansplayer:
+                              listOfGamersBody[listOfGamers[2].name],
+                          playerTarget: listOfGamers[2].name,
                         ),
                         onPressed: () {
                           expansion = 3;
@@ -199,8 +215,10 @@ class PlayersTableTemplate extends StatelessWidget {
                           height: this.height * 0.4,
                           playerImage: ("assets/common/") +
                               picsList[listOfGamers[1].pictureId]['image'],
-                          playerName: listOfGamers[1].name,
-                          listOrgansplayer: listOfGamers[1].bodyList,
+                          playerName: listOfGamers[1].displayname,
+                          listOrgansplayer:
+                              listOfGamersBody[listOfGamers[1].name],
+                          playerTarget: listOfGamers[1].name,
                         ),
                         onPressed: () {
                           expansion = 2;
@@ -218,8 +236,10 @@ class PlayersTableTemplate extends StatelessWidget {
                           height: this.height * 0.4,
                           playerImage: ("assets/common/") +
                               picsList[listOfGamers[0].pictureId]['image'],
-                          playerName: listOfGamers[0].name,
-                          listOrgansplayer: listOfGamers[0].bodyList,
+                          playerName: listOfGamers[0].displayname,
+                          listOrgansplayer:
+                              listOfGamersBody[listOfGamers[0].name],
+                          playerTarget: listOfGamers[0].name,
                         ),
                         onPressed: () {
                           expansion = 1;
@@ -251,8 +271,10 @@ class PlayersTableTemplate extends StatelessWidget {
                           height: this.height * 0.4,
                           playerImage: ("assets/common/") +
                               picsList[listOfGamers[2].pictureId]['image'],
-                          playerName: listOfGamers[2].name,
-                          listOrgansplayer: listOfGamers[2].bodyList,
+                          playerName: listOfGamers[2].displayname,
+                          listOrgansplayer:
+                              listOfGamersBody[listOfGamers[2].name],
+                          playerTarget: listOfGamers[2].name,
                         ),
                         onPressed: () {
                           expansion = 3;
@@ -270,8 +292,10 @@ class PlayersTableTemplate extends StatelessWidget {
                           height: this.height * 0.4,
                           playerImage: ("assets/common/") +
                               picsList[listOfGamers[1].pictureId]['image'],
-                          playerName: listOfGamers[1].name,
-                          listOrgansplayer: listOfGamers[1].bodyList,
+                          playerName: listOfGamers[1].displayname,
+                          listOrgansplayer:
+                              listOfGamersBody[listOfGamers[1].name],
+                          playerTarget: listOfGamers[1].name,
                         ),
                         onPressed: () {
                           expansion = 2;
@@ -296,8 +320,10 @@ class PlayersTableTemplate extends StatelessWidget {
                           height: this.height * 0.4,
                           playerImage: ("assets/common/") +
                               picsList[listOfGamers[0].pictureId]['image'],
-                          playerName: listOfGamers[0].name,
-                          listOrgansplayer: listOfGamers[0].bodyList,
+                          playerName: listOfGamers[0].displayname,
+                          listOrgansplayer:
+                              listOfGamersBody[listOfGamers[0].name],
+                          playerTarget: listOfGamers[0].name,
                         ),
                         onPressed: () {
                           expansion = 1;
@@ -327,8 +353,10 @@ class PlayersTableTemplate extends StatelessWidget {
                           height: this.height * 0.4,
                           playerImage: ("assets/common/") +
                               picsList[listOfGamers[1].pictureId]['image'],
-                          playerName: listOfGamers[1].name,
-                          listOrgansplayer: listOfGamers[1].bodyList,
+                          playerName: listOfGamers[1].displayname,
+                          listOrgansplayer:
+                              listOfGamersBody[listOfGamers[1].name],
+                          playerTarget: listOfGamers[1].name,
                         ),
                         onPressed: () {
                           expansion = 2;
@@ -351,8 +379,10 @@ class PlayersTableTemplate extends StatelessWidget {
                           height: this.height * 0.4,
                           playerImage: ("assets/common/") +
                               picsList[listOfGamers[0].pictureId]['image'],
-                          playerName: listOfGamers[0].name,
-                          listOrgansplayer: listOfGamers[0].bodyList,
+                          playerName: listOfGamers[0].displayname,
+                          listOrgansplayer:
+                              listOfGamersBody[listOfGamers[0].name],
+                          playerTarget: listOfGamers[0].name,
                         ),
                         onPressed: () {
                           expansion = 1;
@@ -382,8 +412,10 @@ class PlayersTableTemplate extends StatelessWidget {
                           height: this.height * 0.75,
                           playerImage: ("assets/common/") +
                               picsList[listOfGamers[0].pictureId]['image'],
-                          playerName: listOfGamers[0].name,
-                          listOrgansplayer: listOfGamers[0].bodyList,
+                          playerName: listOfGamers[0].displayname,
+                          listOrgansplayer:
+                              listOfGamersBody[listOfGamers[0].name],
+                          playerTarget: listOfGamers[0].name,
                         ),
                         onPressed: () {
                           expansion = 1;

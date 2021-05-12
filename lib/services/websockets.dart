@@ -99,11 +99,35 @@ void gameUpdateHandler(Map<String, dynamic> json) {
   }
   if (json['players'] != null) {
     List aux = json['players'];
-    listOfGamers.clear(); // Clean of the list
-    for (int i = 0; i < aux.length; i++) {
-      if (aux[i]['name'].toString() != globalData.name) {
-        listOfGamers.add(GamePlayer(aux[i]['name'], aux[i]['picture']));
+    if (listOfGamers.length <= 0) {
+      for (int i = 0; i < aux.length; i++) {
+        if (aux[i]['name'].toString() != globalData.name) {
+          listOfGamers.add(
+              GamePlayer(aux[i]['name'], aux[i]['name'], aux[i]['picture']));
+          listOfGamersBody[aux[i]['name']] = [[], [], [], []];
+        }
       }
+    } else {
+      List previousList = [];
+      for (int i = 0; i < aux.length; i++) {
+        if (aux[i]['is_ai'] != null) {
+          print(aux[i]['name'].toString());
+          previousList.add(GamePlayer(aux[i]['name'].toString(),
+              aux[i]['name'].toString() + ' [BOT]', aux[i]['picture']));
+        } else {
+          for (int j = 0; j < listOfGamers.length; j++) {
+            if (aux[i]['name'].toString() != globalData.name) {
+              if (aux[i]['name'].toString() == listOfGamers[j].name) {
+                previousList.add(GamePlayer(
+                    aux[i]['name'], aux[i]['name'], listOfGamers[j].pictureId));
+                break;
+              }
+            }
+          }
+        }
+      }
+      listOfGamers.clear();
+      listOfGamers = previousList;
     }
   }
   if (json['hand'] != null) {
@@ -128,15 +152,16 @@ void gameUpdateHandler(Map<String, dynamic> json) {
       // There's an upgrade
       if (aux[listOfGamers[i].name] != null) {
         // At this point we have to extract organs and identifiers
-        listOfGamers[i].bodyList.clear();
+        listOfGamersBody[listOfGamers[i].name].clear();
+        print(listOfGamersBody[listOfGamers[i].name]);
         // List of stacks that we receive
         List aux2 = aux[listOfGamers[i].name];
         for (int j = 0; j < aux2.length; j++) {
-          listOfGamers[i].bodyList.add([]);
+          listOfGamersBody[listOfGamers[i].name].add([]);
           // We trust in backend so much at this point
           // organ
           if (aux2[j]['organ'] != null) {
-            listOfGamers[i].bodyList[j].add(CardData(
+            listOfGamersBody[listOfGamers[i].name][j].add(CardData(
                 aux2[j]['organ']['card_type'],
                 aux2[j]['organ']['color'],
                 '',
@@ -147,7 +172,7 @@ void gameUpdateHandler(Map<String, dynamic> json) {
             List aux3 = aux2[j]['modifiers'];
             if (aux3.length > 0) {
               for (int k = 0; k < aux3.length; k++) {
-                listOfGamers[i].bodyList[j].add(
+                listOfGamersBody[listOfGamers[i].name][j].add(
                     CardData(aux3[k]['card_type'], aux3[k]['color'], '', -1));
               }
             }

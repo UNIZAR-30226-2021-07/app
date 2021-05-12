@@ -22,6 +22,7 @@ int numGamers = 1;
 int expansion = 0;
 String currentTurnPlayer = '';
 List listOfGamers = [];
+Map<String, List> listOfGamersBody = Map();
 List handOfPlayer = [];
 List bodyOfPlayer = [];
 TimerStatus timerStatusPlayer = TimerStatus.pause;
@@ -185,13 +186,13 @@ class UserStat {
 
 class GamePlayer {
   String name;
+  String displayname;
   int pictureId;
-  List bodyList;
 
-  GamePlayer(String nameP, int id) {
+  GamePlayer(String nameP, String nameAuxP, int id) {
     this.name = nameP;
+    this.displayname = nameAuxP;
     this.pictureId = id;
-    this.bodyList = [[], [], [], []];
   }
 }
 
