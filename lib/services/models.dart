@@ -232,9 +232,9 @@ int findCard(String cardType, String color, String treatmentType) {
         treatmentType +
         " ");
     return -1;
-  }else{
-    for(int i = 0; i < cardList.length; i++){
-      if (cardList[i]['treatment_type'] == treatmentType){
+  } else {
+    for (int i = 0; i < cardList.length; i++) {
+      if (cardList[i]['treatment_type'] == treatmentType) {
         return i;
       }
     }

@@ -143,7 +143,8 @@ void gameUpdateHandler(Map<String, dynamic> json) {
       }
       // Is not a treatment type
       else {
-        handOfPlayer.add(CardData(aux[i]['card_type'], '', aux[i]['treatment_type'], i));
+        handOfPlayer.add(
+            CardData(aux[i]['card_type'], '', aux[i]['treatment_type'], i));
       }
     }
   }
@@ -292,24 +293,24 @@ void discardCard(int slot) {
 
 void playCard(String target, int organPile, CardData cardPlayed) {
   // Treatment type
-  if (cardPlayed.cardType == 'treatment'){
-    if (cardPlayed.treatmentType == 'transplant'){
+  if (cardPlayed.cardType == 'treatment') {
+    if (cardPlayed.treatmentType == 'transplant') {
       // TODO: FALTA POR PROBAR
-      if (playerSelectedtransplant == ''){
+      if (playerSelectedtransplant == '') {
         print('transplant first target ' + target);
         playerSelectedtransplant = target;
-      }else{
+      } else {
         socket.emitWithAck(
             'play_card',
             {
               'slot': cardPlayed.indice,
               'targets': [playerSelectedtransplant, target],
             },
-            ack: (data) => print('PlayCard transplant error:' + data.toString()));
+            ack: (data) =>
+                print('PlayCard transplant error:' + data.toString()));
         playerSelectedtransplant = '';
       }
-
-    }else if (cardPlayed.treatmentType == 'organ_thief'){
+    } else if (cardPlayed.treatmentType == 'organ_thief') {
       // TODO: FALTA POR PROBAR
       print('organ_thief target ' + target);
       socket.emitWithAck(
@@ -318,21 +319,29 @@ void playCard(String target, int organPile, CardData cardPlayed) {
             'slot': cardPlayed.indice,
             'target': target,
           },
-          ack: (data) => print('PlayCard organ_thief error:' + data.toString()));
+          ack: (data) =>
+              print('PlayCard organ_thief error:' + data.toString()));
       playerSelectedtransplant = '';
-    }else if (cardPlayed.treatmentType == 'infection'){
+    } else if (cardPlayed.treatmentType == 'infection') {
       // TODO: POR IMPLEMENTAR
-    }else if (cardPlayed.treatmentType == 'latex_glove'){
-      // TODO: POR IMPLEMENTAR
-    }else if (cardPlayed.treatmentType == 'medical_error'){
+    } else if (cardPlayed.treatmentType == 'latex_glove') {
+      socket.emitWithAck(
+          'play_card',
+          {
+            'slot': cardPlayed.indice,
+          },
+          ack: (data) =>
+              print('PlayCard medical_error error:' + data.toString()));
+    } else if (cardPlayed.treatmentType == 'medical_error') {
       socket.emitWithAck(
           'play_card',
           {
             'slot': cardPlayed.indice,
             'target': target,
           },
-          ack: (data) => print('PlayCard medical_error error:' + data.toString()));;
-    }else{
+          ack: (data) =>
+              print('PlayCard medical_error error:' + data.toString()));
+    } else {
       print('we have a problem' +
           cardPlayed.cardType +
           " " +
@@ -341,7 +350,7 @@ void playCard(String target, int organPile, CardData cardPlayed) {
     }
   }
   // Regular type
-  else{
+  else {
     socket.emitWithAck(
         'play_card',
         {
