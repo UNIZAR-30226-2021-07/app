@@ -36,6 +36,7 @@ class _CardBoardState extends State<CardBoard>
     super.initState();
     expansion = 0;
     _timerController = TimerController(this);
+    playerSelectedtransplant = '';
     if (isMyTurn) {
       notAgain = false;
       new Timer(const Duration(milliseconds: 1000), () {
@@ -54,6 +55,8 @@ class _CardBoardState extends State<CardBoard>
 
     streamSubscription = streamGame.listen((data) {
       print('My turn -> ' + isMyTurn.toString());
+      // Reset treatment
+      playerSelectedtransplant = '';
       // My turn
       if (isMyTurn && notAgain) {
         _timerController.restart(
