@@ -323,7 +323,14 @@ void playCard(String target, int organPile, CardData cardPlayed) {
               print('PlayCard organ_thief error:' + data.toString()));
       playerSelectedtransplant = '';
     } else if (cardPlayed.treatmentType == 'infection') {
-      // TODO: POR IMPLEMENTAR
+      print('infection');
+      socket.emitWithAck(
+          'play_card',
+          {
+            'slot': cardPlayed.indice,
+          },
+          ack: (data) =>
+              print('PlayCard medical_error error:' + data.toString()));
     } else if (cardPlayed.treatmentType == 'latex_glove') {
       playedGloves = true;
       socket.emitWithAck(
