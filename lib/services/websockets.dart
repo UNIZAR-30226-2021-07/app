@@ -294,6 +294,7 @@ void playCard(String target, int organPile, CardData cardPlayed) {
   // Treatment type
   if (cardPlayed.cardType == 'treatment'){
     if (cardPlayed.treatmentType == 'transplant'){
+      // TODO: FALTA POR PROBAR
       if (playerSelectedtransplant == ''){
         print('transplant first target ' + target);
         playerSelectedtransplant = target;
@@ -309,6 +310,8 @@ void playCard(String target, int organPile, CardData cardPlayed) {
       }
 
     }else if (cardPlayed.treatmentType == 'organ_thief'){
+      // TODO: FALTA POR PROBAR
+      print('organ_thief target ' + target);
       socket.emitWithAck(
           'play_card',
           {
@@ -318,9 +321,9 @@ void playCard(String target, int organPile, CardData cardPlayed) {
           ack: (data) => print('PlayCard organ_thief error:' + data.toString()));
       playerSelectedtransplant = '';
     }else if (cardPlayed.treatmentType == 'infection'){
-
+      // TODO: POR IMPLEMENTAR
     }else if (cardPlayed.treatmentType == 'latex_glove'){
-
+      // TODO: POR IMPLEMENTAR
     }else if (cardPlayed.treatmentType == 'medical_error'){
       socket.emitWithAck(
           'play_card',
