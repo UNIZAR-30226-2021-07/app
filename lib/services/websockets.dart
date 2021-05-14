@@ -325,6 +325,7 @@ void playCard(String target, int organPile, CardData cardPlayed) {
     } else if (cardPlayed.treatmentType == 'infection') {
       // TODO: POR IMPLEMENTAR
     } else if (cardPlayed.treatmentType == 'latex_glove') {
+      playedGloves = true;
       socket.emitWithAck(
           'play_card',
           {

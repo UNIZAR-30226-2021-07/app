@@ -38,6 +38,7 @@ class _CardBoardState extends State<CardBoard>
     _timerController = TimerController(this);
     playerSelectedtransplant = '';
     if (isMyTurn) {
+      playedGloves = false;
       notAgain = false;
       new Timer(const Duration(milliseconds: 1000), () {
         setState(() {
@@ -49,6 +50,7 @@ class _CardBoardState extends State<CardBoard>
     }
     // Not my turn
     else {
+      playedGloves = false;
       notAgain = true;
       colorBase = greyColor;
     }
@@ -63,6 +65,13 @@ class _CardBoardState extends State<CardBoard>
             startFrom: const Duration(seconds: COUNT_DOWN_SEGS));
         colorBase = purpleColor;
         notAgain = false;
+        playedGloves = false;
+      } else if (isMyTurn && playedGloves) {
+        _timerController.restart(
+            startFrom: const Duration(seconds: COUNT_DOWN_SEGS));
+        colorBase = purpleColor;
+        notAgain = false;
+        playedGloves = false;
       }
       // Not my turn
       else if (isMyTurn) {

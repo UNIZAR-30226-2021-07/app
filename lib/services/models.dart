@@ -29,6 +29,7 @@ TimerStatus timerStatusPlayer = TimerStatus.pause;
 String playerWhoPaused = '';
 bool publicIsPublicGame = false;
 String playerSelectedtransplant = '';
+bool playedGloves = false;
 
 // Store
 String costPurchaseSelected = '';
