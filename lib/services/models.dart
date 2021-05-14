@@ -62,9 +62,11 @@ StreamController<bool> controllerPausedGame =
     StreamController<bool>.broadcast();
 StreamController<bool> controllerPausedGameMe =
     StreamController<bool>.broadcast();
+StreamController<bool> controllerBan = StreamController<bool>.broadcast();
 Stream streamGame = controlGame.stream;
 Stream streamPaused = controllerPausedGame.stream;
 Stream streamPausedMe = controllerPausedGameMe.stream;
+Stream streamBan = controllerBan.stream;
 
 //Modelos para guardar información al traducir las respuestas de la API
 class Token {
