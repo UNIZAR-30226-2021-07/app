@@ -67,34 +67,33 @@ class DeleteAccount extends StatelessWidget {
               EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.023),
         ),
         new Center(
-          child: new ElevatedButton(
-              child: const Text(
-                "No",
-                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-              ),
-              style: ElevatedButton.styleFrom(
-                primary: greyButton,
-                onPrimary: whiteWords,
-                shape: new RoundedRectangleBorder(
-                  borderRadius: new BorderRadius.circular(30.0),
+            child: new ElevatedButton(
+                child: const Text(
+                  "No",
+                  style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
                 ),
-                minimumSize: Size(MediaQuery.of(context).size.width,
-                    MediaQuery.of(context).size.height * 0.075),
-                shadowColor: blackWords,
-                side: BorderSide(color: whiteWords, width: 2),
-              ),
-              /*onPressed: () {
+                style: ElevatedButton.styleFrom(
+                  primary: greyButton,
+                  onPrimary: whiteWords,
+                  shape: new RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(30.0),
+                  ),
+                  minimumSize: Size(MediaQuery.of(context).size.width,
+                      MediaQuery.of(context).size.height * 0.075),
+                  shadowColor: blackWords,
+                  side: BorderSide(color: whiteWords, width: 2),
+                ),
+                /*onPressed: () {
                 Navigator.of(context).pop();
               }),*/
-              //Prueba para ver classification popup
-              onPressed: () {
-              showDialog(
-                context: context,
-                builder: (BuildContext context) => Classification(),
-              );
-            }
-        )
-        )],
+                //Prueba para ver classification popup
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) => Classification(),
+                  );
+                }))
+      ],
     );
   }
 }
