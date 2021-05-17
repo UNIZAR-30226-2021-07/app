@@ -4,7 +4,6 @@ import 'package:gatovidapp/services/models.dart';
 Widget classificationTable(BuildContext context) {
   Size screenSize = MediaQuery.of(context).size;
   double screenHeight = screenSize.height;
-  double screenWidth = screenSize.width;
   //TODO: según como se reciba la info de backend poner las variables correspondientes en los parámetros
   if (numGamers == 2) {
     return Container(
@@ -92,6 +91,7 @@ Widget classificationTable(BuildContext context) {
       ],
     ));
   }
+  return Container();
 }
 
 Widget filaClasificadoaux(

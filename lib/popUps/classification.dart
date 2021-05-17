@@ -7,7 +7,6 @@ class Classification extends StatelessWidget {
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
     double screenHeight = screenSize.height;
-    double screenWidth = screenSize.width;
 
     return WillPopScope(
       onWillPop: () async => false,
