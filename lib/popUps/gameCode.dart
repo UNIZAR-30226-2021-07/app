@@ -82,6 +82,7 @@ class GameCode extends StatelessWidget {
                       height: screenHeight * 0.06,
                       child: TextFormField(
                         textAlign: TextAlign.center,
+                        textAlignVertical: TextAlignVertical.bottom,
                         controller: _code,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
