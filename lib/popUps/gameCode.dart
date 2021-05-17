@@ -1,3 +1,6 @@
+import 'dart:ui';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gatovidapp/popUps/loadingGameWithNumberGamers.dart';
 import 'package:gatovidapp/services/websockets.dart';
@@ -75,8 +78,10 @@ class GameCode extends StatelessWidget {
                   Expanded(
                     flex: 4,
                     child: Container(
+                      alignment: Alignment.center,
                       height: screenHeight * 0.06,
                       child: TextFormField(
+                        textAlign: TextAlign.center,
                         controller: _code,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
