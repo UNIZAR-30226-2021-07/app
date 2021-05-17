@@ -28,6 +28,10 @@ List bodyOfPlayer = [];
 TimerStatus timerStatusPlayer = TimerStatus.pause;
 String playerWhoPaused = '';
 bool publicIsPublicGame = false;
+List clasificationGamers = [];
+List clasificationCoins = [];
+bool gameEnded = false;
+bool expulsadoGame = false;
 
 // Store
 String costPurchaseSelected = '';

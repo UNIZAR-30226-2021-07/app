@@ -5,89 +5,89 @@ Widget classificationTable(BuildContext context) {
   Size screenSize = MediaQuery.of(context).size;
   double screenHeight = screenSize.height;
   //TODO: según como se reciba la info de backend poner las variables correspondientes en los parámetros
-  if (numGamers == 2) {
+  if (clasificationGamers.length == 2) {
     return Container(
         child: Column(
       children: [
-        filaClasificadoaux(
-            context, "assets/common/icons/medalla-oro.png", "Jugador 1", "50"),
+        filaClasificadoaux(context, "assets/common/icons/medalla-oro.png",
+            clasificationGamers[0], clasificationCoins[0].toString()),
         Container(child: SizedBox(height: screenHeight * 0.03)),
         filaClasificadoaux(context, "assets/common/icons/medalla-plata.png",
-            "Jugador 2", "50"),
+            clasificationGamers[1], clasificationCoins[1].toString()),
       ],
     ));
-  } else if (numGamers == 3) {
+  } else if (clasificationGamers.length == 3) {
     return Container(
         child: Column(
       children: [
-        filaClasificadoaux(
-            context, "assets/common/icons/medalla-oro.png", "Jugador 1", "50"),
+        filaClasificadoaux(context, "assets/common/icons/medalla-oro.png",
+            clasificationGamers[0], clasificationCoins[0].toString()),
         Container(child: SizedBox(height: screenHeight * 0.03)),
         filaClasificadoaux(context, "assets/common/icons/medalla-plata.png",
-            "Jugador 2", "50"),
+            clasificationGamers[1], clasificationCoins[1].toString()),
         Container(child: SizedBox(height: screenHeight * 0.03)),
         filaClasificadoaux(context, "assets/common/icons/medalla-bronce.png",
-            "Jugador 3", "50"),
+            clasificationGamers[2], clasificationCoins[2].toString()),
       ],
     ));
-  } else if (numGamers == 4) {
+  } else if (clasificationGamers.length == 4) {
     return Container(
         child: Column(
       children: [
-        filaClasificadoaux(
-            context, "assets/common/icons/medalla-oro.png", "Jugador 1", "50"),
+        filaClasificadoaux(context, "assets/common/icons/medalla-oro.png",
+            clasificationGamers[0], clasificationCoins[0].toString()),
         Container(child: SizedBox(height: screenHeight * 0.03)),
         filaClasificadoaux(context, "assets/common/icons/medalla-plata.png",
-            "Jugador 2", "50"),
+            clasificationGamers[1], clasificationCoins[1].toString()),
         Container(child: SizedBox(height: screenHeight * 0.03)),
         filaClasificadoaux(context, "assets/common/icons/medalla-bronce.png",
-            "Jugador 3", "50"),
+            clasificationGamers[2], clasificationCoins[2].toString()),
         Container(child: SizedBox(height: screenHeight * 0.03)),
-        filaClasificadoaux(
-            context, "assets/common/icons/diploma.png", "Jugador 4", "50"),
+        filaClasificadoaux(context, "assets/common/icons/diploma.png",
+            clasificationGamers[3], clasificationCoins[3].toString()),
       ],
     ));
-  } else if (numGamers == 5) {
+  } else if (clasificationGamers.length == 5) {
     return Container(
         child: Column(
       children: [
-        filaClasificadoaux(
-            context, "assets/common/icons/medalla-oro.png", "Jugador 1", "50"),
+        filaClasificadoaux(context, "assets/common/icons/medalla-oro.png",
+            clasificationGamers[0], clasificationCoins[0].toString()),
         Container(child: SizedBox(height: screenHeight * 0.03)),
         filaClasificadoaux(context, "assets/common/icons/medalla-plata.png",
-            "Jugador 2", "50"),
+            clasificationGamers[1], clasificationCoins[1].toString()),
         Container(child: SizedBox(height: screenHeight * 0.03)),
         filaClasificadoaux(context, "assets/common/icons/medalla-bronce.png",
-            "Jugador 3", "50"),
+            clasificationGamers[2], clasificationCoins[2].toString()),
         Container(child: SizedBox(height: screenHeight * 0.03)),
-        filaClasificadoaux(
-            context, "assets/common/icons/diploma.png", "Jugador 4", "50"),
+        filaClasificadoaux(context, "assets/common/icons/diploma.png",
+            clasificationGamers[3], clasificationCoins[3].toString()),
         Container(child: SizedBox(height: screenHeight * 0.03)),
-        filaClasificadoaux(
-            context, "assets/common/icons/diploma.png", "Jugador 5", "50"),
+        filaClasificadoaux(context, "assets/common/icons/diploma.png",
+            clasificationGamers[4], clasificationCoins[4].toString()),
       ],
     ));
-  } else if (numGamers == 6) {
+  } else if (clasificationGamers.length == 6) {
     return Container(
         child: Column(
       children: [
-        filaClasificadoaux(
-            context, "assets/common/icons/medalla-oro.png", "Jugador 1", "50"),
+        filaClasificadoaux(context, "assets/common/icons/medalla-oro.png",
+            clasificationGamers[0], clasificationCoins[0].toString()),
         Container(child: SizedBox(height: screenHeight * 0.03)),
         filaClasificadoaux(context, "assets/common/icons/medalla-plata.png",
-            "Jugador 2", "50"),
+            clasificationGamers[1], clasificationCoins[1].toString()),
         Container(child: SizedBox(height: screenHeight * 0.03)),
         filaClasificadoaux(context, "assets/common/icons/medalla-bronce.png",
-            "Jugador 3", "50"),
+            clasificationGamers[2], clasificationCoins[2].toString()),
         Container(child: SizedBox(height: screenHeight * 0.03)),
-        filaClasificadoaux(
-            context, "assets/common/icons/diploma.png", "Jugador 4", "50"),
+        filaClasificadoaux(context, "assets/common/icons/diploma.png",
+            clasificationGamers[3], clasificationCoins[3].toString()),
         Container(child: SizedBox(height: screenHeight * 0.03)),
-        filaClasificadoaux(
-            context, "assets/common/icons/diploma.png", "Jugador 5", "50"),
+        filaClasificadoaux(context, "assets/common/icons/diploma.png",
+            clasificationGamers[4], clasificationCoins[4].toString()),
         Container(child: SizedBox(height: screenHeight * 0.03)),
-        filaClasificadoaux(
-            context, "assets/common/icons/diploma.png", "Jugador 6", "50"),
+        filaClasificadoaux(context, "assets/common/icons/diploma.png",
+            clasificationGamers[5], clasificationCoins[5].toString()),
       ],
     ));
   }
