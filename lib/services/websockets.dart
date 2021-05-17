@@ -295,7 +295,6 @@ void playCard(String target, int organPile, CardData cardPlayed) {
   // Treatment type
   if (cardPlayed.cardType == 'treatment') {
     if (cardPlayed.treatmentType == 'transplant') {
-      // TODO: FALTA POR PROBAR
       if (playerSelectedtransplant == '') {
         print('transplant first target ' + target);
         playerSelectedtransplant = target;
