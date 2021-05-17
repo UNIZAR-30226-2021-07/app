@@ -314,13 +314,13 @@ void playCard(String target, int organPile, CardData cardPlayed) {
         playerSelectedtransplant = '';
       }
     } else if (cardPlayed.treatmentType == 'organ_thief') {
-      // TODO: FALTA POR PROBAR
       print('organ_thief target ' + target);
       socket.emitWithAck(
           'play_card',
           {
             'slot': cardPlayed.indice,
             'target': target,
+            'organ_pile': organPile,
           },
           ack: (data) =>
               print('PlayCard organ_thief error:' + data.toString()));
