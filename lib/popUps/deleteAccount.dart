@@ -83,16 +83,9 @@ class DeleteAccount extends StatelessWidget {
                   shadowColor: blackWords,
                   side: BorderSide(color: whiteWords, width: 2),
                 ),
-                /*onPressed: () {
-                Navigator.of(context).pop();
-              }),*/
-                //Prueba para ver classification popup
                 onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) => Classification(),
-                  );
-                }))
+                  Navigator.of(context).pop();
+                }),)
       ],
     );
   }

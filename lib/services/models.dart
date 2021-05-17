@@ -15,7 +15,7 @@ List picsList = [];
 List boardList = [];
 List cardList = [];
 String codeGame = '';
-int numGamers = 4;
+int numGamers = 1;
 
 // Game data
 
