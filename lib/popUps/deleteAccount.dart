@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_restart/flutter_restart.dart';
+import 'package:gatovidapp/popUps/classification.dart';
 import 'package:gatovidapp/popUps/error.dart';
 import 'package:gatovidapp/services/auth.dart';
 import 'package:gatovidapp/services/websockets.dart';
@@ -82,11 +83,18 @@ class DeleteAccount extends StatelessWidget {
                 shadowColor: blackWords,
                 side: BorderSide(color: whiteWords, width: 2),
               ),
-              onPressed: () {
+              /*onPressed: () {
                 Navigator.of(context).pop();
-              }),
+              }),*/
+              //Prueba para ver classification popup
+              onPressed: () {
+              showDialog(
+                context: context,
+                builder: (BuildContext context) => Classification(),
+              );
+            }
         )
-      ],
+        )],
     );
   }
 }
