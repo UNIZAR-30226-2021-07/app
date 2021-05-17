@@ -299,12 +299,16 @@ void playCard(String target, int organPile, CardData cardPlayed) {
       if (playerSelectedtransplant == '') {
         print('transplant first target ' + target);
         playerSelectedtransplant = target;
+        pileplayerSelectedtransplant = organPile;
       } else {
         socket.emitWithAck(
             'play_card',
             {
               'slot': cardPlayed.indice,
-              'targets': [playerSelectedtransplant, target],
+              'target1': playerSelectedtransplant,
+              'target2': target,
+              'organ_pile1': pileplayerSelectedtransplant,
+              'organ_pile2': organPile,
             },
             ack: (data) =>
                 print('PlayCard transplant error:' + data.toString()));
