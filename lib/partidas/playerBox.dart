@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gatovidapp/partidas/body.dart';
+import 'package:gatovidapp/services/models.dart';
 
 class PlayerBox extends StatelessWidget {
   const PlayerBox(
@@ -19,10 +20,20 @@ class PlayerBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Color bordeColor;
+    if (currentTurnPlayer == this.playerName) {
+      bordeColor = Color(0xFF6A1B9A);
+    } else {
+      bordeColor = Color(0x006A1B9A);
+    }
     return Container(
       height: this.height,
       width: this.width,
       decoration: BoxDecoration(
+        border: Border.all(
+          color: bordeColor,
+          width: this.width * 0.01,
+        ),
         borderRadius: BorderRadius.circular(this.width * 0.05),
         color: Color(0xFFC4C4C4),
       ),
@@ -68,8 +79,8 @@ class PlayerBox extends StatelessWidget {
           //Espacio para el cuerpo
           Container(
             child: Body(
-              width: this.width,
-              height: this.height * 0.65,
+              width: this.width * 0.95,
+              height: this.height * 0.6,
               listOrgans: this.listOrgansplayer,
               name: this.playerTarget,
             ),
