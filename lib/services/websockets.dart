@@ -66,6 +66,7 @@ void gameOwnerHandler() {
 
 void gameCancelledHandler() {
   print('Received: game_cancelled');
+  expulsadoGame = true;
   controllerStartGame.add(false);
   globalError = Error(
       error:
@@ -84,8 +85,32 @@ void gameUpdateHandler(Map<String, dynamic> json) {
   print(json.toString());
 
   if (json['finished'] != null) {
-    // TODO: Logica de que se ha acabado la partida
-    // Habrá que leer tmb leaderboard y playtime_mins
+    if (json['finished'] == true) {
+      gameEnded = true;
+      Map aux = json['leaderboard'];
+      print(aux.toString());
+      clasificationGamers = List.filled(listOfGamers.length + 1, 'a');
+      clasificationCoins = List.filled(listOfGamers.length + 1, 0);
+      for (int i = 0; i < listOfGamers.length; i++) {
+        if (aux[listOfGamers[i].name]['position'] != null) {
+          clasificationGamers[aux[listOfGamers[i].name]['position'] - 1] =
+              listOfGamers[i].name;
+          clasificationCoins[aux[listOfGamers[i].name]['position'] - 1] =
+              aux[listOfGamers[i].name]['coins'];
+        } else {
+          gameEnded = false;
+          break;
+        }
+      }
+      if (aux[globalData.name]['position'] != null) {
+        clasificationGamers[aux[globalData.name]['position'] - 1] =
+            globalData.name;
+        clasificationCoins[aux[globalData.name]['position'] - 1] =
+            aux[globalData.name]['coins'];
+      } else {
+        gameEnded = false;
+      }
+    }
   }
   if (json['current_turn'] != null) {
     currentTurnPlayer = json['current_turn'];

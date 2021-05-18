@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gatovidapp/popUps/classificationTable.dart';
+import 'package:gatovidapp/services/websockets.dart';
+import 'package:flutter_restart/flutter_restart.dart';
 
 class Classification extends StatelessWidget {
   // This widget is the root of your application.
@@ -43,8 +45,8 @@ class Classification extends StatelessWidget {
                       side: BorderSide(color: Colors.white, width: 2),
                     ),
                     onPressed: () {
-                      Navigator.of(context).pushNamedAndRemoveUntil(
-                          '/', (Route<dynamic> route) => false);
+                      leaveGame();
+                      FlutterRestart.restartApp();
                     },
                   ),
                 ),
