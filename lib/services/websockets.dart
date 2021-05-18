@@ -71,6 +71,7 @@ void gameCancelledHandler() {
   globalError = Error(
       error:
           'No se ha podido encontrar una partida, por favor, intentelo de nuevo');
+  controlGame.add(true);
 }
 
 void usersWaitingHandler(int data) {
