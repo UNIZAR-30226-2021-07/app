@@ -12,6 +12,7 @@ import 'package:gatovidapp/partidas/upButtons.dart';
 import 'package:simple_timer/simple_timer.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter_restart/flutter_restart.dart';
+import 'package:gatovidapp/popUps/classification.dart';
 import 'dart:async';
 
 const COUNT_DOWN_SEGS = 30;
@@ -56,6 +57,17 @@ class _CardBoardState extends State<CardBoard>
 
     streamSubscription = streamGame.listen((data) {
       print('My turn -> ' + isMyTurn.toString());
+      if (gameEnded == true) {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) => Classification(),
+        );
+      }
+      if (expulsadoGame == true) {
+        leaveGame();
+        Navigator.of(context).popUntil((route) => route.isFirst);
+        Navigator.pushReplacementNamed(context, '/home');
+      }
       // My turn
       if (isMyTurn && notAgain) {
         _timerController.restart(
