@@ -170,14 +170,17 @@ void gameUpdateHandler(Map<String, dynamic> json) {
     List aux = json['hand'];
     handOfPlayer.clear();
     for (int i = 0; i < aux.length; i++) {
+      print('------------------------------------------------------------');
+      print(aux.toString());
+      print('------------------------------------------------------------');
       // Is a treatment type
       if (aux[i]['treatment_type'] == null) {
         handOfPlayer.add(CardData(aux[i]['card_type'], aux[i]['color'], '', i));
       }
       // Is not a treatment type
       else {
-        handOfPlayer.add(CardData(
-            aux[i]['card_type'], aux[i]['color'], aux[i]['treatment_type'], i));
+        handOfPlayer.add(
+            CardData(aux[i]['card_type'], '', aux[i]['treatment_type'], i));
       }
     }
   }
@@ -324,22 +327,86 @@ void discardCard(int slot) {
       ack: (data) => print('play_discard error:' + data.toString()));
 }
 
-void playCard(String target, int organPile, int slot) {
-  print('play_card emit-> Target: ' +
-      target +
-      ' |organ_pile: ' +
-      organPile.toString() +
-      ' |slot: ' +
-      slot.toString());
-  print('Card Type: ' + handOfPlayer[slot].cardType.toString());
-  socket.emitWithAck(
-      'play_card',
-      {
-        'slot': slot,
-        'target': target,
-        'organ_pile': organPile,
-      },
-      ack: (data) => print('PlayCard error:' + data.toString()));
+void playCard(String target, int organPile, CardData cardPlayed) {
+  // Treatment type
+  if (cardPlayed.cardType == 'treatment') {
+    if (cardPlayed.treatmentType == 'transplant') {
+      if (playerSelectedtransplant == '') {
+        print('transplant first target ' + target);
+        playerSelectedtransplant = target;
+        pileplayerSelectedtransplant = organPile;
+      } else {
+        socket.emitWithAck(
+            'play_card',
+            {
+              'slot': cardPlayed.indice,
+              'target1': playerSelectedtransplant,
+              'target2': target,
+              'organ_pile1': pileplayerSelectedtransplant,
+              'organ_pile2': organPile,
+            },
+            ack: (data) =>
+                print('PlayCard transplant error:' + data.toString()));
+        playerSelectedtransplant = '';
+      }
+    } else if (cardPlayed.treatmentType == 'organ_thief') {
+      print('organ_thief target ' + target);
+      socket.emitWithAck(
+          'play_card',
+          {
+            'slot': cardPlayed.indice,
+            'target': target,
+            'organ_pile': organPile,
+          },
+          ack: (data) =>
+              print('PlayCard organ_thief error:' + data.toString()));
+      playerSelectedtransplant = '';
+    } else if (cardPlayed.treatmentType == 'infection') {
+      print('infection');
+      socket.emitWithAck(
+          'play_card',
+          {
+            'slot': cardPlayed.indice,
+          },
+          ack: (data) =>
+              print('PlayCard medical_error error:' + data.toString()));
+    } else if (cardPlayed.treatmentType == 'latex_glove') {
+      playedGloves = true;
+      socket.emitWithAck(
+          'play_card',
+          {
+            'slot': cardPlayed.indice,
+          },
+          ack: (data) =>
+              print('PlayCard medical_error error:' + data.toString()));
+    } else if (cardPlayed.treatmentType == 'medical_error') {
+      socket.emitWithAck(
+          'play_card',
+          {
+            'slot': cardPlayed.indice,
+            'target': target,
+          },
+          ack: (data) =>
+              print('PlayCard medical_error error:' + data.toString()));
+    } else {
+      print('we have a problem' +
+          cardPlayed.cardType +
+          " " +
+          cardPlayed.treatmentType +
+          " ");
+    }
+  }
+  // Regular type
+  else {
+    socket.emitWithAck(
+        'play_card',
+        {
+          'slot': cardPlayed.indice,
+          'target': target,
+          'organ_pile': organPile,
+        },
+        ack: (data) => print('PlayCard error:' + data.toString()));
+  }
 }
 
 void gamePaused(bool pause) {

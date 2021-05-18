@@ -58,7 +58,7 @@ class Body extends StatelessWidget {
                 return true;
               },
               onAccept: (data) {
-                playCard(this.name, 0, data.indice);
+                playCard(this.name, 0, data);
               },
             ),
             Container(
@@ -96,7 +96,7 @@ class Body extends StatelessWidget {
                 return true;
               },
               onAccept: (data) {
-                playCard(this.name, 1, data.indice);
+                playCard(this.name, 1, data);
               },
             ),
             Container(
@@ -134,7 +134,7 @@ class Body extends StatelessWidget {
                 return true;
               },
               onAccept: (data) {
-                playCard(this.name, 2, data.indice);
+                playCard(this.name, 2, data);
               },
             ),
             Container(
@@ -172,7 +172,7 @@ class Body extends StatelessWidget {
                 return true;
               },
               onAccept: (data) {
-                playCard(this.name, 3, data.indice);
+                playCard(this.name, 3, data);
               },
             ),
             Container(

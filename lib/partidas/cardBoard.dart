@@ -39,7 +39,9 @@ class _CardBoardState extends State<CardBoard>
     super.initState();
     expansion = 0;
     _timerController = TimerController(this);
+    playerSelectedtransplant = '';
     if (isMyTurn) {
+      playedGloves = false;
       notAgain = false;
       new Timer(const Duration(milliseconds: 1000), () {
         setState(() {
@@ -51,12 +53,16 @@ class _CardBoardState extends State<CardBoard>
     }
     // Not my turn
     else {
+      playedGloves = false;
       notAgain = true;
       colorBase = greyColor;
     }
 
     streamSubscription = streamGame.listen((data) {
       print('My turn -> ' + isMyTurn.toString());
+      // Reset treatment
+      playerSelectedtransplant = '';
+
       if (gameEnded == true) {
         showDialog(
           context: context,
@@ -68,12 +74,20 @@ class _CardBoardState extends State<CardBoard>
         Navigator.of(context).popUntil((route) => route.isFirst);
         Navigator.pushReplacementNamed(context, '/home');
       }
+
       // My turn
       if (isMyTurn && notAgain) {
         _timerController.restart(
             startFrom: const Duration(seconds: COUNT_DOWN_SEGS));
         colorBase = purpleColor;
         notAgain = false;
+        playedGloves = false;
+      } else if (isMyTurn && playedGloves) {
+        _timerController.restart(
+            startFrom: const Duration(seconds: COUNT_DOWN_SEGS));
+        colorBase = purpleColor;
+        notAgain = false;
+        playedGloves = false;
       }
       // Not my turn
       else if (isMyTurn) {

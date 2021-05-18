@@ -28,6 +28,9 @@ List bodyOfPlayer = [];
 TimerStatus timerStatusPlayer = TimerStatus.pause;
 String playerWhoPaused = '';
 bool publicIsPublicGame = false;
+String playerSelectedtransplant = '';
+int pileplayerSelectedtransplant = 0;
+bool playedGloves = false;
 List clasificationGamers = [];
 List clasificationCoins = [];
 bool gameEnded = false;
@@ -222,9 +225,6 @@ class CardData {
 // return of the id of the card
 int findCard(String cardType, String color, String treatmentType) {
   // Is not a treatment card
-  // TODO: Uncomment cuando backend haga lo del treatment_type
-  //if(treatment_type == ''){
-  // TODO: borrar cuando backend haga lo del treatment_type
   if (cardType != 'treatment') {
     for (int i = 0; i < cardList.length; i++) {
       if ((cardList[i]['type'] == cardType) &&
@@ -240,22 +240,14 @@ int findCard(String cardType, String color, String treatmentType) {
         treatmentType +
         " ");
     return -1;
+  } else {
+    for (int i = 0; i < cardList.length; i++) {
+      if (cardList[i]['treatment_type'] == treatmentType) {
+        return i;
+      }
+    }
   }
   // Is a treatment card
-  // TODO: Uncomment cuando backend haga lo del treatment_type
-  /*
-  for(int i = 0; i < cardList.length; i++){
-    if ((cardList[i]['type'] == card_type) && (cardList[i]['treatment_type'] == treatment_type)){
-      return i;
-    }
-  }*/
-  // TODO: borrar cuando backend haga lo del treatment_type
-  for (int i = 0; i < cardList.length; i++) {
-    if (cardList[i]['type'] == 'treatment') {
-      return i;
-    }
-  }
-
   print(
       'we have a problem' + cardType + " " + color + " " + treatmentType + " ");
   return -1;

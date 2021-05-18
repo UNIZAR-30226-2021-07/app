@@ -25,10 +25,9 @@ Widget expandedPlayer(BuildContext context) {
       Expanded(
         flex: 9,
         child: Container(
-          // TODO: Hacer que se muestre el jugador seleccionado y no uno cualquiera
           child: PlayerBox(
             width: MediaQuery.of(context).size.width * 0.9,
-            height: MediaQuery.of(context).size.height * 0.3,
+            height: MediaQuery.of(context).size.height * 0.35,
             playerImage: ("assets/common/") +
                 picsList[listOfGamers[expansion - 1].pictureId]['image'],
             playerName: listOfGamers[expansion - 1].displayname,
