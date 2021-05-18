@@ -52,7 +52,7 @@ flutter:
     - assets/common/profile_pics.json
     - assets/common/boards/
     - assets/common/cards/
-    #- assets/common/icons/
+    - assets/common/icons/
     - assets/common/logo/
     - assets/common/profile_pics/
   # The following line ensures that the Material Icons font is

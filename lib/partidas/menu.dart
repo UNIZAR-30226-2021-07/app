@@ -192,6 +192,8 @@ class _GamesMenuState extends State<GamesMenu> {
                                   handOfPlayer.clear();
                                   bodyOfPlayer.clear();
                                   bodyOfPlayer = [[], [], [], []];
+                                  gameEnded = false;
+                                  expulsadoGame = false;
                                   isMyTurn = false;
                                   colorBase = greyColor;
                                   showDialog(
@@ -234,6 +236,8 @@ class _GamesMenuState extends State<GamesMenu> {
                                   handOfPlayer.clear();
                                   bodyOfPlayer.clear();
                                   bodyOfPlayer = [[], [], [], []];
+                                  gameEnded = false;
+                                  expulsadoGame = false;
                                   isMyTurn = false;
                                   colorBase = greyColor;
                                   showDialog(
@@ -276,6 +280,8 @@ class _GamesMenuState extends State<GamesMenu> {
                                   handOfPlayer.clear();
                                   bodyOfPlayer.clear();
                                   bodyOfPlayer = [[], [], [], []];
+                                  gameEnded = false;
+                                  expulsadoGame = false;
                                   isMyTurn = false;
                                   colorBase = greyColor;
                                   showDialog(

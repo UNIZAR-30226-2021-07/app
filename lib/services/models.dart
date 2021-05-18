@@ -31,6 +31,10 @@ bool publicIsPublicGame = false;
 String playerSelectedtransplant = '';
 int pileplayerSelectedtransplant = 0;
 bool playedGloves = false;
+List clasificationGamers = [];
+List clasificationCoins = [];
+bool gameEnded = false;
+bool expulsadoGame = false;
 
 // Store
 String costPurchaseSelected = '';
@@ -65,9 +69,11 @@ StreamController<bool> controllerPausedGame =
     StreamController<bool>.broadcast();
 StreamController<bool> controllerPausedGameMe =
     StreamController<bool>.broadcast();
+StreamController<bool> controllerBan = StreamController<bool>.broadcast();
 Stream streamGame = controlGame.stream;
 Stream streamPaused = controllerPausedGame.stream;
 Stream streamPausedMe = controllerPausedGameMe.stream;
+Stream streamBan = controllerBan.stream;
 
 //Modelos para guardar información al traducir las respuestas de la API
 class Token {
