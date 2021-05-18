@@ -134,9 +134,14 @@ void gameUpdateHandler(Map<String, dynamic> json) {
       }
     } else {
       List previousList = [];
+      bool isCurrentPlayer = false;
       for (int i = 0; i < aux.length; i++) {
         if (aux[i]['is_ai'] != null) {
-          print(aux[i]['name'].toString());
+          if (aux[i]['name'] == globalData.name) {
+            // BAN
+            controllerBan.add(true);
+            break;
+          }
           previousList.add(GamePlayer(aux[i]['name'].toString(),
               aux[i]['name'].toString() + ' [BOT]', aux[i]['picture']));
         } else {
@@ -147,9 +152,15 @@ void gameUpdateHandler(Map<String, dynamic> json) {
                     aux[i]['name'], aux[i]['name'], listOfGamers[j].pictureId));
                 break;
               }
+            } else {
+              // Current player is in lobby
+              isCurrentPlayer = true;
             }
           }
         }
+      }
+      if (isCurrentPlayer == false) {
+        controllerBan.add(true);
       }
       listOfGamers.clear();
       listOfGamers = previousList;

@@ -11,6 +11,7 @@ import 'package:gatovidapp/partidas/playersTable.dart';
 import 'package:gatovidapp/partidas/upButtons.dart';
 import 'package:simple_timer/simple_timer.dart';
 import 'package:dotted_border/dotted_border.dart';
+import 'package:flutter_restart/flutter_restart.dart';
 import 'package:gatovidapp/popUps/classification.dart';
 import 'dart:async';
 
@@ -30,6 +31,7 @@ class _CardBoardState extends State<CardBoard>
   StreamSubscription<bool> streamSubscription;
   StreamSubscription<bool> streamSubscription2;
   StreamSubscription<bool> streamSubscription3;
+  StreamSubscription<bool> streamSubscription4;
   TimerController _timerController;
 
   @override
@@ -118,6 +120,10 @@ class _CardBoardState extends State<CardBoard>
         }
         Navigator.of(context).popUntil((route) => route.isFirst);
       }
+    });
+    streamSubscription4 = streamBan.listen((data) {
+      print('BANNED PLAYER');
+      FlutterRestart.restartApp();
     });
   }
 
@@ -294,6 +300,7 @@ class _CardBoardState extends State<CardBoard>
     streamSubscription.cancel();
     streamSubscription2.cancel();
     streamSubscription3.cancel();
+    streamSubscription4.cancel();
   }
 
   void handleTimerOnStart() {
