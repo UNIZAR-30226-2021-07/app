@@ -121,7 +121,7 @@ class _RulesState extends State<Rules> {
                       "Cada jugador debe tener siempre al comienzo de su turno 3 cartas en su mano y tan "
                       "solo podrá realizar una acción por turno. Después de haber actuado, recibirá "
                       "cartas del mazo para volver a tener su mano completa. "
-                      "Juega los distintos tipos de carta, colocándolas sobre en el espacio del cuerpo para "
+                      "Juega los distintos tipos de carta, colocándolas en el espacio del cuerpo para "
                       "construirlo, o sobre las cartas de tus rivales para evitar que estos lo "
                       "logren antes que tú.\n\n"
                       "Algunas cartas pueden obligarte a descartar o cambiar tus órganos, tus vacunas "
