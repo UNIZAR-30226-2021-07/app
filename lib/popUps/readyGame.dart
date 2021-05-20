@@ -16,6 +16,20 @@ class ReadyGame extends StatelessWidget {
         onWillPop: () async => false,
         child: AlertDialog(
           actions: <Widget>[
+            Container(
+              height: screenHeight * 0.02,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  CloseButton(
+                      onPressed: () {
+                        leaveGame();
+                        Navigator.pop(context);
+                      }
+                  )
+                ],
+              ),
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -29,28 +43,10 @@ class ReadyGame extends StatelessWidget {
                   'Partida privada lista',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: screenWidth * 0.045,
+                    fontSize: screenWidth * 0.05,
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
                   ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    TextButton(
-                      child: Text('X',
-                          style: TextStyle(fontSize: screenWidth * 0.055)),
-                      style: TextButton.styleFrom(
-                        primary: Colors.grey,
-                        minimumSize:
-                            Size(screenHeight * 0.025, screenWidth * 0.015),
-                      ),
-                      onPressed: () {
-                        leaveGame();
-                        Navigator.pop(context);
-                      },
-                    ),
-                  ],
                 ),
               ],
             ),

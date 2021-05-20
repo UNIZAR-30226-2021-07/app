@@ -33,16 +33,28 @@ class _StartGame extends State<StartGame> {
     double screenWidth = screenSize.width;
     return AlertDialog(
       actions: <Widget>[
+        //SizedBox(height: screenHeight * 0.015),
         Container(
-          height: screenHeight * 0.1,
-          width: screenWidth * 0.8,
+          height: screenHeight * 0.035,
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              CloseButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  }
+              )
+            ],
+          ),
+        ),
+        //Container(
+          //height: screenHeight * 0.1,
+          //width: screenWidth * 0.8,
+          //child:
+          Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Expanded(flex: 1, child: SizedBox()),
-              Expanded(
-                flex: 6,
-                child: Text(
+              Text(
                   '¿Empezar partida?',
                   textAlign: TextAlign.center,
                   style: TextStyle(
@@ -51,25 +63,9 @@ class _StartGame extends State<StartGame> {
                     color: blackWords,
                   ),
                 ),
-              ),
-              Expanded(
-                flex: 1,
-                child: TextButton(
-                  child: Text('X',
-                      style: TextStyle(fontSize: screenWidth * 0.055)),
-                  style: TextButton.styleFrom(
-                    primary: Colors.grey,
-                    minimumSize:
-                        Size(screenHeight * 0.025, screenWidth * 0.015),
-                  ),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                ),
-              ),
             ],
           ),
-        ),
+        //),
         SizedBox(height: screenHeight * 0.01),
         Center(
           child: Text(
@@ -107,7 +103,7 @@ class _StartGame extends State<StartGame> {
                 builder: (BuildContext context) => LoadingGame(),
               );
             }),
-        SizedBox(height: screenHeight * 0.01),
+        SizedBox(height: screenHeight * 0.025),
       ],
     );
   }

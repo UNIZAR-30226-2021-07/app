@@ -19,13 +19,20 @@ class ExitPublic extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
-                  Expanded(
-                    flex: 2,
-                    child: Container(),
+                  Container(
+                    height: screenHeight * 0.02,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        CloseButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            }
+                        )
+                      ],
+                    ),
                   ),
-                  Expanded(
-                    flex: 8,
-                    child: Text(
+                 Text(
                       '¿Quieres salir?',
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -34,27 +41,6 @@ class ExitPublic extends StatelessWidget {
                         color: Colors.black,
                       ),
                     ),
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        TextButton(
-                          child: Text('X',
-                              style: TextStyle(fontSize: screenWidth * 0.055)),
-                          style: TextButton.styleFrom(
-                            primary: Colors.grey,
-                            minimumSize:
-                                Size(screenHeight * 0.025, screenWidth * 0.025),
-                          ),
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
                 ],
               ),
             ),

@@ -30,77 +30,49 @@ class _LoadingGameWithNG extends State<LoadingGameWithNG> {
     return WillPopScope(
         onWillPop: () async => false,
         child: new AlertDialog(
-          title: Container(
-            width: screenWidth * 0.8,
-            child: Row(
-              children: [
-                Expanded(flex: 1, child: SizedBox()),
-                Expanded(
-                  flex: 15,
-                  child: Text(
-                    'Preparando partida...',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: MediaQuery.of(context).size.width * 0.055,
-                      fontWeight: FontWeight.bold,
-                      color: blackWords,
-                    ),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: TextButton(
-                    child: Text('X',
-                        style: TextStyle(fontSize: screenWidth * 0.055)),
-                    style: TextButton.styleFrom(
-                      primary: Colors.grey,
-                      minimumSize:
-                          Size(screenHeight * 0.025, screenWidth * 0.015),
-                    ),
-                    onPressed: () {
-                      leaveGame();
-                      Navigator.pop(context);
-                    },
-                  ),
-                ),
-              ],
-            ),
-          ),
           actions: [
-            ConstrainedBox(
-              constraints: BoxConstraints(
-                  maxHeight: MediaQuery.of(context).size.height * 0.17,
-                  maxWidth: MediaQuery.of(context).size.width * 0.8),
-              child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Expanded(flex: 1, child: SizedBox()),
-                    Expanded(
-                        flex: 8,
-                        child: Column(
-                          children: [
-                            CircularProgressIndicator(),
-                            SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.03,
-                            ),
-                            Text(
-                              numGamers.toString() + '/6 gaticos preparados',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontSize:
-                                    MediaQuery.of(context).size.width * 0.05,
-                                fontWeight: FontWeight.normal,
-                                color: blackWords,
-                              ),
-                            ),
-                          ],
-                        )),
-                    Expanded(flex: 1, child: SizedBox()),
-                  ]),
-            )
-          ],
-        ));
+            Container(
+                          height: screenHeight * 0.03,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              CloseButton(
+                                  onPressed: () {
+                                    leaveGame();
+                                    Navigator.pop(context);
+                                  }
+                              )
+                            ],
+                          ),
+                        ),
+                        Text(
+                          'Preparando partida...',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: MediaQuery.of(context).size.width * 0.050,
+                            fontWeight: FontWeight.bold,
+                            color: blackWords,
+                          ),
+                        ),
+
+                        Column(
+                              children: [
+                                CircularProgressIndicator(),
+                                SizedBox(
+                                  height: MediaQuery.of(context).size.height * 0.03,
+                                ),
+                                Text(
+                                  numGamers.toString() + '/6 gaticos preparados',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontSize:
+                                        MediaQuery.of(context).size.width * 0.05,
+                                    fontWeight: FontWeight.normal,
+                                    color: blackWords,
+                                  ),
+                                ),
+                              ],
+                )]));
   }
 
   @override
