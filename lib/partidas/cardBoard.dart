@@ -66,6 +66,8 @@ class _CardBoardState extends State<CardBoard>
       playerSelectedtransplant = '';
 
       if (gameEnded == true) {
+        _timerController.reset();
+        colorBase = greyColor;
         showDialog(
           context: context,
           builder: (BuildContext context) => Classification(),
