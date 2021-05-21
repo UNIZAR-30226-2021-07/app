@@ -25,11 +25,9 @@ class GameCode extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  CloseButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      }
-                  )
+                  CloseButton(onPressed: () {
+                    Navigator.pop(context);
+                  })
                 ],
               ),
             ),

@@ -26,53 +26,51 @@ class _LoadingGameWithNG extends State<LoadingGameWithNG> {
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
     double screenHeight = screenSize.height;
-    double screenWidth = screenSize.width;
     return WillPopScope(
         onWillPop: () async => false,
-        child: new AlertDialog(
-          actions: [
-            Container(
-                          height: screenHeight * 0.03,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              CloseButton(
-                                  onPressed: () {
-                                    leaveGame();
-                                    Navigator.pop(context);
-                                  }
-                              )
-                            ],
-                          ),
-                        ),
-                        Text(
-                          'Preparando partida...',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: MediaQuery.of(context).size.width * 0.050,
-                            fontWeight: FontWeight.bold,
-                            color: blackWords,
-                          ),
-                        ),
-
-                        Column(
-                              children: [
-                                CircularProgressIndicator(),
-                                SizedBox(
-                                  height: MediaQuery.of(context).size.height * 0.03,
-                                ),
-                                Text(
-                                  numGamers.toString() + '/6 gaticos preparados',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontSize:
-                                        MediaQuery.of(context).size.width * 0.05,
-                                    fontWeight: FontWeight.normal,
-                                    color: blackWords,
-                                  ),
-                                ),
-                              ],
-                )]));
+        child: AlertDialog(actions: [
+          Container(
+            height: screenHeight * 0.03,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                CloseButton(onPressed: () {
+                  leaveGame();
+                  Navigator.pop(context);
+                })
+              ],
+            ),
+          ),
+          Center(
+            child: Text(
+              'Preparando partida...',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: MediaQuery.of(context).size.width * 0.050,
+                fontWeight: FontWeight.bold,
+                color: blackWords,
+              ),
+            ),
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.03,
+          ),
+          Center(child: CircularProgressIndicator()),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.03,
+          ),
+          Center(
+            child: Text(
+              numGamers.toString() + '/6 gaticos preparados',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: MediaQuery.of(context).size.width * 0.05,
+                fontWeight: FontWeight.normal,
+                color: blackWords,
+              ),
+            ),
+          ),
+        ]));
   }
 
   @override

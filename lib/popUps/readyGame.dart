@@ -21,12 +21,10 @@ class ReadyGame extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  CloseButton(
-                      onPressed: () {
-                        leaveGame();
-                        Navigator.pop(context);
-                      }
-                  )
+                  CloseButton(onPressed: () {
+                    leaveGame();
+                    Navigator.pop(context);
+                  })
                 ],
               ),
             ),

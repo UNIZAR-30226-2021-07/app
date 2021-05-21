@@ -9,70 +9,51 @@ class LoadingGamePublic extends StatelessWidget {
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
     double screenHeight = screenSize.height;
-    double screenWidth = screenSize.width;
     return WillPopScope(
         onWillPop: () async => false,
-        child: new AlertDialog(
-          title: Container(
-            width: screenWidth * 0.8,
-            child: Row(
-              children: [
-                Expanded(flex: 1, child: SizedBox()),
-                Expanded(
-                  flex: 15,
-                  child: Text(
-                    'Preparando partida...',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: MediaQuery.of(context).size.width * 0.055,
-                      fontWeight: FontWeight.bold,
-                      color: blackWords,
-                    ),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: TextButton(
-                    child: Text('X',
-                        style: TextStyle(fontSize: screenWidth * 0.055)),
-                    style: TextButton.styleFrom(
-                      primary: Colors.grey,
-                      minimumSize:
-                          Size(screenHeight * 0.025, screenWidth * 0.015),
-                    ),
-                    onPressed: () {
-                      stopSearchingPublic();
-                      Navigator.pop(context);
-                    },
-                  ),
-                ),
-              ],
-            ),
-          ),
+        child: AlertDialog(
           actions: [
-            Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
+            Container(
+              height: screenHeight * 0.03,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  CircularProgressIndicator(),
-                ]),
+                  CloseButton(onPressed: () {
+                    stopSearchingPublic();
+                    Navigator.pop(context);
+                  })
+                ],
+              ),
+            ),
+            SizedBox(height: screenHeight * 0.02),
+            Center(
+              child: Text(
+                'Preparando partida...',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: MediaQuery.of(context).size.width * 0.055,
+                  fontWeight: FontWeight.bold,
+                  color: blackWords,
+                ),
+              ),
+            ),
+            SizedBox(height: screenHeight * 0.02),
+            Center(
+              child: CircularProgressIndicator(),
+            ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.03,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  '¿Lo sabías?',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.width * 0.05,
-                    fontWeight: FontWeight.normal,
-                    color: blackWords,
-                  ),
+            Center(
+              child: Text(
+                '¿Lo sabías?',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: MediaQuery.of(context).size.width * 0.05,
+                  fontWeight: FontWeight.normal,
+                  color: blackWords,
                 ),
-              ],
+              ),
             ),
             Center(
               child: Text(

@@ -30,41 +30,37 @@ class _StartGame extends State<StartGame> {
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
     double screenHeight = screenSize.height;
-    double screenWidth = screenSize.width;
     return AlertDialog(
       actions: <Widget>[
-        //SizedBox(height: screenHeight * 0.015),
         Container(
           height: screenHeight * 0.035,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              CloseButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  }
-              )
+              CloseButton(onPressed: () {
+                Navigator.pop(context);
+              })
             ],
           ),
         ),
         //Container(
-          //height: screenHeight * 0.1,
-          //width: screenWidth * 0.8,
-          //child:
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                  '¿Empezar partida?',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.width * 0.06,
-                    fontWeight: FontWeight.bold,
-                    color: blackWords,
-                  ),
-                ),
-            ],
-          ),
+        //height: screenHeight * 0.1,
+        //width: screenWidth * 0.8,
+        //child:
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              '¿Empezar partida?',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: MediaQuery.of(context).size.width * 0.06,
+                fontWeight: FontWeight.bold,
+                color: blackWords,
+              ),
+            ),
+          ],
+        ),
         //),
         SizedBox(height: screenHeight * 0.01),
         Center(
