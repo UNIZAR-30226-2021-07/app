@@ -13,6 +13,7 @@ import 'package:simple_timer/simple_timer.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter_restart/flutter_restart.dart';
 import 'package:gatovidapp/popUps/classification.dart';
+import 'package:gatovidapp/popUps/error.dart';
 import 'dart:async';
 
 const COUNT_DOWN_SEGS = 30;
@@ -32,6 +33,7 @@ class _CardBoardState extends State<CardBoard>
   StreamSubscription<bool> streamSubscription2;
   StreamSubscription<bool> streamSubscription3;
   StreamSubscription<bool> streamSubscription4;
+  StreamSubscription<bool> streamSubscription5;
   TimerController _timerController;
 
   @override
@@ -138,6 +140,13 @@ class _CardBoardState extends State<CardBoard>
     streamSubscription4 = streamBan.listen((data) {
       print('BANNED PLAYER');
       FlutterRestart.restartApp();
+    });
+    streamSubscription5 = streamErrorCard.listen((data) {
+      showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (BuildContext context) => ErrorPopup(),
+      );
     });
   }
 
@@ -315,6 +324,7 @@ class _CardBoardState extends State<CardBoard>
     streamSubscription2.cancel();
     streamSubscription3.cancel();
     streamSubscription4.cancel();
+    streamSubscription5.cancel();
   }
 
   void handleTimerOnStart() {
