@@ -4,7 +4,7 @@ import 'package:gatovidapp/services/models.dart';
 import 'package:gatovidapp/partidas/hand.dart';
 import 'package:gatovidapp/partidas/body.dart';
 
-Widget PlayBox(BuildContext context) {
+Widget playBox(BuildContext context) {
   return Column(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
     Container(
       width: MediaQuery.of(context).size.width,
@@ -29,7 +29,7 @@ Widget PlayBox(BuildContext context) {
   ]);
 }
 
-Widget WinnerBox(BuildContext context) {
+Widget winnerBox(BuildContext context) {
   Size screenSize = MediaQuery.of(context).size;
   double screenHeight = screenSize.height;
   double screenWidth = screenSize.width;
@@ -50,7 +50,15 @@ Widget WinnerBox(BuildContext context) {
                   fontSize: MediaQuery.of(context).size.width * 0.1),
             )),
             SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-            //Me falta coger iamgen de confetis y ponerla
+            Center(
+              child: Container(
+                width: screenWidth * 0.3,
+                height: screenHeight * 0.15,
+                child: Image(
+                    image: AssetImage(
+                        "assets/common/icons/fuegos-artificiales.png")),
+              ),
+            )
           ],
         )),
     SizedBox(height: MediaQuery.of(context).size.height * 0.01),
