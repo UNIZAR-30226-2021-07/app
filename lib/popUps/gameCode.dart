@@ -20,7 +20,17 @@ class GameCode extends StatelessWidget {
         onWillPop: () async => false,
         child: AlertDialog(
           actions: <Widget>[
-            SizedBox(height: screenHeight * 0.01),
+            Container(
+              height: screenHeight * 0.02,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  CloseButton(onPressed: () {
+                    Navigator.pop(context);
+                  })
+                ],
+              ),
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -38,23 +48,6 @@ class GameCode extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
                   ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    TextButton(
-                      child: Text('X',
-                          style: TextStyle(fontSize: screenWidth * 0.055)),
-                      style: TextButton.styleFrom(
-                        primary: Colors.grey,
-                        minimumSize:
-                            Size(screenHeight * 0.025, screenWidth * 0.025),
-                      ),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                    ),
-                  ],
                 ),
               ],
             ),

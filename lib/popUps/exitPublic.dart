@@ -13,52 +13,29 @@ class ExitPublic extends StatelessWidget {
         onWillPop: () async => false,
         child: AlertDialog(
           actions: <Widget>[
-            SizedBox(height: screenHeight * 0.01),
             Container(
-              width: screenWidth * 0.8,
+              height: screenHeight * 0.025,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  Expanded(
-                    flex: 2,
-                    child: Container(),
-                  ),
-                  Expanded(
-                    flex: 8,
-                    child: Text(
-                      '¿Quieres salir?',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: screenWidth * 0.055,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        TextButton(
-                          child: Text('X',
-                              style: TextStyle(fontSize: screenWidth * 0.055)),
-                          style: TextButton.styleFrom(
-                            primary: Colors.grey,
-                            minimumSize:
-                                Size(screenHeight * 0.025, screenWidth * 0.025),
-                          ),
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
+                children: [
+                  CloseButton(onPressed: () {
+                    Navigator.pop(context);
+                  })
                 ],
               ),
             ),
-            SizedBox(height: screenHeight * 0.015),
+            Center(
+              child: Text(
+                '¿Quieres salir?',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: screenWidth * 0.055,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+            ),
+            SizedBox(height: screenHeight * 0.025),
             ElevatedButton(
                 child: const Text(
                   "Abandonar Partida",

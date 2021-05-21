@@ -15,17 +15,31 @@ class DeleteAccount extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size screenSize = MediaQuery.of(context).size;
+    double screenHeight = screenSize.height;
     return new AlertDialog(
-      title: Text(
-        '¿Eliminar su cuenta permanentemente?',
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: MediaQuery.of(context).size.width * 0.06,
-          fontWeight: FontWeight.bold,
-          color: blackWords,
-        ),
-      ),
       actions: <Widget>[
+        Container(
+          height: screenHeight * 0.025,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              CloseButton(onPressed: () {
+                Navigator.pop(context);
+              })
+            ],
+          ),
+        ),
+        Text(
+          '¿Eliminar su cuenta permanentemente?',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: MediaQuery.of(context).size.width * 0.06,
+            fontWeight: FontWeight.bold,
+            color: blackWords,
+          ),
+        ),
+        SizedBox(height: screenHeight * 0.015),
         new Center(
           child: new ElevatedButton(
               child: const Text(

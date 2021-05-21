@@ -12,17 +12,34 @@ Color whiteWords = Color(0xffffffff);
 class PurchaseAlert extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Size screenSize = MediaQuery.of(context).size;
+    double screenHeight = screenSize.height;
+
     return new AlertDialog(
-      title: Text(
-        '¿Quiere comprar el artículo?',
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: MediaQuery.of(context).size.width * 0.06,
-          fontWeight: FontWeight.bold,
-          color: blackWords,
-        ),
-      ),
       actions: <Widget>[
+        Container(
+          height: screenHeight * 0.04,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              CloseButton(onPressed: () {
+                Navigator.pop(context);
+              })
+            ],
+          ),
+        ),
+        Center(
+          child: Text(
+            '¿Quiere comprar el artículo?',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: MediaQuery.of(context).size.width * 0.055,
+              fontWeight: FontWeight.bold,
+              color: blackWords,
+            ),
+          ),
+        ),
+        SizedBox(height: screenHeight * 0.015),
         new Center(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -39,14 +56,14 @@ class PurchaseAlert extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * 0.03,
               ),
               Icon(Icons.pets,
-                  size: MediaQuery.of(context).size.width * 0.1,
+                  size: MediaQuery.of(context).size.width * 0.07,
                   color: Colors.amber),
             ],
           ),
         ),
         Padding(
           padding:
-              EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.023),
+              EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.015),
         ),
         new Center(
           child: new ElevatedButton(
@@ -108,7 +125,8 @@ class PurchaseAlert extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pop();
               }),
-        )
+        ),
+        SizedBox(height: screenHeight * 0.03)
       ],
     );
   }
