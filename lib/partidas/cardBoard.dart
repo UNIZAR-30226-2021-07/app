@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:gatovidapp/partidas/expandedPlayer.dart';
+import 'package:gatovidapp/partidas/bottomBoard.dart';
 import 'package:gatovidapp/popUps/gamePaused.dart';
 import 'package:gatovidapp/popUps/gamePausedOthers.dart';
 import 'package:gatovidapp/services/models.dart';
 import 'package:gatovidapp/services/websockets.dart';
-import 'package:gatovidapp/partidas/hand.dart';
-import 'package:gatovidapp/partidas/body.dart';
 import 'package:gatovidapp/partidas/playersTable.dart';
 import 'package:gatovidapp/partidas/upButtons.dart';
 import 'package:simple_timer/simple_timer.dart';
@@ -186,9 +185,7 @@ class _CardBoardState extends State<CardBoard>
                         ? PlayersTableTemplate(
                             height: MediaQuery.of(context).size.height * 0.5,
                             width: MediaQuery.of(context).size.width)
-                        : expandedPlayer(context))
-                    //child: (expanded? expandedPlayer(context, expanded): playersTable(context))
-                    ),
+                        : expandedPlayer(context))),
                 Container(
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height * 0.06,
@@ -292,25 +289,9 @@ class _CardBoardState extends State<CardBoard>
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                 Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height * 0.13,
-                  child: Body(
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height * 0.13,
-                    listOrgans: bodyOfPlayer,
-                    name: globalData.name,
-                  ),
-                ),
-                SizedBox(height: MediaQuery.of(context).size.height * 0.01),
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height * 0.14,
-                  child: HandTemplate(
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height * 0.14,
-                  ),
-                ),
-                SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+                    //TODO: variable global que controle si se ha ganado, si var=true se pone winnerBox sino PlayBox
+                    //child: (var? WinnerBox(context): PlayBox(context))
+                    child: PlayBox(context))
               ],
             ),
           ),
