@@ -56,7 +56,6 @@ class _RulesState extends State<Rules> {
                       top: screenHeight * 0.02,
                       bottom: screenHeight * 0.01),
                   child: Text(
-                      "En la pantalla anterior has podido ver el tablero.\n\n"
                       "En la parte más inferior aparece tu mano, es decir,"
                       " las cartas que tienes en todo momento para poder jugar."
                       "\n\n"
