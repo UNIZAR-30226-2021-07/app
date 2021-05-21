@@ -108,23 +108,19 @@ class _GamesMenuState extends State<GamesMenu> {
                             ),
                           ),
                         )),
-                        Expanded( child: SizedBox()),
+                        Expanded(child: SizedBox()),
                         Expanded(
-                          child:Container(
-                            child:TextButton(
-                                onPressed: () {
-                                  Navigator.pushNamed(context, '/rules');
-                                },
-                                child: Icon(
-                                  Icons.help_outline,
-                                  size: screenHeight * 0.09,
-                                  color: Colors.black,
-                                ))
-                          )
-                        ),
-                        Expanded(
-                             child: SizedBox()
-                        ),
+                            child: Container(
+                                child: TextButton(
+                                    onPressed: () {
+                                      Navigator.pushNamed(context, '/rules');
+                                    },
+                                    child: Icon(
+                                      Icons.help_outline,
+                                      size: screenHeight * 0.09,
+                                      color: Colors.black,
+                                    )))),
+                        Expanded(child: SizedBox()),
                         Expanded(
                             child: Container(
                           margin: EdgeInsets.only(
