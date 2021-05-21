@@ -68,6 +68,7 @@ class _CardBoardState extends State<CardBoard>
       if (gameEnded == true) {
         _timerController.reset();
         colorBase = greyColor;
+        gameEnded = false;
         showDialog(
           context: context,
           builder: (BuildContext context) => Classification(),
