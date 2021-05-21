@@ -454,7 +454,7 @@ class _RulesState extends State<Rules> {
                           CardTemplate(
                             height: screenHeight * 0.2,
                             width: screenWidth * 0.17,
-                            numCard: 15,
+                            numCard: 16,
                           ),
                         ])),
                 Container(
@@ -477,7 +477,7 @@ class _RulesState extends State<Rules> {
                           CardTemplate(
                             height: screenHeight * 0.2,
                             width: screenWidth * 0.17,
-                            numCard: 15,
+                            numCard: 17,
                           ),
                         ])),
                 Container(
@@ -501,7 +501,7 @@ class _RulesState extends State<Rules> {
                           CardTemplate(
                             height: screenHeight * 0.2,
                             width: screenWidth * 0.17,
-                            numCard: 15,
+                            numCard: 18,
                           ),
                         ])),
                 Container(
@@ -525,7 +525,7 @@ class _RulesState extends State<Rules> {
                           CardTemplate(
                             height: screenHeight * 0.2,
                             width: screenWidth * 0.17,
-                            numCard: 15,
+                            numCard: 19,
                           ),
                         ])),
                 Container(
