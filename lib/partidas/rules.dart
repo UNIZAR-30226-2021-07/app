@@ -411,77 +411,131 @@ class _RulesState extends State<Rules> {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(
-                      right: screenWidth * 0.04,
-                      left: screenWidth * 0.04,
-                      bottom: screenHeight * 0.02),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      CardTemplate(
-                        height: screenHeight * 0.2,
-                        width: screenWidth * 0.17,
-                        numCard: 15,
-                      ),
-                      SizedBox(width: screenWidth * 0.01),
-                      CardTemplate(
-                        height: screenHeight * 0.2,
-                        width: screenWidth * 0.17,
-                        numCard: 16,
-                      ),
-                      SizedBox(width: screenWidth * 0.01),
-                      CardTemplate(
-                        height: screenHeight * 0.2,
-                        width: screenWidth * 0.17,
-                        numCard: 17,
-                      ),
-                      SizedBox(width: screenWidth * 0.01),
-                      CardTemplate(
-                        height: screenHeight * 0.2,
-                        width: screenWidth * 0.17,
-                        numCard: 18,
-                      ),
-                      SizedBox(width: screenWidth * 0.01),
-                      CardTemplate(
-                        height: screenHeight * 0.2,
-                        width: screenWidth * 0.17,
-                        numCard: 19,
-                      ),
-                    ],
-                  ),
-                ),
+                    margin: EdgeInsets.only(
+                        right: screenWidth * 0.04, left: screenWidth * 0.04),
+                    child: Text(
+                        "Las cartas de tratamiento pueden alterar el juego para ayudarte a ganar. Utilízalas en tu beneficio o "
+                        "para evitar que tus rivales completen su cuerpo antes que tú.\n\n"
+                        "En orden de izquierda a derecha según aparece en las imágenes, realizan las siguientes acciones:\n\n"
+                        "● TRASPLANTE: Intercambia un órgano por otro entre dos jugadores cualesquiera. No importa "
+                        "si el color de estos órganos es diferente, ni si están sanos, infectados o vacunados. "
+                        "Sencillamente el jugador cambia el órgano escogido por otro, siempre y cuando ninguno de "
+                        "los dos jugadores tenga dos órganos del mismo color ni éstos estén inmunizados.\n")),
                 Container(
-                  margin: EdgeInsets.only(
-                      right: screenWidth * 0.04, left: screenWidth * 0.04),
-                  child: Text(
-                      "Las cartas de tratamiento pueden alterar el juego para ayudarte a ganar. Utilízalas en tu beneficio o "
-                      "para evitar que tus rivales completen su cuerpo antes que tú.\n\n"
-                      "En orden de izquierda a derecha según aparece en las imágenes, realizan las siguientes acciones:\n\n"
-                      "● TRASPLANTE: Intercambia un órgano por otro entre dos jugadores cualesquiera. No importa "
-                      "si el color de estos órganos es diferente, ni si están sanos, infectados o vacunados. "
-                      "Sencillamente el jugador cambia el órgano escogido por otro, siempre y cuando ninguno de "
-                      "los dos jugadores tenga dos órganos del mismo color ni éstos estén inmunizados.\n\n"
-                      "Para realizar esta acción primero debes arrastrar la carta al órgano del primer jugador"
-                      "con el que quieres intercambiar y lo mismo con el segundo que participa en el transplante. \n\n"
-                      "● LADRÓN DE ÓRGANOS: Roba un órgano de otro jugador y añádelo a tu cuerpo. Puedes robar "
-                      "órganos sanos, vacunados o infectados, pero no inmunes. Recuerda que no puedes tener dos "
-                      "órganos del mismo color\n\n"
-                      "Para realizar esta acción arrastra la carta de tratamiento al órgano que quieras robar.\n\n"
-                      "● CONTAGIO: Contagia con tantos virus como puedas de tus órganos infectados a los órganos de los "
-                      "demás jugadores.\n\n"
-                      "Para realizar esta acción arrastra la carta de tratamiento a cualquier cuerpo y se realizará "
-                      "el contagio de manera aleatoria.\n\n"
-                      "● GUANTE DE LÁTEX: Todos los jugadores, excepto el que utiliza el guante, descartan su mano. "
-                      "Su mano será reestablecida de nuevo con cartas nuevas.\n\n"
-                      "Para realizar esta acción arrastra la carta de tratamiento a cualquier cuerpo.\n\n"
-                      "● ERROR MÉDICO: Intercambia todo tu cuerpo por el de otro jugador, incluyendo órganos, "
-                      "virus y vacunas. No importa el número de cartas que cada uno tenga. Cuando usas "
-                      "esta carta, los órganos inmunizados también son intercambiados.\n\n"
+                    margin: EdgeInsets.only(
+                        right: screenWidth * 0.04, left: screenWidth * 0.04),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          CardTemplate(
+                            height: screenHeight * 0.2,
+                            width: screenWidth * 0.17,
+                            numCard: 15,
+                          ),
+                        ])),
+                Container(
+                    margin: EdgeInsets.only(
+                        right: screenWidth * 0.04, left: screenWidth * 0.04),
+                    child: Text(
+                        "Para realizar esta acción primero debes arrastrar la carta al órgano del primer jugador"
+                        "con el que quieres intercambiar y lo mismo con el segundo que participa en el transplante. \n\n")),
+                Container(
+                    margin: EdgeInsets.only(
+                        right: screenWidth * 0.04, left: screenWidth * 0.04),
+                    child: Text(
+                        "● LADRÓN DE ÓRGANOS: Roba un órgano de otro jugador y añádelo a tu cuerpo. Puedes robar "
+                        "órganos sanos, vacunados o infectados, pero no inmunes. Recuerda que no puedes tener dos "
+                        "órganos del mismo color\n")),
+                Container(
+                    margin: EdgeInsets.only(
+                        right: screenWidth * 0.04, left: screenWidth * 0.04),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          CardTemplate(
+                            height: screenHeight * 0.2,
+                            width: screenWidth * 0.17,
+                            numCard: 15,
+                          ),
+                        ])),
+                Container(
+                    margin: EdgeInsets.only(
+                        right: screenWidth * 0.04, left: screenWidth * 0.04),
+                    child: Text(
+                        "Para realizar esta acción arrastra la carta de tratamiento al órgano que quieras robar.\n\n")),
+                Container(
+                    margin: EdgeInsets.only(
+                        right: screenWidth * 0.04, left: screenWidth * 0.04),
+                    child: Text(
+                        "● CONTAGIO: Contagia con tantos virus como puedas de tus órganos infectados a los órganos de los "
+                        "demás jugadores.\n")),
+                Container(
+                    margin: EdgeInsets.only(
+                        right: screenWidth * 0.04, left: screenWidth * 0.04),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          CardTemplate(
+                            height: screenHeight * 0.2,
+                            width: screenWidth * 0.17,
+                            numCard: 15,
+                          ),
+                        ])),
+                Container(
+                    margin: EdgeInsets.only(
+                        right: screenWidth * 0.04, left: screenWidth * 0.04),
+                    child: Text(
+                        "Para realizar esta acción arrastra la carta de tratamiento a cualquier cuerpo y se realizará "
+                        "el contagio de manera aleatoria.\n\n")),
+                Container(
+                    margin: EdgeInsets.only(
+                        right: screenWidth * 0.04, left: screenWidth * 0.04),
+                    child: Text(
+                        "● GUANTE DE LÁTEX: Todos los jugadores, excepto el que utiliza el guante, descartan su mano. "
+                        "Su mano será reestablecida de nuevo con cartas nuevas.\n")),
+                Container(
+                    margin: EdgeInsets.only(
+                        right: screenWidth * 0.04, left: screenWidth * 0.04),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          CardTemplate(
+                            height: screenHeight * 0.2,
+                            width: screenWidth * 0.17,
+                            numCard: 15,
+                          ),
+                        ])),
+                Container(
+                    margin: EdgeInsets.only(
+                        right: screenWidth * 0.04, left: screenWidth * 0.04),
+                    child: Text(
+                        "Para realizar esta acción arrastra la carta de tratamiento a cualquier cuerpo.\n\n")),
+                Container(
+                    margin: EdgeInsets.only(
+                        right: screenWidth * 0.04, left: screenWidth * 0.04),
+                    child: Text(
+                        "● ERROR MÉDICO: Intercambia todo tu cuerpo por el de otro jugador, incluyendo órganos, "
+                        "virus y vacunas. No importa el número de cartas que cada uno tenga. Cuando usas "
+                        "esta carta, los órganos inmunizados también son intercambiados.\n")),
+                Container(
+                    margin: EdgeInsets.only(
+                        right: screenWidth * 0.04, left: screenWidth * 0.04),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          CardTemplate(
+                            height: screenHeight * 0.2,
+                            width: screenWidth * 0.17,
+                            numCard: 15,
+                          ),
+                        ])),
+                Container(
+                    margin: EdgeInsets.only(
+                        right: screenWidth * 0.04, left: screenWidth * 0.04),
+                    child: Text(
                       "Para realizar esta acción arrastra la carta de tratamiento al cuerpo del jugador "
-                      "con el que quieras intercambiar el cuerpo.\n\n",
-                      textAlign: TextAlign.justify,
-                      style: TextStyle(fontSize: screenWidth * 0.04)),
-                ),
+                      "con el que quieras intercambiar el cuerpo.\n",
+                    )),
                 SizedBox(height: screenHeight * 0.04),
               ],
             ),
