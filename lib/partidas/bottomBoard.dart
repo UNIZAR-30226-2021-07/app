@@ -4,8 +4,8 @@ import 'package:gatovidapp/services/models.dart';
 import 'package:gatovidapp/partidas/hand.dart';
 import 'package:gatovidapp/partidas/body.dart';
 
-Widget bottomBoard(BuildContext context){
-  if (semiGameEnded == false){
+Widget bottomBoard(BuildContext context) {
+  if (semiGameEnded == false) {
     return playBox(context);
   }
   return winnerBox(context);
