@@ -35,6 +35,7 @@ List clasificationGamers = [];
 List clasificationCoins = [];
 bool gameEnded = false;
 bool expulsadoGame = false;
+bool semiGameEnded = false;
 
 // Store
 String costPurchaseSelected = '';

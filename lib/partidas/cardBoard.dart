@@ -289,10 +289,8 @@ class _CardBoardState extends State<CardBoard>
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                 Container(
-                    //TODO: variable global (endGame) que controle si se ha ganado, si endGame=true se pone winnerBox sino PlayBox
-                    //TODO: endGame inicialmente a false y cuando llegue game_update con ganador propio unicamente -> endGame = true
-                    //child: (endGame? winnerBox(context): playBox(context))
-                    child: playBox(context))
+                    child: bottomBoard(context),
+                )
               ],
             ),
           ),

@@ -205,6 +205,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                   bodyOfPlayer.clear();
                                   bodyOfPlayer = [[], [], [], []];
                                   gameEnded = false;
+                                  semiGameEnded = false;
                                   expulsadoGame = false;
                                   isMyTurn = false;
                                   colorBase = greyColor;
@@ -249,6 +250,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                   bodyOfPlayer.clear();
                                   bodyOfPlayer = [[], [], [], []];
                                   gameEnded = false;
+                                  semiGameEnded = false;
                                   expulsadoGame = false;
                                   isMyTurn = false;
                                   colorBase = greyColor;
@@ -293,6 +295,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                   bodyOfPlayer.clear();
                                   bodyOfPlayer = [[], [], [], []];
                                   gameEnded = false;
+                                  semiGameEnded = false;
                                   expulsadoGame = false;
                                   isMyTurn = false;
                                   colorBase = greyColor;
