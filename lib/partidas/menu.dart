@@ -207,6 +207,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                   gameEnded = false;
                                   semiGameEnded = false;
                                   expulsadoGame = false;
+                                  timerValue = 30;
                                   isMyTurn = false;
                                   colorBase = greyColor;
                                   showDialog(
@@ -252,6 +253,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                   gameEnded = false;
                                   semiGameEnded = false;
                                   expulsadoGame = false;
+                                  timerValue = 30;
                                   isMyTurn = false;
                                   colorBase = greyColor;
                                   showDialog(
@@ -297,6 +299,7 @@ class _GamesMenuState extends State<GamesMenu> {
                                   gameEnded = false;
                                   semiGameEnded = false;
                                   expulsadoGame = false;
+                                  timerValue = 30;
                                   isMyTurn = false;
                                   colorBase = greyColor;
                                   showDialog(

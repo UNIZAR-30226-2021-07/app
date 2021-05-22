@@ -47,7 +47,8 @@ class _CardBoardState extends State<CardBoard>
       new Timer(const Duration(milliseconds: 1000), () {
         setState(() {
           _timerController.restart(
-              startFrom: const Duration(seconds: COUNT_DOWN_SEGS - 1));
+              startFrom: Duration(seconds: timerValue - 1));
+          timerValue = COUNT_DOWN_SEGS;
         });
       });
       colorBase = purpleColor;
@@ -81,14 +82,14 @@ class _CardBoardState extends State<CardBoard>
 
       // My turn
       if (isMyTurn && notAgain) {
-        _timerController.restart(
-            startFrom: const Duration(seconds: COUNT_DOWN_SEGS));
+        _timerController.restart(startFrom: Duration(seconds: timerValue));
+        timerValue = COUNT_DOWN_SEGS;
         colorBase = purpleColor;
         notAgain = false;
         playedGloves = false;
       } else if (isMyTurn && playedGloves) {
-        _timerController.restart(
-            startFrom: const Duration(seconds: COUNT_DOWN_SEGS));
+        _timerController.restart(startFrom: Duration(seconds: timerValue));
+        timerValue = COUNT_DOWN_SEGS;
         colorBase = purpleColor;
         notAgain = false;
         playedGloves = false;
@@ -230,7 +231,7 @@ class _CardBoardState extends State<CardBoard>
                           color: colorBase,
                           alignment: Alignment.center,
                           child: SimpleTimer(
-                            duration: const Duration(seconds: COUNT_DOWN_SEGS),
+                            duration: Duration(seconds: timerValue),
                             controller: _timerController,
                             onStart: handleTimerOnStart,
                             onEnd: handleTimerOnEnd,

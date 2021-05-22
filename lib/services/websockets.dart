@@ -119,6 +119,11 @@ void gameUpdateHandler(Map<String, dynamic> json) {
     currentTurnPlayer = json['current_turn'];
     print('El turno es de ->' + currentTurnPlayer);
     if (currentTurnPlayer == globalData.name) {
+      print('SEGUNDOS RETANTES' + json['remaining_turn_secs'].toString());
+      if (json['remaining_turn_secs'] != null) {
+        timerValue = json['remaining_turn_secs'].toInt();
+        notAgain = true;
+      }
       isMyTurn = true;
     } else {
       isMyTurn = false; // not player turn
