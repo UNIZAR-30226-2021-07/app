@@ -47,7 +47,8 @@ class _CardBoardState extends State<CardBoard>
       new Timer(const Duration(milliseconds: 1000), () {
         setState(() {
           _timerController.restart(
-              startFrom: const Duration(seconds: COUNT_DOWN_SEGS - 1));
+              startFrom: Duration(seconds: timerValue - 1));
+          timerValue = COUNT_DOWN_SEGS;
         });
       });
       colorBase = purpleColor;
@@ -81,14 +82,14 @@ class _CardBoardState extends State<CardBoard>
 
       // My turn
       if (isMyTurn && notAgain) {
-        _timerController.restart(
-            startFrom: const Duration(seconds: COUNT_DOWN_SEGS));
+        _timerController.restart(startFrom: Duration(seconds: timerValue));
+        timerValue = COUNT_DOWN_SEGS;
         colorBase = purpleColor;
         notAgain = false;
         playedGloves = false;
       } else if (isMyTurn && playedGloves) {
-        _timerController.restart(
-            startFrom: const Duration(seconds: COUNT_DOWN_SEGS));
+        _timerController.restart(startFrom: Duration(seconds: timerValue));
+        timerValue = COUNT_DOWN_SEGS;
         colorBase = purpleColor;
         notAgain = false;
         playedGloves = false;
@@ -97,9 +98,11 @@ class _CardBoardState extends State<CardBoard>
       else if (isMyTurn) {
         /*nothing*/
       } else {
+        timerValue = COUNT_DOWN_SEGS;
         _timerController.reset();
         colorBase = greyColor;
       }
+      print(timerValue.toString());
       setState(() {});
     });
 
@@ -230,7 +233,7 @@ class _CardBoardState extends State<CardBoard>
                           color: colorBase,
                           alignment: Alignment.center,
                           child: SimpleTimer(
-                            duration: const Duration(seconds: COUNT_DOWN_SEGS),
+                            duration: Duration(seconds: COUNT_DOWN_SEGS),
                             controller: _timerController,
                             onStart: handleTimerOnStart,
                             onEnd: handleTimerOnEnd,
@@ -289,10 +292,8 @@ class _CardBoardState extends State<CardBoard>
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                 Container(
-                    //TODO: variable global (endGame) que controle si se ha ganado, si endGame=true se pone winnerBox sino PlayBox
-                    //TODO: endGame inicialmente a false y cuando llegue game_update con ganador propio unicamente -> endGame = true
-                    //child: (endGame? winnerBox(context): playBox(context))
-                    child: playBox(context))
+                  child: bottomBoard(context),
+                )
               ],
             ),
           ),

@@ -88,35 +88,42 @@ void gameUpdateHandler(Map<String, dynamic> json) {
   if (json['finished'] != null) {
     if (json['finished'] == true) {
       gameEnded = true;
-      Map aux = json['leaderboard'];
-      print(aux.toString());
-      clasificationGamers = List.filled(listOfGamers.length + 1, 'a');
-      clasificationCoins = List.filled(listOfGamers.length + 1, 0);
-      for (int i = 0; i < listOfGamers.length; i++) {
-        if (aux[listOfGamers[i].name]['position'] != null) {
-          clasificationGamers[aux[listOfGamers[i].name]['position'] - 1] =
-              listOfGamers[i].name;
-          clasificationCoins[aux[listOfGamers[i].name]['position'] - 1] =
-              aux[listOfGamers[i].name]['coins'];
-        } else {
-          gameEnded = false;
-          break;
-        }
-      }
-      if (aux[globalData.name]['position'] != null) {
-        clasificationGamers[aux[globalData.name]['position'] - 1] =
-            globalData.name;
-        clasificationCoins[aux[globalData.name]['position'] - 1] =
-            aux[globalData.name]['coins'];
+    }
+  }
+  if (json['leaderboard'] != null) {
+    Map aux = json['leaderboard'];
+    print(aux.toString());
+    clasificationGamers = List.filled(listOfGamers.length + 1, 'a');
+    clasificationCoins = List.filled(listOfGamers.length + 1, 0);
+    for (int i = 0; i < listOfGamers.length; i++) {
+      if (aux[listOfGamers[i].name]['position'] != null) {
+        clasificationGamers[aux[listOfGamers[i].name]['position'] - 1] =
+            listOfGamers[i].name;
+        clasificationCoins[aux[listOfGamers[i].name]['position'] - 1] =
+            aux[listOfGamers[i].name]['coins'];
       } else {
         gameEnded = false;
       }
+    }
+    if (aux[globalData.name]['position'] != null) {
+      semiGameEnded = true;
+      clasificationGamers[aux[globalData.name]['position'] - 1] =
+          globalData.name;
+      clasificationCoins[aux[globalData.name]['position'] - 1] =
+          aux[globalData.name]['coins'];
+    } else {
+      gameEnded = false;
     }
   }
   if (json['current_turn'] != null) {
     currentTurnPlayer = json['current_turn'];
     print('El turno es de ->' + currentTurnPlayer);
     if (currentTurnPlayer == globalData.name) {
+      print('SEGUNDOS RETANTES' + json['remaining_turn_secs'].toString());
+      if (json['remaining_turn_secs'] != null) {
+        timerValue = json['remaining_turn_secs'].toInt();
+        notAgain = true;
+      }
       isMyTurn = true;
     } else {
       isMyTurn = false; // not player turn
