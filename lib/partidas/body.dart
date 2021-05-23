@@ -47,7 +47,7 @@ class Body extends StatelessWidget {
                         child: Container(
                           width: this.width * 0.9 * 0.225,
                           height: this.height * 0.8,
-                          child: Image.asset("assets/images/empty.png"),
+                          child: Image.asset("assets/common/borde.png"),
                         ),
                       ),
                     ],
@@ -85,7 +85,7 @@ class Body extends StatelessWidget {
                         child: Container(
                           width: this.width * 0.9 * 0.225,
                           height: this.height * 0.8,
-                          child: Image.asset("assets/images/empty.png"),
+                          child: Image.asset("assets/common/borde.png"),
                         ),
                       ),
                     ],
@@ -123,7 +123,7 @@ class Body extends StatelessWidget {
                         child: Container(
                           width: this.width * 0.9 * 0.225,
                           height: this.height * 0.8,
-                          child: Image.asset("assets/images/empty.png"),
+                          child: Image.asset("assets/common/borde.png"),
                         ),
                       ),
                     ],
@@ -161,7 +161,7 @@ class Body extends StatelessWidget {
                         child: Container(
                           width: this.width * 0.9 * 0.225,
                           height: this.height * 0.8,
-                          child: Image.asset("assets/images/empty.png"),
+                          child: Image.asset("assets/common/borde.png"),
                         ),
                       ),
                     ],

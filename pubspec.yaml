@@ -51,6 +51,7 @@ flutter:
     - assets/common/boards.json
     - assets/common/cards.json
     - assets/common/profile_pics.json
+    - assets/common/borde.png
     - assets/common/boards/
     - assets/common/cards/
     - assets/common/icons/
