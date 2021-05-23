@@ -419,7 +419,9 @@ class _RulesState extends State<Rules> {
                         "● TRASPLANTE: Intercambia un órgano por otro entre dos jugadores cualesquiera. No importa "
                         "si el color de estos órganos es diferente, ni si están sanos, infectados o vacunados. "
                         "Sencillamente el jugador cambia el órgano escogido por otro, siempre y cuando ninguno de "
-                        "los dos jugadores tenga dos órganos del mismo color ni éstos estén inmunizados.\n")),
+                        "los dos jugadores tenga dos órganos del mismo color ni éstos estén inmunizados.\n",
+                        textAlign: TextAlign.justify,
+                        style: TextStyle(fontSize: screenWidth * 0.04))),
                 Container(
                     margin: EdgeInsets.only(
                         right: screenWidth * 0.04, left: screenWidth * 0.04),
@@ -437,14 +439,18 @@ class _RulesState extends State<Rules> {
                         right: screenWidth * 0.04, left: screenWidth * 0.04),
                     child: Text(
                         "Para realizar esta acción primero debes arrastrar la carta al órgano del primer jugador"
-                        "con el que quieres intercambiar y lo mismo con el segundo que participa en el transplante. \n\n")),
+                        "con el que quieres intercambiar y lo mismo con el segundo que participa en el transplante. \n\n",
+                        textAlign: TextAlign.justify,
+                        style: TextStyle(fontSize: screenWidth * 0.04))),
                 Container(
                     margin: EdgeInsets.only(
                         right: screenWidth * 0.04, left: screenWidth * 0.04),
                     child: Text(
                         "● LADRÓN DE ÓRGANOS: Roba un órgano de otro jugador y añádelo a tu cuerpo. Puedes robar "
                         "órganos sanos, vacunados o infectados, pero no inmunes. Recuerda que no puedes tener dos "
-                        "órganos del mismo color\n")),
+                        "órganos del mismo color\n",
+                        textAlign: TextAlign.justify,
+                        style: TextStyle(fontSize: screenWidth * 0.04))),
                 Container(
                     margin: EdgeInsets.only(
                         right: screenWidth * 0.04, left: screenWidth * 0.04),
@@ -461,13 +467,17 @@ class _RulesState extends State<Rules> {
                     margin: EdgeInsets.only(
                         right: screenWidth * 0.04, left: screenWidth * 0.04),
                     child: Text(
-                        "Para realizar esta acción arrastra la carta de tratamiento al órgano que quieras robar.\n\n")),
+                        "Para realizar esta acción arrastra la carta de tratamiento al órgano que quieras robar.\n\n",
+                        textAlign: TextAlign.justify,
+                        style: TextStyle(fontSize: screenWidth * 0.04))),
                 Container(
                     margin: EdgeInsets.only(
                         right: screenWidth * 0.04, left: screenWidth * 0.04),
                     child: Text(
                         "● CONTAGIO: Contagia con tantos virus como puedas de tus órganos infectados a los órganos de los "
-                        "demás jugadores.\n")),
+                        "demás jugadores.\n",
+                        textAlign: TextAlign.justify,
+                        style: TextStyle(fontSize: screenWidth * 0.04))),
                 Container(
                     margin: EdgeInsets.only(
                         right: screenWidth * 0.04, left: screenWidth * 0.04),
@@ -485,13 +495,18 @@ class _RulesState extends State<Rules> {
                         right: screenWidth * 0.04, left: screenWidth * 0.04),
                     child: Text(
                         "Para realizar esta acción arrastra la carta de tratamiento a cualquier cuerpo y se realizará "
-                        "el contagio de manera aleatoria.\n\n")),
+                        "el contagio de manera aleatoria.\n\n",
+                        textAlign: TextAlign.justify,
+                        style: TextStyle(fontSize: screenWidth * 0.04))),
                 Container(
-                    margin: EdgeInsets.only(
-                        right: screenWidth * 0.04, left: screenWidth * 0.04),
-                    child: Text(
-                        "● GUANTE DE LÁTEX: Todos los jugadores, excepto el que utiliza el guante, descartan su mano. "
-                        "Su mano será reestablecida de nuevo con cartas nuevas.\n")),
+                  margin: EdgeInsets.only(
+                      right: screenWidth * 0.04, left: screenWidth * 0.04),
+                  child: Text(
+                      "● GUANTE DE LÁTEX: Todos los jugadores, excepto el que utiliza el guante, descartan su mano. "
+                      "Su mano será reestablecida de nuevo con cartas nuevas.\n",
+                      textAlign: TextAlign.justify,
+                      style: TextStyle(fontSize: screenWidth * 0.04)),
+                ),
                 Container(
                     margin: EdgeInsets.only(
                         right: screenWidth * 0.04, left: screenWidth * 0.04),
@@ -508,14 +523,18 @@ class _RulesState extends State<Rules> {
                     margin: EdgeInsets.only(
                         right: screenWidth * 0.04, left: screenWidth * 0.04),
                     child: Text(
-                        "Para realizar esta acción arrastra la carta de tratamiento a cualquier cuerpo.\n\n")),
+                        "Para realizar esta acción arrastra la carta de tratamiento a cualquier cuerpo.\n\n",
+                        textAlign: TextAlign.justify,
+                        style: TextStyle(fontSize: screenWidth * 0.04))),
                 Container(
                     margin: EdgeInsets.only(
                         right: screenWidth * 0.04, left: screenWidth * 0.04),
                     child: Text(
                         "● ERROR MÉDICO: Intercambia todo tu cuerpo por el de otro jugador, incluyendo órganos, "
                         "virus y vacunas. No importa el número de cartas que cada uno tenga. Cuando usas "
-                        "esta carta, los órganos inmunizados también son intercambiados.\n")),
+                        "esta carta, los órganos inmunizados también son intercambiados.\n",
+                        textAlign: TextAlign.justify,
+                        style: TextStyle(fontSize: screenWidth * 0.04))),
                 Container(
                     margin: EdgeInsets.only(
                         right: screenWidth * 0.04, left: screenWidth * 0.04),
@@ -532,9 +551,10 @@ class _RulesState extends State<Rules> {
                     margin: EdgeInsets.only(
                         right: screenWidth * 0.04, left: screenWidth * 0.04),
                     child: Text(
-                      "Para realizar esta acción arrastra la carta de tratamiento al cuerpo del jugador "
-                      "con el que quieras intercambiar el cuerpo.\n",
-                    )),
+                        "Para realizar esta acción arrastra la carta de tratamiento al cuerpo del jugador "
+                        "con el que quieras intercambiar el cuerpo.\n",
+                        textAlign: TextAlign.justify,
+                        style: TextStyle(fontSize: screenWidth * 0.04))),
                 SizedBox(height: screenHeight * 0.04),
               ],
             ),
