@@ -98,9 +98,11 @@ class _CardBoardState extends State<CardBoard>
       else if (isMyTurn) {
         /*nothing*/
       } else {
+        timerValue = COUNT_DOWN_SEGS;
         _timerController.reset();
         colorBase = greyColor;
       }
+      print(timerValue.toString());
       setState(() {});
     });
 
@@ -231,7 +233,7 @@ class _CardBoardState extends State<CardBoard>
                           color: colorBase,
                           alignment: Alignment.center,
                           child: SimpleTimer(
-                            duration: Duration(seconds: timerValue),
+                            duration: Duration(seconds: COUNT_DOWN_SEGS),
                             controller: _timerController,
                             onStart: handleTimerOnStart,
                             onEnd: handleTimerOnEnd,
