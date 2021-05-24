@@ -37,6 +37,7 @@ bool gameEnded = false;
 bool expulsadoGame = false;
 bool semiGameEnded = false;
 int timerValue = 0;
+int clasificationNumerPlayers = 0;
 
 // Store
 String costPurchaseSelected = '';

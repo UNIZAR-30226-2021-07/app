@@ -5,7 +5,7 @@ Widget classificationTable(BuildContext context) {
   Size screenSize = MediaQuery.of(context).size;
   double screenHeight = screenSize.height;
   //TODO: según como se reciba la info de backend poner las variables correspondientes en los parámetros
-  if (clasificationGamers.length == 2) {
+  if (clasificationNumerPlayers == 2) {
     return Container(
         child: Column(
       children: [
@@ -38,7 +38,7 @@ Widget classificationTable(BuildContext context) {
         ),
       ],
     ));
-  } else if (clasificationGamers.length == 3) {
+  } else if (clasificationNumerPlayers == 3) {
     return Container(
         child: Column(
       children: [
@@ -85,7 +85,7 @@ Widget classificationTable(BuildContext context) {
         ),
       ],
     ));
-  } else if (clasificationGamers.length == 4) {
+  } else if (clasificationNumerPlayers == 4) {
     return Container(
         child: Column(
       children: [
@@ -146,7 +146,7 @@ Widget classificationTable(BuildContext context) {
         ),
       ],
     ));
-  } else if (clasificationGamers.length == 5) {
+  } else if (clasificationNumerPlayers == 5) {
     return Container(
         child: Column(
       children: [
@@ -221,7 +221,7 @@ Widget classificationTable(BuildContext context) {
         ),
       ],
     ));
-  } else if (clasificationGamers.length == 6) {
+  } else if (clasificationNumerPlayers == 6) {
     return Container(
         child: Column(
       children: [
