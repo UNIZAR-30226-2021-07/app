@@ -9,85 +9,305 @@ Widget classificationTable(BuildContext context) {
     return Container(
         child: Column(
       children: [
-        filaClasificadoaux(context, "assets/common/icons/medalla-oro.png",
-            clasificationGamers[0], clasificationCoins[0].toString()),
+        Builder(
+          builder: (BuildContext context) {
+            if (clasificationGamers[0] != 'a') {
+              return filaClasificadoaux(
+                  context,
+                  "assets/common/icons/medalla-oro.png",
+                  clasificationGamers[0],
+                  clasificationCoins[0].toString());
+            } else {
+              return Container();
+            }
+          },
+        ),
         Container(child: SizedBox(height: screenHeight * 0.03)),
-        filaClasificadoaux(context, "assets/common/icons/medalla-plata.png",
-            clasificationGamers[1], clasificationCoins[1].toString()),
+        Builder(
+          builder: (BuildContext context) {
+            if (clasificationGamers[1] != 'a') {
+              return filaClasificadoaux(
+                  context,
+                  "assets/common/icons/medalla-plata.png",
+                  clasificationGamers[1],
+                  clasificationCoins[1].toString());
+            } else {
+              return Container();
+            }
+          },
+        ),
       ],
     ));
   } else if (clasificationGamers.length == 3) {
     return Container(
         child: Column(
       children: [
-        filaClasificadoaux(context, "assets/common/icons/medalla-oro.png",
-            clasificationGamers[0], clasificationCoins[0].toString()),
+        Builder(
+          builder: (BuildContext context) {
+            if (clasificationGamers[0] != 'a') {
+              return filaClasificadoaux(
+                  context,
+                  "assets/common/icons/medalla-oro.png",
+                  clasificationGamers[0],
+                  clasificationCoins[0].toString());
+            } else {
+              return Container();
+            }
+          },
+        ),
         Container(child: SizedBox(height: screenHeight * 0.03)),
-        filaClasificadoaux(context, "assets/common/icons/medalla-plata.png",
-            clasificationGamers[1], clasificationCoins[1].toString()),
+        Builder(
+          builder: (BuildContext context) {
+            if (clasificationGamers[1] != 'a') {
+              return filaClasificadoaux(
+                  context,
+                  "assets/common/icons/medalla-plata.png",
+                  clasificationGamers[1],
+                  clasificationCoins[1].toString());
+            } else {
+              return Container();
+            }
+          },
+        ),
         Container(child: SizedBox(height: screenHeight * 0.03)),
-        filaClasificadoaux(context, "assets/common/icons/medalla-bronce.png",
-            clasificationGamers[2], clasificationCoins[2].toString()),
+        Builder(
+          builder: (BuildContext context) {
+            if (clasificationGamers[2] != 'a') {
+              return filaClasificadoaux(
+                  context,
+                  "assets/common/icons/medalla-bronce.png",
+                  clasificationGamers[2],
+                  clasificationCoins[2].toString());
+            } else {
+              return Container();
+            }
+          },
+        ),
       ],
     ));
   } else if (clasificationGamers.length == 4) {
     return Container(
         child: Column(
       children: [
-        filaClasificadoaux(context, "assets/common/icons/medalla-oro.png",
-            clasificationGamers[0], clasificationCoins[0].toString()),
+        Builder(
+          builder: (BuildContext context) {
+            if (clasificationGamers[0] != 'a') {
+              return filaClasificadoaux(
+                  context,
+                  "assets/common/icons/medalla-oro.png",
+                  clasificationGamers[0],
+                  clasificationCoins[0].toString());
+            } else {
+              return Container();
+            }
+          },
+        ),
         Container(child: SizedBox(height: screenHeight * 0.03)),
-        filaClasificadoaux(context, "assets/common/icons/medalla-plata.png",
-            clasificationGamers[1], clasificationCoins[1].toString()),
+        Builder(
+          builder: (BuildContext context) {
+            if (clasificationGamers[1] != 'a') {
+              return filaClasificadoaux(
+                  context,
+                  "assets/common/icons/medalla-plata.png",
+                  clasificationGamers[1],
+                  clasificationCoins[1].toString());
+            } else {
+              return Container();
+            }
+          },
+        ),
         Container(child: SizedBox(height: screenHeight * 0.03)),
-        filaClasificadoaux(context, "assets/common/icons/medalla-bronce.png",
-            clasificationGamers[2], clasificationCoins[2].toString()),
+        Builder(
+          builder: (BuildContext context) {
+            if (clasificationGamers[2] != 'a') {
+              return filaClasificadoaux(
+                  context,
+                  "assets/common/icons/medalla-bronce.png",
+                  clasificationGamers[2],
+                  clasificationCoins[2].toString());
+            } else {
+              return Container();
+            }
+          },
+        ),
         Container(child: SizedBox(height: screenHeight * 0.03)),
-        filaClasificadoaux(context, "assets/common/icons/diploma.png",
-            clasificationGamers[3], clasificationCoins[3].toString()),
+        Builder(
+          builder: (BuildContext context) {
+            if (clasificationGamers[3] != 'a') {
+              return filaClasificadoaux(
+                  context,
+                  "assets/common/icons/diploma.png",
+                  clasificationGamers[3],
+                  clasificationCoins[3].toString());
+            } else {
+              return Container();
+            }
+          },
+        ),
       ],
     ));
   } else if (clasificationGamers.length == 5) {
     return Container(
         child: Column(
       children: [
-        filaClasificadoaux(context, "assets/common/icons/medalla-oro.png",
-            clasificationGamers[0], clasificationCoins[0].toString()),
+        Builder(
+          builder: (BuildContext context) {
+            if (clasificationGamers[0] != 'a') {
+              return filaClasificadoaux(
+                  context,
+                  "assets/common/icons/medalla-oro.png",
+                  clasificationGamers[0],
+                  clasificationCoins[0].toString());
+            } else {
+              return Container();
+            }
+          },
+        ),
         Container(child: SizedBox(height: screenHeight * 0.03)),
-        filaClasificadoaux(context, "assets/common/icons/medalla-plata.png",
-            clasificationGamers[1], clasificationCoins[1].toString()),
+        Builder(
+          builder: (BuildContext context) {
+            if (clasificationGamers[1] != 'a') {
+              return filaClasificadoaux(
+                  context,
+                  "assets/common/icons/medalla-plata.png",
+                  clasificationGamers[1],
+                  clasificationCoins[1].toString());
+            } else {
+              return Container();
+            }
+          },
+        ),
         Container(child: SizedBox(height: screenHeight * 0.03)),
-        filaClasificadoaux(context, "assets/common/icons/medalla-bronce.png",
-            clasificationGamers[2], clasificationCoins[2].toString()),
+        Builder(
+          builder: (BuildContext context) {
+            if (clasificationGamers[2] != 'a') {
+              return filaClasificadoaux(
+                  context,
+                  "assets/common/icons/medalla-bronce.png",
+                  clasificationGamers[2],
+                  clasificationCoins[2].toString());
+            } else {
+              return Container();
+            }
+          },
+        ),
         Container(child: SizedBox(height: screenHeight * 0.03)),
-        filaClasificadoaux(context, "assets/common/icons/diploma.png",
-            clasificationGamers[3], clasificationCoins[3].toString()),
+        Builder(
+          builder: (BuildContext context) {
+            if (clasificationGamers[3] != 'a') {
+              return filaClasificadoaux(
+                  context,
+                  "assets/common/icons/diploma.png",
+                  clasificationGamers[3],
+                  clasificationCoins[3].toString());
+            } else {
+              return Container();
+            }
+          },
+        ),
         Container(child: SizedBox(height: screenHeight * 0.03)),
-        filaClasificadoaux(context, "assets/common/icons/diploma.png",
-            clasificationGamers[4], clasificationCoins[4].toString()),
+        Builder(
+          builder: (BuildContext context) {
+            if (clasificationGamers[4] != 'a') {
+              return filaClasificadoaux(
+                  context,
+                  "assets/common/icons/diploma.png",
+                  clasificationGamers[4],
+                  clasificationCoins[4].toString());
+            } else {
+              return Container();
+            }
+          },
+        ),
       ],
     ));
   } else if (clasificationGamers.length == 6) {
     return Container(
         child: Column(
       children: [
-        filaClasificadoaux(context, "assets/common/icons/medalla-oro.png",
-            clasificationGamers[0], clasificationCoins[0].toString()),
+        Builder(
+          builder: (BuildContext context) {
+            if (clasificationGamers[0] != 'a') {
+              return filaClasificadoaux(
+                  context,
+                  "assets/common/icons/medalla-oro.png",
+                  clasificationGamers[0],
+                  clasificationCoins[0].toString());
+            } else {
+              return Container();
+            }
+          },
+        ),
         Container(child: SizedBox(height: screenHeight * 0.03)),
-        filaClasificadoaux(context, "assets/common/icons/medalla-plata.png",
-            clasificationGamers[1], clasificationCoins[1].toString()),
+        Builder(
+          builder: (BuildContext context) {
+            if (clasificationGamers[1] != 'a') {
+              return filaClasificadoaux(
+                  context,
+                  "assets/common/icons/medalla-plata.png",
+                  clasificationGamers[1],
+                  clasificationCoins[1].toString());
+            } else {
+              return Container();
+            }
+          },
+        ),
         Container(child: SizedBox(height: screenHeight * 0.03)),
-        filaClasificadoaux(context, "assets/common/icons/medalla-bronce.png",
-            clasificationGamers[2], clasificationCoins[2].toString()),
+        Builder(
+          builder: (BuildContext context) {
+            if (clasificationGamers[2] != 'a') {
+              return filaClasificadoaux(
+                  context,
+                  "assets/common/icons/medalla-bronce.png",
+                  clasificationGamers[2],
+                  clasificationCoins[2].toString());
+            } else {
+              return Container();
+            }
+          },
+        ),
         Container(child: SizedBox(height: screenHeight * 0.03)),
-        filaClasificadoaux(context, "assets/common/icons/diploma.png",
-            clasificationGamers[3], clasificationCoins[3].toString()),
+        Builder(
+          builder: (BuildContext context) {
+            if (clasificationGamers[3] != 'a') {
+              return filaClasificadoaux(
+                  context,
+                  "assets/common/icons/diploma.png",
+                  clasificationGamers[3],
+                  clasificationCoins[3].toString());
+            } else {
+              return Container();
+            }
+          },
+        ),
         Container(child: SizedBox(height: screenHeight * 0.03)),
-        filaClasificadoaux(context, "assets/common/icons/diploma.png",
-            clasificationGamers[4], clasificationCoins[4].toString()),
+        Builder(
+          builder: (BuildContext context) {
+            if (clasificationGamers[4] != 'a') {
+              return filaClasificadoaux(
+                  context,
+                  "assets/common/icons/diploma.png",
+                  clasificationGamers[4],
+                  clasificationCoins[4].toString());
+            } else {
+              return Container();
+            }
+          },
+        ),
         Container(child: SizedBox(height: screenHeight * 0.03)),
-        filaClasificadoaux(context, "assets/common/icons/diploma.png",
-            clasificationGamers[5], clasificationCoins[5].toString()),
+        Builder(
+          builder: (BuildContext context) {
+            if (clasificationGamers[5] != 'a') {
+              return filaClasificadoaux(
+                  context,
+                  "assets/common/icons/diploma.png",
+                  clasificationGamers[5],
+                  clasificationCoins[5].toString());
+            } else {
+              return Container();
+            }
+          },
+        ),
       ],
     ));
   }
