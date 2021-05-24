@@ -93,8 +93,8 @@ void gameUpdateHandler(Map<String, dynamic> json) {
   if (json['leaderboard'] != null) {
     Map aux = json['leaderboard'];
     print(aux.toString());
-    clasificationGamers = List.filled(listOfGamers.length + 1, 'a');
-    clasificationCoins = List.filled(listOfGamers.length + 1, 0);
+    clasificationGamers = List.filled(clasificationNumerPlayers, 'a');
+    clasificationCoins = List.filled(clasificationNumerPlayers, 0);
     for (int i = 0; i < listOfGamers.length; i++) {
       if (aux[listOfGamers[i].name]['position'] != null) {
         clasificationGamers[aux[listOfGamers[i].name]['position'] - 1] =
@@ -140,6 +140,7 @@ void gameUpdateHandler(Map<String, dynamic> json) {
           listOfGamersBody[aux[i]['name']] = [[], [], [], []];
         }
       }
+      clasificationNumerPlayers = listOfGamers.length + 1;
     } else {
       List previousList = [];
       bool isCurrentPlayer = false;
