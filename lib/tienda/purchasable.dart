@@ -45,6 +45,9 @@ class PurchaseTemplate extends StatelessWidget {
               image: AssetImage(pathImage),
               fit: BoxFit.cover,
             ),
+            border: Border.all(
+              width: 2, //                   <--- border width here
+            ),
             borderRadius: BorderRadius.circular(20.0)),
         child: TextButton(
           onPressed: () {
@@ -80,6 +83,9 @@ class PurchaseTemplate extends StatelessWidget {
               image: AssetImage(pathImage),
               fit: BoxFit.cover,
             ),
+            border: Border.all(
+              width: 2, //                   <--- border width here
+            ),
             borderRadius: BorderRadius.circular(20.0)),
         child: TextButton(
           child: Container(),
@@ -100,6 +106,9 @@ class PurchaseTemplate extends StatelessWidget {
             image: DecorationImage(
               image: AssetImage(pathImage),
               fit: BoxFit.cover,
+            ),
+            border: Border.all(
+              width: 2, //                   <--- border width here
             ),
             borderRadius: BorderRadius.circular(20.0)),
         child: TextButton(

@@ -35,7 +35,7 @@ class UpButtons extends StatelessWidget {
                   child: Icon(
                     Icons.arrow_back,
                     size: this.height,
-                    color: Colors.white,
+                    color: Colors.black,
                   )),
             ),
             Container(
@@ -49,7 +49,7 @@ class UpButtons extends StatelessWidget {
                   child: Icon(
                     Icons.help_outline,
                     size: this.height,
-                    color: Colors.white,
+                    color: Colors.black,
                   )),
             ),
             Container(
@@ -63,7 +63,7 @@ class UpButtons extends StatelessWidget {
                   child: Icon(
                     Icons.chat_outlined,
                     size: this.height,
-                    color: Colors.white,
+                    color: Colors.black,
                   )),
             ),
             Container(
@@ -93,7 +93,7 @@ class UpButtons extends StatelessWidget {
                 child: Icon(
                   Icons.arrow_back,
                   size: this.height,
-                  color: Colors.white,
+                  color: Colors.black,
                 )),
           ),
           Container(
@@ -107,7 +107,7 @@ class UpButtons extends StatelessWidget {
                 child: Icon(
                   Icons.pause_circle_outline_outlined,
                   size: this.height,
-                  color: Colors.white,
+                  color: Colors.black,
                 )),
           ),
           Container(
@@ -121,7 +121,7 @@ class UpButtons extends StatelessWidget {
                 child: Icon(
                   Icons.help_outline,
                   size: this.height,
-                  color: Colors.white,
+                  color: Colors.black,
                 )),
           ),
           Container(
@@ -135,7 +135,7 @@ class UpButtons extends StatelessWidget {
                 child: Icon(
                   Icons.chat_outlined,
                   size: this.height,
-                  color: Colors.white,
+                  color: Colors.black,
                 )),
           ),
           Container(
