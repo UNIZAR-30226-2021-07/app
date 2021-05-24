@@ -49,11 +49,11 @@ Widget winnerBox(BuildContext context) {
           children: [
             Center(
                 child: Text(
-              "!Has terminado!",
+              "¡Has terminado!",
               textAlign: TextAlign.center,
               style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: Colors.black,
                   fontSize: MediaQuery.of(context).size.width * 0.1),
             )),
             SizedBox(height: MediaQuery.of(context).size.height * 0.02),
