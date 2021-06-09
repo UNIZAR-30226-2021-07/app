@@ -1,4 +1,4 @@
-package com.example.gatovidapp
+package com.otag.gatovidapp
 
 import io.flutter.embedding.android.FlutterActivity
 

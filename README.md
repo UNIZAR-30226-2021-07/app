@@ -1,16 +1,13 @@
-# gatovidapp
+# App Gatovid
 
-Aplicación movil para el juego online Gatovid
+Aplicación movil para el juego online Gatovid, creada con Flutter.
 
-## Getting Started
+## Despliegue Play Store
 
-This project is a starting point for a Flutter application.
+1. Descargar `key.properties` y guardarlo en `android`
+2. Descargar `gatovid-keystore.jks` y guardarlo en `android/app`
+3. Ejecutar `flutter build appbundle`
+4. Crear nueva release en https://play.google.com/console
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+NOTE: cuidado con subir `key.properties` y `gatovid-keystore.jks`, son claves
+privadas.
