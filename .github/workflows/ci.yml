@@ -54,8 +54,8 @@ jobs:
     - name: Check for formatting issues
       run: flutter format --set-exit-if-changed .
     
-    - name: Statically analyze code
-      run: flutter analyze .
+        #    - name: Statically analyze code
+        #      run: flutter analyze .
         
   tests:
     runs-on: ubuntu-latest
