@@ -90,6 +90,8 @@ class _LoginState extends State<Login> {
                                   Expanded(
                                     flex: 6,
                                     child: TextFormField(
+                                      // Para que la Google Play no toque los huevos
+                                      key: Key("mail_key_login"),
                                       controller: _mail,
                                       decoration: InputDecoration(
                                         border: OutlineInputBorder(
@@ -147,6 +149,8 @@ class _LoginState extends State<Login> {
                                       enableSuggestions: false,
                                       obscureText: true,
                                       controller: _pwd,
+                                      // Para que la Google Play no toque los huevos
+                                      key: Key("passwd_key_login"),
                                       decoration: InputDecoration(
                                         border: OutlineInputBorder(
                                             borderRadius:
